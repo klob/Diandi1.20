@@ -1,0 +1,30 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.diandi.ui.fragment.ChannelFragment">
+
+    <com.diandi.view.xlist.XListView
+        android:id="@+id/fragment_diandi_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@drawable/base_horizontal_line"
+        android:dividerHeight="8dp"
+        android:fadingEdgeLength="0dp"
+        android:headerDividersEnabled="false"
+        android:footerDividersEnabled="false"
+        android:fastScrollEnabled="false"
+        android:smoothScrollbar="true"
+        >
+    </com.diandi.view.xlist.XListView>
+    <TextView
+        android:id="@+id/fragment_dianndi_networktips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/network_refalsh"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:visibility="visible"/>
+</RelativeLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:baselineAligned="false"
+                android:focusable="true">
+    <com.diandi.view.xlist.XListView
+        android:id="@+id/fragment_diandi_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:dividerHeight="8.0dip"
+        android:cacheColorHint="#00000000"
+        android:divider="#00000000"
+        android:fastScrollEnabled="false"
+        android:headerDividersEnabled="false"
+        android:footerDividersEnabled="false"
+        android:smoothScrollbar="true">
+    </com.diandi.view.xlist.XListView>
+    <TextView
+        android:id="@+id/fragment_diandi_networktips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="请检查网络并下拉刷新"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:visibility="visible"/>
+
+</RelativeLayout>

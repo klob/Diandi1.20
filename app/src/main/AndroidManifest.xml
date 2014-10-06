@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.diandi" >
+    >
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <permission
+        android:name="cn.bmob.permission.push"
+        android:protectionLevel="normal" />
+
+    <uses-permission android:name="cn.bmob.permission.push" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="false"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+    <application
+        android:name="com.diandi.CustomApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/icc_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.diandi.ui.activity.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" >
+        </activity>
+        <activity
+            android:name="com.diandi.ui.activity.SplashActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.diandi.ui.activity.AddContactActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.diandi.ui.activity.ChatActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.diandi.ui.activity.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="cn.bmob.v3.update.UpdateDialogActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.diandi.ui.activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.diandi.ui.activity.LocationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.diandi.ui.activity.BlackListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.diandi.ui.activity.ImageBrowserActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.diandi.ui.activity.NewFriendActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.diandi.ui.activity.NearPeopleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.diandi.ui.activity.UpdateInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.diandi.ui.activity.NewDiandiActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.diandi.ui.activity.PersonalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.diandi.ui.activity.CommentActivity"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.diandi.ui.activity.ProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.diandi.ui.activity.SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.diandi.ui.activity.AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.diandi.ui.activity.PlanActivity"
+            android:label="@string/title_activity_plan"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.diandi.ui.activity.WritePlanActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.diandi.ui.activity.RadialProgressActivity"
+            android:label="@string/title_activity_radial_progress"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.diandi.ui.activity.FavoriteActivity"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.diandi.ui.activity.LinkAcitivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.diandi.ui.activity.GuideActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.diandi.ui.activity.NoteActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <!-- openqq start -->
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="KaOlDCXnNFPylqkw" />
+            </intent-filter>
+        </activity>
+        <!-- openqq end -->
+        <!-- baidu map start -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="EqTKW20UAEiUc5nSvVOsZ19S" />
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="54089af1fd98c5640f00a527" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="QD_umeng" />
+
+        <service
+            android:name="com.umeng.update.net.DownloadingService"
+            android:process=":DownloadingService" />
+
+        <activity
+            android:name="com.umeng.update.UpdateDialogActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.umeng.fb.ConversationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.umeng.fb.ContactActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v2.2" />
+            </intent-filter>
+        </service>
+        <!-- baidu map end -->
+
+
+        <!-- IM聊天所需的Push start -->
+        <service
+            android:name="cn.bmob.push.lib.service.PushService"
+            android:exported="true"
+            android:label="PushService"
+            android:permission="cn.bmob.permission.push"
+            android:process="cn.bmob.push" >
+            <intent-filter>
+                <action android:name="cn.bmob.push.lib.service.PushService" />
+            </intent-filter>
+        </service>
+
+        <receiver android:name="cn.bmob.push.PushReceiver" >
+            <intent-filter android:priority="2147483647" > <!-- 优先级加最高 -->
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.diandi.MyMessageReceiver" >
+            <intent-filter android:priority="1147483640" >
+                <action android:name="cn.bmob.push.action.MESSAGE" />
+            </intent-filter>
+        </receiver>
+        <!-- IM聊天所需的Push end -->
+
+        <activity
+            android:name="com.diandi.ui.activity.NewOfficalDiandiActivity"
+            android:parentActivityName="com.diandi.ui.activity.ActivityBase" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bmob.im.demo.ui.activity.ActivityBase" />
+        </activity>
+    </application>
+
+</manifest>

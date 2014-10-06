@@ -1,0 +1,159 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <include
+        android:id="@+id/common_actionbar"
+        layout="@layout/include_action_bar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/common_actionbar"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/panel_bg"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/activity_write_plan_title_rv"
+            style="@style/panel_middle">
+
+            <TextView
+                style="@style/label_text"
+                android:text="标题"/>
+
+            <EditText
+                android:id="@+id/activity_write_plan_title_edit"
+                style="@style/label_text_two"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="80dp"
+                android:layout_marginRight="10dp"
+                android:background="@null"
+                android:hint="点击此处输入标题"
+                android:singleLine="true"/>
+        </RelativeLayout>
+
+        <include layout="@layout/item_line"/>
+
+        <RelativeLayout
+            android:id="@+id/activity_write_plan_date_rv"
+            style="@style/panel_middle">
+
+            <TextView
+                style="@style/label_text"
+                android:text="日期"/>
+
+            <TextView
+                android:id="@+id/activity_write_plan_date_text"
+                style="@style/label_text_two"
+                android:hint="日期"/>
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/go_detail"/>
+        </RelativeLayout>
+
+        <include layout="@layout/item_line"/>
+
+        <RelativeLayout
+            android:id="@+id/activity_write_plan_time_rv"
+            style="@style/panel_middle">
+
+            <TextView
+                style="@style/label_text"
+                android:text="时间"/>
+
+            <TextView
+                android:id="@+id/activity_write_plan_time_text"
+                style="@style/label_text_two"
+                android:hint="时间"/>
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/go_detail"/>
+        </RelativeLayout>
+
+
+        <include layout="@layout/item_line"/>
+
+        <RelativeLayout
+            android:id="@+id/activity_write_plan_category_rv"
+            style="@style/panel_middle">
+
+            <TextView
+                style="@style/label_text"
+                android:text="类型"/>
+
+            <TextView
+                android:id="@+id/activity_write_plan_category_text"
+                style="@style/label_text_two"
+                android:text="A计划"/>
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/go_detail"/>
+        </RelativeLayout>
+
+        <include layout="@layout/item_line"/>
+
+        <RelativeLayout
+            android:id="@+id/activity_write_plan_top_rv"
+            style="@style/panel_middle">
+
+            <TextView
+                style="@style/label_text"
+                android:text="置顶"/>
+
+            <CheckBox
+                android:id="@+id/activity_write_plan_top_chk"
+                android:background="@drawable/toggle_btn"
+                android:layout_width="80dp"
+                android:layout_height="45dp"
+                android:checked="false"
+                android:button="@null"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"/>
+        </RelativeLayout>
+
+        <include layout="@layout/item_line"/>
+
+        <RelativeLayout
+            android:id="@+id/activity_write_plan_note_rv"
+            style="@style/panel_middle">
+
+            <TextView
+                style="@style/label_text"
+                android:text="备注"/>
+
+            <EditText
+                android:id="@+id/activity_write_plan_note_edit"
+                style="@style/label_text_two"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="80dp"
+                android:layout_marginRight="10dp"
+                android:background="@null"
+                android:hint="备注"
+                android:maxLength="14"/>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

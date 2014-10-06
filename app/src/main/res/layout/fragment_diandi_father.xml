@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:baselineAligned="false"
+    android:focusable="true">
+
+    <RelativeLayout
+        android:id="@+id/fragment_diandi_actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/top_bar">
+
+        <ImageView
+            android:layout_margin="5dp"
+            android:id="@+id/fragment_diandi_user_avatar_img"
+            android:gravity="center_vertical|left"
+            android:src="@drawable/default_head_cry"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="centerCrop">
+        </ImageView>
+
+        <LinearLayout
+            android:id="@+id/header_layout_middleview_container"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:text="广场"
+                android:id="@+id/fragment_diandi_feed_btn"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:textColor="@drawable/text_color_selector"
+                android:background="@drawable/qq_constact_group"/>
+
+            <Button
+                android:id="@+id/fragment_diandi_channel_btn"
+                android:text="频道"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:textColor="@drawable/text_color_selector"
+                android:background="@drawable/qq_constact_all"/>
+        </LinearLayout>
+
+        <ImageButton
+            android:background="@null"
+            android:src="@drawable/ic_action_edit_selector"
+            android:id="@+id/fragment_diandi_new_diandi_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical|right"
+            android:orientation="horizontal"
+            android:layout_marginRight="5dp"
+            android:paddingRight="10dp">
+        </ImageButton>
+
+        <ImageButton
+            android:background="@null"
+            android:src="@drawable/base_action_bar_more_bg_selector"
+            android:id="@+id/fragment_diandi_more_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical|right"
+            android:orientation="horizontal"
+            android:paddingRight="5dp"
+            android:layout_marginRight="10dp"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        android:background="@color/gray_bg"
+        android:id="@+id/fragmet_diandi_container"
+        android:layout_below="@id/fragment_diandi_actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+</RelativeLayout>

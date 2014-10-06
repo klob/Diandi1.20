@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+    >
+
+    <include
+        layout="@layout/include_action_bar"
+        android:id="@+id/common_actionbar"/>
+
+    <EditText
+        android:layout_below="@id/common_actionbar"
+        android:id="@+id/activity_official_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:inputType="textMultiLine"
+        android:gravity="left|top"
+        android:minLines="4"
+        android:background="@drawable/selector_edittext"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:layout_margin="16dp"
+        android:hint="要发送的内容"
+        >
+
+        <requestFocus/>
+    </EditText>
+
+    <EditText
+        android:layout_below="@id/activity_official_content"
+        android:id="@+id/activity_official_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:inputType="textMultiLine"
+        android:gravity="left|top"
+        android:minLines="2"
+        android:background="@drawable/selector_edittext"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:hint="资源链接"
+        >
+        <requestFocus/>
+    </EditText>
+
+
+</RelativeLayout>

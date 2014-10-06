@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+    >
+
+
+    <include
+        android:id="@+id/common_actionbar"
+        layout="@layout/include_action_bar"/>
+
+
+    <include layout="@layout/item_line"/>
+
+
+    <RelativeLayout
+        android:id="@+id/activity_about_share_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_selector"
+        android:minHeight="50dp"
+        android:padding="10dp">
+
+        <TextView
+            style="@style/Smile.TextView._Black"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/set_share"/>
+
+        <TextView
+            style="@style/Smile.TextView._Black"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:drawablePadding="10dp"
+            android:drawableRight="@drawable/register_bottom_arrow"/>
+    </RelativeLayout>
+
+    <include layout="@layout/item_line"/>
+
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/activity_about_feedback_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_selector"
+        android:minHeight="50dp"
+        android:padding="10dp">
+
+        <TextView
+            style="@style/Smile.TextView._Black"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="反馈建议"/>
+
+        <TextView
+            style="@style/Smile.TextView._Black"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:drawablePadding="10dp"
+            android:drawableRight="@drawable/register_bottom_arrow"/>
+    </RelativeLayout>
+
+    <include layout="@layout/item_line"/>
+
+
+    <RelativeLayout
+        android:id="@+id/activity_about_link_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_selector"
+        android:minHeight="50dp"
+        android:padding="10dp">
+
+        <TextView
+            style="@style/Smile.TextView._Black"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/link"/>
+
+        <TextView
+            style="@style/Smile.TextView._Black"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:drawablePadding="10dp"
+            android:drawableRight="@drawable/register_bottom_arrow"/>
+    </RelativeLayout>
+
+    <include layout="@layout/item_line"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_selector"
+        android:minHeight="50dp"
+        android:padding="10dp">
+
+        <TextView
+            style="@style/Smile.TextView._Black"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/set_connect_us"/>
+
+        <TextView
+            style="@style/Smile.TextView._Black"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:drawablePadding="10dp"
+            android:drawableRight="@drawable/register_bottom_arrow"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_selector"
+        android:minHeight="40dp"
+        android:layout_marginLeft="80dp"
+        android:padding="10dp">
+
+        <TextView
+            style="@style/Smile.TextView._Gray"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="咨询QQ"/>
+
+        <TextView
+            style="@style/Smile.TextView._Gray"
+            android:text="185902156"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:drawablePadding="10dp"
+            />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_selector"
+        android:minHeight="40dp"
+        android:layout_marginLeft="80dp"
+        android:padding="10dp">
+
+        <TextView
+            style="@style/Smile.TextView._Gray"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="交流群"/>
+
+        <TextView
+            style="@style/Smile.TextView._Gray"
+            android:text="193341779"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:drawablePadding="10dp"
+            />
+    </RelativeLayout>
+
+
+</LinearLayout>
+

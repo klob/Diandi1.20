@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 20
+    buildToolsVersion "20.0.0"
+
+    defaultConfig {
+        applicationId "com.diandi"
+        minSdkVersion 14
+        targetSdkVersion 20
+        versionCode 7
+        versionName "1.1.7"
+    }
+    buildTypes {
+        release {
+            runProguard true
+            proguardFiles 'C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/proguard-android.txt'
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/android-support-v4.jar')
+    compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/baidumapapi_v3_1_0.jar')
+    compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/bmobim_v1.1.2beta.jar')
+    compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/bmobsdk_v3.2.3_0919.jar')
+    compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/locSDK_4.2.jar')
+    compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/mta-sdk-1.0.0.jar')
+    compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/open_sdk.jar')
+    compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/ormlite-android-4.48.jar')
+    compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/ormlite-core-4.48.jar')
+    compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/photoview-library-1.2.2.jar')
+    compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/radial-menu-v4.jar')
+    compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/umeng-feedback-v4.3.jar')
+    compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/umeng-update-v2.4.2.jar')
+    compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/universal-image-loader-1.9.2_sources.jar')
+    compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/weibosdkcore.jar')
+}

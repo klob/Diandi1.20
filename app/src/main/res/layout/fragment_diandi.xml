@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <com.diandi.view.xlist.XListView
+        android:id="@+id/fragment_diandi_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/common_actionbar"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@drawable/base_horizontal_line"
+        android:dividerHeight="8dp"
+        android:footerDividersEnabled="true"
+        android:headerDividersEnabled="false"
+        android:fadingEdgeLength="0dp"
+        android:fastScrollEnabled="true"
+        android:paddingBottom="10dp"/>
+
+
+    <TextView
+        android:id="@+id/fragment_diandi_networktips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="请检查网络并下拉刷新"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:visibility="visible"/>
+
+    <com.diandi.view.ArcMenu
+        xmlns:zhy="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/fragment_diandi_arcmenu"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        zhy:position="left_bottom"
+        zhy:radius="120dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/composer_button">
+
+            <ImageView
+                android:id="@+id/id_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/composer_icn_plus"/>
+        </RelativeLayout>
+
+
+        <ImageView
+            android:id="@+id/fragment_diandi_writeplan_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:tag="Sun"/>
+
+        <ImageView
+            android:id="@+id/fragment_diandi_seeplan_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:tag="Place"/>
+
+        <ImageView
+            android:id="@+id/fragment_diandi_love_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:tag="Sleep"/>
+    </com.diandi.view.ArcMenu>
+
+
+</RelativeLayout>

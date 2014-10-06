@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/gray_bg">
+
+    <include
+        android:id="@+id/common_actionbar"
+        layout="@layout/include_action_bar"/>
+
+    <com.diandi.view.xlist.XListView
+        android:layout_below="@id/common_actionbar"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        android:id="@+id/fragment_diandi_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@drawable/base_horizontal_line"
+        android:dividerHeight="8dp"
+        android:fadingEdgeLength="0dp"
+        android:headerDividersEnabled="false"
+        android:footerDividersEnabled="false"
+        android:fastScrollEnabled="false"
+        android:smoothScrollbar="true"
+        />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:indeterminateDrawable="@anim/loading"
+        />
+
+    <TextView
+        android:id="@+id/activity_favorite_networkTips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="请检查网络并下拉刷新"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:visibility="visible"
+        />
+</RelativeLayout>

@@ -1,0 +1,246 @@
+package com.diandi.ui.fragment;
+
+/**
+ * ************************************************************
+ * *********    User : SuLinger(462679107@qq.com) .
+ * *********    Date : 2014-08-29  .
+ * *********    Time:  2014-08-29  .
+ * *********    Project name :BmobChatDemo .
+ * *********    Copyright @ 2014, SuLinger, All Rights Reserved
+ * *************************************************************
+ */
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.TextView;
+
+import com.diandi.CustomApplication;
+import com.diandi.R;
+import com.diandi.adapter.FeedAdapter;
+import com.diandi.bean.DianDi;
+import com.diandi.db.DatabaseUtil;
+import com.diandi.ui.activity.CommentActivity;
+import com.diandi.util.CollectionUtils;
+import com.diandi.view.xlist.XListView;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import cn.bmob.im.task.BRequest;
+import cn.bmob.im.util.BmobLog;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.datatype.BmobDate;
+import cn.bmob.v3.listener.CountListener;
+import cn.bmob.v3.listener.FindListener;
+
+
+public class FeedFragment extends BaseFragment implements XListView.IXListViewListener, AdapterView.OnItemClickListener {
+    private final static String FEED_LIST = "feed_list_";
+    private BmobQuery<DianDi> query;
+    private ArrayList<DianDi> mListItems;
+    private FeedAdapter mAdapter;
+    private XListView mListView;
+    private TextView networkTips;
+    private int mPageNum;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_channel, container, false);
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        findView();
+        initView();
+        List<Map<String,String>> list=new ArrayList<Map<String,String>>();
+    }
+
+    @Override
+    public void findView() {
+        mListView = (XListView) findViewById(R.id.fragment_diandi_listview);
+        networkTips = (TextView) findViewById(R.id.fragment_dianndi_networktips);
+    }
+
+    @Override
+    public void initView() {
+        mListItems = new ArrayList<DianDi>();
+        mPageNum = 0;
+        if (CustomApplication.getInstance().getCache().getAsObject(FEED_LIST) != null) {
+            mListItems = (ArrayList<DianDi>) CustomApplication.getInstance().getCache().getAsObject(FEED_LIST);
+            networkTips.setVisibility(View.GONE);
+        }
+        query = new BmobQuery<DianDi>();
+        query.order("-createdAt");
+        query.setLimit(BRequest.QUERY_LIMIT_COUNT);
+
+        query.include("author");
+        initXListView();
+        bindEvent();
+    }
+
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mListItems != null) {
+            CustomApplication.getInstance().getCache().put(FEED_LIST, mListItems);
+
+        }
+
+    }
+
+    private void initXListView() {
+
+        mListView.setPullLoadEnable(false);
+        mListView.setPullRefreshEnable(true);
+        mListView.setXListViewListener(this);
+        mListView.pullRefreshing();
+
+        mAdapter = new FeedAdapter(getActivity(), mListItems);
+        mListView.setAdapter(mAdapter);
+        initDiandyList(false);
+    }
+
+    @Override
+    void bindEvent() {
+        mListView.setOnItemClickListener(this);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+        Intent intent = new Intent();
+        intent.setClass(getActivity(), CommentActivity.class);
+        intent.putExtra("data", mListItems.get(position - 1));
+        startAnimActivity(intent);
+    }
+
+    @Override
+    public void onRefresh() {
+        mPageNum = 0;
+        initDiandyList(true);
+    }
+
+    @Override
+    public void onLoadMore() {
+        query.count(getActivity(), DianDi.class, new CountListener() {
+                    @Override
+                    public void onSuccess(int i) {
+                        if (i > mListItems.size()) {
+                            mPageNum++;
+                            query.setSkip(BRequest.QUERY_LIMIT_COUNT * (mPageNum));
+                            query.findObjects(getActivity(), new FindListener<DianDi>() {
+                                @Override
+                                public void onSuccess(List<DianDi> list) {
+                                    if (CustomApplication.getInstance().getCurrentUser() != null) {
+                                        list = DatabaseUtil.getInstance(getActivity()).setFav(list);
+                                    }
+                                    mListItems.addAll(list);
+                                    mAdapter.setList(mListItems);
+                                    refreshLoad();
+                                }
+
+                                @Override
+                                public void onError(int arg0, String arg1) {
+                                    BmobLog.i("查询错误:" + arg1);
+                                    mListView.setPullLoadEnable(false);
+                                    refreshLoad();
+                                }
+                            });
+                        } else {
+                            ShowToast("数据加载完成");
+                            mListView.setPullLoadEnable(false);
+                            refreshLoad();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(int i, String s) {
+                        refreshLoad();
+                    }
+                }
+        );
+
+
+    }
+
+    private void initDiandyList(final boolean isUpdate) {
+        query.addWhereLessThan("createdAt", new BmobDate(new Date(System.currentTimeMillis())));
+        query.setSkip(BRequest.QUERY_LIMIT_COUNT * mPageNum);
+        query.findObjects(getActivity(), new FindListener<DianDi>() {
+            @Override
+            public void onSuccess(List<DianDi> list) {
+                networkTips.setVisibility(View.INVISIBLE);
+                if (CollectionUtils.isNotNull(list)) {
+                    if (isUpdate || mPageNum == 0) {
+                        mListItems.clear();
+                        mAdapter.setList(mListItems);
+                    }
+                    if (CustomApplication.getInstance().getCurrentUser() != null) {
+                        list = DatabaseUtil.getInstance(getActivity()).setFav(list);
+                    }
+                    mListItems.addAll(list);
+                    mAdapter.setList(mListItems);
+                    if (list.size() < BRequest.QUERY_LIMIT_COUNT) {
+                        mListView.setPullLoadEnable(false);
+                    } else {
+                        mListView.setPullLoadEnable(true);
+                    }
+                } else {
+                    BmobLog.i("查询成功:无返回值");
+                    if (mListItems != null) {
+                        mListItems.clear();
+                    }
+                }
+                if (isUpdate) {
+                    refreshPull();
+                    //   progressDialog.dismiss();
+                }
+                //这样能保证每次查询都是从头开始
+                mPageNum = 0;
+            }
+
+            @Override
+            public void onError(int arg0, String arg1) {
+                BmobLog.i("查询错误:" + arg1);
+                mListView.setPullLoadEnable(false);
+                refreshPull();
+                //这样能保证每次查询都是从头开始
+                mPageNum = 0;
+                ShowToast("请检查网络");
+            }
+
+        });
+
+    }
+
+
+    private void refreshLoad() {
+        if (mListView.getPullLoading()) {
+            mListView.stopLoadMore();
+            networkTips.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    private void refreshPull() {
+        if (mListView.getPullRefreshing()) {
+            mListView.stopRefresh();
+            networkTips.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    private String getCurrentTime() {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String times = formatter.format(new Date(System.currentTimeMillis()));
+        return times;
+    }
+}
+

@@ -1,0 +1,129 @@
+-optimizationpasses 5
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-dontpreverify
+-verbose
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+#引用包
+-ignorewarnings
+-libraryjars libs/baidumapapi_v3_1_0.jar
+-libraryjars libs/bmobim_v1.1.2beta.jar
+-libraryjars libs/bmobsdk_v3.2.3_0919.jar
+-libraryjars libs/locSDK_4.2.jar
+-libraryjars libs/mta-sdk-1.0.0.jar
+-libraryjars libs/open_sdk.jar
+-libraryjars libs/weibosdkcore.jar
+-libraryjars libs/ormlite-android-4.48.jar
+-libraryjars libs/ormlite-core-4.48.jar
+-libraryjars libs/umeng-feedback-v4.3.jar
+-libraryjars libs/umeng-update-v2.4.2.jar
+-libraryjars app/src/main/jniLibs/armeabi/libBaiduMapSDK_v3_1_0.so
+-libraryjars app/src/main/jniLibs/armeabi/liblocSDK4d.so
+-libraryjars app/src/main/jniLibs/armeabi/libbspatch.so
+
+#通用
+-keepclasseswithmembers class * {
+    native <methods>;
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+-keep class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator *;
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context);
+}
+
+-keepclassmembers class * {
+   public <init>(org.json.JSONObject);
+}
+
+#api
+-keep public class * extends android.support.v4.**
+-keep public class * extends android.app.Fragment
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.preference.Preference
+-keep public class * extends android.view.View
+-keep public class * extends android.view.ViewGroup
+
+-keep class android.support.v4.** { *; }
+-keepattributes *Annotation*
+
+#签名
+-keepattributes Signature
+
+#my
+-keep class com.diandi.bean.Comment{*;}
+-keep class com.diandi.bean.User{*;}
+-keep class com.diandi.bean.DianDi{*;}
+-keep class com.diandi.bean.Plan{*;}
+-keep class com.diandi.bean.LocalDiandi{*;}
+-keep class com.diandi.bean.OfficialDiandi{*;}
+-keep class com.diandi.db.DataHelper{*;}
+-keepclassmembers class com.diandi.bean.Plan.**{*;}
+-keepclassmembers class com.diandi.bean.LocalDiandi.**{*;}
+-keep public class * extends com.diandi.db.BaseDao
+-keep class com.diandi.R$*{public static final int *;}
+
+
+-keepclassmembers class * {
+@com.j256.ormlite.field.DatabaseField *;
+}
+
+#baidu
+-keep class com.baidu.** {*;}
+-keep class com.baidu.location.** {*;}
+-keep class com.baidu.mapapi.** {*;}
+-keep class com.baidu.platform.** {*; }
+-keep class com.baidu.location.** {*; }
+-keep class com.baidu.utils.** {*; }
+-keep class com.baidu.vi.** {*; }
+
+#ormlite
+-keep class com.j256.**
+-keepclassmembers class com.j256.** {*;}
+-keep enum com.j256.**
+-keepclassmembers enum com.j256.**  {*;}
+-keep interface com.j256.**
+-keepclassmembers interface com.j256.**  {*;}
+
+-keep class com.diandi.db.**
+-keepclassmembers class com.diandi.db.** {*;}
+
+
+#umeng
+-keep public class com.umeng.fb.ui.ThreadView{*;}
+-keep class com.umeng.fb.**
+-keep class com.umeng.update.**
+
+
+#bmob
+-keep public class * extends cn.bmob.v3.BmobObject
+-keep public class * extends cn.bmob.v3.BmobChatUser
+-keep class cn.bmob.v3.** {*;}
+-keep class cn.bmob.push.** {*;}
+
+
+
+
+
+
+
+
