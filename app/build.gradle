@@ -13,7 +13,7 @@ android {
     }
     buildTypes {
         release {
-            runProguard true
+            runProguard false
             proguardFiles 'C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/proguard-android.txt'
         }
     }

@@ -147,7 +147,7 @@ public class ChannelAdapter extends BaseListAdapter<OfficialDiandi> {
         if (entity.getMyLove()) {
             viewHolder.love.setTextColor(Color.parseColor("#D95555"));
         } else {
-            viewHolder.love.setTextColor(Color.parseColor("#000000"));
+            viewHolder.love.setTextColor(Color.parseColor("#314c82"));
         }
     /*    if (DatabaseUtil.getInstance(mContext).isLoved(entity)) {
             entity.setMyLove(true);
@@ -203,7 +203,7 @@ public class ChannelAdapter extends BaseListAdapter<OfficialDiandi> {
 
             @Override
             public void onClick(View v) {
-                ShowToast("手机下载不方便？把链接分享到电脑上吧！");
+                ShowToast("手机不方便？把链接分享到电脑上吧！");
                 final TencentShare tencentShare = new TencentShare(CustomApplication.getInstance().getTopActivity(), getQQShareEntity(entity));
                 tencentShare.shareToQQ();
             }
@@ -262,7 +262,7 @@ public class ChannelAdapter extends BaseListAdapter<OfficialDiandi> {
         } else {
             img = TencentShareConstants.DEFAULT_IMG_URL;
         }
-        String summary = diandi.getContent();
+        String summary = diandi.getContent()+diandi.getLink();
         TencentShareEntity entity = new TencentShareEntity(title, img, TencentShareConstants.TARGET_URL, summary, comment);
         entity.setTargetUrl(diandi.getLink());
         return entity;

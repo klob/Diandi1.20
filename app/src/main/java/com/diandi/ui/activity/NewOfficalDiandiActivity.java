@@ -19,6 +19,7 @@ public class NewOfficalDiandiActivity extends ActivityBase {
 
     private EditText mContentEdit;
     private EditText mLinkEdit;
+    private EditText mChannelEdit;
 
     private OfficialDiandi mDianDi;
 
@@ -35,6 +36,7 @@ public class NewOfficalDiandiActivity extends ActivityBase {
         setContentView(R.layout.activity_new_offical_diandi);
         mContentEdit = (EditText) findViewById(R.id.activity_official_content);
         mLinkEdit = (EditText) findViewById(R.id.activity_official_link);
+        mChannelEdit=(EditText)findViewById(R.id.activity_official_channel);
 
     }
 
@@ -47,8 +49,8 @@ public class NewOfficalDiandiActivity extends ActivityBase {
 
                 String contentStr = mContentEdit.getText().toString().trim();
                 String linkStr = mLinkEdit.getText().toString().trim();
-                String channel = "华中科技大学";
-                if (TextUtils.isEmpty(contentStr)) {
+                String channel =mChannelEdit.getText().toString().trim();
+                if (TextUtils.isEmpty(contentStr)||TextUtils.isEmpty(channel)) {
                     ShowToast("内容不能为空");
                     return;
                 } else {

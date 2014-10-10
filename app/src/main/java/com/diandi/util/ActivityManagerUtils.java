@@ -37,9 +37,12 @@ public class ActivityManagerUtils {
         if(null != activity){
             if(!activity.isFinishing()){
                 activity.finish();
+           //     L.e("finish ");
             }
             activity = null;
+         //   L.e("finish  2 ");
         }
+      //  L.e("finish  3 ");
 
     }
 	

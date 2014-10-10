@@ -67,7 +67,6 @@ public class UserProxy {
         User user = new User();
         user.setUsername(userName);
         user.setPassword(password);
-        user.setOfficial(true);
         user.setSex(Constant.SEX_FEMALE);
         user.setSignature("这个家伙很懒，什么也不说。。。");
         user.setDeviceType("android");

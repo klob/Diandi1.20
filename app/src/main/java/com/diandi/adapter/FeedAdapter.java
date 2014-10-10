@@ -143,7 +143,7 @@ public class FeedAdapter extends BaseListAdapter<DianDi> {
             viewHolder.userName.setTextColor(mContext.getResources().getColor(R.color.red));
         }
         else {
-            viewHolder.userName.setTextColor(mContext.getResources().getColor(R.color.black));
+            viewHolder.userName.setTextColor(mContext.getResources().getColor(R.color.dark_blue));
 
         }
 

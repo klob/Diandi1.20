@@ -226,7 +226,7 @@ public class CustomApplication extends Application {
         if (mSpUtil == null) {
             String currentId = BmobUserManager.getInstance(
                     getApplicationContext()).getCurrentUserObjectId();
-            String sharedName = currentId + PREFERENCE_NAME;
+            String sharedName =  PREFERENCE_NAME;
             mSpUtil = new SharePreferenceUtil(this, sharedName);
         }
         return mSpUtil;

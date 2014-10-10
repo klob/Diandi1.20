@@ -16,11 +16,11 @@
     <TextView
         android:id="@+id/user_name"
         style="@style/TextTheme"
-        android:layout_alignBottom="@id/user_logo"
-        android:layout_alignTop="@id/user_logo"
+        android:layout_marginTop="8dp"
+        android:textColor="#314c82"
         android:layout_marginLeft="8dip"
         android:layout_toRightOf="@id/user_logo"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:text="岁月抚伤"/>
 
     <com.diandi.view.drop.WaterDrop

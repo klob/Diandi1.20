@@ -26,6 +26,7 @@ import com.diandi.config.Constant;
 import com.diandi.util.ActivityManagerUtils;
 import com.diandi.util.CacheUtils;
 import com.diandi.util.CollectionUtils;
+import com.diandi.util.L;
 import com.diandi.util.LogUtils;
 import com.diandi.util.Sputil;
 import com.diandi.util.factory.OverridePendingFactory;
@@ -219,7 +220,7 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
             }
             BmobFile avatarFile = user.getAvatarImg();
             if (avatarFile != null) {
-                ImageLoader.getInstance().displayImage(user.getAvatar(), mAvatarImg,CustomApplication.getInstance().getOptions());
+                ImageLoader.getInstance().displayImage(user.getAvatar(), mAvatarImg, CustomApplication.getInstance().getOptions());
             } else {
                 mAvatarImg.setImageResource(R.drawable.default_head_cry);
             }
@@ -324,9 +325,7 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
                 OverridePendingFactory.in(ProfileActivity.this);
                 break;
             case R.id.activity_setting_logout_btn:
-            case R.id.fragment_set_logout_btn://登出
                 CustomApplication.getInstance().logout();
-                ActivityManagerUtils.getInstance().removeMainActivity();
                 finish();
                 startAnimActivity(new Intent(ProfileActivity.this, LoginActivity.class));
                 break;
@@ -621,7 +620,7 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
 
     private void updateSex(int sex) {
         User user = BmobUser.getCurrentUser(mContext, User.class);
-        user.setOfficial(true);
+        //  user.setOfficial(true);
         if (user != null) {
             if (sex == 0) {
                 user.setSex(Constant.SEX_FEMALE);

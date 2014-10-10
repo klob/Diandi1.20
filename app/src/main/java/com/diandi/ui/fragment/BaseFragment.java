@@ -31,7 +31,7 @@ import cn.bmob.im.BmobUserManager;
  * @date 2014-5-22 下午2:43:50
  */
 public abstract class BaseFragment extends Fragment {
-    protected final String TAG = getClass().getSimpleName();
+    public final String TAG = getClass().getName();
     protected BmobUserManager userManager;
     protected BmobChatManager manager;
     protected CustomApplication mApplication;

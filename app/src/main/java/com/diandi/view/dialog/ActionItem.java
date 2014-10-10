@@ -10,6 +10,23 @@ import android.graphics.drawable.Drawable;
 public class ActionItem {
     // 定义图片对象
     public Drawable mDrawable;
+
+    public String getTitle() {
+        return mTitle;
+    }
+
+    public void setTitle(String title) {
+        mTitle = title;
+    }
+
+    public Drawable getDrawable() {
+        return mDrawable;
+    }
+
+    public void setDrawable(Drawable drawable) {
+        mDrawable = drawable;
+    }
+
     // 定义文本对象
     public String mTitle;
 

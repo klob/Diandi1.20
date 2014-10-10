@@ -1,10 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    style="@style/ActionBar"
-    android:orientation="vertical"
-    tools:context=".ConversationActivity">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                style="@style/ActionBar"
+                android:orientation="vertical"
+                tools:context=".ConversationActivity">
 
     <RelativeLayout
         android:id="@+id/umeng_fb_conversation_header"
@@ -25,16 +25,14 @@
             android:paddingRight="10dp"
             android:paddingTop="5dp"
             android:layout_marginRight="5dp"
-     />
-
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/umeng_fb_title"
-            style="@style/ActionBarTitle" />
+            style="@style/ActionBarTitle"/>
     </RelativeLayout>
-
     <RelativeLayout
         android:id="@+id/umeng_fb_conversation_contact_entry"
         android:layout_width="fill_parent"
@@ -51,7 +49,7 @@
             android:paddingLeft="5dp"
             android:text="@string/umeng_fb_contact_info"
             android:textColor="#ffffff"
-            android:textSize="20sp" />
+            android:textSize="20sp"/>
 
         <ImageView
             android:layout_width="20dp"
@@ -59,16 +57,14 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="5dp"
-            android:src="@drawable/umeng_fb_arrow_right" />
+            android:src="@drawable/umeng_fb_arrow_right"/>
     </RelativeLayout>
-
     <RelativeLayout
         android:id="@+id/umeng_fb_conversation_list_wrapper"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_below="@+id/umeng_fb_conversation_contact_entry"
         android:background="@drawable/umeng_fb_conversation_bg">
-
         <ListView
             android:id="@+id/umeng_fb_reply_list"
             android:layout_width="fill_parent"
@@ -104,7 +100,7 @@
                 android:paddingRight="10dp"
                 android:paddingTop="5dp"
                 android:text="@string/umeng_fb_send"
-                android:textColor="#ffffff" />
+                android:textColor="#ffffff"/>
 
             <EditText
                 android:id="@+id/umeng_fb_reply_content"
@@ -117,7 +113,7 @@
                 android:paddingBottom="5dp"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                android:paddingTop="5dp" />
+                android:paddingTop="5dp"/>
         </RelativeLayout>
     </RelativeLayout>
 

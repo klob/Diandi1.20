@@ -15,6 +15,8 @@ import com.diandi.R;
 import com.diandi.adapter.ChannelAdapter;
 import com.diandi.bean.OfficialDiandi;
 import com.diandi.util.CollectionUtils;
+import com.diandi.view.dialog.ActionItem;
+import com.diandi.view.dialog.TitlePop;
 import com.diandi.view.xlist.XListView;
 
 import java.util.ArrayList;
@@ -40,6 +42,20 @@ public class ChannelFragment extends BaseFragment implements XListView.IXListVie
     private TextView mNetworkTips;
     private int mPageNum;
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        findView();
+        initView();
+        bindEvent();
+    }
+
+    public void setCurrentChannel(String channel) {
+        mChannel = channel;
+    }
+
+    private String mChannel;
+
     private final static String CHANNEL_LIST = "channel_list_";
 
     public ChannelFragment() {
@@ -50,32 +66,33 @@ public class ChannelFragment extends BaseFragment implements XListView.IXListVie
     void initView() {
         mPageNum = 0;
         mListItems = new ArrayList<OfficialDiandi>();
-        if (CustomApplication.getInstance().getCache().getAsObject(CHANNEL_LIST) != null) {
-            mListItems = (ArrayList<OfficialDiandi>) CustomApplication.getInstance().getCache().getAsObject(CHANNEL_LIST);
+        setCurrentChannel("华科");
+        if (CustomApplication.getInstance().getCache().getAsObject(CHANNEL_LIST + mChannel) != null) {
+            mListItems = (ArrayList<OfficialDiandi>) CustomApplication.getInstance().getCache().getAsObject(CHANNEL_LIST + mChannel);
             mNetworkTips.setVisibility(View.INVISIBLE);
         }
         mQuery = new BmobQuery<OfficialDiandi>();
         mQuery.order("-createdAt");
-        mQuery.addWhereEqualTo("channel", "华中科技大学");
+        mQuery.addWhereEqualTo(OfficialDiandi.CHANNEL, "华科");
         mQuery.setLimit(BRequest.QUERY_LIMIT_COUNT);
         mQuery.include("author");
         initXListView();
-        bindEvent();
     }
 
-    public void initView(String university) {
+    public void changeChannel(String channel) {
+        setCurrentChannel(channel);
         mListItems = new ArrayList<OfficialDiandi>();
         mPageNum = 0;
         if (CustomApplication.getInstance().getCache().getAsObject(CHANNEL_LIST) != null) {
-            mListItems = (ArrayList<OfficialDiandi>) CustomApplication.getInstance().getCache().getAsObject(CHANNEL_LIST);
+            mListItems = (ArrayList<OfficialDiandi>) CustomApplication.getInstance().getCache().getAsObject(CHANNEL_LIST + mChannel);
             mNetworkTips.setVisibility(View.GONE);
         }
         mQuery = new BmobQuery<OfficialDiandi>();
         mQuery.order("-createdAt");
         mQuery.setLimit(BRequest.QUERY_LIMIT_COUNT);
+        mQuery.addWhereEqualTo(OfficialDiandi.CHANNEL, channel);
         mQuery.include("author");
         initXListView();
-        bindEvent();
     }
 
     @Override
@@ -87,13 +104,38 @@ public class ChannelFragment extends BaseFragment implements XListView.IXListVie
     @Override
     void bindEvent() {
         mListView.setOnItemClickListener(this);
+        DiandiFragment.getMoreBtn().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+         /*       ChannelPopWindow channelPopWindow = new ChannelPopWindow(getActivity());
+                channelPopWindow.showPopupWindow(mMoreBtn);*/
+                TitlePop titlePop = new TitlePop(getActivity(), ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                titlePop.addAction(new ActionItem(getActivity(), "华科", R.drawable.hust));
+                titlePop.addAction(new ActionItem(getActivity(), "网阅", R.drawable.internet));
+                titlePop.addAction(new ActionItem(getActivity(), "好书", R.drawable.book));
+                titlePop.addAction(new ActionItem(getActivity(), "应用", R.drawable.apk));
+                titlePop.addAction(new ActionItem(getActivity(), "娱乐", R.drawable.happy));
+
+                titlePop.show(view);
+                titlePop.setItemOnClickListener(new TitlePop.OnItemOnClickListener() {
+                    @Override
+                    public void onItemClick(ActionItem item, int position) {
+                        {
+                            if (item.getTitle() != null) {
+                                changeChannel(item.getTitle());
+                            }
+                        }
+                    }
+                });
+            }
+        });
     }
 
     @Override
     public void onStop() {
         super.onStop();
         if (mListItems != null) {
-            CustomApplication.getInstance().getCache().put(CHANNEL_LIST, mListItems);
+            CustomApplication.getInstance().getCache().put(CHANNEL_LIST + mChannel, mListItems);
         }
     }
 
@@ -102,7 +144,7 @@ public class ChannelFragment extends BaseFragment implements XListView.IXListVie
         mListView.setPullLoadEnable(false);
         mListView.setPullRefreshEnable(true);
         mListView.setXListViewListener(this);
-        mListView.pullRefreshing();
+        //  mListView.pullRefreshing();
 
         mAdapter = new ChannelAdapter(getActivity(), mListItems);
         mListView.setAdapter(mAdapter);
@@ -155,12 +197,6 @@ public class ChannelFragment extends BaseFragment implements XListView.IXListVie
         return inflater.inflate(R.layout.fragment_channel, container, false);
     }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        findView();
-        initView();
-    }
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {

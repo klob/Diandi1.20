@@ -103,15 +103,21 @@
 -keepclassmembers enum com.j256.**  {*;}
 -keep interface com.j256.**
 -keepclassmembers interface com.j256.**  {*;}
-
 -keep class com.diandi.db.**
 -keepclassmembers class com.diandi.db.** {*;}
 
 
 #umeng
--keep public class com.umeng.fb.ui.ThreadView{*;}
+-keep public class com.umeng.fb.ui.ThreadView {*;}
 -keep class com.umeng.fb.**
 -keep class com.umeng.update.**
+
+-keep public class com.umeng.**
+-keepclassmembers public class com.umeng.** {*;}
+-keep enum public class com.umeng.**
+-keepclassmembers enum public class com.umeng.**  {*;}
+-keep interface public class com.umeng.**
+-keepclassmembers interface public class com.umeng.**  {*;}
 
 
 #bmob

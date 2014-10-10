@@ -12,6 +12,7 @@ package com.diandi.bean;
 
 
 public class OfficialDiandi extends DianDi {
+    public final static String CHANNEL="channel";
     public String getLink() {
         return link;
     }

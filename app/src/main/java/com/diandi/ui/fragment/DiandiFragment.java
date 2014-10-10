@@ -1,28 +1,38 @@
 package com.diandi.ui.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.diandi.CustomApplication;
 import com.diandi.R;
+import com.diandi.bean.Plan;
 import com.diandi.bean.User;
 import com.diandi.ui.activity.MainActivity;
 import com.diandi.ui.activity.NewDiandiActivity;
 import com.diandi.ui.activity.NewOfficalDiandiActivity;
+import com.diandi.ui.activity.NoteActivity;
+import com.diandi.ui.activity.PlanActivity;
+import com.diandi.ui.activity.RadialProgressActivity;
+import com.diandi.ui.activity.WritePlanActivity;
 import com.diandi.util.L;
 import com.diandi.util.factory.OverridePendingFactory;
 import com.diandi.view.dialog.ActionItem;
+import com.diandi.view.dialog.ListDialog;
 import com.diandi.view.dialog.TitlePop;
 import com.diandi.view.residemenu.ResideMenu;
 import com.nostra13.universalimageloader.core.ImageLoader;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,11 +46,22 @@ public class DiandiFragment extends BaseFragment {
     private Button mFeedBtn;
     private Button mChannelBtn;
     private ImageView mUserAvatarImg;
-    private ImageButton mMoreBtn;
+
+    public static ImageButton getMoreBtn() {
+        return mMoreBtn;
+    }
+
+
+    private static ImageButton mMoreBtn;
     private ImageButton mNewDiandiBtn;
     private FeedFragment mFeedFragment;
     private ChannelFragment mChannelFragment;
-    private TitlePop mTitlePop;
+
+    public static TitlePop getmTitlePop() {
+        return mTitlePop;
+    }
+
+    private static TitlePop mTitlePop;
 
 
     public DiandiFragment() {
@@ -48,7 +69,6 @@ public class DiandiFragment extends BaseFragment {
 
     @Override
     void initView() {
-        ImageLoader.getInstance().displayImage(CustomApplication.getInstance().getCurrentUser().getAvatar(), mUserAvatarImg, CustomApplication.getInstance().getOptions());
         bindEvent();
         mFeedBtn.performClick();
     }
@@ -122,41 +142,40 @@ public class DiandiFragment extends BaseFragment {
             @Override
             public void onClick(View view) {
                 User user = mApplication.getCurrentUser();
-                if (user.isOfficial()) {
+            /*    if (user.isOfficial()) {
                     startAnimActivity(NewOfficalDiandiActivity.class);
                     L.e(TAG, user.toString());
                 } else {
                     startAnimActivity(NewDiandiActivity.class);
                     L.e(TAG, user.toString() + "    ");
-                }
+                }*/
+                final ArrayList<String> list = new ArrayList<String>();
+                list.add("记下点滴");
+                list.add("发布公众");
+                list.add("打开格子");
+                final ListDialog listDialog = new ListDialog(getActivity(), "操作", list);
+                listDialog.show();
+                listDialog.setOnListItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        if (i == 0) {
+                            startAnimActivity(NewDiandiActivity.class);
+                            listDialog.dismiss();
+                        }
+                        if (i == 1) {
+                            startAnimActivity(NewOfficalDiandiActivity.class);
+                            listDialog.dismiss();
+                        }
+                        if (i == 2) {
+                            startAnimActivity(PlanActivity.class);
+                            listDialog.dismiss();
+                        }
+
+                    }
+                });
                 OverridePendingFactory.in(getActivity());
             }
         });
-
-        mMoreBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-         /*       ChannelPopWindow channelPopWindow = new ChannelPopWindow(getActivity());
-                channelPopWindow.showPopupWindow(mMoreBtn);*/
-                mTitlePop = new TitlePop(getActivity(), ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                mTitlePop.addAction(new ActionItem(getActivity(), "华科", R.drawable.hust_));
-                mTitlePop.show(view);
-                mTitlePop.setItemOnClickListener(new TitlePop.OnItemOnClickListener() {
-                    @Override
-                    public void onItemClick(ActionItem item, int position) {
-                        if (mChannelFragment != null) {
-                            switch (position) {
-                                case 0:
-
-                                    break;
-
-                            }
-                        }
-                    }
-                });
-            }
-        });
-
     }
 
     @Override
@@ -170,6 +189,13 @@ public class DiandiFragment extends BaseFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+    }
+
+    public void onResume() {
+        super.onResume();
+        ImageLoader.getInstance().displayImage(CustomApplication.getInstance().getCurrentUser().getAvatar(), mUserAvatarImg, CustomApplication.getInstance().getOptions());
+
     }
 
 }
