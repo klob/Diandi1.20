@@ -56,18 +56,7 @@ public class ResideMenuItem extends LinearLayout {
         super(context);
         initViews(context, type);
         ImageLoader.getInstance().displayImage(iconUrl, iv_icon,
-                CustomApplication.getInstance().getOptions(),
-                new SimpleImageLoadingListener() {
-                    @Override
-                    public void onLoadingComplete(String imageUri, View view,
-                                                  Bitmap loadedImage) {
-                        // TODO Auto-generated method stub
-                        super.onLoadingComplete(imageUri, view, loadedImage);
-              //          L.e("load personal icon completed.");
-                    }
-
-                }
-        );
+                CustomApplication.getInstance().getOptions());
         tv_title.setText(title);
     }
 

@@ -36,15 +36,15 @@ public class DianDi extends BmobObject implements Serializable {
     private boolean isPass;
     private boolean myFav;//收藏
     private boolean myLove;//赞
-    private boolean access;
+    private boolean isPrivate;
 
 
-    public boolean isAccess() {
-        return access;
+    public boolean isPrivate() {
+        return isPrivate;
     }
 
-    public void setAccess(boolean access) {
-        this.access = access;
+    public void setPrivate(boolean isPrivate) {
+        this.isPrivate = isPrivate;
     }
 
     @Override

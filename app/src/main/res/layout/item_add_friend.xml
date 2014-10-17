@@ -13,7 +13,7 @@
         >
 
         <ImageView
-            android:id="@+id/avatar"
+            android:id="@+id/item_add_friend_avatar_img"
             style="@style/Smile.ImageView.Photo_Middle"
             android:layout_centerVertical="true"
             android:layout_marginLeft="11dp"
@@ -21,17 +21,17 @@
             android:src="@drawable/default_head" />
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/item_add_friend_name_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="18dp"
-            android:layout_toRightOf="@id/avatar"
+            android:layout_toRightOf="@id/item_add_friend_avatar_img"
             android:textColor="#0F0F0F"
             android:textSize="16sp" />
 
         <Button
-            android:id="@+id/btn_add"
+            android:id="@+id/item_add_friend_add_btn"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
             android:layout_alignParentRight="true"

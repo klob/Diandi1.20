@@ -42,19 +42,18 @@ public class AddFriendAdapter extends BaseListAdapter<BmobChatUser> {
             convertView = mInflater.inflate(R.layout.item_add_friend, null);
         }
         final BmobChatUser contract = getList().get(arg0);
-        TextView name = ViewHolder.get(convertView, R.id.name);
-        ImageView iv_avatar = ViewHolder.get(convertView, R.id.avatar);
-        Button btn_add = ViewHolder.get(convertView, R.id.btn_add);
+
+        ImageView avatarImg = ViewHolder.get(convertView, R.id.item_add_friend_avatar_img);
+        TextView nameText = ViewHolder.get(convertView, R.id.item_add_friend_name_text);
+        Button addBtn = ViewHolder.get(convertView, R.id.item_add_friend_add_btn);
+
         String avatar = contract.getAvatar();
-
-        ImageLoader.getInstance().displayImage(avatar, iv_avatar, CustomApplication.getInstance().getOptions());
-        name.setText(contract.getUsername());
-        btn_add.setText("添加");
-        btn_add.setOnClickListener(new OnClickListener() {
-
+        ImageLoader.getInstance().displayImage(avatar, avatarImg, CustomApplication.getInstance().getOptions());
+        nameText.setText(contract.getUsername());
+        addBtn.setText("添加");
+        addBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                // TODO Auto-generated method stub
                 final ProgressDialog progress = new ProgressDialog(mContext);
                 progress.setMessage("正在添加...");
                 progress.setCanceledOnTouchOutside(false);
@@ -66,10 +65,8 @@ public class AddFriendAdapter extends BaseListAdapter<BmobChatUser> {
                         progress.dismiss();
                         ShowToast("发送请求成功，等待对方验证!");
                     }
-
                     @Override
                     public void onFailure(int arg0, final String arg1) {
-                        // TODO Auto-generated method stub
                         progress.dismiss();
                         ShowToast("发送请求失败，请重新添加!");
                         ShowLog("发送请求失败:" + arg1);

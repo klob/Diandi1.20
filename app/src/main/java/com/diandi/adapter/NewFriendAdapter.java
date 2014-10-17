@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import cn.bmob.im.BmobUserManager;
 import cn.bmob.im.bean.BmobInvitation;
 import cn.bmob.im.config.BmobConfig;
@@ -24,10 +25,12 @@ import com.diandi.adapter.base.ViewHolder;
 import com.diandi.util.CollectionUtils;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
-/** 新的好友请求
+/**
+ * 新的好友请求
+ *
+ * @author smile
  * @ClassName: NewFriendAdapter
  * @Description: TODO
- * @author smile
  * @date 2014-6-9 下午1:26:12
  */
 public class NewFriendAdapter extends BaseListAdapter<BmobInvitation> {
@@ -42,54 +45,56 @@ public class NewFriendAdapter extends BaseListAdapter<BmobInvitation> {
             convertView = mInflater.inflate(R.layout.item_add_friend, null);
         }
         final BmobInvitation msg = getList().get(arg0);
-        TextView name = ViewHolder.get(convertView, R.id.name);
-        ImageView iv_avatar = ViewHolder.get(convertView, R.id.avatar);
 
-        final Button btn_add = ViewHolder.get(convertView, R.id.btn_add);
+        ImageView avatarImg = ViewHolder.get(convertView, R.id.item_add_friend_avatar_img);
+        TextView nameText = ViewHolder.get(convertView, R.id.item_add_friend_name_text);
+        final Button addBtn = ViewHolder.get(convertView, R.id.item_add_friend_add_btn);
 
         String avatar = msg.getAvatar();
 
         if (avatar != null && !avatar.equals("")) {
-            ImageLoader.getInstance().displayImage(avatar, iv_avatar,CustomApplication.getInstance() .getOptions());
+            ImageLoader.getInstance().displayImage(avatar, avatarImg, CustomApplication.getInstance().getOptions());
         } else {
-            iv_avatar.setImageResource(R.drawable.default_head);
+            avatarImg.setImageResource(R.drawable.default_head);
         }
 
         int status = msg.getStatus();
-        if(status==BmobConfig.INVITE_ADD_NO_VALIDATION){
+        if (status == BmobConfig.INVITE_ADD_NO_VALIDATION) {
 //			btn_add.setText("同意");
 //			btn_add.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.btn_login_selector));
 //			btn_add.setTextColor(mContext.getResources().getColor(R.color.base_color_text_white));
-            btn_add.setOnClickListener(new OnClickListener() {
+            addBtn.setOnClickListener(new OnClickListener() {
 
                 @Override
                 public void onClick(View arg0) {
-                    BmobLog.i("点击同意按钮:"+msg.getFromid());
-                    agressAdd(btn_add, msg);
+                    BmobLog.i("点击同意按钮:" + msg.getFromid());
+                    agressAdd(addBtn, msg);
                 }
             });
-        }else if(status==BmobConfig.INVITE_ADD_AGREE){
-            btn_add.setText("已同意");
-            btn_add.setBackgroundDrawable(null);
-            btn_add.setTextColor(mContext.getResources().getColor(R.color.base_color_text_black));
-            btn_add.setEnabled(false);
+        } else if (status == BmobConfig.INVITE_ADD_AGREE) {
+            addBtn.setText("已同意");
+            addBtn.setBackgroundDrawable(null);
+            addBtn.setTextColor(mContext.getResources().getColor(R.color.base_color_text_black));
+            addBtn.setEnabled(false);
         }
-        name.setText(msg.getFromname());
+        nameText.setText(msg.getFromname());
 
         return convertView;
     }
 
 
-    /**添加好友
+    /**
+     * 添加好友
      * agressAdd
-     * @Title: agressAdd
-     * @Description: TODO
+     *
      * @param @param btn_add
      * @param @param msg
      * @return void
      * @throws
+     * @Title: agressAdd
+     * @Description: TODO
      */
-    private void agressAdd(final Button btn_add,final BmobInvitation msg){
+    private void agressAdd(final Button btn_add, final BmobInvitation msg) {
         final ProgressDialog progress = new ProgressDialog(mContext);
         progress.setMessage("正在添加...");
         progress.setCanceledOnTouchOutside(false);
@@ -100,7 +105,6 @@ public class NewFriendAdapter extends BaseListAdapter<BmobInvitation> {
 
                 @Override
                 public void onSuccess() {
-                    // TODO Auto-generated method stub
                     progress.dismiss();
                     btn_add.setText("已同意");
                     btn_add.setBackgroundDrawable(null);
@@ -112,14 +116,13 @@ public class NewFriendAdapter extends BaseListAdapter<BmobInvitation> {
 
                 @Override
                 public void onFailure(int arg0, final String arg1) {
-                    // TODO Auto-generated method stub
                     progress.dismiss();
-                    ShowToast("添加失败: " +arg1);
+                    ShowToast("添加失败: " + arg1);
                 }
             });
         } catch (final Exception e) {
             progress.dismiss();
-            ShowToast("添加失败: " +e.getMessage());
+            ShowToast("添加失败: " + e.getMessage());
         }
     }
 }

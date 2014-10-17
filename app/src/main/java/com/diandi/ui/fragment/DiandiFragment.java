@@ -152,6 +152,7 @@ public class DiandiFragment extends BaseFragment {
                 final ArrayList<String> list = new ArrayList<String>();
                 list.add("记下点滴");
                 list.add("发布公众");
+                list.add("发布匿名");
                 list.add("打开格子");
                 final ListDialog listDialog = new ListDialog(getActivity(), "操作", list);
                 listDialog.show();
@@ -167,6 +168,10 @@ public class DiandiFragment extends BaseFragment {
                             listDialog.dismiss();
                         }
                         if (i == 2) {
+                            startAnimActivity(NewDiandiActivity.class);
+                            listDialog.dismiss();
+                        }
+                        if (i == 3) {
                             startAnimActivity(PlanActivity.class);
                             listDialog.dismiss();
                         }

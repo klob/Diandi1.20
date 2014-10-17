@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:paddingLeft="5dp"
+              android:paddingRight="5dp"
+              android:paddingBottom="8dp"
+              android:paddingTop="8dp"
+              android:background="@drawable/top_bar"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+    >
+
+    <RelativeLayout
+        android:layout_weight="1.2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:src="@drawable/default_head_cry"
+            android:layout_marginLeft="10dp"
+            android:padding="5dp"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/iv_contact_tips4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-1dp"
+            android:layout_marginRight="-1dp"
+            android:background="@drawable/msg_tips"
+            android:contentDescription="@string/action_settings"
+            android:visibility="visible"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="12dp"
+        android:layout_weight="4"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:ellipsize="end"
+            android:textSize="20sp"
+            android:singleLine="true"
+            android:text="QQ邮箱提醒"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"/>
+        <TextView
+            android:ellipsize="end"
+            android:layout_marginTop="6dp"
+            android:textSize="15sp"
+            android:text="中国大学生"
+            android:singleLine="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#c7c7c7"/>
+    </LinearLayout>
+
+    <TextView
+        android:textSize="12sp"
+        android:gravity="right"
+        android:text="下午14.12"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:textColor="#c7c7c7"/>
+
+
+</LinearLayout>
