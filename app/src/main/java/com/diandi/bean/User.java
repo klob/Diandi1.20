@@ -48,14 +48,22 @@ public class User extends BmobChatUser {
 
     private static final long serialVersionUID = 2L;
     private String sortLetters;
-    private String sex;
     private BmobGeoPoint location;
     private String signature;
-    private String school;
     private BmobRelation favorite;
     private BmobFile avatarImg;
     private boolean official;
     private boolean V;
+
+    public String getBackground() {
+        return background;
+    }
+
+    public void setBackground(String background) {
+        this.background = background;
+    }
+
+    private String background;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -85,14 +93,6 @@ public class User extends BmobChatUser {
 
     public void setV(boolean v) {
         V = v;
-    }
-
-    public String getSchool() {
-        return school;
-    }
-
-    public void setSchool(String school) {
-        this.school = school;
     }
 
     public String getSignature() {
@@ -126,14 +126,6 @@ public class User extends BmobChatUser {
 
     public void setLocation(BmobGeoPoint location) {
         this.location = location;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
     }
 
     public String getSortLetters() {

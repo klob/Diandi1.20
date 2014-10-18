@@ -113,72 +113,9 @@
 
             <include layout="@layout/item_line"/>
 
-            <RelativeLayout
-                android:id="@+id/activity_setting_sex_choice_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="8dp"
-                android:paddingTop="8dp"
-              >
-
-                <TextView
-                    android:id="@+id/activity_setting_sex_choice_tips"
-                    style="@style/TextTheme.tipstheme"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:paddingBottom="8dip"
-                    android:paddingTop="8dip"
-                    android:text="性别"/>
-
-                <TextView
-                    android:id="@+id/activity_setting_user_sex_text"
-                    style="@style/TextTheme.tipstheme_second"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:paddingBottom="8dip"
-                    android:paddingTop="8dip"
-                    android:text="点击登录"/>
-            </RelativeLayout>
-
-            <include layout="@layout/item_line"/>
 
 
-            <RelativeLayout
-                android:id="@+id/activity_setting_user_school_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/selector_settings_item_down"
-                android:paddingBottom="8dp"
-                android:paddingTop="8dp"
-             >
 
-                <TextView
-                    android:id="@+id/activity_setting_user_school_tips"
-                    style="@style/TextTheme.tipstheme"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:paddingBottom="8dip"
-                    android:paddingTop="8dip"
-                    android:text="学校"/>
-
-                <TextView
-                    android:id="@+id/activity_setting_user_school_text"
-                    style="@style/TextTheme.tipstheme_second"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="100dp"
-                    android:ellipsize="end"
-                    android:maxLines="2"
-                    android:paddingBottom="8dip"
-                    android:paddingTop="8dip"
-                    android:text=""/>
-            </RelativeLayout>
 
             <include layout="@layout/item_line"/>
 

@@ -111,10 +111,10 @@ public class ChannelFragment extends BaseFragment implements XListView.IXListVie
                 channelPopWindow.showPopupWindow(mMoreBtn);*/
                 TitlePop titlePop = new TitlePop(getActivity(), ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 titlePop.addAction(new ActionItem(getActivity(), "华科", R.drawable.hust));
-                titlePop.addAction(new ActionItem(getActivity(), "网阅", R.drawable.internet));
-                titlePop.addAction(new ActionItem(getActivity(), "好书", R.drawable.book));
+           //     titlePop.addAction(new ActionItem(getActivity(), "网阅", R.drawable.internet));
+         //       titlePop.addAction(new ActionItem(getActivity(), "好书", R.drawable.book));
                 titlePop.addAction(new ActionItem(getActivity(), "应用", R.drawable.apk));
-                titlePop.addAction(new ActionItem(getActivity(), "娱乐", R.drawable.happy));
+             //   titlePop.addAction(new ActionItem(getActivity(), "娱乐", R.drawable.happy));
 
                 titlePop.show(view);
                 titlePop.setItemOnClickListener(new TitlePop.OnItemOnClickListener() {

@@ -101,11 +101,9 @@ public class PersonalActivity extends ActivityBase implements XListView.IXListVi
             updatePersonalInfo(user);
         } else {
             goSettings.setVisibility(View.GONE);
-            if (mUser != null && mUser.getSex().equals(Constant.SEX_FEMALE)) {
-                personalTitle.setText("她发表过的");
-            } else if (mUser != null && mUser.getSex().equals(Constant.SEX_MALE)) {
-                personalTitle.setText("他发表过的");
-            }
+
+                personalTitle.setText("ta发表过的");
+
         }
     }
 
@@ -272,7 +270,7 @@ public class PersonalActivity extends ActivityBase implements XListView.IXListVi
 
     private void getCurrentUserInfo() {
         User user = BmobUser.getCurrentUser(PersonalActivity.this, User.class);
-        LogUtils.i(TAG, "sign:" + user.getSignature() + "sex:" + user.getSex());
+        LogUtils.i(TAG, "sign:" + user.getSignature() );
         updatePersonalInfo(user);
         ShowToast("更新信息成功。");
     }

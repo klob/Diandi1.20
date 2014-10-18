@@ -43,8 +43,7 @@ public class UserProxy {
                     + user.getSessionToken() + "-"
                     + user.getCreatedAt() + "-"
                     + user.getUpdatedAt() + "-"
-                    + user.getSignature() + "-"
-                    + user.getSex());
+                    + user.getSignature() + "-");
             return user;
         } else {
             LogUtils.i(TAG, "本地用户为null,请登录。");
@@ -67,7 +66,6 @@ public class UserProxy {
         User user = new User();
         user.setUsername(userName);
         user.setPassword(password);
-        user.setSex(Constant.SEX_FEMALE);
         user.setSignature("这个家伙很懒，什么也不说。。。");
         user.setDeviceType("android");
         user.setNick("无名氏");
@@ -154,8 +152,7 @@ public class UserProxy {
         user.setUsername(args[0]);
         user.setEmail(args[1]);
         user.setPassword(args[2]);
-        user.setSex(args[3]);
-        user.setSignature(args[4]);
+        user.setSignature(args[3]);
         //...
         user.update(mContext, new UpdateListener() {
 
