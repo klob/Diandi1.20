@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-
 import com.diandi.CustomApplication;
 import com.diandi.MyMessageReceiver;
 import com.diandi.R;
@@ -35,16 +34,15 @@ import cn.bmob.im.inteface.EventListener;
 
 public class MainActivity extends ActivityBase implements View.OnClickListener, EventListener {
 
+    public final static int INFOR_REFREFLASH = 100;
+    private static long firstTime;
     private ResideMenu resideMenu;
     private ResideMenuItem itemFav;
     private ResideMenuItem itemAbout;
     private ResideMenuItem itemFeedback;
     private ResideMenuItem itemSettings;
     private ResideMenuItem itemHead;
-
     private ResideMenuItem itemPlanBox;
-
-    private static long firstTime;
     private ImageView iv_recent_tips, iv_contact_tips, iv_diandi_tips;//消息提示
     private Button[] mTabs;
     private Button mDiandiBtn, mRecentBtn, mContanctBtn;
@@ -55,9 +53,53 @@ public class MainActivity extends ActivityBase implements View.OnClickListener, 
     private Fragment[] fragments;
     private int index;
     private int currentTabIndex;
+    private View.OnClickListener diandiOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            DiandiFragment newsFatherFragment=null;
+            if(newsFatherFragment==null)
+                newsFatherFragment= new DiandiFragment();
+            ft.replace(R.id.fragment_container, newsFatherFragment, TAG);
+            ft.commit();
+            setButton(view);
+        }
+    };
+    private View.OnClickListener recentOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            RecentFragment newsFatherFragment=null;
+            if(newsFatherFragment==null)
+                newsFatherFragment= new RecentFragment();
+            ft.replace(R.id.fragment_container, newsFatherFragment, TAG);
+            ft.commit();
+            setButton(view);
+        }
+    };
+    private View.OnClickListener contanctOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            ContactFragment newsFatherFragment = new ContactFragment();
+            ft.replace(R.id.fragment_container, newsFatherFragment, TAG);
+            ft.commit();
+            setButton(view);
+        }
+    };
+    private ResideMenu.OnMenuListener menuListener = new ResideMenu.OnMenuListener() {
+        @Override
+        public void openMenu() {
+        }
 
-    public final static int INFOR_REFREFLASH = 100;
-
+        @Override
+        public void closeMenu() {
+            //     Toast.makeText(mContext, "Menu is closed!", Toast.LENGTH_SHORT).show();
+        }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -100,47 +142,6 @@ public class MainActivity extends ActivityBase implements View.OnClickListener, 
         mContanctBtn.setOnClickListener(contanctOnClickListener);
     }
 
-    private View.OnClickListener diandiOnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            FragmentManager fm = getSupportFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            DiandiFragment newsFatherFragment=null;
-            if(newsFatherFragment==null)
-                newsFatherFragment= new DiandiFragment();
-            ft.replace(R.id.fragment_container, newsFatherFragment, TAG);
-            ft.commit();
-            setButton(view);
-        }
-    };
-
-    private View.OnClickListener recentOnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            FragmentManager fm = getSupportFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            RecentFragment newsFatherFragment=null;
-            if(newsFatherFragment==null)
-                newsFatherFragment= new RecentFragment();
-            ft.replace(R.id.fragment_container, newsFatherFragment, TAG);
-            ft.commit();
-            setButton(view);
-        }
-    };
-
-
-    private View.OnClickListener contanctOnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            FragmentManager fm = getSupportFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            ContactFragment newsFatherFragment = new ContactFragment();
-            ft.replace(R.id.fragment_container, newsFatherFragment, TAG);
-            ft.commit();
-            setButton(view);
-        }
-    };
-
     private void setButton(View v) {
         if (currentButton != null && currentButton.getId() != v.getId()) {
             currentButton.setEnabled(true);
@@ -161,7 +162,6 @@ public class MainActivity extends ActivityBase implements View.OnClickListener, 
         //valid scale factor is between 0.0f and 1.0f. leftmenu'width is 150dip.
         resideMenu.setScaleValue(0.6f);
 
-        itemFav = new ResideMenuItem(this, R.drawable.icon_fav_selector, "收藏");
         itemFeedback = new ResideMenuItem(this, R.drawable.icon_feedback_selector, "反馈");
         itemAbout = new ResideMenuItem(this, R.drawable.icon_home_selector, "关于");
         itemSettings = new ResideMenuItem(this, R.drawable.icon_setting_selector, "设置");
@@ -184,14 +184,12 @@ public class MainActivity extends ActivityBase implements View.OnClickListener, 
         }
 
 
-        menuItems.add(itemFav);
         menuItems.add(itemFeedback);
         menuItems.add(itemAbout);
         menuItems.add(itemSettings);
         resideMenu.setMenuItems(menuItems, ResideMenu.DIRECTION_LEFT);
         resideMenu.addMenuItem(itemPlanBox, ResideMenu.DIRECTION_RIGHT);
         itemPlanBox.setOnClickListener(this);
-        itemFav.setOnClickListener(this);
         itemAbout.setOnClickListener(this);
         itemSettings.setOnClickListener(this);
         itemFeedback.setOnClickListener(this);
@@ -206,9 +204,7 @@ public class MainActivity extends ActivityBase implements View.OnClickListener, 
 
     @Override
     public void onClick(View view) {
-        if (view == itemFav) {
-            startAnimActivity(FavoriteActivity.class);
-        } else if (view == itemAbout) {
+        if (view == itemAbout) {
             startAnimActivity(AboutActivity.class);
         } else if (view == itemSettings) {
             startAnimActivity(SettingActivity.class);
@@ -220,17 +216,6 @@ public class MainActivity extends ActivityBase implements View.OnClickListener, 
             startAnimActivity(PlanActivity.class);
         }
     }
-
-    private ResideMenu.OnMenuListener menuListener = new ResideMenu.OnMenuListener() {
-        @Override
-        public void openMenu() {
-        }
-
-        @Override
-        public void closeMenu() {
-            //     Toast.makeText(mContext, "Menu is closed!", Toast.LENGTH_SHORT).show();
-        }
-    };
 
     private void changeFragment(Fragment targetFragment) {
         resideMenu.clearIgnoredViewList();

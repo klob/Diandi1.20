@@ -10,7 +10,6 @@ import com.diandi.sns.TencentShareConstants;
 import com.umeng.fb.FeedbackAgent;
 
 
-
 public class AboutActivity extends BaseActivity implements View.OnClickListener {
 
     private RelativeLayout mShareLayout, mFeedBackLayout, mLinkLayout;
@@ -57,7 +56,6 @@ public class AboutActivity extends BaseActivity implements View.OnClickListener 
                 break;
         }
     }
-
 
 
     private void shareToFriend() {

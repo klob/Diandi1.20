@@ -36,9 +36,9 @@ import cn.bmob.im.util.BmobLog;
 /**
  * 用于发送位置的界面
  *
+ * @author smile
  * @ClassName: LocationActivity
  * @Description: TODO
- * @author smile
  * @date 2014-6-23 下午3:17:05
  */
 public class LocationActivity extends BaseActivity implements
@@ -122,21 +122,22 @@ public class LocationActivity extends BaseActivity implements
 
     /**
      * 回到聊天界面
-     * @Title: gotoChatPage
-     * @Description: TODO
+     *
      * @param
      * @return void
      * @throws
+     * @Title: gotoChatPage
+     * @Description: TODO
      */
     private void gotoChatPage() {
-        if(lastLocation!=null){
+        if (lastLocation != null) {
             Intent intent = new Intent();
             intent.putExtra("y", lastLocation.getLongitude());// 经度
             intent.putExtra("x", lastLocation.getLatitude());// 维度
             intent.putExtra("address", lastLocation.getAddrStr());
             setResult(RESULT_OK, intent);
             this.finish();
-        }else{
+        } else {
             ShowToast("获取地理位置信息失败!");
         }
     }

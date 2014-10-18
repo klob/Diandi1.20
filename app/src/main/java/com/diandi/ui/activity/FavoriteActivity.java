@@ -128,7 +128,7 @@ public class FavoriteActivity extends BaseActivity implements XListView.IXListVi
                     if (list.size() < Constant.NUMBERS_PER_PAGE) {
                         ShowToast("已加载完所有数据~");
                     }
-                    if(CustomApplication.getInstance().getCurrentUser()!=null){
+                    if (CustomApplication.getInstance().getCurrentUser() != null) {
                         list = DatabaseUtil.getInstance(mContext).setFav(list);
                     }
                     mListItems.addAll(list);

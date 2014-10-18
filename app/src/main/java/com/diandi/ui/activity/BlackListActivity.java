@@ -48,7 +48,6 @@ public class BlackListActivity extends ActivityBase implements OnItemClickListen
     }
 
 
-
     @Override
     void bindEvent() {
         mBlackListView.setOnItemClickListener(this);

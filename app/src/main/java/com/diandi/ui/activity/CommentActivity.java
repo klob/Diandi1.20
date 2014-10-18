@@ -64,6 +64,7 @@ import cn.bmob.v3.listener.UpdateListener;
 
 public class CommentActivity extends ActivityBase implements View.OnClickListener {
 
+    private final static String COMMENT_ID = "comment_id_";
     public DianDi mDianDi;
     boolean isFav = false;
     private ListView commentList;
@@ -84,8 +85,6 @@ public class CommentActivity extends ActivityBase implements View.OnClickListene
     private CommentAdapter mAdapter;
     private List<Comment> comments = new ArrayList<Comment>();
     private int pageNum;
-
-    private final static String COMMENT_ID = "comment_id_";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -178,7 +177,7 @@ public class CommentActivity extends ActivityBase implements View.OnClickListene
             @Override
             public void onDrag() {
                 CustomApplication.getInstance().getCache().put(COMMENT_ID + mDianDi.getObjectId(), "true");
-             //   Log.e(" ", CustomApplication.getInstance().getCache().getAsString(COMMENT_ID + mDianDi.getObjectId()));
+                //   Log.e(" ", CustomApplication.getInstance().getCache().getAsString(COMMENT_ID + mDianDi.getObjectId()));
             }
         });
         userName.setText(mDianDi.getAuthor().getNick());
@@ -521,7 +520,6 @@ public class CommentActivity extends ActivityBase implements View.OnClickListene
             }
         });
     }
-
 
 
     private void onClickShare() {

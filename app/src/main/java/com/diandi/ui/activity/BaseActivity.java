@@ -37,7 +37,7 @@ import cn.bmob.v3.listener.UpdateListener;
  * @Description: TODO
  * @date 2014-6-13 下午5:05:38
  */
-abstract class BaseActivity extends FragmentActivity  {
+abstract class BaseActivity extends FragmentActivity {
     public final String TAG = getClass().getName();
 
     protected BmobUserManager mUserManager;
@@ -56,7 +56,7 @@ abstract class BaseActivity extends FragmentActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initConfigure();
-        mProgressDialog=new ProgressDialog(this);
+        mProgressDialog = new ProgressDialog(this);
         mProgressDialog.setCanceledOnTouchOutside(true);
     }
 
@@ -178,11 +178,12 @@ abstract class BaseActivity extends FragmentActivity  {
             @Override
             public void onError(int arg0, String arg1) {
                 if (arg0 == BmobConfig.CODE_COMMON_NONE) {
-                 LogE(arg1);
+                    LogE(arg1);
                 } else {
                     LogE("查询好友列表失败：" + arg1);
                 }
             }
+
             @Override
             public void onSuccess(List<BmobChatUser> arg0) {
                 // 保存到application中方便比较

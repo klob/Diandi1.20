@@ -31,13 +31,11 @@ import cn.bmob.v3.listener.SaveListener;
  */
 public class LoginActivity extends BaseActivity implements OnClickListener {
 
+    public final static int REFRESH_USERAVATAR = -56446464;
     EditText et_username, et_password;
     Button btn_login;
     TextView btn_register;
     BmobChatUser currentUser;
-
-    public final static int REFRESH_USERAVATAR = -56446464;
-
     private MyBroadcastReceiver receiver = new MyBroadcastReceiver();
 
     @Override

@@ -7,13 +7,13 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 
-import cn.bmob.im.bean.BmobInvitation;
-import cn.bmob.im.db.BmobDB;
-
 import com.diandi.R;
 import com.diandi.adapter.NewFriendAdapter;
 import com.diandi.view.HeaderLayout;
 import com.diandi.view.dialog.DialogTips;
+
+import cn.bmob.im.bean.BmobInvitation;
+import cn.bmob.im.db.BmobDB;
 
 /**
  * 新朋友
@@ -41,7 +41,7 @@ public class NewFriendActivity extends ActivityBase implements OnItemLongClickLi
             @Override
             public void onClick() {
 
-                DialogTips dialog = new DialogTips( NewFriendActivity.this, "提示", "删除所有好友请求", "确定", true, true);
+                DialogTips dialog = new DialogTips(NewFriendActivity.this, "提示", "删除所有好友请求", "确定", true, true);
                 // 设置成功事件
                 dialog.SetOnSuccessListener(new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogInterface, int userId) {

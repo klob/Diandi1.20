@@ -59,10 +59,8 @@ public class ActivityBase extends BaseActivity {
             startActivity(new Intent(this, LoginActivity.class));
             finish();
             LogE("用户未登陆");
-        }
-        else
-        {
-            LogE(CustomApplication.getInstance().getCurrentUser().toString() );
+        } else {
+            LogE(CustomApplication.getInstance().getCurrentUser().toString());
         }
     }
 

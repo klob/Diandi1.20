@@ -24,7 +24,7 @@
                 android:id="@+id/comment_item"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                layout="@layout/feed_list_item"/>
+                layout="@layout/item_feed"/>
 
             <View
                 android:layout_width="match_parent"

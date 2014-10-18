@@ -79,11 +79,11 @@ public class RegisterActivity extends BaseActivity implements UserProxy.ISignUpL
             ShowToast(R.string.toast_error_comfirm_password);
             return;
         }
-        if (name.length()<Constant.LEAST_NUM) {
+        if (name.length() < Constant.LEAST_NUM) {
             ShowToast(R.string.toast_error_username_short);
             return;
         }
-        if (password.length()<Constant.LEAST_NUM) {
+        if (password.length() < Constant.LEAST_NUM) {
             ShowToast(R.string.toast_error_password_short);
             return;
         }

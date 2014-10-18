@@ -74,7 +74,7 @@ public class FeedAdapter extends BaseListAdapter<DianDi> {
         final ViewHolder viewHolder;
         if (convertView == null) {
             viewHolder = new ViewHolder();
-            convertView = mInflater.inflate(R.layout.feed_list_item, null);
+            convertView = mInflater.inflate(R.layout.item_feed, null);
             viewHolder.userName = (TextView) convertView.findViewById(R.id.user_name);
             viewHolder.userLogo = (ImageView) convertView.findViewById(R.id.user_logo);
             viewHolder.favMark = (ImageView) convertView.findViewById(R.id.item_action_fav);

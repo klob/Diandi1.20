@@ -23,10 +23,8 @@ import com.diandi.CustomApplication;
 import com.diandi.R;
 import com.diandi.bean.User;
 import com.diandi.config.Constant;
-import com.diandi.util.ActivityManagerUtils;
 import com.diandi.util.CacheUtils;
 import com.diandi.util.CollectionUtils;
-import com.diandi.util.L;
 import com.diandi.util.LogUtils;
 import com.diandi.util.Sputil;
 import com.diandi.util.factory.OverridePendingFactory;
@@ -69,6 +67,7 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
     static final int EDIT_SIGN = 15;
     static final int GO_LOGIN = 16;
     private final static String USER_ID = "user_id_";
+    protected Sputil mSputil;
     String[] sexs = new String[]{"女", "男"};
     String dateTime;
     AlertDialog albumDialog;
@@ -91,7 +90,6 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
     private String from = "";
     private String username = "";
     private User mUser;
-    protected Sputil mSputil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

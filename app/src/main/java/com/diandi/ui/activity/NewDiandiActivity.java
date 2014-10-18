@@ -93,7 +93,7 @@ public class NewDiandiActivity extends ActivityBase implements OnClickListener {
                     return;
                 }
                 if (targeturl == null) {
-                    publish(commitContent, null,true);
+                    publish(commitContent, null, true);
 
                 } else {
                     publish(commitContent);
@@ -161,8 +161,9 @@ public class NewDiandiActivity extends ActivityBase implements OnClickListener {
             public void onSuccess() {
                 // TODO Auto-generated method stub
                 LogUtils.i(TAG, "上传文件成功。" + figureFile.getFileUrl());
-                publish(commitContent, figureFile,false);
+                publish(commitContent, figureFile, false);
             }
+
             @Override
             public void onProgress(Integer arg0) {
                 // TODO Auto-generated method stub
@@ -178,7 +179,7 @@ public class NewDiandiActivity extends ActivityBase implements OnClickListener {
 
     }
 
-    private void publish(final String commitContent, final BmobFile figureFile,boolean isPrivate) {
+    private void publish(final String commitContent, final BmobFile figureFile, boolean isPrivate) {
         User user = BmobUser.getCurrentUser(this, User.class);
 
         final DianDi qiangYu = new DianDi();
