@@ -8,7 +8,6 @@
         android:id="@+id/fragment_diandi_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:dividerHeight="8.0dip"
         android:cacheColorHint="#00000000"
         android:divider="#00000000"
         android:fastScrollEnabled="false"
