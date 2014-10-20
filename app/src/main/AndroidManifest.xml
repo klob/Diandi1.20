@@ -31,10 +31,12 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
-<!--    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!--
+        <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_SMS" />
-    <uses-permission android:name="android.permission.SEND_SMS" />-->
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    -->
 
     <permission
         android:name="cn.bmob.permission.push"
@@ -76,7 +78,6 @@
         <activity
             android:name="com.diandi.ui.activity.ChatActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="com.diandi.ui.activity.RegisterActivity"
             android:screenOrientation="portrait" />
@@ -243,6 +244,10 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.bmob.im.demo.ui.activity.ActivityBase" />
+        </activity>
+        <activity
+            android:name="com.diandi.ui.activity.Test"
+            android:label="@string/title_activity_test" >
         </activity>
     </application>
 

@@ -43,4 +43,6 @@ dependencies {
     compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/universal-image-loader-1.9.2_sources.jar')
     compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/weibosdkcore.jar')
     compile project(':diyview')
+    compile project(':flaotaction')
+    compile project(':jumpingbeans')
 }

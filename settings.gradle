@@ -1,1 +1,1 @@
-include ':app', ':diyview'
+include ':app', ':diyview', ':flaotaction', ':jumpingbeans'

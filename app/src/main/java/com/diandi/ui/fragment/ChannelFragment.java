@@ -18,6 +18,7 @@ import com.diandi.util.CollectionUtils;
 import com.diandi.view.dialog.ActionItem;
 import com.diandi.view.dialog.TitlePop;
 import com.diandi.view.xlist.XListView;
+import com.melnykov.fab.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -99,6 +100,8 @@ public class ChannelFragment extends BaseFragment implements XListView.IXListVie
     void findView() {
         mListView = (XListView) findViewById(R.id.fragment_diandi_listview);
         mNetworkTips = (TextView) findViewById(R.id.fragment_dianndi_networktips);
+        FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.button_floating_action);
+        floatingActionButton.attachToListView(mListView);
     }
 
     @Override
@@ -111,10 +114,10 @@ public class ChannelFragment extends BaseFragment implements XListView.IXListVie
                 channelPopWindow.showPopupWindow(mMoreBtn);*/
                 TitlePop titlePop = new TitlePop(getActivity(), ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 titlePop.addAction(new ActionItem(getActivity(), "华科", R.drawable.hust));
-           //     titlePop.addAction(new ActionItem(getActivity(), "网阅", R.drawable.internet));
-         //       titlePop.addAction(new ActionItem(getActivity(), "好书", R.drawable.book));
+                titlePop.addAction(new ActionItem(getActivity(), "网阅", R.drawable.internet));
+                titlePop.addAction(new ActionItem(getActivity(), "好书", R.drawable.book));
                 titlePop.addAction(new ActionItem(getActivity(), "应用", R.drawable.apk));
-             //   titlePop.addAction(new ActionItem(getActivity(), "娱乐", R.drawable.happy));
+                titlePop.addAction(new ActionItem(getActivity(), "娱乐", R.drawable.happy));
 
                 titlePop.show(view);
                 titlePop.setItemOnClickListener(new TitlePop.OnItemOnClickListener() {

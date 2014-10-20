@@ -27,6 +27,7 @@ import com.diandi.db.DatabaseUtil;
 import com.diandi.ui.activity.CommentActivity;
 import com.diandi.util.CollectionUtils;
 import com.diandi.view.xlist.XListView;
+import com.melnykov.fab.FloatingActionButton;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -68,6 +69,8 @@ public class FeedFragment extends BaseFragment implements XListView.IXListViewLi
     public void findView() {
         mListView = (XListView) findViewById(R.id.fragment_diandi_listview);
         networkTips = (TextView) findViewById(R.id.fragment_dianndi_networktips);
+        FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.button_floating_action);
+        floatingActionButton.attachToListView(mListView);
     }
 
     @Override

@@ -23,6 +23,7 @@ import com.diandi.ui.activity.NewOfficalDiandiActivity;
 import com.diandi.ui.activity.NoteActivity;
 import com.diandi.ui.activity.PlanActivity;
 import com.diandi.ui.activity.RadialProgressActivity;
+import com.diandi.ui.activity.Test;
 import com.diandi.ui.activity.WritePlanActivity;
 import com.diandi.util.L;
 import com.diandi.util.factory.OverridePendingFactory;
@@ -160,7 +161,7 @@ public class DiandiFragment extends BaseFragment {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         if (i == 0) {
-                            startAnimActivity(NewDiandiActivity.class);
+                            startAnimActivity(Test.class);
                             listDialog.dismiss();
                         }
                         if (i == 1) {
