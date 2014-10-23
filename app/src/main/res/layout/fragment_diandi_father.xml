@@ -2,6 +2,7 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:baselineAligned="false"
     android:focusable="true">
@@ -85,5 +86,7 @@
         android:layout_below="@id/fragment_diandi_actionbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></FrameLayout>
+
+
 
 </RelativeLayout>

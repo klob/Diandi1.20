@@ -71,7 +71,7 @@ public class DiandiFragment extends BaseFragment {
     @Override
     void initView() {
         bindEvent();
-        mFeedBtn.performClick();
+        mChannelBtn.performClick();
     }
 
     @Override
@@ -97,6 +97,7 @@ public class DiandiFragment extends BaseFragment {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 if (mFeedFragment == null) {
                     mFeedFragment = new FeedFragment();
+
                 }
                 ft.replace(R.id.fragmet_diandi_container, mFeedFragment, TAG);
                 ft.commit();
@@ -161,7 +162,7 @@ public class DiandiFragment extends BaseFragment {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         if (i == 0) {
-                            startAnimActivity(Test.class);
+                            startAnimActivity(NewDiandiActivity.class);
                             listDialog.dismiss();
                         }
                         if (i == 1) {

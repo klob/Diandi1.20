@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/color_theme"
+                android:background="@drawable/background_radiu"
                 android:descendantFocusability="blocksDescendants"
                 android:padding="8dip"
                 android:layout_marginLeft="5dp"

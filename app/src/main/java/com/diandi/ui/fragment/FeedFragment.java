@@ -50,6 +50,12 @@ public class FeedFragment extends BaseFragment implements XListView.IXListViewLi
     private ArrayList<DianDi> mListItems;
     private FeedAdapter mAdapter;
     private XListView mListView;
+
+
+    public void setListView(XListView listView) {
+        mListView = listView;
+    }
+
     private TextView networkTips;
     private int mPageNum;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

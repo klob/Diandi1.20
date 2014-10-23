@@ -67,14 +67,14 @@ public class ChannelFragment extends BaseFragment implements XListView.IXListVie
     void initView() {
         mPageNum = 0;
         mListItems = new ArrayList<OfficialDiandi>();
-        setCurrentChannel("华科");
+        setCurrentChannel("网阅");
         if (CustomApplication.getInstance().getCache().getAsObject(CHANNEL_LIST + mChannel) != null) {
             mListItems = (ArrayList<OfficialDiandi>) CustomApplication.getInstance().getCache().getAsObject(CHANNEL_LIST + mChannel);
             mNetworkTips.setVisibility(View.INVISIBLE);
         }
         mQuery = new BmobQuery<OfficialDiandi>();
         mQuery.order("-createdAt");
-        mQuery.addWhereEqualTo(OfficialDiandi.CHANNEL, "华科");
+        mQuery.addWhereEqualTo(OfficialDiandi.CHANNEL, "网阅");
         mQuery.setLimit(BRequest.QUERY_LIMIT_COUNT);
         mQuery.include("author");
         initXListView();
@@ -104,7 +104,10 @@ public class ChannelFragment extends BaseFragment implements XListView.IXListVie
         floatingActionButton.attachToListView(mListView);
     }
 
+
+
     @Override
+
     void bindEvent() {
         mListView.setOnItemClickListener(this);
         DiandiFragment.getMoreBtn().setOnClickListener(new View.OnClickListener() {
@@ -113,12 +116,11 @@ public class ChannelFragment extends BaseFragment implements XListView.IXListVie
          /*       ChannelPopWindow channelPopWindow = new ChannelPopWindow(getActivity());
                 channelPopWindow.showPopupWindow(mMoreBtn);*/
                 TitlePop titlePop = new TitlePop(getActivity(), ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                titlePop.addAction(new ActionItem(getActivity(), "华科", R.drawable.hust));
                 titlePop.addAction(new ActionItem(getActivity(), "网阅", R.drawable.internet));
-                titlePop.addAction(new ActionItem(getActivity(), "好书", R.drawable.book));
                 titlePop.addAction(new ActionItem(getActivity(), "应用", R.drawable.apk));
                 titlePop.addAction(new ActionItem(getActivity(), "娱乐", R.drawable.happy));
-
+                titlePop.addAction(new ActionItem(getActivity(), "好书", R.drawable.book));
+                titlePop.addAction(new ActionItem(getActivity(), "华科", R.drawable.hust));
                 titlePop.show(view);
                 titlePop.setItemOnClickListener(new TitlePop.OnItemOnClickListener() {
                     @Override

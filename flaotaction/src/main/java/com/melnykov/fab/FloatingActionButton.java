@@ -226,7 +226,6 @@ public class FloatingActionButton extends ImageButton {
     protected AbsListView.OnScrollListener getOnScrollListener() {
         return mOnScrollListener;
     }
-
     public void show() {
         show(true);
     }
