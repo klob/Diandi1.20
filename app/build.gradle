@@ -26,8 +26,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/android-support-v4.jar')
     compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/baidumapapi_v3_1_0.jar')
     compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/bmobim_v1.1.2beta.jar')
     compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/bmobsdk_v3.2.3_0919.jar')
@@ -45,4 +43,5 @@ dependencies {
     compile project(':diyview')
     compile project(':flaotaction')
     compile project(':jumpingbeans')
+    compile project(':drawmenu')
 }

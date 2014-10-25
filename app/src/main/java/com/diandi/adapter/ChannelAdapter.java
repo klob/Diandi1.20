@@ -41,12 +41,11 @@ import cn.bmob.v3.listener.UpdateListener;
  */
 public class ChannelAdapter extends BaseListAdapter<OfficialDiandi> {
     public static final int SAVE_FAVOURITE = 2;
-    private static final String VIEW_ID = "view_id_";
     public static final int DIANDI_ALL = 1;
+    private int mDiandiType = DIANDI_ALL;
     public static final int DIANDI_PERSON = 2;
     public static final int DIANDI_FAV = 3;
-
-    private int mDiandiType = DIANDI_ALL;
+    private static final String VIEW_ID = "view_id_";
 
     public ChannelAdapter(Context context, List<OfficialDiandi> list) {
         super(context, list);

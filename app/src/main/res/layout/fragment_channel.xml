@@ -20,6 +20,7 @@
         android:footerDividersEnabled="false"
         android:fastScrollEnabled="false"
         android:smoothScrollbar="false"
+        android:scrollbars="none"
         >
     </com.diandi.view.xlist.XListView>
     <!--      -->
