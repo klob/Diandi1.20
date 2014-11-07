@@ -21,6 +21,7 @@ import com.diandi.ui.fragment.RecentFragment;
 import com.diandi.util.factory.OverridePendingFactory;
 import com.diandi.view.residemenu.ResideMenu;
 import com.diandi.view.residemenu.ResideMenuItem;
+import com.nineoldandroids.view.ViewHelper;
 import com.umeng.fb.FeedbackAgent;
 
 
@@ -36,7 +37,7 @@ import cn.bmob.im.inteface.EventListener;
 import view.drawmenu.DragLayout;
 
 public class TestActivity extends ActivityBase implements EventListener {
-    private DragLayout mDragLayout;
+    private static DragLayout mDragLayout;
     public final static int INFOR_REFREFLASH = 100;
     private static long firstTime;
 
@@ -58,10 +59,10 @@ public class TestActivity extends ActivityBase implements EventListener {
         public void onClick(View view) {
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
-            DiandiFragment newsFatherFragment = null;
-            if (newsFatherFragment == null)
-                newsFatherFragment = new DiandiFragment();
-            ft.replace(R.id.fragment_container, newsFatherFragment, TAG);
+            diandiFragment= null;
+            if (diandiFragment == null)
+                diandiFragment = new DiandiFragment();
+            ft.replace(R.id.fragment_container, diandiFragment, TAG);
             ft.commit();
             setButton(view);
         }
@@ -103,6 +104,7 @@ public class TestActivity extends ActivityBase implements EventListener {
     void findView() {
         setContentView(R.layout.activity_main3);
         mDragLayout = (DragLayout) findViewById(R.id.main_drag);
+
         mDiandiBtn = (Button) findViewById(R.id.btn_diandi);
         mRecentBtn = (Button) findViewById(R.id.btn_message);
         mContanctBtn = (Button) findViewById(R.id.btn_contract);
@@ -116,14 +118,25 @@ public class TestActivity extends ActivityBase implements EventListener {
     }
 
     @Override
-    public boolean onTouchEvent(MotionEvent e) {
-        return mDragLayout.onTouchEvent(e);
-    }
-
-    @Override
     void initView() {
         bindEvent();
         mDiandiBtn.performClick();
+        mDragLayout.setDragListener(new DragLayout.DragListener() {
+            @Override
+            public void onOpen() {
+
+            }
+
+            @Override
+            public void onClose() {
+
+            }
+
+            @Override
+            public void onDrag(float percent) {
+                ViewHelper.setAlpha(diandiFragment.getUserAvatarImg(),1-percent);
+            }
+        });
     }
 
     @Override

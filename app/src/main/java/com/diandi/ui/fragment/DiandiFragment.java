@@ -32,6 +32,7 @@ import com.diandi.view.dialog.ActionItem;
 import com.diandi.view.dialog.ListDialog;
 import com.diandi.view.dialog.TitlePop;
 import com.diandi.view.residemenu.ResideMenu;
+import com.nineoldandroids.view.ViewHelper;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
@@ -59,6 +60,15 @@ public class DiandiFragment extends BaseFragment {
     private static ImageButton mMoreBtn;
     private ImageButton mNewDiandiBtn;
     private FeedFragment mFeedFragment;
+
+    public ImageView getUserAvatarImg() {
+        return mUserAvatarImg;
+    }
+
+    public void setUserAvatarImg(ImageView userAvatarImg) {
+        mUserAvatarImg = userAvatarImg;
+    }
+
     private ChannelFragment mChannelFragment;
 
     public static TitlePop getmTitlePop() {
@@ -74,7 +84,7 @@ public class DiandiFragment extends BaseFragment {
     @Override
     void initView() {
         bindEvent();
-        mChannelBtn.performClick();
+        mFeedBtn.performClick();
     }
 
     @Override
@@ -126,28 +136,6 @@ public class DiandiFragment extends BaseFragment {
             }
         });
 
-        mUserAvatarImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ((TestActivity) getActivity()).getDragLayout().open();
-                ((TestActivity) getActivity()).getDragLayout().setDragListener(new DragLayout.DragListener() {
-                    @Override
-                    public void onOpen() {
-
-                    }
-
-                    @Override
-                    public void onClose() {
-
-                    }
-
-                    @Override
-                    public void onDrag(float percent) {
-
-                    }
-                });
-            }
-        });
         mNewDiandiBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

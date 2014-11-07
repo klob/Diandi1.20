@@ -253,6 +253,10 @@
             android:name="com.diandi.ui.activity.TestActivity"
             android:label="@string/title_activity_test" >
         </activity>
+        <activity
+            android:name="com.diandi.ui.activity.TestActivity3"
+            android:label="@string/title_activity_test_activity3" >
+        </activity>
     </application>
 
 </manifest>

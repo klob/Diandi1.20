@@ -154,7 +154,7 @@ public class NewDiandiActivity extends ActivityBase implements OnClickListener {
      */
     private void publish(final String commitContent) {
 
-        final BmobFile figureFile = new BmobFile(DianDi.class, new File(targeturl));
+        final BmobFile figureFile = new BmobFile(new File(targeturl));
         figureFile.upload(this, new UploadFileListener() {
 
             @Override

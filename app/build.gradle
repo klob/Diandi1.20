@@ -27,8 +27,6 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/baidumapapi_v3_1_0.jar')
-    compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/bmobim_v1.1.2beta.jar')
-    compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/bmobsdk_v3.2.3_0919.jar')
     compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/locSDK_4.2.jar')
     compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/mta-sdk-1.0.0.jar')
     compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/open_sdk.jar')
@@ -44,4 +42,6 @@ dependencies {
     compile project(':flaotaction')
     compile project(':jumpingbeans')
     compile project(':drawmenu')
+    compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/BmobIM_V1.1.4beta_1027.jar')
+    compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/BmobSDK_V3.2.6_1103.jar')
 }

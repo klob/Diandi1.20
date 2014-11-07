@@ -2,12 +2,14 @@ package view.drawmenu;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.RelativeLayout;
 
 import view.drawmenu.DragLayout.Status;
 
 public class DragMainLayout extends RelativeLayout {
+    private final static String TAG=" DragMainLayout";
     private DragLayout dl;
 
     public DragMainLayout(Context context) {

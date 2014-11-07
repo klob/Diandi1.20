@@ -7,6 +7,7 @@ import android.support.v4.view.GestureDetectorCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,6 +20,7 @@ import com.nineoldandroids.view.ViewHelper;
 
 public class DragLayout extends FrameLayout {
 
+    private final static String TAG= "DragLayout";
     private boolean isShowShadow = true;
 
     private GestureDetectorCompat gestureDetector;

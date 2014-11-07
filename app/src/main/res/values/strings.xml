@@ -109,5 +109,6 @@
     <string name="umeng_fb_send">发送</string>
     <string name="umeng_fb_title">用户反馈</string>
     <string name="title_activity_test">Test</string>
+    <string name="title_activity_test_activity3">TestActivity3</string>
 
 </resources>
