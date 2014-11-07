@@ -249,6 +249,10 @@
             android:name="com.diandi.ui.activity.Test"
             android:label="@string/title_activity_test" >
         </activity>
+        <activity
+            android:name="com.diandi.ui.activity.TestActivity"
+            android:label="@string/title_activity_test" >
+        </activity>
     </application>
 
 </manifest>

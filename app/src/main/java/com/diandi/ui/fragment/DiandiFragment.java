@@ -24,6 +24,7 @@ import com.diandi.ui.activity.NoteActivity;
 import com.diandi.ui.activity.PlanActivity;
 import com.diandi.ui.activity.RadialProgressActivity;
 import com.diandi.ui.activity.Test;
+import com.diandi.ui.activity.TestActivity;
 import com.diandi.ui.activity.WritePlanActivity;
 import com.diandi.util.L;
 import com.diandi.util.factory.OverridePendingFactory;
@@ -34,6 +35,8 @@ import com.diandi.view.residemenu.ResideMenu;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
+
+import view.drawmenu.DragLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -126,16 +129,21 @@ public class DiandiFragment extends BaseFragment {
         mUserAvatarImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity) getActivity()).getResideMenu().openMenu(ResideMenu.DIRECTION_LEFT);
-                ((MainActivity) getActivity()).getResideMenu().setMenuListener(new ResideMenu.OnMenuListener() {
+                ((TestActivity) getActivity()).getDragLayout().open();
+                ((TestActivity) getActivity()).getDragLayout().setDragListener(new DragLayout.DragListener() {
                     @Override
-                    public void openMenu() {
-                        //      mUserIconImg.setVisibility(View.GONE);
+                    public void onOpen() {
+
                     }
 
                     @Override
-                    public void closeMenu() {
-                        //     mUserIconImg.setVisibility(View.VISIBLE);
+                    public void onClose() {
+
+                    }
+
+                    @Override
+                    public void onDrag(float percent) {
+
                     }
                 });
             }
@@ -162,7 +170,7 @@ public class DiandiFragment extends BaseFragment {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         if (i == 0) {
-                            startAnimActivity(NewDiandiActivity.class);
+                            startAnimActivity(TestActivity.class);
                             listDialog.dismiss();
                         }
                         if (i == 1) {

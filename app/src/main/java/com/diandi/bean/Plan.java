@@ -56,6 +56,8 @@ public class Plan implements Serializable {
     @DatabaseField(useGetSet = true, defaultValue = "6")
     private int type;
 
+    private Date endDate;
+
     public Plan() {
     }
 
