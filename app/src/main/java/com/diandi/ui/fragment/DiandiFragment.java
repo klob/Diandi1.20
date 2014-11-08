@@ -136,47 +136,13 @@ public class DiandiFragment extends BaseFragment {
             }
         });
 
-        mNewDiandiBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                User user = mApplication.getCurrentUser();
-            /*    if (user.isOfficial()) {
-                    startAnimActivity(NewOfficalDiandiActivity.class);
-                    L.e(TAG, user.toString());
-                } else {
-                    startAnimActivity(NewDiandiActivity.class);
-                    L.e(TAG, user.toString() + "    ");
-                }*/
-                final ArrayList<String> list = new ArrayList<String>();
-                list.add("记下点滴");
-                list.add("发布公众");
-                list.add("发布匿名");
-                list.add("打开格子");
-                final ListDialog listDialog = new ListDialog(getActivity(), "操作", list);
-                listDialog.show();
-                listDialog.setOnListItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        if (i == 0) {
-                            startAnimActivity(TestActivity.class);
-                            listDialog.dismiss();
-                        }
-                        if (i == 1) {
-                            startAnimActivity(NewOfficalDiandiActivity.class);
-                            listDialog.dismiss();
-                        }
-                        if (i == 2) {
-                            startAnimActivity(NewDiandiActivity.class);
-                            listDialog.dismiss();
-                        }
-                        if (i == 3) {
-                            startAnimActivity(PlanActivity.class);
-                            listDialog.dismiss();
-                        }
 
-                    }
-                });
-                OverridePendingFactory.in(getActivity());
+        mUserAvatarImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (getActivity() instanceof TestActivity) {
+                    ((TestActivity) getActivity()).getDragLayout().open();
+                }
             }
         });
     }

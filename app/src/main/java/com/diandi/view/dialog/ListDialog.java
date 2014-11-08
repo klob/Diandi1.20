@@ -23,8 +23,8 @@ import java.util.ArrayList;
 public class ListDialog extends Dialog {
 
     private TextView mTitleText;
-    private ListView mListText;
-    private Context mContext;
+    protected ListView mListText;
+    protected Context mContext;
     private String mTitle;
     private ArrayList<String> mListContent;
 

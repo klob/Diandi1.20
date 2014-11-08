@@ -54,7 +54,7 @@
     <application
         android:name="com.diandi.CustomApplication"
         android:allowBackup="true"
-        android:icon="@drawable/icc_launcher"
+        android:icon="@drawable/logo1"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity

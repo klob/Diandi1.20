@@ -99,7 +99,7 @@ public abstract class BaseFragment extends Fragment {
 
                 @Override
                 public void run() {
-                    if (mToast == null) {
+                    if (mToast == null && getActivity() != null) {
                         mToast = Toast.makeText(getActivity(), text, Toast.LENGTH_LONG);
                     } else {
                         mToast.setText(text);

@@ -23,16 +23,24 @@ import com.diandi.CustomApplication;
 import com.diandi.R;
 import com.diandi.adapter.FeedAdapter;
 import com.diandi.bean.DianDi;
+import com.diandi.bean.User;
 import com.diandi.db.DatabaseUtil;
 import com.diandi.ui.activity.CommentActivity;
+import com.diandi.ui.activity.MainActivity;
+import com.diandi.ui.activity.NewDiandiActivity;
+import com.diandi.ui.activity.NewOfficalDiandiActivity;
+import com.diandi.ui.activity.PlanActivity;
+import com.diandi.ui.activity.TestActivity;
 import com.diandi.util.CollectionUtils;
+import com.diandi.util.factory.OverridePendingFactory;
+import com.diandi.view.dialog.ListDialog;
 import com.diandi.view.xlist.XListView;
 import com.melnykov.fab.FloatingActionButton;
+
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -58,6 +66,7 @@ public class FeedFragment extends BaseFragment implements XListView.IXListViewLi
 
     private TextView networkTips;
     private int mPageNum;
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_channel, container, false);
@@ -68,7 +77,7 @@ public class FeedFragment extends BaseFragment implements XListView.IXListViewLi
         super.onActivityCreated(savedInstanceState);
         findView();
         initView();
-        List<Map<String,String>> list=new ArrayList<Map<String,String>>();
+        List<Map<String, String>> list = new ArrayList<Map<String, String>>();
     }
 
     @Override
@@ -77,6 +86,49 @@ public class FeedFragment extends BaseFragment implements XListView.IXListViewLi
         networkTips = (TextView) findViewById(R.id.fragment_dianndi_networktips);
         FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.button_floating_action);
         floatingActionButton.attachToListView(mListView);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                User user = mApplication.getCurrentUser();
+            /*    if (user.isOfficial()) {
+                    startAnimActivity(NewOfficalDiandiActivity.class);
+                    L.e(TAG, user.toString());
+                } else {
+                    startAnimActivity(NewDiandiActivity.class);
+                    L.e(TAG, user.toString() + "    ");
+                }*/
+                final ArrayList<String> list = new ArrayList<String>();
+                list.add("记下点滴");
+                list.add("发布公众");
+                list.add("发布匿名");
+                list.add("打开格子");
+                final ListDialog listDialog = new ListDialog(getActivity(), "操作", list);
+                listDialog.show();
+                listDialog.setOnListItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        if (i == 0) {
+                            startAnimActivity(MainActivity.class);
+                            listDialog.dismiss();
+                        }
+                        if (i == 1) {
+                            startAnimActivity(NewOfficalDiandiActivity.class);
+                            listDialog.dismiss();
+                        }
+                        if (i == 2) {
+                            startAnimActivity(NewDiandiActivity.class);
+                            listDialog.dismiss();
+                        }
+                        if (i == 3) {
+                            startAnimActivity(PlanActivity.class);
+                            listDialog.dismiss();
+                        }
+
+                    }
+                });
+                OverridePendingFactory.in(getActivity());
+            }
+        });
     }
 
     @Override

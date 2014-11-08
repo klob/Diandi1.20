@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+
     <string name="app_name">点滴</string>
+    <string name="app_web">diandi.bmob.cn</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="login_username_hint">请输入用户名…</string>

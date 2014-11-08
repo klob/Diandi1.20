@@ -8,6 +8,8 @@
                           android:layout_height="match_parent">
 
     <RelativeLayout
+        android:layout_gravity="center"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingBottom="30dp"
@@ -15,7 +17,122 @@
         android:paddingLeft="30dp"
         >
 
+        <LinearLayout
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+
+            <LinearLayout
+                android:id="@+id/activity_main_user_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/activity_main_user_avatar_img"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    />
+
+                <TextView
+                    android:id="@+id/activity_main_user_name_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="#ffffff"
+                    android:textSize="25sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="30dp"
+                android:id="@+id/activity_main_feedback_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/activity_main_feedback_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/icon_feedback_selector"
+                    />
+
+                <TextView
+                    android:id="@+id/activity_main_feedback_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="反馈"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="@color/text_color_selector"
+                    android:textSize="20sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:id="@+id/activity_main_about_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/activity_main_about_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/icon_home_selector"
+                    />
+
+                <TextView
+                    android:id="@+id/activity_main_about_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="关于"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="@color/text_color_selector"
+                    android:textSize="20sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/activity_main_user_layout"
+                android:id="@+id/activity_main_setting_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/activity_main_setting_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/icon_setting_selector"
+                    />
+
+                <TextView
+                    android:id="@+id/activity_main_setting_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="设置"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="@color/text_color_selector"
+                    android:textSize="20sp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/activity_main_web_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="@string/app_web"
+            android:textColor="#ffffff"
+            android:textSize="15sp"/>
     </RelativeLayout>
 
     <view.drawmenu.DragMainLayout

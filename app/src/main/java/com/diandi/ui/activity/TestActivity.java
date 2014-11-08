@@ -10,6 +10,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.diandi.CustomApplication;
 import com.diandi.MyMessageReceiver;
@@ -22,8 +24,11 @@ import com.diandi.util.factory.OverridePendingFactory;
 import com.diandi.view.residemenu.ResideMenu;
 import com.diandi.view.residemenu.ResideMenuItem;
 import com.nineoldandroids.view.ViewHelper;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.umeng.fb.FeedbackAgent;
 
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,9 +41,13 @@ import cn.bmob.im.db.BmobDB;
 import cn.bmob.im.inteface.EventListener;
 import view.drawmenu.DragLayout;
 
-public class TestActivity extends ActivityBase implements EventListener {
-    private static DragLayout mDragLayout;
+public class TestActivity extends ActivityBase implements EventListener, View.OnClickListener {
+    public static DragLayout getmDragLayout() {
+        return mDragLayout;
+    }
+
     public final static int INFOR_REFREFLASH = 100;
+    private static DragLayout mDragLayout;
     private static long firstTime;
 
 
@@ -46,7 +55,15 @@ public class TestActivity extends ActivityBase implements EventListener {
     private Button[] mTabs;
     private Button mDiandiBtn, mRecentBtn, mContanctBtn;
     private View currentButton;
+    private LinearLayout mUserLayout;
+    private LinearLayout mFeedbackLayout;
+    private LinearLayout mAboutLayout;
+    private LinearLayout mSettingLayout;
+    private LinearLayout mBoxLayout;
+    private ImageView mUserIconImg;
+    private TextView mUserNameText;
     private DiandiFragment diandiFragment;
+
     private ContactFragment contactFragment;
     private RecentFragment recentFragment;
     private Fragment[] fragments;
@@ -54,12 +71,100 @@ public class TestActivity extends ActivityBase implements EventListener {
     private int currentTabIndex;
 
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        findView();
+        initView();
+    }
+
+    @Override
+    void findView() {
+        setContentView(R.layout.activity_main3);
+        mDragLayout = (DragLayout) findViewById(R.id.main_drag);
+        mUserLayout = (LinearLayout) findViewById(R.id.activity_main_user_layout);
+        mFeedbackLayout = (LinearLayout) findViewById(R.id.activity_main_feedback_layout);
+        mAboutLayout = (LinearLayout) findViewById(R.id.activity_main_about_layout);
+        mSettingLayout = (LinearLayout) findViewById(R.id.activity_main_setting_layout);
+        mUserIconImg = (ImageView) findViewById(R.id.activity_main_user_avatar_img);
+        mUserNameText = (TextView) findViewById(R.id.activity_main_user_name_text);
+        mDiandiBtn = (Button) findViewById(R.id.btn_diandi);
+        mRecentBtn = (Button) findViewById(R.id.btn_message);
+        mContanctBtn = (Button) findViewById(R.id.btn_contract);
+        iv_diandi_tips = (ImageView) findViewById(R.id.iv_diandi_tips);
+        iv_recent_tips = (ImageView) findViewById(R.id.iv_recent_tips);
+        iv_contact_tips = (ImageView) findViewById(R.id.iv_contact_tips);
+    }
+
+    public DragLayout getDragLayout() {
+        return mDragLayout;
+    }
+
+    @Override
+    void initView() {
+        bindEvent();
+        mDiandiBtn.performClick();
+        User user = CustomApplication.getInstance().getCurrentUser();
+        if (user != null) {
+            ImageLoader.getInstance().displayImage(user.getAvatar(), mUserIconImg, CustomApplication.getInstance().getOptions());
+            mUserNameText.setText(user.getNick());
+        }
+    }
+
+    @Override
+    void bindEvent() {
+        mDragLayout.setDragListener(new DragLayout.DragListener() {
+            @Override
+            public void onOpen() {
+            }
+
+            @Override
+            public void onClose() {
+            }
+
+            @Override
+            public void onDrag(float percent) {
+                ViewHelper.setAlpha(diandiFragment.getUserAvatarImg(), 1 - percent);
+            }
+        });
+        mDiandiBtn.setOnClickListener(diandiOnClickListener);
+        mRecentBtn.setOnClickListener(recentOnClickListener);
+        mContanctBtn.setOnClickListener(contanctOnClickListener);
+        mUserLayout.setOnClickListener(this);
+        mFeedbackLayout.setOnClickListener(this);
+        mAboutLayout.setOnClickListener(this);
+        mSettingLayout.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.activity_main_user_layout:
+                Intent intent = new Intent(mContext, ProfileActivity.class);
+                intent.putExtra("from", "me");
+                startActivityForResult(intent, INFOR_REFREFLASH);
+                OverridePendingFactory.in(TestActivity.this);
+                break;
+            case R.id.activity_main_feedback_layout:
+                FeedbackAgent agent = new FeedbackAgent(TestActivity.this);
+                agent.startFeedbackActivity();
+                OverridePendingFactory.in(TestActivity.this);
+                break;
+            case R.id.activity_main_about_layout:
+                startAnimActivity(AboutActivity.class);
+                break;
+            case R.id.activity_main_setting_layout:
+                startAnimActivity(SettingActivity.class);
+                break;
+        }
+    }
+
     private View.OnClickListener diandiOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
-            diandiFragment= null;
+            diandiFragment = null;
             if (diandiFragment == null)
                 diandiFragment = new DiandiFragment();
             ft.replace(R.id.fragment_container, diandiFragment, TAG);
@@ -91,60 +196,6 @@ public class TestActivity extends ActivityBase implements EventListener {
             setButton(view);
         }
     };
-
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        findView();
-        initView();
-    }
-
-    @Override
-    void findView() {
-        setContentView(R.layout.activity_main3);
-        mDragLayout = (DragLayout) findViewById(R.id.main_drag);
-
-        mDiandiBtn = (Button) findViewById(R.id.btn_diandi);
-        mRecentBtn = (Button) findViewById(R.id.btn_message);
-        mContanctBtn = (Button) findViewById(R.id.btn_contract);
-        iv_diandi_tips = (ImageView) findViewById(R.id.iv_diandi_tips);
-        iv_recent_tips = (ImageView) findViewById(R.id.iv_recent_tips);
-        iv_contact_tips = (ImageView) findViewById(R.id.iv_contact_tips);
-    }
-
-    public DragLayout getDragLayout() {
-        return mDragLayout;
-    }
-
-    @Override
-    void initView() {
-        bindEvent();
-        mDiandiBtn.performClick();
-        mDragLayout.setDragListener(new DragLayout.DragListener() {
-            @Override
-            public void onOpen() {
-
-            }
-
-            @Override
-            public void onClose() {
-
-            }
-
-            @Override
-            public void onDrag(float percent) {
-                ViewHelper.setAlpha(diandiFragment.getUserAvatarImg(),1-percent);
-            }
-        });
-    }
-
-    @Override
-    void bindEvent() {
-        mDiandiBtn.setOnClickListener(diandiOnClickListener);
-        mRecentBtn.setOnClickListener(recentOnClickListener);
-        mContanctBtn.setOnClickListener(contanctOnClickListener);
-    }
 
     private void setButton(View v) {
         if (currentButton != null && currentButton.getId() != v.getId()) {
@@ -250,5 +301,6 @@ public class TestActivity extends ActivityBase implements EventListener {
         }
         firstTime = System.currentTimeMillis();
     }
+
 
 }
