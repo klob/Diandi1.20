@@ -31,7 +31,6 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:visibility="gone"
-        android:indeterminateDrawable="@anim/loading"
         />
 
     <TextView

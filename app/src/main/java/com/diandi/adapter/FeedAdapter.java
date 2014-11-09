@@ -137,12 +137,11 @@ public class FeedAdapter extends BaseListAdapter<DianDi> {
             });
         }
         viewHolder.userName.setText(entity.getAuthor().getNick());
-        L(entity.getAuthor()+"");
+        L(entity.getAuthor() + "");
         if (entity.getAuthor().isV()) {
-            L(entity.getAuthor()+"");
+            L(entity.getAuthor() + "");
             viewHolder.userName.setTextColor(mContext.getResources().getColor(R.color.red));
-        }
-        else {
+        } else {
             viewHolder.userName.setTextColor(mContext.getResources().getColor(R.color.dark_blue));
 
         }
@@ -185,7 +184,7 @@ public class FeedAdapter extends BaseListAdapter<DianDi> {
         if (entity.getMyLove()) {
             viewHolder.love.setTextColor(Color.parseColor("#D95555"));
         } else {
-            viewHolder.love.setTextColor(Color.parseColor("#000000"));
+            viewHolder.love.setTextColor(Color.parseColor("#888888"));
         }
         if (DatabaseUtil.getInstance(mContext).isLoved(entity)) {
             entity.setMyLove(true);
@@ -288,7 +287,7 @@ public class FeedAdapter extends BaseListAdapter<DianDi> {
             img = TencentShareConstants.DEFAULT_IMG_URL;
         }
         String summary = qy.getContent();
-        TencentShareEntity entity = new TencentShareEntity(title, img, TencentShareConstants.TARGET_URL, summary, comment);
+        TencentShareEntity entity = new TencentShareEntity(title, img, TencentShareConstants.WEB, summary, comment);
         return entity;
     }
 

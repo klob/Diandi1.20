@@ -146,7 +146,7 @@ public class ChannelAdapter extends BaseListAdapter<OfficialDiandi> {
         if (entity.getMyLove()) {
             viewHolder.love.setTextColor(Color.parseColor("#D95555"));
         } else {
-            viewHolder.love.setTextColor(Color.parseColor("#314c82"));
+            viewHolder.love.setTextColor(Color.parseColor("#888888"));
         }
     /*    if (DatabaseUtil.getInstance(mContext).isLoved(entity)) {
             entity.setMyLove(true);
@@ -253,7 +253,7 @@ public class ChannelAdapter extends BaseListAdapter<OfficialDiandi> {
     }
 
     private TencentShareEntity getQQShareEntity(OfficialDiandi diandi) {
-        String title = "这里有好多有用的学习资源哦";
+        String title = "这里有好多有用的资源哦";
         String comment = "快来这里下载吧";
         String img = null;
         if (diandi.getContentfigureurl() != null) {
@@ -261,8 +261,8 @@ public class ChannelAdapter extends BaseListAdapter<OfficialDiandi> {
         } else {
             img = TencentShareConstants.DEFAULT_IMG_URL;
         }
-        String summary = diandi.getContent()+diandi.getLink();
-        TencentShareEntity entity = new TencentShareEntity(title, img, TencentShareConstants.TARGET_URL, summary, comment);
+        String summary = diandi.getContent() + diandi.getLink();
+        TencentShareEntity entity = new TencentShareEntity(title, img, TencentShareConstants.WEB, summary, comment);
         entity.setTargetUrl(diandi.getLink());
         return entity;
     }
