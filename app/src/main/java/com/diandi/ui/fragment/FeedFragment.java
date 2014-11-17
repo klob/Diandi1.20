@@ -12,7 +12,6 @@ package com.diandi.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,18 +25,15 @@ import com.diandi.bean.DianDi;
 import com.diandi.bean.User;
 import com.diandi.db.DatabaseUtil;
 import com.diandi.ui.activity.CommentActivity;
-import com.diandi.ui.activity.MainActivity;
 import com.diandi.ui.activity.NewDiandiActivity;
 import com.diandi.ui.activity.NewOfficalDiandiActivity;
 import com.diandi.ui.activity.PlanActivity;
 import com.diandi.ui.activity.Test;
-import com.diandi.ui.activity.TestActivity;
 import com.diandi.util.CollectionUtils;
 import com.diandi.util.factory.OverridePendingFactory;
 import com.diandi.view.dialog.ListDialog;
 import com.diandi.view.xlist.XListView;
 import com.melnykov.fab.FloatingActionButton;
-
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -59,14 +55,12 @@ public class FeedFragment extends BaseFragment implements XListView.IXListViewLi
     private ArrayList<DianDi> mListItems;
     private FeedAdapter mAdapter;
     private XListView mListView;
-
+    private TextView networkTips;
+    private int mPageNum;
 
     public void setListView(XListView listView) {
         mListView = listView;
     }
-
-    private TextView networkTips;
-    private int mPageNum;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -101,8 +95,8 @@ public class FeedFragment extends BaseFragment implements XListView.IXListViewLi
                 final ArrayList<String> list = new ArrayList<String>();
                 list.add("记下点滴");
                 list.add("发布公众");
-                list.add("发布匿名");
-                list.add("打开格子");
+             //   list.add("发布匿名");
+             //   list.add("打开格子");
                 final ListDialog listDialog = new ListDialog(getActivity(), "操作", list);
                 listDialog.show();
                 listDialog.setOnListItemClickListener(new AdapterView.OnItemClickListener() {

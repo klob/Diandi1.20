@@ -114,7 +114,7 @@ public class RegisterActivity extends BaseActivity implements UserProxy.ISignUpL
         mUserManager.bindInstallationForRegister(et_username.getText().toString());
         updateUserLocation();
         sendBroadcast(new Intent(Constant.ACTION_REGISTER_SUCCESS_FINISH));
-        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+        Intent intent = new Intent(RegisterActivity.this, TestActivity.class);
         startActivity(intent);
         finish();
     }
