@@ -63,6 +63,7 @@
     </include>
 
     <LinearLayout
+        android:visibility="gone"
         android:padding="3dp"
         android:background="@drawable/selector_list_bg"
         android:id="@+id/layout_near"

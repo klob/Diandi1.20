@@ -3,6 +3,7 @@ package com.diandi.ui.activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
@@ -89,13 +90,17 @@ abstract class BaseActivity extends FragmentActivity {
 
                 @Override
                 public void run() {
-                    if (mToast == null) {
-                        mToast = Toast.makeText(getApplicationContext(), text,
-                                Toast.LENGTH_LONG);
-                    } else {
-                        mToast.setText(text);
+                    try {
+                        if (mToast == null) {
+                            mToast = Toast.makeText(getApplicationContext(), text,
+                                    Toast.LENGTH_LONG);
+                        } else {
+                            mToast.setText(text);
+                        }
+                        mToast.show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
-                    mToast.show();
                 }
             });
 
@@ -106,14 +111,18 @@ abstract class BaseActivity extends FragmentActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if (mToast == null) {
-                    mToast = Toast.makeText(BaseActivity.this.getApplicationContext(), resId,
-                            Toast.LENGTH_LONG);
-                } else {
-                    mToast.setText(resId);
+                try {
+                    if (mToast == null) {
+                        mToast = Toast.makeText(BaseActivity.this.getApplicationContext(), resId,
+                                Toast.LENGTH_LONG);
+                    } else {
+                        mToast.setText(resId);
+                    }
+                    mToast.show();
+                    Log.d(TAG, getString(resId));
+                } catch (Resources.NotFoundException e) {
+                    e.printStackTrace();
                 }
-                mToast.show();
-                Log.d(TAG, getString(resId));
             }
         });
     }

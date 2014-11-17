@@ -105,8 +105,7 @@ public class DiandiFragment extends BaseFragment {
                     mFeedBtn.setEnabled(false);
                     mChannelBtn.setEnabled(true);
                 }
-                mNewDiandiBtn.setVisibility(View.VISIBLE);
-                mMoreBtn.setVisibility(View.GONE);
+
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 if (mFeedFragment == null) {
                     mFeedFragment = new FeedFragment();
@@ -124,8 +123,8 @@ public class DiandiFragment extends BaseFragment {
                     mChannelBtn.setEnabled(false);
                     mFeedBtn.setEnabled(true);
                 }
-                mMoreBtn.setVisibility(View.VISIBLE);
-                mNewDiandiBtn.setVisibility(View.GONE);
+       /*         mMoreBtn.setVisibility(View.VISIBLE);
+                mNewDiandiBtn.setVisibility(View.GONE);*/
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
 
                 if (mChannelFragment == null) {

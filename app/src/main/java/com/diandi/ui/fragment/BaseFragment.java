@@ -1,6 +1,7 @@
 package com.diandi.ui.fragment;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -96,15 +97,18 @@ public abstract class BaseFragment extends Fragment {
 
         if (!TextUtils.isEmpty(text)) {
             runOnUiThread(new Runnable() {
-
                 @Override
                 public void run() {
-                    if (mToast == null && getActivity() != null) {
-                        mToast = Toast.makeText(getActivity(), text, Toast.LENGTH_LONG);
-                    } else {
-                        mToast.setText(text);
+                    try {
+                        if (mToast == null && getActivity() != null) {
+                            mToast = Toast.makeText(getActivity(), text, Toast.LENGTH_LONG);
+                        } else {
+                            mToast.setText(text);
+                        }
+                        mToast.show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
-                    mToast.show();
                 }
             });
 
@@ -115,14 +119,18 @@ public abstract class BaseFragment extends Fragment {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if (mToast == null) {
-                    mToast = Toast.makeText(getActivity().getApplicationContext(), resId,
-                            Toast.LENGTH_LONG);
-                } else {
-                    mToast.setText(resId);
+                try {
+                    if (mToast == null) {
+                        mToast = Toast.makeText(getActivity().getApplicationContext(), resId,
+                                Toast.LENGTH_LONG);
+                    } else {
+                        mToast.setText(resId);
+                    }
+                    mToast.show();
+                    Log.d(TAG, getString(resId));
+                } catch (Resources.NotFoundException e) {
+                    e.printStackTrace();
                 }
-                mToast.show();
-                Log.d(TAG, getString(resId));
             }
         });
     }

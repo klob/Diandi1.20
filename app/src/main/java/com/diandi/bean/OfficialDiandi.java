@@ -13,6 +13,9 @@ package com.diandi.bean;
 
 public class OfficialDiandi extends DianDi {
     public final static String CHANNEL="channel";
+    private String link;
+    private String channel;
+
     public String getLink() {
         return link;
     }
@@ -21,8 +24,6 @@ public class OfficialDiandi extends DianDi {
         this.link = link;
     }
 
-    private String link;
-
     public String getChannel() {
         return channel;
     }
@@ -30,6 +31,4 @@ public class OfficialDiandi extends DianDi {
     public void setChannel(String channel) {
         this.channel = channel;
     }
-
-    private String channel;
 }

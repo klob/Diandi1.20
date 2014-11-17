@@ -43,7 +43,6 @@ public class AboutActivity extends BaseActivity implements View.OnClickListener 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-
             case R.id.activity_about_share_layout:
                 shareToFriend();
                 break;

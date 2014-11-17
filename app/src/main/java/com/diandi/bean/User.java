@@ -46,12 +46,12 @@ public class User extends BmobChatUser {
      * private cn.bmob.v3.datatype.BmobRelation blacklist;
      */
 
-    private static final long serialVersionUID = 2L;
-    private String sortLetters;
+    private static final long serialVersionUID = 3L;
     private BmobGeoPoint location;
-    private String signature;
-    private BmobRelation favorite;
     private BmobFile avatarImg;
+    private BmobRelation favorite;
+    private String signature;
+    private String sortLetters;
     private boolean official;
     private boolean V;
 

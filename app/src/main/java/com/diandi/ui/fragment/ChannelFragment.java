@@ -14,8 +14,15 @@ import com.diandi.CustomApplication;
 import com.diandi.R;
 import com.diandi.adapter.ChannelAdapter;
 import com.diandi.bean.OfficialDiandi;
+import com.diandi.bean.User;
+import com.diandi.ui.activity.MainActivity;
+import com.diandi.ui.activity.NewDiandiActivity;
+import com.diandi.ui.activity.NewOfficalDiandiActivity;
+import com.diandi.ui.activity.PlanActivity;
 import com.diandi.util.CollectionUtils;
+import com.diandi.util.factory.OverridePendingFactory;
 import com.diandi.view.dialog.ActionItem;
+import com.diandi.view.dialog.ListDialog;
 import com.diandi.view.dialog.TitlePop;
 import com.diandi.view.xlist.XListView;
 import com.melnykov.fab.FloatingActionButton;
@@ -36,12 +43,18 @@ import cn.bmob.v3.listener.FindListener;
  */
 public class ChannelFragment extends BaseFragment implements XListView.IXListViewListener, AdapterView.OnItemClickListener {
 
+    private final static String CHANNEL_LIST = "channel_list_";
+    private FloatingActionButton floatingActionButton;
     private XListView mListView;
     private ArrayList<OfficialDiandi> mListItems;
     private ChannelAdapter mAdapter;
     private BmobQuery<OfficialDiandi> mQuery;
     private TextView mNetworkTips;
     private int mPageNum;
+    private String mChannel;
+
+    public ChannelFragment() {
+    }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -55,26 +68,17 @@ public class ChannelFragment extends BaseFragment implements XListView.IXListVie
         mChannel = channel;
     }
 
-    private String mChannel;
-
-    private final static String CHANNEL_LIST = "channel_list_";
-
-    public ChannelFragment() {
-    }
-
-
     @Override
     void initView() {
         mPageNum = 0;
         mListItems = new ArrayList<OfficialDiandi>();
-        setCurrentChannel("网阅");
+        setCurrentChannel("全部");
         if (CustomApplication.getInstance().getCache().getAsObject(CHANNEL_LIST + mChannel) != null) {
             mListItems = (ArrayList<OfficialDiandi>) CustomApplication.getInstance().getCache().getAsObject(CHANNEL_LIST + mChannel);
             mNetworkTips.setVisibility(View.INVISIBLE);
         }
         mQuery = new BmobQuery<OfficialDiandi>();
         mQuery.order("-createdAt");
-        mQuery.addWhereEqualTo(OfficialDiandi.CHANNEL, "网阅");
         mQuery.setLimit(BRequest.QUERY_LIMIT_COUNT);
         mQuery.include("author");
         initXListView();
@@ -91,7 +95,8 @@ public class ChannelFragment extends BaseFragment implements XListView.IXListVie
         mQuery = new BmobQuery<OfficialDiandi>();
         mQuery.order("-createdAt");
         mQuery.setLimit(BRequest.QUERY_LIMIT_COUNT);
-        mQuery.addWhereEqualTo(OfficialDiandi.CHANNEL, channel);
+        if (!channel.equals("大全"))
+            mQuery.addWhereEqualTo(OfficialDiandi.CHANNEL, channel);
         mQuery.include("author");
         initXListView();
     }
@@ -100,21 +105,44 @@ public class ChannelFragment extends BaseFragment implements XListView.IXListVie
     void findView() {
         mListView = (XListView) findViewById(R.id.fragment_diandi_listview);
         mNetworkTips = (TextView) findViewById(R.id.fragment_dianndi_networktips);
-        FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.button_floating_action);
+        floatingActionButton = (FloatingActionButton) findViewById(R.id.button_floating_action);
+        floatingActionButton.setImageResource(R.drawable.base_action_bar_more_bg_selector);
         floatingActionButton.attachToListView(mListView);
     }
 
 
-
     @Override
-
     void bindEvent() {
         mListView.setOnItemClickListener(this);
-        DiandiFragment.getMoreBtn().setOnClickListener(new View.OnClickListener() {
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-         /*       ChannelPopWindow channelPopWindow = new ChannelPopWindow(getActivity());
-                channelPopWindow.showPopupWindow(mMoreBtn);*/
+                final ArrayList<String> list = new ArrayList<String>();
+                list.add("大全");
+                list.add("网阅");
+                list.add("应用");
+                list.add("娱乐");
+                list.add("好书");
+                list.add("华科");
+                final ListDialog listDialog = new ListDialog(getActivity(), "操作", list);
+                listDialog.show();
+                listDialog.setOnListItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        changeChannel(list.get(i));
+                        listDialog.dismiss();
+                    }
+                });
+            }
+        });
+
+
+    /*    DiandiFragment.getMoreBtn().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+         *//*       ChannelPopWindow channelPopWindow = new ChannelPopWindow(getActivity());
+                channelPopWindow.showPopupWindow(mMoreBtn);*//*
                 TitlePop titlePop = new TitlePop(getActivity(), ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 titlePop.addAction(new ActionItem(getActivity(), "网阅", R.drawable.internet));
                 titlePop.addAction(new ActionItem(getActivity(), "应用", R.drawable.apk));
@@ -133,7 +161,7 @@ public class ChannelFragment extends BaseFragment implements XListView.IXListVie
                     }
                 });
             }
-        });
+        });*/
     }
 
     @Override

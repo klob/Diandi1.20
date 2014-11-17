@@ -159,20 +159,17 @@ public class NewDiandiActivity extends ActivityBase implements OnClickListener {
 
             @Override
             public void onSuccess() {
-                // TODO Auto-generated method stub
                 LogUtils.i(TAG, "上传文件成功。" + figureFile.getFileUrl());
                 publish(commitContent, figureFile, false);
             }
 
             @Override
             public void onProgress(Integer arg0) {
-                // TODO Auto-generated method stub
 
             }
 
             @Override
             public void onFailure(int arg0, String arg1) {
-                // TODO Auto-generated method stub
                 LogUtils.i(TAG, "上传文件失败。" + arg1);
             }
         });

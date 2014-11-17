@@ -30,6 +30,7 @@ import com.diandi.ui.activity.MainActivity;
 import com.diandi.ui.activity.NewDiandiActivity;
 import com.diandi.ui.activity.NewOfficalDiandiActivity;
 import com.diandi.ui.activity.PlanActivity;
+import com.diandi.ui.activity.Test;
 import com.diandi.ui.activity.TestActivity;
 import com.diandi.util.CollectionUtils;
 import com.diandi.util.factory.OverridePendingFactory;
@@ -108,7 +109,7 @@ public class FeedFragment extends BaseFragment implements XListView.IXListViewLi
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         if (i == 0) {
-                            startAnimActivity(MainActivity.class);
+                            startAnimActivity(NewDiandiActivity.class);
                             listDialog.dismiss();
                         }
                         if (i == 1) {
@@ -116,7 +117,7 @@ public class FeedFragment extends BaseFragment implements XListView.IXListViewLi
                             listDialog.dismiss();
                         }
                         if (i == 2) {
-                            startAnimActivity(NewDiandiActivity.class);
+                            startAnimActivity(Test.class);
                             listDialog.dismiss();
                         }
                         if (i == 3) {

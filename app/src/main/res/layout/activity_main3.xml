@@ -26,6 +26,7 @@
 
 
             <LinearLayout
+                android:layout_marginTop="30dp"
                 android:id="@+id/activity_main_user_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -48,6 +49,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_marginTop="30dp"
                 android:id="@+id/activity_main_feedback_layout"
                 android:layout_width="match_parent"
@@ -73,7 +75,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="25dp"
                 android:id="@+id/activity_main_about_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -99,7 +101,6 @@
 
             <LinearLayout
                 android:layout_marginTop="20dp"
-                android:layout_below="@id/activity_main_user_layout"
                 android:id="@+id/activity_main_setting_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -150,7 +151,7 @@
         </FrameLayout>
 
         <LinearLayout
-            android:background="@drawable/top_bar"
+            android:background="@drawable/under_bar"
             android:id="@+id/main_bottom"
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -165,9 +166,9 @@
 
                 <Button
                     android:id="@+id/btn_diandi"
+                    android:background="@drawable/under_bar"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/top_bar"
                     android:drawableTop="@drawable/tab_diandi_btn"
                     android:paddingBottom="2dip"
                     android:paddingTop="7dip"
@@ -200,9 +201,9 @@
 
                 <Button
                     android:id="@+id/btn_message"
+                    android:background="@drawable/under_bar"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/top_bar"
                     android:drawableTop="@drawable/tab_message_btn"
                     android:paddingBottom="2dip"
                     android:paddingTop="7dip"
@@ -234,9 +235,9 @@
 
                 <Button
                     android:id="@+id/btn_contract"
+                    android:background="@drawable/under_bar"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/top_bar"
                     android:drawableTop="@drawable/tab_contact_btn"
                     android:paddingBottom="2dip"
                     android:paddingTop="7dip"

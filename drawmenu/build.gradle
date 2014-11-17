@@ -23,4 +23,5 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.nineoldandroids:library:2.4.0'
     compile files('libs/android-support-v4.jar')
+    compile files('C:/Users/Administrator/Desktop/diandi/workspace/Diandi1.18/libs/android-support-v4.jar')
 }

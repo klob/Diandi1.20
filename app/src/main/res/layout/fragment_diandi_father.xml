@@ -54,6 +54,7 @@
         </LinearLayout>
 
         <ImageButton
+            android:visibility="gone"
             android:background="@null"
             android:src="@drawable/ic_action_edit_selector"
             android:id="@+id/fragment_diandi_new_diandi_btn"
@@ -67,6 +68,7 @@
         </ImageButton>
 
         <ImageButton
+
             android:background="@null"
             android:src="@drawable/base_action_bar_more_bg_selector"
             android:id="@+id/fragment_diandi_more_btn"
@@ -86,7 +88,6 @@
         android:layout_below="@id/fragment_diandi_actionbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></FrameLayout>
-
 
 
 </RelativeLayout>
