@@ -15,7 +15,7 @@ import com.diandi.adapter.FeedAdapter;
 import com.diandi.bean.DianDi;
 import com.diandi.bean.User;
 import com.diandi.config.Constant;
-import com.diandi.util.LogUtils;
+import com.diandi.util.L;
 import com.diandi.view.xlist.XListView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
@@ -149,7 +149,7 @@ public class PersonalActivity extends ActivityBase implements XListView.IXListVi
                                                   Bitmap loadedImage) {
                         // TODO Auto-generated method stub
                         super.onLoadingComplete(imageUri, view, loadedImage);
-                        LogUtils.i(TAG, "load personal icon completed.");
+                        L.i(TAG, "load personal icon completed.");
                     }
 
                 }
@@ -209,7 +209,7 @@ public class PersonalActivity extends ActivityBase implements XListView.IXListVi
                     @Override
                     public void onError(int arg0, String msg) {
                         // TODO Auto-generated method stub
-                        LogUtils.i(TAG, "find failed." + msg);
+                        L.i(TAG, "find failed." + msg);
                         pageNum--;
                         refreshPull();
                     }
@@ -238,7 +238,7 @@ public class PersonalActivity extends ActivityBase implements XListView.IXListVi
                     Intent intent2 = new Intent();
                     intent2.setClass(PersonalActivity.this, ProfileActivity.class);
                     startActivityForResult(intent2, EDIT_USER);
-                    LogUtils.i(TAG, "current user edit...");
+                    L.i(TAG, "current user edit...");
                 }
                 break;
             case R.id.personl_title:
@@ -270,7 +270,7 @@ public class PersonalActivity extends ActivityBase implements XListView.IXListVi
 
     private void getCurrentUserInfo() {
         User user = BmobUser.getCurrentUser(PersonalActivity.this, User.class);
-        LogUtils.i(TAG, "sign:" + user.getSignature() );
+        L.i(TAG, "sign:" + user.getSignature() );
         updatePersonalInfo(user);
         ShowToast("更新信息成功。");
     }

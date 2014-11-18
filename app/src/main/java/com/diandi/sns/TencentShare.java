@@ -9,7 +9,7 @@ import com.diandi.R;
 import com.diandi.config.Config;
 import com.diandi.config.Constant;
 import com.diandi.util.ActivityUtil;
-import com.diandi.util.LogUtils;
+import com.diandi.util.L;
 import com.diandi.util.NetworkUtil;
 import com.diandi.util.Sputil;
 import com.tencent.connect.common.Constants;
@@ -243,7 +243,7 @@ public class TencentShare implements TencentShareConstants {
         @Override
         public void onError(UiError e) {
 
-            LogUtils.i("QQ", "onError----" + "code:" + e.errorCode + ", msg:" + e.errorMessage + ", detail:" + e.errorDetail);
+            L.i("QQ", "onError----" + "code:" + e.errorCode + ", msg:" + e.errorMessage + ", detail:" + e.errorDetail);
         }
 
         @Override
@@ -256,15 +256,15 @@ public class TencentShare implements TencentShareConstants {
             // TODO Auto-generated method stub
             switch (flag) {
                 case 0:
-                    LogUtils.i(TAG, "share to qq complete!");
+                    L.i(TAG, "share to qq complete!");
                     onShareToQQComplete();
                     break;
                 case 1:
-                    LogUtils.i(TAG, "share to qzone complete!");
+                    L.i(TAG, "share to qzone complete!");
                     onShareToQZoneComplete();
                     break;
                 case 2:
-                    LogUtils.i(TAG, "login complete and begin to story!");
+                    L.i(TAG, "login complete and begin to story!");
                     doShareToQZone(shareEntity);
                     onQQLoginComplete();
                     break;
@@ -291,7 +291,7 @@ public class TencentShare implements TencentShareConstants {
         @Override
         public void onComplete(JSONObject response) {
             // TODO Auto-generated method stub
-            LogUtils.i("onComplete:", response.toString());
+            L.i("onComplete:", response.toString());
             doComplete(response);
         }
 
@@ -321,33 +321,33 @@ public class TencentShare implements TencentShareConstants {
 
         @Override
         public void onIOException(final IOException e) {
-            LogUtils.i("IRequestListener.onIOException:", e.getMessage());
+            L.i("IRequestListener.onIOException:", e.getMessage());
         }
 
         @Override
         public void onMalformedURLException(final MalformedURLException e) {
-            LogUtils.i("IRequestListener.onMalformedURLException", e.toString());
+            L.i("IRequestListener.onMalformedURLException", e.toString());
         }
 
         @Override
         public void onJSONException(final JSONException e) {
-            LogUtils.i("IRequestListener.onJSONException:", e.getMessage());
+            L.i("IRequestListener.onJSONException:", e.getMessage());
         }
 
         @Override
         public void onConnectTimeoutException(ConnectTimeoutException arg0) {
-            LogUtils.i("IRequestListener.onConnectTimeoutException:", arg0.getMessage());
+            L.i("IRequestListener.onConnectTimeoutException:", arg0.getMessage());
 
         }
 
         @Override
         public void onSocketTimeoutException(SocketTimeoutException arg0) {
-            LogUtils.i("IRequestListener.SocketTimeoutException:", arg0.getMessage());
+            L.i("IRequestListener.SocketTimeoutException:", arg0.getMessage());
         }
 
         @Override
         public void onUnknowException(Exception arg0) {
-            LogUtils.i("IRequestListener.onUnknowException:", arg0.getMessage());
+            L.i("IRequestListener.onUnknowException:", arg0.getMessage());
         }
 
         @Override

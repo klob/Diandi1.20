@@ -10,15 +10,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.diandi.R;
+import com.diandi.bean.User;
 import com.diandi.config.Constant;
-import com.diandi.proxy.UserProxy;
 import com.diandi.util.CommonUtils;
 
-public class RegisterActivity extends BaseActivity implements UserProxy.ISignUpListener {
+import cn.bmob.v3.BmobInstallation;
+import cn.bmob.v3.listener.SaveListener;
+
+public class RegisterActivity extends BaseActivity {
 
     TextView btn_register;
     EditText et_username, et_password, et_email;
-
     ProgressDialog progress;
 
     @Override
@@ -51,7 +53,6 @@ public class RegisterActivity extends BaseActivity implements UserProxy.ISignUpL
 
     @Override
     void initView() {
-        mUserProxy = new UserProxy(this);
         bindEvent();
     }
 
@@ -97,25 +98,38 @@ public class RegisterActivity extends BaseActivity implements UserProxy.ISignUpL
         progress.setMessage("正在注册...");
         progress.setCanceledOnTouchOutside(false);
         progress.show();
-        mUserProxy.setOnSignUpListener(this);
-        mUserProxy.signUp(name, password);
+        signUp(name, password);
     }
 
-    @Override
-    public void onSignUpFailure(String msg) {
-        ShowToast("注册失败");
-        progress.dismiss();
+    public void signUp(String userName, String password) {
+        User user = new User();
+        user.setUsername(userName);
+        user.setPassword(password);
+        user.setSignature("这个家伙很懒，什么也不说。。。");
+        user.setDeviceType("android");
+        user.setNick("无名氏");
+        user.setOfficial(false);
+        user.setInstallId(BmobInstallation.getInstallationId(mContext));
+        user.signUp(mContext, new SaveListener() {
+            @Override
+            public void onSuccess() {
+                progress.dismiss();
+                ShowToast("注册成功");
+                mUserManager.bindInstallationForRegister(et_username.getText().toString());
+                updateUserLocation();
+                sendBroadcast(new Intent(Constant.ACTION_REGISTER_SUCCESS_FINISH));
+                Intent intent = new Intent(RegisterActivity.this, TestActivity.class);
+                startActivity(intent);
+                finish();
+            }
+
+            @Override
+            public void onFailure(int arg0, String msg) {
+                ShowToast("用户已存在或网络不佳");
+                progress.dismiss();
+            }
+        });
     }
 
-    @Override
-    public void onSignUpSuccess() {
-        progress.dismiss();
-        ShowToast("注册成功");
-        mUserManager.bindInstallationForRegister(et_username.getText().toString());
-        updateUserLocation();
-        sendBroadcast(new Intent(Constant.ACTION_REGISTER_SUCCESS_FINISH));
-        Intent intent = new Intent(RegisterActivity.this, TestActivity.class);
-        startActivity(intent);
-        finish();
-    }
+
 }

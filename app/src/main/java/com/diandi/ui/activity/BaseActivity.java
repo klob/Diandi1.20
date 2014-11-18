@@ -13,9 +13,8 @@ import android.widget.Toast;
 import com.diandi.CustomApplication;
 import com.diandi.R;
 import com.diandi.bean.User;
-import com.diandi.proxy.UserProxy;
 import com.diandi.util.CollectionUtils;
-import com.diandi.util.factory.OverridePendingFactory;
+import com.diandi.util.factory.OverridePendingUtil;
 import com.diandi.view.HeaderLayout;
 import com.diandi.view.HeaderLayout.HeaderStyle;
 import com.diandi.view.HeaderLayout.onLeftImageButtonClickListener;
@@ -48,7 +47,6 @@ abstract class BaseActivity extends FragmentActivity {
 
     protected CustomApplication mApplication;
     protected Context mContext;
-    protected UserProxy mUserProxy;
     protected Toast mToast;
     protected ProgressDialog mProgressDialog;
 
@@ -77,9 +75,7 @@ abstract class BaseActivity extends FragmentActivity {
         if (mApplication == null) {
             mApplication = CustomApplication.getInstance();
         }
-        if (mUserProxy == null) {
-            mUserProxy = UserProxy.getInstance(this);
-        }
+
         mContext = this;
         mApplication.addActivity(this);
     }
@@ -170,12 +166,12 @@ abstract class BaseActivity extends FragmentActivity {
 
     public void startAnimActivity(Class<?> cla) {
         this.startActivity(new Intent(this, cla));
-        OverridePendingFactory.in(BaseActivity.this);
+        OverridePendingUtil.in(BaseActivity.this);
     }
 
     public void startAnimActivity(Intent intent) {
         this.startActivity(intent);
-        OverridePendingFactory.in(BaseActivity.this);
+        OverridePendingUtil.in(BaseActivity.this);
     }
 
     public void updateUserInfos() {
@@ -238,7 +234,7 @@ abstract class BaseActivity extends FragmentActivity {
     @Override
     public void onBackPressed() {
         finish();
-        OverridePendingFactory.out(this);
+        OverridePendingUtil.out(this);
     }
 
     public class OnLeftButtonClickListener implements
@@ -246,7 +242,7 @@ abstract class BaseActivity extends FragmentActivity {
         @Override
         public void onClick() {
             finish();
-            OverridePendingFactory.out(BaseActivity.this);
+            OverridePendingUtil.out(BaseActivity.this);
         }
     }
 

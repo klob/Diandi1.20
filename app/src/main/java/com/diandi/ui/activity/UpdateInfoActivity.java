@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.diandi.R;
 import com.diandi.config.Constant;
-import com.diandi.util.factory.OverridePendingFactory;
+import com.diandi.util.factory.OverridePendingUtil;
 import com.diandi.view.HeaderLayout.onRightImageButtonClickListener;
 
 public class UpdateInfoActivity extends ActivityBase {
@@ -49,7 +49,7 @@ public class UpdateInfoActivity extends ActivityBase {
                         intentBack.putExtra(Constant.UPDATE_BACK_CONTENT, backStr);
                         setResult(RESULT_OK, intentBack);
                         finish();
-                        OverridePendingFactory.out(UpdateInfoActivity.this);
+                        OverridePendingUtil.out(UpdateInfoActivity.this);
                     }
                 }
         );

@@ -25,8 +25,8 @@ import com.diandi.R;
 import com.diandi.bean.DianDi;
 import com.diandi.bean.User;
 import com.diandi.util.CacheUtils;
-import com.diandi.util.LogUtils;
-import com.diandi.util.factory.OverridePendingFactory;
+import com.diandi.util.L;
+import com.diandi.util.factory.OverridePendingUtil;
 import com.diandi.view.HeaderLayout;
 
 import java.io.File;
@@ -100,7 +100,7 @@ public class NewDiandiActivity extends ActivityBase implements OnClickListener {
 
                 }
                 finish();
-                OverridePendingFactory.out(NewDiandiActivity.this);
+                OverridePendingUtil.out(NewDiandiActivity.this);
             }
         });
         bindEvent();
@@ -159,7 +159,7 @@ public class NewDiandiActivity extends ActivityBase implements OnClickListener {
 
             @Override
             public void onSuccess() {
-                LogUtils.i(TAG, "上传文件成功。" + figureFile.getFileUrl());
+                L.i(TAG, "上传文件成功。" + figureFile.getFileUrl());
                 publish(commitContent, figureFile, false);
             }
 
@@ -170,7 +170,7 @@ public class NewDiandiActivity extends ActivityBase implements OnClickListener {
 
             @Override
             public void onFailure(int arg0, String arg1) {
-                LogUtils.i(TAG, "上传文件失败。" + arg1);
+                L.i(TAG, "上传文件失败。" + arg1);
             }
         });
 
@@ -195,7 +195,7 @@ public class NewDiandiActivity extends ActivityBase implements OnClickListener {
             @Override
             public void onSuccess() {
                 ShowToast("发表成功！");
-                LogUtils.i(TAG, "创建成功。");
+                L.i(TAG, "创建成功。");
                 setResult(RESULT_OK);
             }
 
@@ -203,7 +203,7 @@ public class NewDiandiActivity extends ActivityBase implements OnClickListener {
             public void onFailure(int arg0, String arg1) {
                 // TODO Auto-generated method stub
                 ShowToast("发表失败！yg" + arg1);
-                LogUtils.i(TAG, "创建失败。" + arg1);
+                L.i(TAG, "创建失败。" + arg1);
             }
         });
     }
@@ -212,7 +212,7 @@ public class NewDiandiActivity extends ActivityBase implements OnClickListener {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        LogUtils.i(TAG, "get album:");
+        L.i(TAG, "get album:");
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
                 case REQUEST_CODE_ALBUM:
@@ -224,7 +224,7 @@ public class NewDiandiActivity extends ActivityBase implements OnClickListener {
                         if (cursor.moveToFirst()) {
                             do {
                                 fileName = cursor.getString(cursor.getColumnIndex("_data"));
-                                LogUtils.i(TAG, "get album:" + fileName);
+                                L.i(TAG, "get album:" + fileName);
                             } while (cursor.moveToNext());
                         }
                         Bitmap bitmap = compressImageFromFile(fileName);
@@ -297,7 +297,7 @@ public class NewDiandiActivity extends ActivityBase implements OnClickListener {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        LogUtils.i(TAG, file.getAbsolutePath());
+        L.i(TAG, file.getAbsolutePath());
         return file.getAbsolutePath();
     }
 

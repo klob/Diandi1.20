@@ -16,7 +16,7 @@ import com.diandi.bean.DianDi;
 import com.diandi.bean.User;
 import com.diandi.config.Constant;
 import com.diandi.db.DatabaseUtil;
-import com.diandi.util.LogUtils;
+import com.diandi.util.L;
 import com.diandi.view.xlist.XListView;
 
 import java.text.SimpleDateFormat;
@@ -152,7 +152,7 @@ public class FavoriteActivity extends BaseActivity implements XListView.IXListVi
             @Override
             public void onError(int arg0, String arg1) {
                 // TODO Auto-generated method stub
-                LogUtils.i(TAG, "find failed." + arg1);
+                L.i(TAG, "find failed." + arg1);
                 pageNum--;
                 refreshPull();
             }

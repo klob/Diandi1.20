@@ -25,9 +25,9 @@ import com.diandi.bean.User;
 import com.diandi.config.Constant;
 import com.diandi.util.CacheUtils;
 import com.diandi.util.CollectionUtils;
-import com.diandi.util.LogUtils;
+import com.diandi.util.L;
 import com.diandi.util.Sputil;
-import com.diandi.util.factory.OverridePendingFactory;
+import com.diandi.util.factory.OverridePendingUtil;
 import com.diandi.view.dialog.DialogTips;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -285,7 +285,7 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
                 intent1.putExtra(Constant.UPDATE_TEXT, "昵称");
                 intent1.putExtra(Constant.UPDATE_EDIT_HINT, "请输入昵称");
                 this.startActivityForResult(intent1, UPDATE_NICK_CONTENT);
-                OverridePendingFactory.in(ProfileActivity.this);
+                OverridePendingUtil.in(ProfileActivity.this);
                 break;
             case R.id.activity_setting_user_sign_layout:  //修改签名
                 Intent intent2 = new Intent(ProfileActivity.this, UpdateInfoActivity.class);
@@ -293,7 +293,7 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
                 intent2.putExtra(Constant.UPDATE_TEXT, "签名");
                 intent2.putExtra(Constant.UPDATE_EDIT_HINT, "请输入签名");
                 this.startActivityForResult(intent2, UPDATE_SIGNATURE_CONTENT);
-                OverridePendingFactory.in(ProfileActivity.this);
+                OverridePendingUtil.in(ProfileActivity.this);
                 break;
             case R.id.activity_setting_logout_btn:
                 CustomApplication.getInstance().logout();
@@ -386,7 +386,7 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
         Intent intent = new Intent();
         intent.setClass(this, LoginActivity.class);
         startActivityForResult(intent, requestCode);
-        OverridePendingFactory.in(ProfileActivity.this);
+        OverridePendingUtil.in(ProfileActivity.this);
         ShowToast("请先登录。");
     }
 
@@ -441,14 +441,14 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
         Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         camera.putExtra(MediaStore.EXTRA_OUTPUT, uri);
         startActivityForResult(camera, 1);
-        OverridePendingFactory.in(ProfileActivity.this);
+        OverridePendingUtil.in(ProfileActivity.this);
     }
 
     private void getAvataFromAlbum() {
         Intent intent2 = new Intent(Intent.ACTION_GET_CONTENT);
         intent2.setType("image/*");
         startActivityForResult(intent2, 2);
-        OverridePendingFactory.in(ProfileActivity.this);
+        OverridePendingUtil.in(ProfileActivity.this);
     }
 
 
@@ -539,7 +539,7 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
                         @Override
                         public void onFailure(int arg0, String arg1) {
                             ShowToast("更新头像失败。请检查网络~");
-                            LogUtils.i(TAG, "更新失败2-->" + arg1);
+                            L.i(TAG, "更新失败2-->" + arg1);
                         }
                     });
                     progressDialog.dismiss();
@@ -548,7 +548,7 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
                 @Override
                 public void onFailure(int i, String s) {
                     ShowToast("上传头像失败。请检查网络~");
-                    LogUtils.i(TAG, "上传文件失败。" + s);
+                    L.i(TAG, "上传文件失败。" + s);
                     progressDialog.dismiss();
                 }
             });
@@ -574,13 +574,13 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
 
                 @Override
                 public void onSuccess() {
-                    LogUtils.i(TAG, "更新信息成功。");
+                    L.i(TAG, "更新信息成功。");
                 }
 
                 @Override
                 public void onFailure(int arg0, String arg1) {
                     ShowToast("更新信息失败。请检查网络~");
-                    LogUtils.i(TAG, "更新失败1-->" + arg1);
+                    L.i(TAG, "更新失败1-->" + arg1);
                 }
             });
         } else {
@@ -597,14 +597,14 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
 
                 @Override
                 public void onSuccess() {
-                    LogUtils.i(TAG, "更新信息成功。");
+                    L.i(TAG, "更新信息成功。");
                 }
 
                 @Override
                 public void onFailure(int arg0, String arg1) {
                     // TODO Auto-generated method stub
                     ShowToast("更新信息失败。请检查网络~");
-                    LogUtils.i(TAG, "更新失败1-->" + arg1);
+                    L.i(TAG, "更新失败1-->" + arg1);
                 }
             });
         } else {
@@ -630,7 +630,7 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        LogUtils.i(TAG, file.getAbsolutePath());
+        L.i(TAG, file.getAbsolutePath());
         return file.getAbsolutePath();
     }
 

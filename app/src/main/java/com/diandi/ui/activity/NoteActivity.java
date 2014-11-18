@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import com.diandi.R;
 import com.diandi.bean.Plan;
 import com.diandi.db.PlanDao;
-import com.diandi.util.factory.OverridePendingFactory;
+import com.diandi.util.factory.OverridePendingUtil;
 import com.diandi.view.HeaderLayout;
 
 /**
@@ -85,7 +85,7 @@ public class NoteActivity extends ActivityBase {
         mPlan.setNote(mNoteEdit.getText().toString());
         mPlanDao.createPlan(mPlan);
         finish();
-        OverridePendingFactory.out(NoteActivity.this);
+        OverridePendingUtil.out(NoteActivity.this);
 
     }
 }

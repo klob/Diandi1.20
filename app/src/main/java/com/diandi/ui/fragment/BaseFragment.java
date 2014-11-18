@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.diandi.CustomApplication;
 import com.diandi.R;
-import com.diandi.util.factory.OverridePendingFactory;
+import com.diandi.util.factory.OverridePendingUtil;
 import com.diandi.view.HeaderLayout;
 import com.diandi.view.HeaderLayout.HeaderStyle;
 import com.diandi.view.HeaderLayout.onLeftImageButtonClickListener;
@@ -174,12 +174,12 @@ public abstract class BaseFragment extends Fragment {
 
     public void startAnimActivity(Intent intent) {
         getActivity().startActivity(intent);
-        OverridePendingFactory.in(getActivity());
+        OverridePendingUtil.in(getActivity());
     }
 
     public void startAnimActivity(Class<?> cla) {
         getActivity().startActivity(new Intent(getActivity(), cla));
-        OverridePendingFactory.in(getActivity());
+        OverridePendingUtil.in(getActivity());
     }
 
     public class OnLeftButtonClickListener implements

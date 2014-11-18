@@ -17,7 +17,7 @@ import com.diandi.bean.User;
 import com.diandi.ui.fragment.ContactFragment;
 import com.diandi.ui.fragment.DiandiFragment;
 import com.diandi.ui.fragment.RecentFragment;
-import com.diandi.util.factory.OverridePendingFactory;
+import com.diandi.util.factory.OverridePendingUtil;
 import com.diandi.view.residemenu.ResideMenu;
 import com.diandi.view.residemenu.ResideMenuItem;
 import com.umeng.fb.FeedbackAgent;
@@ -177,7 +177,7 @@ public class MainActivity extends ActivityBase implements View.OnClickListener, 
                     Intent intent = new Intent(mContext, ProfileActivity.class);
                     intent.putExtra("from", "me");
                     startActivityForResult(intent, INFOR_REFREFLASH);
-                    OverridePendingFactory.in(MainActivity.this);
+                    OverridePendingUtil.in(MainActivity.this);
                 }
             });
             menuItems.add(itemHead);
@@ -211,7 +211,7 @@ public class MainActivity extends ActivityBase implements View.OnClickListener, 
         } else if (view == itemFeedback) {
             FeedbackAgent agent = new FeedbackAgent(MainActivity.this);
             agent.startFeedbackActivity();
-            OverridePendingFactory.in(MainActivity.this);
+            OverridePendingUtil.in(MainActivity.this);
         } else if (view == itemPlanBox) {
             startAnimActivity(PlanActivity.class);
         }

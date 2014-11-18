@@ -18,7 +18,7 @@ import com.diandi.bean.User;
 import com.diandi.ui.fragment.ContactFragment;
 import com.diandi.ui.fragment.DiandiFragment;
 import com.diandi.ui.fragment.RecentFragment;
-import com.diandi.util.factory.OverridePendingFactory;
+import com.diandi.util.factory.OverridePendingUtil;
 import com.nineoldandroids.view.ViewHelper;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.umeng.fb.FeedbackAgent;
@@ -166,12 +166,12 @@ public class TestActivity extends ActivityBase implements EventListener, View.On
                 Intent intent = new Intent(mContext, ProfileActivity.class);
                 intent.putExtra("from", "me");
                 startActivityForResult(intent, INFOR_REFREFLASH);
-                OverridePendingFactory.in(TestActivity.this);
+                OverridePendingUtil.in(TestActivity.this);
                 break;
             case R.id.activity_main_feedback_layout:
                 FeedbackAgent agent = new FeedbackAgent(TestActivity.this);
                 agent.startFeedbackActivity();
-                OverridePendingFactory.in(TestActivity.this);
+                OverridePendingUtil.in(TestActivity.this);
                 break;
             case R.id.activity_main_about_layout:
                 startAnimActivity(AboutActivity.class);

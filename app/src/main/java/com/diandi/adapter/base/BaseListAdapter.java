@@ -13,7 +13,7 @@ import android.widget.BaseAdapter;
 import android.widget.Toast;
 
 import com.diandi.util.L;
-import com.diandi.util.factory.OverridePendingFactory;
+import com.diandi.util.factory.OverridePendingUtil;
 
 import java.util.HashMap;
 import java.util.List;
@@ -156,14 +156,14 @@ public abstract class BaseListAdapter<E> extends BaseAdapter {
     public void startAnimActivity(Class<?> cla) {
         mContext.startActivity(new Intent(mContext, cla));
         if (mContext instanceof Activity) {
-            OverridePendingFactory.in((Activity) mContext);
+            OverridePendingUtil.in((Activity) mContext);
         }
     }
 
     public void startAnimActivity(Intent intent) {
         mContext.startActivity(intent);
         if (mContext instanceof Activity) {
-            OverridePendingFactory.in((Activity) mContext);
+            OverridePendingUtil.in((Activity) mContext);
         }
     }
 

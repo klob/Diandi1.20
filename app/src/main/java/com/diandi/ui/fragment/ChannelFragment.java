@@ -14,16 +14,8 @@ import com.diandi.CustomApplication;
 import com.diandi.R;
 import com.diandi.adapter.ChannelAdapter;
 import com.diandi.bean.OfficialDiandi;
-import com.diandi.bean.User;
-import com.diandi.ui.activity.MainActivity;
-import com.diandi.ui.activity.NewDiandiActivity;
-import com.diandi.ui.activity.NewOfficalDiandiActivity;
-import com.diandi.ui.activity.PlanActivity;
 import com.diandi.util.CollectionUtils;
-import com.diandi.util.factory.OverridePendingFactory;
-import com.diandi.view.dialog.ActionItem;
 import com.diandi.view.dialog.ListDialog;
-import com.diandi.view.dialog.TitlePop;
 import com.diandi.view.xlist.XListView;
 import com.melnykov.fab.FloatingActionButton;
 

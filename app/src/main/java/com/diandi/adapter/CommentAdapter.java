@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.diandi.R;
 import com.diandi.adapter.base.BaseListAdapter;
 import com.diandi.bean.Comment;
-import com.diandi.util.LogUtils;
+import com.diandi.util.L;
 
 import java.util.List;
 
@@ -36,7 +36,7 @@ public class CommentAdapter extends BaseListAdapter<Comment> {
         final Comment comment = mDataList.get(position);
         if (comment.getUser() != null) {
             viewHolder.userName.setText(comment.getUser().getNick());
-            LogUtils.i("CommentActivity", "NAME:" + comment.getUser().getUsername());
+            L.i("CommentActivity", "NAME:" + comment.getUser().getUsername());
         } else {
             viewHolder.userName.setText("墙友");
         }

@@ -25,7 +25,7 @@ import com.diandi.ui.activity.CommentActivity;
 import com.diandi.ui.activity.ImageBrowserActivity;
 import com.diandi.ui.activity.LoginActivity;
 import com.diandi.util.ActivityUtil;
-import com.diandi.util.LogUtils;
+import com.diandi.util.L;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
@@ -76,14 +76,15 @@ public class ChannelAdapter extends BaseListAdapter<OfficialDiandi> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
+
         final OfficialDiandi entity = mDataList.get(position);
-        LogUtils.i("user", entity.toString());
+        L.i("user", entity.toString());
         User user = entity.getAuthor();
         if (user == null) {
-            LogUtils.i("user", "USER IS NULL");
+            L.i("user", "USER IS NULL");
         }
         if (user.getAvatar() == null) {
-            LogUtils.i("user", "USER avatar IS NULL");
+            L.i("user", "USER avatar IS NULL");
         }
 
         String avatarUrl = null;
@@ -142,7 +143,7 @@ public class ChannelAdapter extends BaseListAdapter<OfficialDiandi> {
             viewHolder.contentLink.setVisibility(View.GONE);
         }
         viewHolder.love.setText(entity.getLove() + "");
-        LogUtils.i("love", entity.getMyLove() + "..");
+        L.i("love", entity.getMyLove() + "..");
         if (entity.getMyLove()) {
             viewHolder.love.setTextColor(Color.parseColor("#D95555"));
         } else {
@@ -182,7 +183,7 @@ public class ChannelAdapter extends BaseListAdapter<OfficialDiandi> {
                         entity.setMyLove(true);
                         entity.setMyFav(oldFav);
                         DatabaseUtil.getInstance(mContext).insertFav(entity);
-                        LogUtils.i(TAG, "点赞成功~");
+                        L.i(TAG, "点赞成功~");
                     }
 
                     @Override
@@ -281,12 +282,12 @@ public class ChannelAdapter extends BaseListAdapter<OfficialDiandi> {
                     @Override
                     public void onSuccess() {
                         DatabaseUtil.getInstance(mContext).insertFav(DianDi);
-                        LogUtils.i(TAG, "收藏成功。");
+                        L.i(TAG, "收藏成功。");
                     }
 
                     @Override
                     public void onFailure(int arg0, String arg1) {
-                        LogUtils.i(TAG, "收藏失败。请检查网络~");
+                        L.i(TAG, "收藏失败。请检查网络~");
                         ShowToast("收藏失败。请检查网络~" + arg0);
                     }
                 });
@@ -301,14 +302,14 @@ public class ChannelAdapter extends BaseListAdapter<OfficialDiandi> {
                     @Override
                     public void onSuccess() {
                         DatabaseUtil.getInstance(mContext).deleteFav(DianDi);
-                        LogUtils.i(TAG, "取消收藏。");
+                        L.i(TAG, "取消收藏。");
                         //try get fav to see if fav success
 //						getMyFavourite();
                     }
 
                     @Override
                     public void onFailure(int arg0, String arg1) {
-                        LogUtils.i(TAG, "取消收藏失败。请检查网络~");
+                        L.i(TAG, "取消收藏失败。请检查网络~");
                         ShowToast("取消收藏失败。请检查网络~" + arg0);
                     }
                 });

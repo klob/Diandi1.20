@@ -31,7 +31,7 @@ import com.diandi.sns.TencentShare;
 import com.diandi.sns.TencentShareConstants;
 import com.diandi.sns.TencentShareEntity;
 import com.diandi.util.ActivityUtil;
-import com.diandi.util.LogUtils;
+import com.diandi.util.L;
 import com.diandi.view.drop.CoverManager;
 import com.diandi.view.drop.DropCover;
 import com.diandi.view.drop.WaterDrop;
@@ -252,7 +252,7 @@ public class CommentActivity extends ActivityBase implements View.OnClickListene
             @Override
             public void onSuccess(List<Comment> data) {
                 // TODO Auto-generated method stub
-                LogUtils.i(TAG, "get comment success!" + data.size());
+                L.i(TAG, "get comment success!" + data.size());
                 if (data.size() != 0 && data.get(data.size() - 1) != null) {
 
                     if (data.size() < Constant.NUMBERS_PER_PAGE) {
@@ -263,7 +263,7 @@ public class CommentActivity extends ActivityBase implements View.OnClickListene
                     mAdapter.addAll(data);
                     mAdapter.notifyDataSetChanged();
                     setListViewHeightBasedOnChildren(commentList);
-                    LogUtils.i(TAG, "refresh");
+                    L.i(TAG, "refresh");
                 } else {
                     ShowToast("暂无更多评论~");
                     footer.setText("暂无更多评论~");
@@ -381,13 +381,13 @@ public class CommentActivity extends ActivityBase implements View.OnClickListene
                     @Override
                     public void onSuccess() {
                         // TODO Auto-generated method stub
-                        LogUtils.i(TAG, "更新评论成功。");
+                        L.i(TAG, "更新评论成功。");
 //						fetchData();
                     }
 
                     @Override
                     public void onFailure(int arg0, String arg1) {
-                        LogUtils.i(TAG, "更新评论失败。" + arg1);
+                        L.i(TAG, "更新评论失败。" + arg1);
                     }
                 });
 
@@ -424,7 +424,7 @@ public class CommentActivity extends ActivityBase implements View.OnClickListene
                 @Override
                 public void onSuccess() {
                     // TODO Auto-generated method stub
-                    LogUtils.i(TAG, "收藏成功。");
+                    L.i(TAG, "收藏成功。");
                     ShowToast("收藏成功。");
                     //try get fav to see if fav success
 //					getMyFavourite();
@@ -433,7 +433,7 @@ public class CommentActivity extends ActivityBase implements View.OnClickListene
                 @Override
                 public void onFailure(int arg0, String arg1) {
                     // TODO Auto-generated method stub
-                    LogUtils.i(TAG, "收藏失败。请检查网络~");
+                    L.i(TAG, "收藏失败。请检查网络~");
                     ShowToast("收藏失败。请检查网络~" + arg0);
                 }
             });
@@ -460,7 +460,7 @@ public class CommentActivity extends ActivityBase implements View.OnClickListene
                 @Override
                 public void onSuccess(List<DianDi> data) {
                     // TODO Auto-generated method stub
-                    LogUtils.i(TAG, "get fav success!" + data.size());
+                    L.i(TAG, "get fav success!" + data.size());
                     ShowToast("fav size:" + data.size());
                 }
 

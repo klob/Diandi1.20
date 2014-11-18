@@ -22,7 +22,7 @@ import com.diandi.sns.TencentShareConstants;
 import com.diandi.sns.TencentShareEntity;
 import com.diandi.ui.activity.CommentActivity;
 import com.diandi.util.ActivityUtil;
-import com.diandi.util.LogUtils;
+import com.diandi.util.L;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
@@ -73,13 +73,13 @@ public class PersonCenterAdapter extends BaseListAdapter<DianDi> {
 
 
         final DianDi entity = mDataList.get(position);
-        LogUtils.i("user", entity.toString());
+        L.i("user", entity.toString());
         User user = entity.getAuthor();
         if (user == null) {
-            LogUtils.i("user", "USER IS NULL");
+            L.i("user", "USER IS NULL");
         }
         if (user.getAvatar() == null) {
-            LogUtils.i("user", "USER avatar IS NULL");
+            L.i("user", "USER avatar IS NULL");
         }
         String avatarUrl = null;
         if (user.getAvatarImg() != null) {
@@ -142,7 +142,7 @@ public class PersonCenterAdapter extends BaseListAdapter<DianDi> {
                             });
         }
         viewHolder.love.setText(entity.getLove() + "");
-        LogUtils.i("love", entity.getMyLove() + "..");
+        L.i("love", entity.getMyLove() + "..");
         if (entity.getMyLove()) {
             viewHolder.love.setTextColor(Color.parseColor("#D95555"));
         } else {
@@ -166,7 +166,7 @@ public class PersonCenterAdapter extends BaseListAdapter<DianDi> {
 
                     @Override
                     public void onSuccess() {
-                        LogUtils.i(TAG, "点赞成功~");
+                        L.i(TAG, "点赞成功~");
                     }
 
                     @Override
@@ -281,7 +281,7 @@ public class PersonCenterAdapter extends BaseListAdapter<DianDi> {
                 @Override
                 public void onSuccess() {
                     // TODO Auto-generated method stub
-                    LogUtils.i(TAG, "收藏成功。");
+                    L.i(TAG, "收藏成功。");
                     //try get fav to see if fav success
 //					getMyFavourite();
                 }
@@ -289,7 +289,7 @@ public class PersonCenterAdapter extends BaseListAdapter<DianDi> {
                 @Override
                 public void onFailure(int arg0, String arg1) {
                     // TODO Auto-generated method stub
-                    LogUtils.i(TAG, "收藏失败。请检查网络~");
+                    L.i(TAG, "收藏失败。请检查网络~");
                     ShowToast("收藏失败。请检查网络~" + arg0);
                 }
             });
@@ -309,7 +309,7 @@ public class PersonCenterAdapter extends BaseListAdapter<DianDi> {
                 @Override
                 public void onSuccess(List<DianDi> data) {
                     // TODO Auto-generated method stub
-                    LogUtils.i(TAG, "get fav success!" + data.size());
+                    L.i(TAG, "get fav success!" + data.size());
                     ShowToast("fav size:" + data.size());
                 }
 

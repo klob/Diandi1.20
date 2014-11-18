@@ -450,7 +450,7 @@ public final class ActivityUtil {
      */
     public static String getImei(Context context) {
         TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-        LogUtils.i("IMEI", tm.getDeviceId());
+        L.i("IMEI"+tm.getDeviceId());
         return tm.getDeviceId();
     }
 

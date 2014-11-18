@@ -156,6 +156,7 @@ public class ChatAdapter extends BaseListAdapter<BmobMsg> {
                     intent.putExtra("from", "me");
                 }
                 mContext.startActivity(intent);
+
             }
         });
 

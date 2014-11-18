@@ -4,11 +4,10 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
-
 import com.diandi.CustomApplication;
 import com.diandi.bean.DianDi;
-import  com.diandi.db.DBHelper.FavTable;
-import com.diandi.util.LogUtils;
+import com.diandi.db.DBHelper.FavTable;
+import com.diandi.util.L;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -23,19 +22,19 @@ public class DatabaseUtil {
     /** 数据库帮助类 **/
     private DBHelper dbHelper;
 
-    public synchronized static DatabaseUtil getInstance(Context context) {
-        if(instance == null) {
-            instance=new DatabaseUtil(context);
-        }
-        return instance;
-    }
-
     /**
      * 初始化
      * @param context
      */
     private DatabaseUtil(Context context) {
         dbHelper=new DBHelper(context);
+    }
+
+    public synchronized static DatabaseUtil getInstance(Context context) {
+        if(instance == null) {
+            instance=new DatabaseUtil(context);
+        }
+        return instance;
     }
 
     /**
@@ -158,7 +157,7 @@ public class DatabaseUtil {
                         content.setMyLove(false);
                     }
                 }
-                LogUtils.i(TAG, content.getMyFav() + ".." + content.getMyLove());
+                L.i(TAG, content.getMyFav() + ".." + content.getMyLove());
             }
         }
         if(cursor != null) {
@@ -190,7 +189,7 @@ public class DatabaseUtil {
                         content.setMyLove(false);
                     }
                 }
-                LogUtils.i(TAG,content.getMyFav()+".."+content.getMyLove());
+                L.i(TAG,content.getMyFav()+".."+content.getMyLove());
             }
         }
         if(cursor != null) {
@@ -205,7 +204,7 @@ public class DatabaseUtil {
         ArrayList<DianDi> contents=null;
         // ContentResolver resolver = context.getContentResolver();
         Cursor cursor=dbHelper.query(DBHelper.TABLE_NAME, null, null, null, null, null, null);
-        LogUtils.i(TAG, cursor.getCount() + "");
+        L.i(TAG, cursor.getCount() + "");
         if(cursor == null) {
             return null;
         }
@@ -214,7 +213,7 @@ public class DatabaseUtil {
             DianDi content=new DianDi();
             content.setMyFav(cursor.getInt(3)==1?true:false);
             content.setMyLove(cursor.getInt(4)==1?true:false);
-            LogUtils.i(TAG,cursor.getColumnIndex("isfav")+".."+cursor.getColumnIndex("islove")+".."+content.getMyFav()+"..."+content.getMyLove());
+            L.i(TAG,cursor.getColumnIndex("isfav")+".."+cursor.getColumnIndex("islove")+".."+content.getMyFav()+"..."+content.getMyLove());
             contents.add(content);
         }
         if(cursor != null) {

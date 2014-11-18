@@ -26,7 +26,7 @@ import com.diandi.ui.activity.ImageBrowserActivity;
 import com.diandi.ui.activity.LoginActivity;
 import com.diandi.ui.activity.PersonalActivity;
 import com.diandi.util.ActivityUtil;
-import com.diandi.util.LogUtils;
+import com.diandi.util.L;
 import com.diandi.view.drop.WaterDrop;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
@@ -53,12 +53,11 @@ public class FeedAdapter extends BaseListAdapter<DianDi> {
 
     public static final String TAG = "AIContentAdapter";
     public static final int SAVE_FAVOURITE = 2;
-    private static final String VIEW_ID = "view_id_";
     public static final int DIANDI_ALL = 1;
+    private int mDiandiType = DIANDI_ALL;
     public static final int DIANDI_PERSON = 2;
     public static final int DIANDI_FAV = 3;
-
-    private int mDiandiType = DIANDI_ALL;
+    private static final String VIEW_ID = "view_id_";
 
     public FeedAdapter(Context context, List<DianDi> list) {
         super(context, list);
@@ -104,13 +103,13 @@ public class FeedAdapter extends BaseListAdapter<DianDi> {
         });*/
 
         final DianDi entity = mDataList.get(position);
-        LogUtils.i("user", entity.toString());
+        L.i("user", entity.toString());
         User user = entity.getAuthor();
         if (user == null) {
-            LogUtils.i("user", "USER IS NULL");
+            L.i("user", "USER IS NULL");
         }
         if (user.getAvatar() == null) {
-            LogUtils.i("user", "USER avatar IS NULL");
+            L.i("user", "USER avatar IS NULL");
         }
 
         String avatarUrl = null;
@@ -180,7 +179,7 @@ public class FeedAdapter extends BaseListAdapter<DianDi> {
             });
         }
         viewHolder.love.setText(entity.getLove() + "");
-        LogUtils.i("love", entity.getMyLove() + "..");
+        L.i("love", entity.getMyLove() + "..");
         if (entity.getMyLove()) {
             viewHolder.love.setTextColor(Color.parseColor("#D95555"));
         } else {
@@ -222,7 +221,7 @@ public class FeedAdapter extends BaseListAdapter<DianDi> {
                         entity.setMyLove(true);
                         entity.setMyFav(oldFav);
                         DatabaseUtil.getInstance(mContext).insertFav(entity);
-                        LogUtils.i(TAG, "点赞成功~");
+                        L.i(TAG, "点赞成功~");
                     }
 
                     @Override
@@ -305,12 +304,12 @@ public class FeedAdapter extends BaseListAdapter<DianDi> {
                     @Override
                     public void onSuccess() {
                         DatabaseUtil.getInstance(mContext).insertFav(DianDi);
-                        LogUtils.i(TAG, "收藏成功。");
+                        L.i(TAG, "收藏成功。");
                     }
 
                     @Override
                     public void onFailure(int arg0, String arg1) {
-                        LogUtils.i(TAG, "收藏失败。请检查网络~");
+                        L.i(TAG, "收藏失败。请检查网络~");
                         ShowToast("收藏失败。请检查网络~" + arg0);
                     }
                 });
@@ -325,14 +324,14 @@ public class FeedAdapter extends BaseListAdapter<DianDi> {
                     @Override
                     public void onSuccess() {
                         DatabaseUtil.getInstance(mContext).deleteFav(DianDi);
-                        LogUtils.i(TAG, "取消收藏。");
+                        L.i(TAG, "取消收藏。");
                         //try get fav to see if fav success
 //						getMyFavourite();
                     }
 
                     @Override
                     public void onFailure(int arg0, String arg1) {
-                        LogUtils.i(TAG, "取消收藏失败。请检查网络~");
+                        L.i(TAG, "取消收藏失败。请检查网络~");
                         ShowToast("取消收藏失败。请检查网络~" + arg0);
                     }
                 });
@@ -352,7 +351,7 @@ public class FeedAdapter extends BaseListAdapter<DianDi> {
 
                 @Override
                 public void onSuccess(List<DianDi> data) {
-                    LogUtils.i(TAG, "get fav success!" + data.size());
+                    L.i(TAG, "get fav success!" + data.size());
                     ShowToast("fav size:" + data.size());
                 }
 

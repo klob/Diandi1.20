@@ -7,7 +7,7 @@ import android.widget.EditText;
 import com.diandi.R;
 import com.diandi.bean.OfficialDiandi;
 import com.diandi.bean.User;
-import com.diandi.util.factory.OverridePendingFactory;
+import com.diandi.util.factory.OverridePendingUtil;
 import com.diandi.view.HeaderLayout;
 
 import cn.bmob.v3.BmobUser;
@@ -58,7 +58,7 @@ public class NewOfficalDiandiActivity extends ActivityBase {
 
                 }
                 finish();
-                OverridePendingFactory.out(NewOfficalDiandiActivity.this);
+                OverridePendingUtil.out(NewOfficalDiandiActivity.this);
 
             }
         });
