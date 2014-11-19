@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
 import com.diandi.CustomApplication;
+import com.diandi.sync.UserHelper;
 import com.diandi.view.dialog.DialogTips;
 
 
@@ -55,12 +56,12 @@ public class ActivityBase extends BaseActivity {
     }
 
     public void checkLogin() {
-        if (CustomApplication.getInstance().getCurrentUser() == null) {
+        if (UserHelper.getCurrentUser() == null) {
             startActivity(new Intent(this, LoginActivity.class));
             finish();
             LogE("用户未登陆");
         } else {
-            LogE(CustomApplication.getInstance().getCurrentUser().toString());
+            LogE(UserHelper.getCurrentUser().toString());
         }
     }
 

@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.diandi.CustomApplication;
 import com.diandi.R;
+import com.diandi.bean.User;
+import com.diandi.sync.UserHelper;
 import com.diandi.util.factory.OverridePendingUtil;
 import com.diandi.view.HeaderLayout;
 import com.diandi.view.HeaderLayout.HeaderStyle;
@@ -180,6 +182,10 @@ public abstract class BaseFragment extends Fragment {
     public void startAnimActivity(Class<?> cla) {
         getActivity().startActivity(new Intent(getActivity(), cla));
         OverridePendingUtil.in(getActivity());
+    }
+
+    public User getCurrentUser() {
+        return UserHelper.getCurrentUser(getActivity());
     }
 
     public class OnLeftButtonClickListener implements

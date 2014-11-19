@@ -116,7 +116,6 @@ public class ChannelFragment extends BaseFragment implements XListView.IXListVie
                 list.add("应用");
                 list.add("娱乐");
                 list.add("好书");
-                list.add("华科");
                 final ListDialog listDialog = new ListDialog(getActivity(), "操作", list);
                 listDialog.show();
                 listDialog.setOnListItemClickListener(new AdapterView.OnItemClickListener() {

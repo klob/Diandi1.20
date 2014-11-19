@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Toast;
 
+import com.diandi.bean.User;
+import com.diandi.sync.UserHelper;
 import com.diandi.util.L;
 import com.diandi.util.factory.OverridePendingUtil;
 
@@ -77,6 +79,10 @@ public abstract class BaseListAdapter<E> extends BaseAdapter {
 
     public void L(String str) {
         L.e(TAG, str);
+    }
+
+    public User getCurrentUser() {
+        return UserHelper.getCurrentUser(mContext);
     }
 
 

@@ -37,7 +37,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.diandi.MyMessageReceiver;
 import com.diandi.R;
 import com.diandi.adapter.ChatAdapter;
 import com.diandi.adapter.EmoViewPagerAdapter;
@@ -45,6 +44,7 @@ import com.diandi.adapter.EmoteAdapter;
 import com.diandi.adapter.NewRecordPlayClickListener;
 import com.diandi.bean.FaceText;
 import com.diandi.config.Constant;
+import com.diandi.receiver.MyMessageReceiver;
 import com.diandi.util.CommonUtils;
 import com.diandi.util.FaceTextUtils;
 import com.diandi.view.EmoticonsEditText;

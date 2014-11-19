@@ -5,9 +5,9 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.diandi.CustomApplication;
 import com.diandi.bean.LocalDiandi;
 import com.diandi.bean.Plan;
+import com.diandi.sync.UserHelper;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
@@ -26,7 +26,7 @@ import java.sql.SQLException;
 
 
 public class DataHelper extends OrmLiteSqliteOpenHelper {
-    private static final String DATABASE_NAME = CustomApplication.getInstance().getCurrentUser().getObjectId() + " diandi.db";
+    private static final String DATABASE_NAME = UserHelper.getUserId() + "_diandi.db";
     private static final int DATABASE_VERSION = 1;
 
     public DataHelper(Context context) {

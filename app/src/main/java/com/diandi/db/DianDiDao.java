@@ -3,10 +3,10 @@ package com.diandi.db;
 import android.content.Context;
 import android.util.Log;
 
-import com.diandi.CustomApplication;
 import com.diandi.bean.DianDi;
 import com.diandi.bean.LocalDiandi;
 import com.diandi.config.Constant;
+import com.diandi.sync.UserHelper;
 import com.j256.ormlite.dao.Dao;
 
 import java.sql.SQLException;
@@ -55,7 +55,7 @@ public class DianDiDao extends BaseDao<LocalDiandi> {
     public boolean isLoved(DianDi dianDi) {
         LocalDiandi localDiandi = null;
         try {
-            localDiandi = queryByParams(new String[]{LocalDiandi.USER_ID, LocalDiandi.OBJECT_ID}, new String[]{CustomApplication.getInstance().getCurrentUser().getObjectId(), dianDi.getObjectId()});
+            localDiandi = queryByParams(new String[]{LocalDiandi.USER_ID, LocalDiandi.OBJECT_ID}, new String[]{UserHelper.getUserId(), dianDi.getObjectId()});
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -65,7 +65,7 @@ public class DianDiDao extends BaseDao<LocalDiandi> {
     public void deleteFav(DianDi dianDi) {
         LocalDiandi localDiandi = null;
         try {
-            localDiandi = queryByParams(new String[]{LocalDiandi.USER_ID, LocalDiandi.OBJECT_ID}, new String[]{CustomApplication.getInstance().getCurrentUser().getObjectId(), dianDi.getObjectId()});
+            localDiandi = queryByParams(new String[]{LocalDiandi.USER_ID, LocalDiandi.OBJECT_ID}, new String[]{UserHelper.getUserId(), dianDi.getObjectId()});
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -75,7 +75,7 @@ public class DianDiDao extends BaseDao<LocalDiandi> {
 
     public void setFav(DianDi dianDi) {
         LocalDiandi localDiandi = null;
-        localDiandi.setUserId(CustomApplication.getInstance().getCurrentUser().getObjectId());
+        localDiandi.setUserId(UserHelper.getUserId());
         localDiandi.setObjectId(dianDi.getObjectId());
         localDiandi.setIsFav(dianDi.getMyLove() == true ? Constant.TRUE : Constant.FALSE);
         localDiandi.setIsFav(dianDi.getMyFav() == true ? Constant.TRUE : Constant.FALSE);

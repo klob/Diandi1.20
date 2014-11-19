@@ -11,9 +11,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.diandi.CustomApplication;
-import com.diandi.MyMessageReceiver;
 import com.diandi.R;
 import com.diandi.bean.User;
+import com.diandi.receiver.MyMessageReceiver;
+import com.diandi.sync.UserHelper;
 import com.diandi.ui.fragment.ContactFragment;
 import com.diandi.ui.fragment.DiandiFragment;
 import com.diandi.ui.fragment.RecentFragment;
@@ -112,8 +113,8 @@ public class MainActivity extends ActivityBase implements View.OnClickListener, 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == INFOR_REFREFLASH) {
-            itemHead.setIcon(CustomApplication.getInstance().getCurrentUser().getAvatar());
-            itemHead.setTitle(CustomApplication.getInstance().getCurrentUser().getNick());
+            itemHead.setIcon(UserHelper.getCurrentUser().getAvatar());
+            itemHead.setTitle(UserHelper.getCurrentUser().getNick());
         }
     }
 
@@ -168,7 +169,7 @@ public class MainActivity extends ActivityBase implements View.OnClickListener, 
         itemPlanBox = new ResideMenuItem(this, ResideMenuItem.TYPE_CONTENT);
         itemPlanBox.setTitle("计划格子");
 
-        User user = CustomApplication.getInstance().getCurrentUser();
+        User user = UserHelper.getCurrentUser();
         if (user != null) {
             itemHead = new ResideMenuItem(this, user.getAvatar(), user.getNick(), ResideMenuItem.TYPE_HEAD);
             itemHead.setOnClickListener(new View.OnClickListener() {

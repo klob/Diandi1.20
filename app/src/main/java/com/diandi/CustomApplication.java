@@ -13,7 +13,6 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.mapapi.SDKInitializer;
 import com.diandi.bean.DianDi;
-import com.diandi.bean.User;
 import com.diandi.util.ACache;
 import com.diandi.util.ActivityManagerUtils;
 import com.diandi.util.CollectionUtils;
@@ -37,7 +36,6 @@ import cn.bmob.im.BmobUserManager;
 import cn.bmob.im.bean.BmobChatUser;
 import cn.bmob.im.db.BmobDB;
 import cn.bmob.im.util.BmobLog;
-import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.datatype.BmobGeoPoint;
 
 /**
@@ -67,6 +65,9 @@ public class CustomApplication extends Application {
     private ACache mACache;
     private Map<String, BmobChatUser> contactList = new HashMap<String, BmobChatUser>();
 
+    public static CustomApplication getInstance() {
+        return mInstance;
+    }
 
     @Override
     public void onCreate() {
@@ -75,10 +76,6 @@ public class CustomApplication extends Application {
         BmobChat.DEBUG_MODE = true;
         mInstance = this;
         init();
-    }
-
-    public static CustomApplication getInstance() {
-        return mInstance;
     }
 
     /**
@@ -103,14 +100,6 @@ public class CustomApplication extends Application {
         } else {
             return mACache;
         }
-    }
-
-    public User getCurrentUser() {
-        User user = BmobUser.getCurrentUser(mInstance, User.class);
-        if (user != null) {
-            return user;
-        }
-        return null;
     }
 
     public DisplayImageOptions getOptions(int drawableId) {

@@ -23,6 +23,7 @@ import com.diandi.R;
 import com.diandi.adapter.FeedAdapter;
 import com.diandi.bean.DianDi;
 import com.diandi.db.DatabaseUtil;
+import com.diandi.sync.UserHelper;
 import com.diandi.ui.activity.CommentActivity;
 import com.diandi.ui.activity.NewDiandiActivity;
 import com.diandi.ui.activity.NewOfficalDiandiActivity;
@@ -191,7 +192,7 @@ public class FeedFragment extends BaseFragment implements XListView.IXListViewLi
                             query.findObjects(getActivity(), new FindListener<DianDi>() {
                                 @Override
                                 public void onSuccess(List<DianDi> list) {
-                                    if (CustomApplication.getInstance().getCurrentUser() != null) {
+                                    if (UserHelper.getCurrentUser() != null) {
                                         list = DatabaseUtil.getInstance(getActivity()).setFav(list);
                                     }
                                     mListItems.addAll(list);
@@ -235,7 +236,7 @@ public class FeedFragment extends BaseFragment implements XListView.IXListViewLi
                         mListItems.clear();
                         mAdapter.setList(mListItems);
                     }
-                    if (CustomApplication.getInstance().getCurrentUser() != null) {
+                    if (UserHelper.getCurrentUser() != null) {
                         list = DatabaseUtil.getInstance(getActivity()).setFav(list);
                     }
                     mListItems.addAll(list);

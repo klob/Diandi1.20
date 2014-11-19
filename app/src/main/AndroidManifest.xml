@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.diandi">
+<manifest package="com.diandi"
+          xmlns:android="http://schemas.android.com/apk/res/android">
     >
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -63,8 +63,8 @@
         </activity>
         <activity
             android:name="com.diandi.ui.activity.SplashActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -230,7 +230,7 @@
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
             </intent-filter>
         </receiver>
-        <receiver android:name="com.diandi.MyMessageReceiver">
+        <receiver android:name=".receiver.MyMessageReceiver">
             <intent-filter android:priority="1147483640">
                 <action android:name="cn.bmob.push.action.MESSAGE"/>
             </intent-filter>

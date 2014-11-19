@@ -13,6 +13,7 @@ import android.widget.ImageView;
 
 import com.diandi.CustomApplication;
 import com.diandi.R;
+import com.diandi.sync.UserHelper;
 import com.diandi.ui.activity.TestActivity;
 import com.diandi.view.dialog.TitlePop;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -134,7 +135,7 @@ public class DiandiFragment extends BaseFragment {
 
     public void onResume() {
         super.onResume();
-        ImageLoader.getInstance().displayImage(CustomApplication.getInstance().getCurrentUser().getAvatar(), mUserAvatarImg, CustomApplication.getInstance().getOptions());
+        ImageLoader.getInstance().displayImage(UserHelper.getCurrentUser().getAvatar(), mUserAvatarImg, CustomApplication.getInstance().getOptions());
 
     }
 

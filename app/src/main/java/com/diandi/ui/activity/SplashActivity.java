@@ -39,7 +39,7 @@ public class SplashActivity extends BaseActivity {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case GO_HOME:
-                    startAnimActivity(TestActivity.class);
+                    SplashActivity.this.startActivity(new Intent(SplashActivity.this, TestActivity.class));
                     finish();
                     break;
                 case GO_LOGIN:

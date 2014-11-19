@@ -4,9 +4,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
-import com.diandi.CustomApplication;
 import com.diandi.bean.DianDi;
 import com.diandi.db.DBHelper.FavTable;
+import com.diandi.sync.UserHelper;
 import com.diandi.util.L;
 
 import java.util.ArrayList;
@@ -60,7 +60,7 @@ public class DatabaseUtil {
 
     public void deleteFav(DianDi qy){
         Cursor cursor=null;
-        String where = FavTable.USER_ID+" = '"+CustomApplication.getInstance().getCurrentUser().getObjectId()
+        String where = FavTable.USER_ID+" = '"+ UserHelper.getUserId()
                 +"' AND "+FavTable.OBJECT_ID+" = '"+qy.getObjectId()+"'";
         cursor=dbHelper.query(DBHelper.TABLE_NAME, null, where, null, null, null, null);
         if(cursor != null && cursor.getCount() > 0) {
@@ -83,7 +83,7 @@ public class DatabaseUtil {
 
     public boolean isLoved(DianDi qy){
         Cursor cursor = null;
-        String where = FavTable.USER_ID+" = '"+ CustomApplication.getInstance().getCurrentUser().getObjectId()
+        String where = FavTable.USER_ID+" = '"+ UserHelper.getUserId()
                 +"' AND "+FavTable.OBJECT_ID+" = '"+qy.getObjectId()+"'";
         cursor=dbHelper.query(DBHelper.TABLE_NAME, null, where, null, null, null, null);
         if(cursor!=null && cursor.getCount()>0){
@@ -98,7 +98,7 @@ public class DatabaseUtil {
     public long insertFav(DianDi qy){
         long uri = 0;
         Cursor cursor=null;
-        String where = FavTable.USER_ID+" = '"+CustomApplication.getInstance().getCurrentUser().getObjectId()
+        String where = FavTable.USER_ID+" = '"+UserHelper.getUserId()
                 +"' AND "+FavTable.OBJECT_ID+" = '"+qy.getObjectId()+"'";
         cursor=dbHelper.query(DBHelper.TABLE_NAME, null, where, null, null, null, null);
         if(cursor != null && cursor.getCount() > 0) {
@@ -109,7 +109,7 @@ public class DatabaseUtil {
             dbHelper.update(DBHelper.TABLE_NAME, conv, where, null);
         }else{
             ContentValues cv = new ContentValues();
-            cv.put(FavTable.USER_ID, CustomApplication.getInstance().getCurrentUser().getObjectId());
+            cv.put(FavTable.USER_ID, UserHelper.getUserId());
             cv.put(FavTable.OBJECT_ID, qy.getObjectId());
             cv.put(FavTable.IS_LOVE, qy.getMyLove()==true?1:0);
             cv.put(FavTable.IS_FAV,qy.getMyFav()==true?1:0);
@@ -141,7 +141,7 @@ public class DatabaseUtil {
         if(lists != null && lists.size() > 0) {
             for(Iterator iterator=lists.iterator(); iterator.hasNext();) {
                 DianDi content=(DianDi)iterator.next();
-                String where = FavTable.USER_ID+" = '"+CustomApplication.getInstance().getCurrentUser().getObjectId()//content.getAuthor().getObjectId()
+                String where = FavTable.USER_ID+" = '"+UserHelper.getUserId()//content.getAuthor().getObjectId()
                         +"' AND "+FavTable.OBJECT_ID+" = '"+content.getObjectId()+"'";
                 cursor=dbHelper.query(DBHelper.TABLE_NAME, null, where, null, null, null, null);
                 if(cursor != null && cursor.getCount() > 0) {
@@ -178,7 +178,7 @@ public class DatabaseUtil {
             for(Iterator iterator=lists.iterator(); iterator.hasNext();) {
                 DianDi content=(DianDi)iterator.next();
                 content.setMyFav(true);
-                String where = FavTable.USER_ID+" = '"+CustomApplication.getInstance().getCurrentUser().getObjectId()
+                String where = FavTable.USER_ID+" = '"+UserHelper.getUserId()
                         +"' AND "+FavTable.OBJECT_ID+" = '"+content.getObjectId()+"'";
                 cursor=dbHelper.query(DBHelper.TABLE_NAME, null, where, null, null, null, null);
                 if(cursor != null && cursor.getCount() > 0) {

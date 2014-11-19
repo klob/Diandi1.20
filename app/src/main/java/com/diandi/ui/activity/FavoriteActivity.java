@@ -16,6 +16,7 @@ import com.diandi.bean.DianDi;
 import com.diandi.bean.User;
 import com.diandi.config.Constant;
 import com.diandi.db.DatabaseUtil;
+import com.diandi.sync.UserHelper;
 import com.diandi.util.L;
 import com.diandi.view.xlist.XListView;
 
@@ -128,7 +129,7 @@ public class FavoriteActivity extends BaseActivity implements XListView.IXListVi
                     if (list.size() < Constant.NUMBERS_PER_PAGE) {
                         ShowToast("已加载完所有数据~");
                     }
-                    if (CustomApplication.getInstance().getCurrentUser() != null) {
+                    if (UserHelper.getCurrentUser() != null) {
                         list = DatabaseUtil.getInstance(mContext).setFav(list);
                     }
                     mListItems.addAll(list);

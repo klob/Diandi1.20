@@ -1,4 +1,4 @@
-package com.diandi;
+package com.diandi.receiver;
 
 /**
  * ************************************************************
@@ -16,6 +16,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 
+import com.diandi.CustomApplication;
+import com.diandi.R;
 import com.diandi.ui.activity.MainActivity;
 import com.diandi.ui.activity.NewFriendActivity;
 import com.diandi.util.CollectionUtils;
@@ -51,10 +53,9 @@ import cn.bmob.v3.listener.FindListener;
  */
 public class MyMessageReceiver extends BroadcastReceiver {
 
+    public static final int NOTIFY_ID = 0x000;
     // 事件监听
     public static ArrayList<EventListener> ehList = new ArrayList<EventListener>();
-
-    public static final int NOTIFY_ID = 0x000;
     public static int mNewNum = 0;//
     BmobUserManager userManager;
     BmobChatUser currentUser;

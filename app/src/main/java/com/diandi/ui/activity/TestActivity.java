@@ -12,9 +12,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.diandi.CustomApplication;
-import com.diandi.MyMessageReceiver;
 import com.diandi.R;
 import com.diandi.bean.User;
+import com.diandi.receiver.MyMessageReceiver;
+import com.diandi.sync.UserHelper;
 import com.diandi.ui.fragment.ContactFragment;
 import com.diandi.ui.fragment.DiandiFragment;
 import com.diandi.ui.fragment.RecentFragment;
@@ -127,7 +128,7 @@ public class TestActivity extends ActivityBase implements EventListener, View.On
     void initView() {
         bindEvent();
         mDiandiBtn.performClick();
-        User user = CustomApplication.getInstance().getCurrentUser();
+        User user = UserHelper.getCurrentUser();
         if (user != null) {
             ImageLoader.getInstance().displayImage(user.getAvatar(), mUserIconImg, CustomApplication.getInstance().getOptions());
             mUserNameText.setText(user.getNick());

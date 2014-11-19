@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.diandi.CustomApplication;
 import com.diandi.R;
 import com.diandi.bean.User;
+import com.diandi.sync.UserHelper;
 import com.diandi.util.CollectionUtils;
 import com.diandi.util.factory.OverridePendingUtil;
 import com.diandi.view.HeaderLayout;
@@ -235,6 +236,10 @@ abstract class BaseActivity extends FragmentActivity {
     public void onBackPressed() {
         finish();
         OverridePendingUtil.out(this);
+    }
+
+    public User getCurrentUser() {
+        return UserHelper.getCurrentUser(mContext);
     }
 
     public class OnLeftButtonClickListener implements

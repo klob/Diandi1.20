@@ -21,6 +21,7 @@ import com.diandi.db.DatabaseUtil;
 import com.diandi.sns.TencentShare;
 import com.diandi.sns.TencentShareConstants;
 import com.diandi.sns.TencentShareEntity;
+import com.diandi.sync.UserHelper;
 import com.diandi.ui.activity.CommentActivity;
 import com.diandi.ui.activity.ImageBrowserActivity;
 import com.diandi.ui.activity.LoginActivity;
@@ -215,7 +216,7 @@ public class ChannelAdapter extends BaseListAdapter<OfficialDiandi> {
         viewHolder.comment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (CustomApplication.getInstance().getCurrentUser() == null) {
+                if (UserHelper.getCurrentUser() == null) {
                     ShowToast("请先登录。");
                     Intent intent = new Intent();
                     intent.setClass(mContext, LoginActivity.class);
