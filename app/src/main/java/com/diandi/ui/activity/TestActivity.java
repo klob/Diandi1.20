@@ -3,7 +3,6 @@ package com.diandi.ui.activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -41,46 +40,44 @@ public class TestActivity extends ActivityBase implements EventListener, View.On
     private static DragLayout mDragLayout;
     private static long firstTime;
     private ImageView iv_recent_tips, iv_contact_tips, iv_diandi_tips;//消息提示
-    private Button[] mTabs;
     private Button mDiandiBtn, mRecentBtn, mContanctBtn;
     private View currentButton;
     private LinearLayout mUserLayout;
     private LinearLayout mFeedbackLayout;
     private LinearLayout mAboutLayout;
     private LinearLayout mSettingLayout;
-    private LinearLayout mBoxLayout;
     private ImageView mUserIconImg;
     private TextView mUserNameText;
     private DiandiFragment diandiFragment;
+    private ContactFragment contactFragment;
+    private RecentFragment recentFragment;
+    private int currentTabIndex;
     private View.OnClickListener diandiOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
-            diandiFragment = null;
             if (diandiFragment == null)
                 diandiFragment = new DiandiFragment();
             ft.replace(R.id.fragment_container, diandiFragment, TAG);
             ft.commit();
             setButton(view);
+            currentTabIndex = 0;
         }
     };
-    private ContactFragment contactFragment;
-    private RecentFragment recentFragment;
-    private Fragment[] fragments;
-    private int index;
-    private int currentTabIndex;
+
     private View.OnClickListener recentOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
-            RecentFragment newsFatherFragment = null;
-            if (newsFatherFragment == null)
-                newsFatherFragment = new RecentFragment();
-            ft.replace(R.id.fragment_container, newsFatherFragment, TAG);
+            if (recentFragment == null)
+                recentFragment = new RecentFragment();
+            ft.replace(R.id.fragment_container, recentFragment, TAG);
             ft.commit();
             setButton(view);
+            currentTabIndex = 1;
+
         }
     };
     private View.OnClickListener contanctOnClickListener = new View.OnClickListener() {
@@ -88,16 +85,14 @@ public class TestActivity extends ActivityBase implements EventListener, View.On
         public void onClick(View view) {
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
-            ContactFragment newsFatherFragment = new ContactFragment();
-            ft.replace(R.id.fragment_container, newsFatherFragment, TAG);
+            if (contactFragment == null)
+                contactFragment = new ContactFragment();
+            ft.replace(R.id.fragment_container, contactFragment, TAG);
             ft.commit();
             setButton(view);
+            currentTabIndex = 2;
         }
     };
-
-    public static DragLayout getmDragLayout() {
-        return mDragLayout;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -244,7 +239,7 @@ public class TestActivity extends ActivityBase implements EventListener, View.On
         iv_recent_tips.setVisibility(View.VISIBLE);
         //保存接收到的消息-并发送已读回执给对方
         BmobChatManager.getInstance(this).saveReceiveMessage(true, message);
-        if (currentTabIndex == 0) {
+        if (currentTabIndex == 1) {
             //当前页面如果为会话页面，刷新此页面
             if (recentFragment != null) {
                 recentFragment.refresh();
@@ -269,7 +264,7 @@ public class TestActivity extends ActivityBase implements EventListener, View.On
             CustomApplication.getInstance().getMediaPlayer().start();
         }
         iv_contact_tips.setVisibility(View.VISIBLE);
-        if (currentTabIndex == 1) {
+        if (currentTabIndex == 2) {
             if (contactFragment != null) {
                 contactFragment.refresh();
             }

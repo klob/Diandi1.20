@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.Application;
 import android.app.NotificationManager;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.media.MediaPlayer;
 import android.preference.PreferenceManager;
 
@@ -20,11 +19,8 @@ import com.diandi.util.SharePreferenceUtil;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
 import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.ImageScaleType;
-import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.nostra13.universalimageloader.utils.StorageUtils;
 
 import java.io.File;
@@ -101,36 +97,6 @@ public class CustomApplication extends Application {
             return mACache;
         }
     }
-
-    public DisplayImageOptions getOptions(int drawableId) {
-        return new DisplayImageOptions.Builder()
-                .showImageOnLoading(drawableId)
-                .showImageForEmptyUri(drawableId)
-                .showImageOnFail(drawableId)
-                .resetViewBeforeLoading(true)
-                .cacheInMemory(true)
-                .cacheOnDisc(true)
-                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
-                .bitmapConfig(Bitmap.Config.RGB_565)
-                .considerExifParams(true)
-                .build();
-    }
-
-    public DisplayImageOptions getOptions() {
-        return new DisplayImageOptions.Builder()
-                .showImageOnLoading(R.drawable.default_head_cry)
-                .showImageForEmptyUri(R.drawable.default_head_cry)
-                .showImageOnFail(R.drawable.default_head_cry)
-                .resetViewBeforeLoading(true)
-                .cacheInMemory(true)
-                .cacheOnDisc(true)
-                .imageScaleType(ImageScaleType.EXACTLY)
-                .bitmapConfig(Bitmap.Config.RGB_565)
-                .considerExifParams(true)
-                .displayer(new RoundedBitmapDisplayer(90))
-                .build();
-    }
-
 
     public DianDi getCurrentDianDi() {
         return currentDianDi;

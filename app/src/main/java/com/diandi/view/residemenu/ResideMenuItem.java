@@ -6,7 +6,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.diandi.CustomApplication;
 import com.diandi.R;
 import com.diandi.util.ImageLoadOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -88,7 +87,7 @@ public class ResideMenuItem extends LinearLayout {
 
     public void setIcon(String iconUrl) {
         ImageLoader.getInstance().displayImage(iconUrl, iv_icon,
-                CustomApplication.getInstance().getOptions());
+                ImageLoadOptions.getOptions());
 
     }
 
