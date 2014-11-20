@@ -9,10 +9,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.diandi.CustomApplication;
 import com.diandi.R;
 import com.diandi.adapter.base.BaseListAdapter;
 import com.diandi.adapter.base.ViewHolder;
+import com.diandi.util.ImageLoadOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
@@ -48,7 +48,7 @@ public class AddFriendAdapter extends BaseListAdapter<BmobChatUser> {
         Button addBtn = ViewHolder.get(convertView, R.id.item_add_friend_add_btn);
 
         String avatar = contract.getAvatar();
-        ImageLoader.getInstance().displayImage(avatar, avatarImg, CustomApplication.getInstance().getOptions());
+        ImageLoader.getInstance().displayImage(avatar, avatarImg, ImageLoadOptions.getOptions());
         nameText.setText(contract.getUsername());
         addBtn.setText("添加");
         addBtn.setOnClickListener(new OnClickListener() {

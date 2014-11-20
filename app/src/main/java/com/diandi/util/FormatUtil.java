@@ -1,13 +1,10 @@
-package com.diandi.util.util;
-
-import java.util.Calendar;
-import java.util.Date;
+package com.diandi.util;
 
 /**
  * Created by Administrator on 2014/7/16.
  */
-public class Format {
-    Format() {
+public class FormatUtil {
+    FormatUtil() {
     }
 
     public static String formatString(String str) {
@@ -73,16 +70,4 @@ public class Format {
         }
     }
 
-    public static String getDueTimeString(Date date) {
-        Calendar calendar = Calendar.getInstance();
-        ;
-        try {
-            calendar.setTime(date);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        String dateString = Format.pad(calendar.get(Calendar.YEAR)) + "-" + Format.pad(calendar.get(Calendar.MONTH) + 1) + "-" + Format.pad(calendar.get(Calendar.DAY_OF_MONTH)
-        ) + "  星期" + Format.week2String(calendar.get(Calendar.DAY_OF_WEEK));
-        return dateString;
-    }
 }

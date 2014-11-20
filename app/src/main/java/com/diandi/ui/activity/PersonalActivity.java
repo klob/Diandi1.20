@@ -15,6 +15,7 @@ import com.diandi.adapter.FeedAdapter;
 import com.diandi.bean.DianDi;
 import com.diandi.bean.User;
 import com.diandi.config.Constant;
+import com.diandi.util.ImageLoadOptions;
 import com.diandi.util.L;
 import com.diandi.view.xlist.XListView;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -142,7 +143,7 @@ public class PersonalActivity extends ActivityBase implements XListView.IXListVi
         personalName.setText(user.getNick());
         personalSign.setText(user.getSignature());
         ImageLoader.getInstance().displayImage(user.getAvatar(), personalIcon,
-                CustomApplication.getInstance().getOptions(),
+                ImageLoadOptions.getOptions(),
                 new SimpleImageLoadingListener() {
                     @Override
                     public void onLoadingComplete(String imageUri, View view,

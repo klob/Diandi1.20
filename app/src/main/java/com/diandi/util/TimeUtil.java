@@ -1,10 +1,12 @@
 package com.diandi.util;
 
+import android.annotation.SuppressLint;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
-
-import android.annotation.SuppressLint;
+import java.util.TimeZone;
 
 @SuppressLint("SimpleDateFormat")
 public class TimeUtil {
@@ -19,13 +21,12 @@ public class TimeUtil {
     public final static String FORMAT_DATE_TIME = "yyyy-MM-dd HH:mm";
     public final static String FORMAT_DATE1_TIME = "yyyy/MM/dd HH:mm";
     public final static String FORMAT_DATE_TIME_SECOND = "yyyy/MM/dd HH:mm:ss";
-
-    private static SimpleDateFormat sdf = new SimpleDateFormat();
     private static final int YEAR = 365 * 24 * 60 * 60;// 年
     private static final int MONTH = 30 * 24 * 60 * 60;// 月
     private static final int DAY = 24 * 60 * 60;// 天
     private static final int HOUR = 60 * 60;// 小时
     private static final int MINUTE = 60;// 分钟
+    private static SimpleDateFormat sdf = new SimpleDateFormat();
 
     /**
      * 根据时间戳获取描述性时间，如3分钟前，1天前
@@ -178,5 +179,130 @@ public class TimeUtil {
         }
 
         return result;
+    }
+
+    public static String getDatetimeString(Date date) {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return format.format(date);
+    }
+
+    public static String getDatetimeString() {
+        Date date = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return format.format(date) + " " + getWeek();
+    }
+
+    public static String getDate() {
+        final Calendar c = Calendar.getInstance();
+        c.setTimeZone(TimeZone.getTimeZone("GMT+8:00"));
+        String mYear = String.valueOf(c.get(Calendar.YEAR)); // 获取当前年份
+        String mMonth = String.valueOf(c.get(Calendar.MONTH) + 1);// 获取当前月份
+        String mDay = String.valueOf(c.get(Calendar.DAY_OF_MONTH));// 获取当前月份的日期号码
+        String mWay = String.valueOf(c.get(Calendar.DAY_OF_WEEK));
+        if ("1".equals(mWay)) {
+            mWay = "天";
+        } else if ("2".equals(mWay)) {
+            mWay = "一";
+        } else if ("3".equals(mWay)) {
+            mWay = "二";
+        } else if ("4".equals(mWay)) {
+            mWay = "三";
+        } else if ("5".equals(mWay)) {
+            mWay = "四";
+        } else if ("6".equals(mWay)) {
+            mWay = "五";
+        } else if ("7".equals(mWay)) {
+            mWay = "六";
+        }
+        if (c.get(Calendar.MONTH) + 1 < 10)
+            mMonth = "0" + mMonth;
+        if (c.get(Calendar.DAY_OF_MONTH) < 10)
+            mDay = "0" + mDay;
+        System.out.printf("");
+        String str = mYear + "-" + mMonth + "-" + mDay + " " + "星期" + mWay;
+        System.out.printf(str);
+        return str;
+
+    }
+
+    public static String getWeek() {
+        final Calendar c = Calendar.getInstance();
+        c.setTimeZone(TimeZone.getTimeZone("GMT+8:00"));
+        String myWeek = String.valueOf(c.get(Calendar.DAY_OF_WEEK));
+        if ("1".equals(myWeek)) {
+            myWeek = "天";
+        } else if ("2".equals(myWeek)) {
+            myWeek = "一";
+        } else if ("3".equals(myWeek)) {
+            myWeek = "二";
+        } else if ("4".equals(myWeek)) {
+            myWeek = "三";
+        } else if ("5".equals(myWeek)) {
+            myWeek = "四";
+        } else if ("6".equals(myWeek)) {
+            myWeek = "五";
+        } else if ("7".equals(myWeek)) {
+            myWeek = "六";
+        }
+        return "星期" + myWeek;
+
+    }
+
+    public static String getWeek(int year, int monthOfYear, int dayOfMonth) {
+        int y = year - 2000;
+        int m = monthOfYear + 1;
+        int c = 20;
+        int d = dayOfMonth;
+        int w = y + y / 4 + c / 4 - 2 * c + 26 * (m + 1) / 10 + d - 1;
+        String myWeek = null;
+
+        switch (w % 7) {
+            case 0:
+                myWeek = "天";
+                break;
+            case 1:
+                myWeek = "一";
+                break;
+            case 2:
+                myWeek = "二";
+                break;
+            case 3:
+                myWeek = "三";
+                break;
+            case 4:
+                myWeek = "四";
+                break;
+            case 5:
+                myWeek = "五";
+                break;
+            case 6:
+                myWeek = "六";
+                break;
+            default:
+                break;
+        }
+
+        return "星期" + myWeek;
+    }
+
+    public static String getMonthOfYear(String month) {
+
+        int m = Integer.valueOf(month) + 1;
+        if (m < 13 && m > 0)
+            return String.valueOf(m);
+        else return null;
+    }
+
+    public static String getDueTimeString(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        ;
+        try {
+            calendar.setTime(date);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        String dateString = FormatUtil.pad(calendar.get(Calendar.YEAR)) + "-" + FormatUtil.pad(calendar.get(Calendar.MONTH) + 1) + "-" + FormatUtil.pad(calendar.get(Calendar.DAY_OF_MONTH)
+        ) + "  星期" + FormatUtil.week2String(calendar.get(Calendar.DAY_OF_WEEK));
+        return dateString;
     }
 }

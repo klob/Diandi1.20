@@ -13,7 +13,7 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.mapapi.SDKInitializer;
 import com.diandi.bean.DianDi;
-import com.diandi.util.ACache;
+import com.diandi.io.ACache;
 import com.diandi.util.ActivityManagerUtils;
 import com.diandi.util.CollectionUtils;
 import com.diandi.util.SharePreferenceUtil;
@@ -131,19 +131,6 @@ public class CustomApplication extends Application {
                 .build();
     }
 
-    public DisplayImageOptions getHeadOptions() {
-        return new DisplayImageOptions.Builder()
-                .showImageOnLoading(R.drawable.default_head_cry)
-                .showImageForEmptyUri(R.drawable.default_head_cry)
-                .showImageOnFail(R.drawable.default_head_cry)
-                .resetViewBeforeLoading(true)
-                .cacheInMemory(true)
-                .cacheOnDisc(true)
-                .imageScaleType(ImageScaleType.EXACTLY)
-                .bitmapConfig(Bitmap.Config.RGB_565)
-                .considerExifParams(true)
-                .build();
-    }
 
     public DianDi getCurrentDianDi() {
         return currentDianDi;

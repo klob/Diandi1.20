@@ -26,7 +26,7 @@ import com.diandi.bean.DianDi;
 import com.diandi.bean.User;
 import com.diandi.util.CacheUtils;
 import com.diandi.util.L;
-import com.diandi.util.factory.OverridePendingUtil;
+import com.diandi.util.OverridePendingUtil;
 import com.diandi.view.HeaderLayout;
 
 import java.io.File;

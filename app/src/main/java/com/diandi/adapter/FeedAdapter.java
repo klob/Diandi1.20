@@ -27,6 +27,7 @@ import com.diandi.ui.activity.ImageBrowserActivity;
 import com.diandi.ui.activity.LoginActivity;
 import com.diandi.ui.activity.PersonalActivity;
 import com.diandi.util.ActivityUtil;
+import com.diandi.util.ImageLoadOptions;
 import com.diandi.util.L;
 import com.diandi.view.drop.WaterDrop;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -117,7 +118,7 @@ public class FeedAdapter extends BaseListAdapter<DianDi> {
         if (user.getAvatar() != null) {
             avatarUrl = user.getAvatar();
         }
-        ImageLoader.getInstance().displayImage(avatarUrl, viewHolder.userLogo, CustomApplication.getInstance().getOptions());
+        ImageLoader.getInstance().displayImage(avatarUrl, viewHolder.userLogo, ImageLoadOptions.getOptions());
         if (mDiandiType == 1 || mDiandiType == 3) {
             viewHolder.userLogo.setOnClickListener(new OnClickListener() {
 
@@ -153,7 +154,7 @@ public class FeedAdapter extends BaseListAdapter<DianDi> {
             viewHolder.contentImage.setVisibility(View.VISIBLE);
             ImageLoader.getInstance()
                     .displayImage(entity.getContentfigureurl().getFileUrl() == null ? "" : entity.getContentfigureurl().getFileUrl(), viewHolder.contentImage,
-                            CustomApplication.getInstance().getOptions(R.drawable.bg_pic_loading),
+                            ImageLoadOptions.getOptions(R.drawable.bg_pic_loading),
                             new SimpleImageLoadingListener() {
                                 @Override
                                 public void onLoadingComplete(String imageUri, View view,

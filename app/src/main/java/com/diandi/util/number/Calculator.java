@@ -1,4 +1,4 @@
-package com.diandi.util.util;
+package com.diandi.util.number;
 
 /**
  * *************************************************************
@@ -10,11 +10,13 @@ package com.diandi.util.util;
  * **************************************************************
  */
 
+import com.diandi.util.TimeUtil;
+
 import java.util.Calendar;
 import java.util.Date;
 
 public class Calculator {
-    private final static String start_day = GetDate.getDatetimeString();
+    private final static String start_day = TimeUtil.getDatetimeString();
     ;
 
     public Calculator() {
@@ -50,11 +52,11 @@ public class Calculator {
         return daysBetween(startdate, enddate);
     }
 
-    public static int daysBetween(Date date1, Date date2) {
+    public static int daysBetween(Date dateFrom, Date dateEnd) {
         Calendar cal = Calendar.getInstance();
-        cal.setTime(date1);
+        cal.setTime(dateFrom);
         long time1 = cal.getTimeInMillis();
-        cal.setTime(date2);
+        cal.setTime(dateEnd);
         long time2 = cal.getTimeInMillis();
         long between_days = (time2 - time1) / (1000 * 3600 * 24);
         int m = Integer.parseInt(String.valueOf(between_days));

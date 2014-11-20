@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import com.diandi.R;
 import com.diandi.bean.Plan;
 import com.diandi.db.PlanDao;
-import com.diandi.util.factory.OverridePendingUtil;
+import com.diandi.util.OverridePendingUtil;
 import com.diandi.view.HeaderLayout;
 
 /**

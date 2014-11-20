@@ -17,7 +17,10 @@ android {
             proguardFiles 'proguard-android.txt'
         }
     }
-
+    android.applicationVariants.all { variant ->
+        def file = variant.outputFile
+        variant.outputFile = new File(file.parent, file.name.replace("app-debug.apk", "diandi" + ".apk"))
+    }
     lintOptions {
         checkReleaseBuilds false
         abortOnError false

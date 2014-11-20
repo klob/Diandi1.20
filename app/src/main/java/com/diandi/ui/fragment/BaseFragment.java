@@ -16,7 +16,7 @@ import com.diandi.CustomApplication;
 import com.diandi.R;
 import com.diandi.bean.User;
 import com.diandi.sync.UserHelper;
-import com.diandi.util.factory.OverridePendingUtil;
+import com.diandi.util.OverridePendingUtil;
 import com.diandi.view.HeaderLayout;
 import com.diandi.view.HeaderLayout.HeaderStyle;
 import com.diandi.view.HeaderLayout.onLeftImageButtonClickListener;

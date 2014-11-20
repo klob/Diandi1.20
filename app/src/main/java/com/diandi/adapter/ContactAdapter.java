@@ -10,9 +10,9 @@ import android.widget.ImageView;
 import android.widget.SectionIndexer;
 import android.widget.TextView;
 
-import com.diandi.CustomApplication;
 import com.diandi.R;
 import com.diandi.bean.User;
+import com.diandi.util.ImageLoadOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
@@ -90,7 +90,7 @@ public class ContactAdapter extends BaseAdapter implements SectionIndexer {
             avatarUrl = friend.getAvatar();
         }
         ImageLoader.getInstance().displayImage(avatarUrl, viewHolder.avatar,
-                CustomApplication.getInstance().getOptions());
+                ImageLoadOptions.getOptions());
         viewHolder.name.setText(name);
 
         // 根据position获取分类的首字母的Char ascii值

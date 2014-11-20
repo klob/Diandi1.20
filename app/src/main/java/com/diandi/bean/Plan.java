@@ -1,6 +1,6 @@
 package com.diandi.bean;
 
-import com.diandi.util.util.GetDate;
+import com.diandi.util.TimeUtil;
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
@@ -66,7 +66,7 @@ public class Plan implements Serializable {
         return "Plan{" +
                 "_id=" + _id +
                 ", title='" + title + '\'' +
-                ", date=" + GetDate.getDatetimeString(planDate) +
+                ", date=" + TimeUtil.getDatetimeString(planDate) +
                 ", progress=" + progress +
                 ", category='" + category + '\'' +
                 ", top='" + top + '\'' +

@@ -13,9 +13,9 @@ import com.diandi.R;
 import com.diandi.adapter.base.BaseListAdapter;
 import com.diandi.adapter.base.ViewHolder;
 import com.diandi.bean.Plan;
-import com.diandi.util.util.Calculator;
-import com.diandi.util.util.Format;
-import com.diandi.util.util.MemoryCache;
+import com.diandi.io.MemoryCache;
+import com.diandi.util.TimeUtil;
+import com.diandi.util.number.Calculator;
 
 import java.util.List;
 
@@ -65,7 +65,7 @@ public class PlanAdapter extends BaseListAdapter<Plan> {
 
         String title = mDataList.get(position).getTitle();
 
-        String dueTime = Format.getDueTimeString(mDataList.get(position).getPlanDate());
+        String dueTime = TimeUtil.getDueTimeString(mDataList.get(position).getPlanDate());
 
 
         int day = Calculator.calculate(dueTime);

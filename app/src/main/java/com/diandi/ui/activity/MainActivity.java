@@ -18,7 +18,7 @@ import com.diandi.sync.UserHelper;
 import com.diandi.ui.fragment.ContactFragment;
 import com.diandi.ui.fragment.DiandiFragment;
 import com.diandi.ui.fragment.RecentFragment;
-import com.diandi.util.factory.OverridePendingUtil;
+import com.diandi.util.OverridePendingUtil;
 import com.diandi.view.residemenu.ResideMenu;
 import com.diandi.view.residemenu.ResideMenuItem;
 import com.umeng.fb.FeedbackAgent;

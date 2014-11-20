@@ -1,19 +1,20 @@
 package com.diandi.adapter;
 
-import java.util.List;
-
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import cn.bmob.im.bean.BmobChatUser;
 
-import com.diandi.CustomApplication;
 import com.diandi.R;
 import com.diandi.adapter.base.BaseListAdapter;
 import com.diandi.adapter.base.ViewHolder;
+import com.diandi.util.ImageLoadOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+
+import java.util.List;
+
+import cn.bmob.im.bean.BmobChatUser;
 
 /** 黑名单
  * @ClassName: BlackListAdapter
@@ -37,7 +38,7 @@ public class BlackListAdapter extends BaseListAdapter<BmobChatUser> {
         ImageView iv_avatar = ViewHolder.get(convertView, R.id.img_friend_avatar);
         String avatar = contract.getAvatar();
         if (avatar != null && !avatar.equals("")) {
-            ImageLoader.getInstance().displayImage(avatar, iv_avatar, CustomApplication.getInstance().getOptions());
+            ImageLoader.getInstance().displayImage(avatar, iv_avatar, ImageLoadOptions.getOptions());
         } else {
             iv_avatar.setImageResource(R.drawable.default_head);
         }

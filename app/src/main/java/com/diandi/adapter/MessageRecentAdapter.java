@@ -1,7 +1,5 @@
 package com.diandi.adapter;
 
-import java.util.List;
-
 import android.content.Context;
 import android.text.SpannableString;
 import android.view.LayoutInflater;
@@ -11,16 +9,19 @@ import android.widget.ArrayAdapter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
-import cn.bmob.im.bean.BmobRecent;
-import cn.bmob.im.config.BmobConfig;
-import cn.bmob.im.db.BmobDB;
 
-import com.diandi.CustomApplication;
 import com.diandi.R;
 import com.diandi.adapter.base.ViewHolder;
 import com.diandi.util.FaceTextUtils;
+import com.diandi.util.ImageLoadOptions;
 import com.diandi.util.TimeUtil;
 import com.nostra13.universalimageloader.core.ImageLoader;
+
+import java.util.List;
+
+import cn.bmob.im.bean.BmobRecent;
+import cn.bmob.im.config.BmobConfig;
+import cn.bmob.im.db.BmobDB;
 
 /** 会话适配器
  * @ClassName: MessageRecentAdapter
@@ -57,7 +58,7 @@ public class MessageRecentAdapter extends ArrayAdapter<BmobRecent> implements Fi
         //填充数据
         String avatar = item.getAvatar();
         if(avatar!=null&& !avatar.equals("")){
-            ImageLoader.getInstance().displayImage(avatar, iv_recent_avatar, CustomApplication.getInstance().getOptions());
+            ImageLoader.getInstance().displayImage(avatar, iv_recent_avatar, ImageLoadOptions.getOptions());
         }else{
             iv_recent_avatar.setImageResource(R.drawable.default_head_cry);
         }

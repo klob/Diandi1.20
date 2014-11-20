@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.diandi.CustomApplication;
 import com.diandi.R;
 import com.diandi.adapter.base.BaseListAdapter;
 import com.diandi.adapter.base.ViewHolder;
@@ -19,6 +18,7 @@ import com.diandi.ui.activity.ImageBrowserActivity;
 import com.diandi.ui.activity.LocationActivity;
 import com.diandi.ui.activity.ProfileActivity;
 import com.diandi.util.FaceTextUtils;
+import com.diandi.util.ImageLoadOptions;
 import com.diandi.util.TimeUtil;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
@@ -138,7 +138,7 @@ public class ChatAdapter extends BaseListAdapter<BmobMsg> {
         //点击头像进入个人资料
         String avatar = item.getBelongAvatar();
         if(avatar!=null && !avatar.equals("")){//加载头像-为了不每次都加载头像
-            ImageLoader.getInstance().displayImage(avatar, iv_avatar, CustomApplication.getInstance().getOptions(),animateFirstListener);
+            ImageLoader.getInstance().displayImage(avatar, iv_avatar, ImageLoadOptions.getOptions(),animateFirstListener);
         }
 
         iv_avatar.setOnClickListener(new OnClickListener() {
@@ -392,7 +392,7 @@ public class ChatAdapter extends BaseListAdapter<BmobMsg> {
             //为了方便每次都是取本地图片显示
             ImageLoader.getInstance().displayImage(showUrl, iv_picture);
         }else{
-            ImageLoader.getInstance().displayImage(text, iv_picture, CustomApplication.getInstance().getOptions(), new ImageLoadingListener() {
+            ImageLoader.getInstance().displayImage(text, iv_picture, ImageLoadOptions.getOptions(), new ImageLoadingListener() {
 
                 @Override
                 public void onLoadingStarted(String imageUri, View view) {

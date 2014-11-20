@@ -1,7 +1,5 @@
 package com.diandi.adapter;
 
-import java.util.List;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.view.View;
@@ -11,19 +9,22 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.diandi.CustomApplication;
+import com.diandi.R;
+import com.diandi.adapter.base.BaseListAdapter;
+import com.diandi.adapter.base.ViewHolder;
+import com.diandi.util.CollectionUtils;
+import com.diandi.util.ImageLoadOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+
+import java.util.List;
+
 import cn.bmob.im.BmobUserManager;
 import cn.bmob.im.bean.BmobInvitation;
 import cn.bmob.im.config.BmobConfig;
 import cn.bmob.im.db.BmobDB;
 import cn.bmob.im.util.BmobLog;
 import cn.bmob.v3.listener.UpdateListener;
-
-import com.diandi.CustomApplication;
-import com.diandi.R;
-import com.diandi.adapter.base.BaseListAdapter;
-import com.diandi.adapter.base.ViewHolder;
-import com.diandi.util.CollectionUtils;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
  * 新的好友请求
@@ -53,7 +54,7 @@ public class NewFriendAdapter extends BaseListAdapter<BmobInvitation> {
         String avatar = msg.getAvatar();
 
         if (avatar != null && !avatar.equals("")) {
-            ImageLoader.getInstance().displayImage(avatar, avatarImg, CustomApplication.getInstance().getOptions());
+            ImageLoader.getInstance().displayImage(avatar, avatarImg, ImageLoadOptions.getOptions());
         } else {
             avatarImg.setImageResource(R.drawable.default_head);
         }

@@ -26,11 +26,11 @@ import com.diandi.db.DatabaseUtil;
 import com.diandi.sync.UserHelper;
 import com.diandi.ui.activity.CommentActivity;
 import com.diandi.ui.activity.NewDiandiActivity;
-import com.diandi.ui.activity.NewOfficalDiandiActivity;
 import com.diandi.ui.activity.PlanActivity;
 import com.diandi.ui.activity.Test;
+import com.diandi.ui.activity.WritePlanActivity;
 import com.diandi.util.CollectionUtils;
-import com.diandi.util.factory.OverridePendingUtil;
+import com.diandi.util.OverridePendingUtil;
 import com.diandi.view.dialog.ListDialog;
 import com.diandi.view.xlist.XListView;
 import com.melnykov.fab.FloatingActionButton;
@@ -87,9 +87,7 @@ public class FeedFragment extends BaseFragment implements XListView.IXListViewLi
                 final ArrayList<String> list = new ArrayList<String>();
                 list.add("记下点滴");
                 list.add("打开格子");
-
-                //list.add("发布公众");
-
+                list.add("新建计划");
                 //   list.add("发布匿名");
                 final ListDialog listDialog = new ListDialog(getActivity(), "操作", list);
                 listDialog.show();
@@ -98,22 +96,19 @@ public class FeedFragment extends BaseFragment implements XListView.IXListViewLi
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         if (i == 0) {
                             startAnimActivity(NewDiandiActivity.class);
-                            listDialog.dismiss();
                         }
                         if (i == 1) {
                             startAnimActivity(PlanActivity.class);
-                            listDialog.dismiss();
                         }
                         if (i == 2) {
-                            startAnimActivity(NewOfficalDiandiActivity.class);
-                            listDialog.dismiss();
+                            startAnimActivity(WritePlanActivity.class);
                         }
 
                         if (i == 3) {
                             startAnimActivity(Test.class);
-                            listDialog.dismiss();
-                        }
 
+                        }
+                        listDialog.dismiss();
 
                     }
                 });

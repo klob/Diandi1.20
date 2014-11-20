@@ -11,6 +11,7 @@ import com.diandi.R;
 import com.diandi.adapter.base.BaseListAdapter;
 import com.diandi.adapter.base.ViewHolder;
 import com.diandi.bean.User;
+import com.diandi.util.ImageLoadOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
@@ -72,7 +73,7 @@ public class NearPeopleAdapter extends BaseListAdapter<User> {
         ImageView iv_avatar = ViewHolder.get(convertView, R.id.iv_avatar);
         String avatar = contract.getAvatar();
         ImageLoader.getInstance().displayImage(avatar, iv_avatar,
-                CustomApplication.getInstance().getOptions());
+                ImageLoadOptions.getOptions());
 
         BmobGeoPoint location = contract.getLocation();
         String currentLat = CustomApplication.getInstance().getLatitude();

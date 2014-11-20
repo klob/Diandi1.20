@@ -29,6 +29,7 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <!--
         <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -175,7 +176,7 @@
         <!-- baidu map start -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="EqTKW20UAEiUc5nSvVOsZ19S"/>
+            android:value="9Lf6CZO3zfGyXvzSYXiaCMNR"/>
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="54089af1fd98c5640f00a527"/>
@@ -252,10 +253,7 @@
             android:name="com.diandi.ui.activity.TestActivity"
             android:label="@string/title_activity_test">
         </activity>
-        <activity
-            android:name="com.diandi.ui.activity.TestActivity3"
-            android:label="@string/title_activity_test_activity3">
-        </activity>
+
     </application>
 
 </manifest>

@@ -17,6 +17,7 @@ import com.diandi.db.PlanDao;
 import com.diandi.ui.activity.NoteActivity;
 import com.diandi.ui.activity.RadialProgressActivity;
 import com.diandi.ui.activity.WritePlanActivity;
+import com.diandi.util.L;
 import com.diandi.view.dialog.DialogTips;
 import com.diandi.view.dialog.ListDialog;
 
@@ -55,6 +56,7 @@ public class PlanFragment extends BaseFragment implements AdapterView.OnItemClic
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
@@ -92,6 +94,7 @@ public class PlanFragment extends BaseFragment implements AdapterView.OnItemClic
     void initView() {
         mPlanDao = new PlanDao(getActivity());
         loadData();
+        L.e(mPlans.toString());
         mPlanAdapter = new PlanAdapter(getActivity(), mPlans);
         mPlanListView.setAdapter(mPlanAdapter);
         bindEvent();
@@ -100,7 +103,6 @@ public class PlanFragment extends BaseFragment implements AdapterView.OnItemClic
 
     private void loadData() {
         try {
-
             mPlans = mPlanDao.query("category", mPlanCategory);
             mPlanDao.sortPlans(mPlans);
         } catch (SQLException e) {
@@ -158,6 +160,7 @@ public class PlanFragment extends BaseFragment implements AdapterView.OnItemClic
                 }
                 if (i == 2) {
                     plan.setProgress(100);
+                    plan.setTop("false");
                     mPlanDao.createPlan(plan);
                     onRefresh();
                     listDialog.dismiss();

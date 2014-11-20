@@ -14,7 +14,7 @@ import java.util.List;
  * Copyright © sulinger .All Rights Reserved.
  */
 @SuppressWarnings("unckecked")
-public class SortList<E> {
+public class DataSortUtil<E> {
     public void Sort(List<E> list, final String method, final String sort) {
         Collections.sort(list, new ListComparator(method, sort));
     }

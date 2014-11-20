@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.diandi.bean.User;
 import com.diandi.sync.UserHelper;
 import com.diandi.util.L;
-import com.diandi.util.factory.OverridePendingUtil;
+import com.diandi.util.OverridePendingUtil;
 
 import java.util.HashMap;
 import java.util.List;

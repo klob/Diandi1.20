@@ -4,9 +4,9 @@ import android.content.Context;
 import android.util.Log;
 
 import com.diandi.bean.Plan;
-import com.diandi.util.SortList;
-import com.diandi.util.util.Calculator;
-import com.diandi.util.util.GetDate;
+import com.diandi.util.DataSortUtil;
+import com.diandi.util.TimeUtil;
+import com.diandi.util.number.Calculator;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
@@ -161,7 +161,7 @@ public class PlanDao {
                 plan.setType(Plan.URGENT_FINISHED);
             } else {
                 int k=plan.getProgress();
-                int a = Calculator.calculate(GetDate.getDatetimeString(plan.getPlanDate()));
+                int a = Calculator.calculate(TimeUtil.getDatetimeString(plan.getPlanDate()));
                 Log.v(TAG, plan.getTitle() + "  " + a);
                 if (k > 75)
                     plan.setType(Plan.URGENT_LOW);
@@ -174,8 +174,8 @@ public class PlanDao {
             }
 
         }
-        SortList<Plan> sortList = new SortList<Plan>();
-        sortList.Sort(plans, "getType", "des");
+        DataSortUtil<Plan> dataSortUtil = new DataSortUtil<Plan>();
+        dataSortUtil.Sort(plans, "getType", "des");
         createPlans(plans);
 
 

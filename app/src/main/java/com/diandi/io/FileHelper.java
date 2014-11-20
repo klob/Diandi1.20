@@ -1,4 +1,4 @@
-package com.diandi.util.util;
+package com.diandi.io;
 
 import android.content.Context;
 import android.os.Environment;

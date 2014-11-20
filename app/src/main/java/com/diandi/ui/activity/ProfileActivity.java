@@ -25,9 +25,10 @@ import com.diandi.bean.User;
 import com.diandi.config.Constant;
 import com.diandi.util.CacheUtils;
 import com.diandi.util.CollectionUtils;
+import com.diandi.util.ImageLoadOptions;
 import com.diandi.util.L;
+import com.diandi.util.OverridePendingUtil;
 import com.diandi.util.Sputil;
-import com.diandi.util.factory.OverridePendingUtil;
 import com.diandi.view.dialog.DialogTips;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -204,7 +205,7 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
 
             BmobFile avatarFile = user.getAvatarImg();
             if (avatarFile != null) {
-                ImageLoader.getInstance().displayImage(user.getAvatar(), mAvatarImg, CustomApplication.getInstance().getOptions());
+                ImageLoader.getInstance().displayImage(user.getAvatar(), mAvatarImg, ImageLoadOptions.getOptions());
             } else {
                 mAvatarImg.setImageResource(R.drawable.default_head_cry);
             }
@@ -559,7 +560,7 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
 
     private void refreshAvatar(String avatar) {
         if (avatar != null && !avatar.equals("")) {
-            ImageLoader.getInstance().displayImage(avatar, mAvatarImg, CustomApplication.getInstance().getOptions());
+            ImageLoader.getInstance().displayImage(avatar, mAvatarImg, ImageLoadOptions.getOptions());
         }
     }
 

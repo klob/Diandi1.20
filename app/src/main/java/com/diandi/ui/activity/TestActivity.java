@@ -1,6 +1,7 @@
 package com.diandi.ui.activity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -19,9 +20,12 @@ import com.diandi.sync.UserHelper;
 import com.diandi.ui.fragment.ContactFragment;
 import com.diandi.ui.fragment.DiandiFragment;
 import com.diandi.ui.fragment.RecentFragment;
-import com.diandi.util.factory.OverridePendingUtil;
+import com.diandi.util.OverridePendingUtil;
 import com.nineoldandroids.view.ViewHelper;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.umeng.fb.FeedbackAgent;
 
 import cn.bmob.im.BmobChatManager;
@@ -130,7 +134,18 @@ public class TestActivity extends ActivityBase implements EventListener, View.On
         mDiandiBtn.performClick();
         User user = UserHelper.getCurrentUser();
         if (user != null) {
-            ImageLoader.getInstance().displayImage(user.getAvatar(), mUserIconImg, CustomApplication.getInstance().getOptions());
+            ImageLoader.getInstance().displayImage(user.getAvatar(), mUserIconImg, new DisplayImageOptions.Builder()
+                    .showImageOnLoading(R.drawable.default_head_cry)
+                    .showImageForEmptyUri(R.drawable.default_head_cry)
+                    .showImageOnFail(R.drawable.default_head_cry)
+                    .resetViewBeforeLoading(true)
+                    .cacheInMemory(true)
+                    .cacheOnDisc(true)
+                    .imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
+                    .bitmapConfig(Bitmap.Config.RGB_565)
+                    .considerExifParams(true)
+                    .displayer(new RoundedBitmapDisplayer(90))
+                    .build());
             mUserNameText.setText(user.getNick());
         }
     }

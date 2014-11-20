@@ -1,17 +1,15 @@
 package com.diandi.view.residemenu;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.diandi.CustomApplication;
 import com.diandi.R;
+import com.diandi.util.ImageLoadOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
 
 /**
@@ -56,7 +54,7 @@ public class ResideMenuItem extends LinearLayout {
         super(context);
         initViews(context, type);
         ImageLoader.getInstance().displayImage(iconUrl, iv_icon,
-                CustomApplication.getInstance().getOptions());
+                ImageLoadOptions.getOptions());
         tv_title.setText(title);
     }
 

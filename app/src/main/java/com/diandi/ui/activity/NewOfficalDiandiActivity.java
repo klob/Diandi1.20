@@ -7,7 +7,7 @@ import android.widget.EditText;
 import com.diandi.R;
 import com.diandi.bean.OfficialDiandi;
 import com.diandi.bean.User;
-import com.diandi.util.factory.OverridePendingUtil;
+import com.diandi.util.OverridePendingUtil;
 import com.diandi.view.HeaderLayout;
 
 import cn.bmob.v3.BmobUser;

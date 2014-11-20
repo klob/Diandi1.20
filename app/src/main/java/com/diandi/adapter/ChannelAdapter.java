@@ -26,6 +26,7 @@ import com.diandi.ui.activity.CommentActivity;
 import com.diandi.ui.activity.ImageBrowserActivity;
 import com.diandi.ui.activity.LoginActivity;
 import com.diandi.util.ActivityUtil;
+import com.diandi.util.ImageLoadOptions;
 import com.diandi.util.L;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
@@ -92,7 +93,7 @@ public class ChannelAdapter extends BaseListAdapter<OfficialDiandi> {
         if (user.getAvatar() != null) {
             avatarUrl = user.getAvatar();
         }
-        ImageLoader.getInstance().displayImage(avatarUrl, viewHolder.userLogo, CustomApplication.getInstance().getOptions());
+        ImageLoader.getInstance().displayImage(avatarUrl, viewHolder.userLogo, ImageLoadOptions.getOptions());
         viewHolder.userName.setText(entity.getAuthor().getNick());
 
         viewHolder.contentText.setText(entity.getContent());
@@ -102,7 +103,7 @@ public class ChannelAdapter extends BaseListAdapter<OfficialDiandi> {
             viewHolder.contentImage.setVisibility(View.VISIBLE);
             ImageLoader.getInstance()
                     .displayImage(entity.getContentfigureurl().getFileUrl() == null ? "" : entity.getContentfigureurl().getFileUrl(), viewHolder.contentImage,
-                            CustomApplication.getInstance().getOptions(R.drawable.bg_pic_loading),
+                            ImageLoadOptions.getOptions(R.drawable.bg_pic_loading),
                             new SimpleImageLoadingListener() {
                                 @Override
                                 public void onLoadingComplete(String imageUri, View view,

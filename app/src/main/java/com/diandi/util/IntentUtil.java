@@ -1,4 +1,4 @@
-package com.diandi.util.factory;
+package com.diandi.util;
 
 import android.app.Activity;
 import android.content.Intent;

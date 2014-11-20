@@ -2,14 +2,16 @@ package com.diandi.util;
 
 import android.graphics.Bitmap;
 
+import com.diandi.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 
 public class ImageLoadOptions {
 
     /** 新闻列表中用到的图片加载配置 */
-    public static DisplayImageOptions getOptions() {
+    public static DisplayImageOptions getOption() {
         DisplayImageOptions options = new DisplayImageOptions.Builder()
                 // // 设置图片在下载期间显示的图片
                 // .showImageOnLoading(R.drawable.small_image_holder_listpage)
@@ -38,6 +40,34 @@ public class ImageLoadOptions {
                 .build();
 
         return options;
+    }
+    public static DisplayImageOptions getOptions(int drawableId) {
+        return new DisplayImageOptions.Builder()
+                .showImageOnLoading(drawableId)
+                .showImageForEmptyUri(drawableId)
+                .showImageOnFail(drawableId)
+                .resetViewBeforeLoading(true)
+                .cacheInMemory(true)
+                .cacheOnDisc(true)
+                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
+                .bitmapConfig(Bitmap.Config.RGB_565)
+                .considerExifParams(true)
+                .build();
+    }
+
+    public static DisplayImageOptions getOptions() {
+        return new DisplayImageOptions.Builder()
+                .showImageOnLoading(R.drawable.default_head_cry)
+                .showImageForEmptyUri(R.drawable.default_head_cry)
+                .showImageOnFail(R.drawable.default_head_cry)
+                .resetViewBeforeLoading(true)
+                .cacheInMemory(true)
+                .cacheOnDisc(true)
+                .imageScaleType(ImageScaleType.EXACTLY)
+                .bitmapConfig(Bitmap.Config.RGB_565)
+                .considerExifParams(true)
+                .displayer(new RoundedBitmapDisplayer(90))
+                .build();
     }
 
 }

@@ -31,6 +31,7 @@ import com.diandi.sns.TencentShare;
 import com.diandi.sns.TencentShareConstants;
 import com.diandi.sns.TencentShareEntity;
 import com.diandi.util.ActivityUtil;
+import com.diandi.util.ImageLoadOptions;
 import com.diandi.util.L;
 import com.diandi.view.drop.CoverManager;
 import com.diandi.view.drop.DropCover;
@@ -188,7 +189,7 @@ public class CommentActivity extends ActivityBase implements View.OnClickListene
             commentItemImage.setVisibility(View.VISIBLE);
             ImageLoader.getInstance()
                     .displayImage(mDianDi.getContentfigureurl().getFileUrl() == null ? "" : mDianDi.getContentfigureurl().getFileUrl(), commentItemImage,
-                            CustomApplication.getInstance().getOptions(R.drawable.bg_pic_loading),
+                            ImageLoadOptions.getOptions(R.drawable.bg_pic_loading),
                             new SimpleImageLoadingListener() {
                                 @Override
                                 public void onLoadingComplete(String imageUri, View view,
@@ -229,7 +230,7 @@ public class CommentActivity extends ActivityBase implements View.OnClickListene
 
         User user = mDianDi.getAuthor();
         ImageLoader.getInstance().displayImage(user.getAvatar(), userLogo,
-                CustomApplication.getInstance().getOptions(),
+                ImageLoadOptions.getOptions(),
                 new SimpleImageLoadingListener() {
                     @Override
                     public void onLoadingComplete(String imageUri, View view,

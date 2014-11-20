@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.diandi.R;
 import com.diandi.bean.Plan;
 import com.diandi.db.PlanDao;
-import com.diandi.util.util.Format;
+import com.diandi.util.FormatUtil;
 import com.diandi.view.HeaderLayout;
 import com.diandi.view.googledatetimepicker.date.DatePickerDialog;
 import com.diandi.view.googledatetimepicker.time.RadialPickerLayout;
@@ -136,14 +136,14 @@ public class WritePlanActivity extends BaseActivity {
     }
 
     private String getDateString() {
-        String dateString = Format.pad(mTimeYear) + "-" + Format.pad(mTimeMonth + 1) + "-" + Format.pad(mTimeDay)
-                + "  星期" + Format.week2String(mCalendar.get(Calendar.DAY_OF_WEEK));
+        String dateString = FormatUtil.pad(mTimeYear) + "-" + FormatUtil.pad(mTimeMonth + 1) + "-" + FormatUtil.pad(mTimeDay)
+                + "  星期" + FormatUtil.week2String(mCalendar.get(Calendar.DAY_OF_WEEK));
         return dateString;
     }
 
     private String getTimeString() {
-        String timeString = Format.padHour(mTimeHour) + ":" + Format.pad(mTimeMinute) + " "
-                + Format.padAP(mTimeHour);
+        String timeString = FormatUtil.padHour(mTimeHour) + ":" + FormatUtil.pad(mTimeMinute) + " "
+                + FormatUtil.padAP(mTimeHour);
         return timeString;
     }
 
