@@ -1,4 +1,4 @@
-package com.diandi.util.number;
+package com.diandi.util;
 
 /**
  * *************************************************************
@@ -9,8 +9,6 @@ package com.diandi.util.number;
  * *********    Copyright @ 2014, SuLinger, All Rights Reserved  **
  * **************************************************************
  */
-
-import com.diandi.util.TimeUtil;
 
 import java.util.Calendar;
 import java.util.Date;

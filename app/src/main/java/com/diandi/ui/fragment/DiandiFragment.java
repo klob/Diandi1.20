@@ -8,14 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.diandi.R;
 import com.diandi.sync.UserHelper;
 import com.diandi.ui.activity.TestActivity;
 import com.diandi.util.ImageLoadOptions;
-import com.diandi.view.dialog.TitlePop;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
@@ -25,25 +23,14 @@ public class DiandiFragment extends BaseFragment {
 
 
     private final static String TAG = "DiandiFragment";
-    private static ImageButton mMoreBtn;
-    private static TitlePop mTitlePop;
     private View mContentView;
     private Button mFeedBtn;
     private Button mChannelBtn;
     private ImageView mUserAvatarImg;
-    private ImageButton mNewDiandiBtn;
     private FeedFragment mFeedFragment;
     private ChannelFragment mChannelFragment;
 
     public DiandiFragment() {
-    }
-
-    public static ImageButton getMoreBtn() {
-        return mMoreBtn;
-    }
-
-    public static TitlePop getmTitlePop() {
-        return mTitlePop;
     }
 
     public ImageView getUserAvatarImg() {
@@ -65,8 +52,6 @@ public class DiandiFragment extends BaseFragment {
         mUserAvatarImg = (ImageView) mContentView.findViewById(R.id.fragment_diandi_user_avatar_img);
         mFeedBtn = (Button) mContentView.findViewById(R.id.fragment_diandi_feed_btn);
         mChannelBtn = (Button) mContentView.findViewById(R.id.fragment_diandi_channel_btn);
-        mMoreBtn = (ImageButton) mContentView.findViewById(R.id.fragment_diandi_more_btn);
-        mNewDiandiBtn = (ImageButton) mContentView.findViewById(R.id.fragment_diandi_new_diandi_btn);
     }
 
     @Override
@@ -78,11 +63,9 @@ public class DiandiFragment extends BaseFragment {
                     mFeedBtn.setEnabled(false);
                     mChannelBtn.setEnabled(true);
                 }
-
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 if (mFeedFragment == null) {
                     mFeedFragment = new FeedFragment();
-
                 }
                 ft.replace(R.id.fragmet_diandi_container, mFeedFragment, TAG);
                 ft.commit();
@@ -96,8 +79,7 @@ public class DiandiFragment extends BaseFragment {
                     mChannelBtn.setEnabled(false);
                     mFeedBtn.setEnabled(true);
                 }
-       /*         mMoreBtn.setVisibility(View.VISIBLE);
-                mNewDiandiBtn.setVisibility(View.GONE);*/
+
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
 
                 if (mChannelFragment == null) {
@@ -107,8 +89,6 @@ public class DiandiFragment extends BaseFragment {
                 ft.commit();
             }
         });
-
-
         mUserAvatarImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

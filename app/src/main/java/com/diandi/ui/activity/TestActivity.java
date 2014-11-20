@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.diandi.CustomApplication;
 import com.diandi.R;
@@ -57,8 +58,7 @@ public class TestActivity extends ActivityBase implements EventListener, View.On
         public void onClick(View view) {
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
-            if (diandiFragment == null)
-                diandiFragment = new DiandiFragment();
+            diandiFragment = new DiandiFragment();
             ft.replace(R.id.fragment_container, diandiFragment, TAG);
             ft.commit();
             setButton(view);
@@ -127,22 +127,7 @@ public class TestActivity extends ActivityBase implements EventListener, View.On
     void initView() {
         bindEvent();
         mDiandiBtn.performClick();
-        User user = UserHelper.getCurrentUser();
-        if (user != null) {
-            ImageLoader.getInstance().displayImage(user.getAvatar(), mUserIconImg, new DisplayImageOptions.Builder()
-                    .showImageOnLoading(R.drawable.default_head_cry)
-                    .showImageForEmptyUri(R.drawable.default_head_cry)
-                    .showImageOnFail(R.drawable.default_head_cry)
-                    .resetViewBeforeLoading(true)
-                    .cacheInMemory(true)
-                    .cacheOnDisc(true)
-                    .imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
-                    .bitmapConfig(Bitmap.Config.RGB_565)
-                    .considerExifParams(true)
-                    .displayer(new RoundedBitmapDisplayer(90))
-                    .build());
-            mUserNameText.setText(user.getNick());
-        }
+
     }
 
     @Override
@@ -206,6 +191,22 @@ public class TestActivity extends ActivityBase implements EventListener, View.On
     @Override
     protected void onResume() {
         super.onResume();
+        User user = UserHelper.getCurrentUser();
+        if (user != null) {
+            ImageLoader.getInstance().displayImage(user.getAvatar(), mUserIconImg, new DisplayImageOptions.Builder()
+                    .showImageOnLoading(R.drawable.default_head_cry)
+                    .showImageForEmptyUri(R.drawable.default_head_cry)
+                    .showImageOnFail(R.drawable.default_head_cry)
+                    .resetViewBeforeLoading(true)
+                    .cacheInMemory(true)
+                    .cacheOnDisc(true)
+                    .imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
+                    .bitmapConfig(Bitmap.Config.RGB_565)
+                    .considerExifParams(true)
+                    .displayer(new RoundedBitmapDisplayer(90))
+                    .build());
+            mUserNameText.setText(user.getNick());
+        }
         //小圆点提示
         if (BmobDB.create(this).hasUnReadMsg()) {
             iv_recent_tips.setVisibility(View.VISIBLE);
@@ -293,7 +294,7 @@ public class TestActivity extends ActivityBase implements EventListener, View.On
         if (firstTime + 2000 > System.currentTimeMillis()) {
             finish();
         } else {
-            ShowToast("再按一次退出程序");
+            Toast.makeText(TestActivity.this,"再按一次退出程序",Toast.LENGTH_SHORT).show();
         }
         firstTime = System.currentTimeMillis();
     }
