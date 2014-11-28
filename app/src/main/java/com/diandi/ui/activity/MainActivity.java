@@ -1,14 +1,16 @@
 package com.diandi.ui.activity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.diandi.CustomApplication;
 import com.diandi.R;
@@ -19,12 +21,13 @@ import com.diandi.ui.fragment.ContactFragment;
 import com.diandi.ui.fragment.DiandiFragment;
 import com.diandi.ui.fragment.RecentFragment;
 import com.diandi.util.OverridePendingUtil;
-import com.diandi.view.residemenu.ResideMenu;
-import com.diandi.view.residemenu.ResideMenuItem;
+import com.diandy.DragLayout;
+import com.nineoldandroids.view.ViewHelper;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.umeng.fb.FeedbackAgent;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import cn.bmob.im.BmobChatManager;
 import cn.bmob.im.BmobNotifyManager;
@@ -33,51 +36,48 @@ import cn.bmob.im.bean.BmobMsg;
 import cn.bmob.im.db.BmobDB;
 import cn.bmob.im.inteface.EventListener;
 
-public class MainActivity extends ActivityBase implements View.OnClickListener, EventListener {
-
+public class MainActivity extends ActivityBase implements EventListener, View.OnClickListener {
     public final static int INFOR_REFREFLASH = 100;
+    private static DragLayout mDragLayout;
     private static long firstTime;
-    private ResideMenu resideMenu;
-    private ResideMenuItem itemFav;
-    private ResideMenuItem itemAbout;
-    private ResideMenuItem itemFeedback;
-    private ResideMenuItem itemSettings;
-    private ResideMenuItem itemHead;
-    private ResideMenuItem itemPlanBox;
     private ImageView iv_recent_tips, iv_contact_tips, iv_diandi_tips;//消息提示
-    private Button[] mTabs;
     private Button mDiandiBtn, mRecentBtn, mContanctBtn;
     private View currentButton;
+    private LinearLayout mUserLayout;
+    private LinearLayout mFeedbackLayout;
+    private LinearLayout mAboutLayout;
+    private LinearLayout mSettingLayout;
+    private ImageView mUserIconImg;
+    private TextView mUserNameText;
     private DiandiFragment diandiFragment;
     private ContactFragment contactFragment;
     private RecentFragment recentFragment;
-    private Fragment[] fragments;
-    private int index;
     private int currentTabIndex;
     private View.OnClickListener diandiOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
-            DiandiFragment newsFatherFragment=null;
-            if(newsFatherFragment==null)
-                newsFatherFragment= new DiandiFragment();
-            ft.replace(R.id.fragment_container, newsFatherFragment, TAG);
+            diandiFragment = new DiandiFragment();
+            ft.replace(R.id.fragment_container, diandiFragment, TAG);
             ft.commit();
             setButton(view);
+            currentTabIndex = 0;
         }
     };
+
     private View.OnClickListener recentOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
-            RecentFragment newsFatherFragment=null;
-            if(newsFatherFragment==null)
-                newsFatherFragment= new RecentFragment();
-            ft.replace(R.id.fragment_container, newsFatherFragment, TAG);
+            if (recentFragment == null)
+                recentFragment = new RecentFragment();
+            ft.replace(R.id.fragment_container, recentFragment, TAG);
             ft.commit();
             setButton(view);
+            currentTabIndex = 1;
+
         }
     };
     private View.OnClickListener contanctOnClickListener = new View.OnClickListener() {
@@ -85,20 +85,12 @@ public class MainActivity extends ActivityBase implements View.OnClickListener, 
         public void onClick(View view) {
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
-            ContactFragment newsFatherFragment = new ContactFragment();
-            ft.replace(R.id.fragment_container, newsFatherFragment, TAG);
+            if (contactFragment == null)
+                contactFragment = new ContactFragment();
+            ft.replace(R.id.fragment_container, contactFragment, TAG);
             ft.commit();
             setButton(view);
-        }
-    };
-    private ResideMenu.OnMenuListener menuListener = new ResideMenu.OnMenuListener() {
-        @Override
-        public void openMenu() {
-        }
-
-        @Override
-        public void closeMenu() {
-            //     Toast.makeText(mContext, "Menu is closed!", Toast.LENGTH_SHORT).show();
+            currentTabIndex = 2;
         }
     };
 
@@ -110,17 +102,15 @@ public class MainActivity extends ActivityBase implements View.OnClickListener, 
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == INFOR_REFREFLASH) {
-            itemHead.setIcon(UserHelper.getCurrentUser().getAvatar());
-            itemHead.setTitle(UserHelper.getCurrentUser().getNick());
-        }
-    }
-
-    @Override
     void findView() {
         setContentView(R.layout.activity_main);
+        mDragLayout = (DragLayout) findViewById(R.id.main_drag);
+        mUserLayout = (LinearLayout) findViewById(R.id.activity_main_user_layout);
+        mFeedbackLayout = (LinearLayout) findViewById(R.id.activity_main_feedback_layout);
+        mAboutLayout = (LinearLayout) findViewById(R.id.activity_main_about_layout);
+        mSettingLayout = (LinearLayout) findViewById(R.id.activity_main_setting_layout);
+        mUserIconImg = (ImageView) findViewById(R.id.activity_main_user_avatar_img);
+        mUserNameText = (TextView) findViewById(R.id.activity_main_user_name_text);
         mDiandiBtn = (Button) findViewById(R.id.btn_diandi);
         mRecentBtn = (Button) findViewById(R.id.btn_message);
         mContanctBtn = (Button) findViewById(R.id.btn_contract);
@@ -129,18 +119,63 @@ public class MainActivity extends ActivityBase implements View.OnClickListener, 
         iv_contact_tips = (ImageView) findViewById(R.id.iv_contact_tips);
     }
 
+    public DragLayout getDragLayout() {
+        return mDragLayout;
+    }
+
     @Override
     void initView() {
-        initMenu();
         bindEvent();
         mDiandiBtn.performClick();
+
     }
 
     @Override
     void bindEvent() {
+        mDragLayout.setDragListener(new DragLayout.DragListener() {
+            @Override
+            public void onOpen() {
+            }
+
+            @Override
+            public void onClose() {
+            }
+
+            @Override
+            public void onDrag(float percent) {
+                ViewHelper.setAlpha(diandiFragment.getUserAvatarImg(), 1 - percent);
+            }
+        });
         mDiandiBtn.setOnClickListener(diandiOnClickListener);
         mRecentBtn.setOnClickListener(recentOnClickListener);
         mContanctBtn.setOnClickListener(contanctOnClickListener);
+        mUserLayout.setOnClickListener(this);
+        mFeedbackLayout.setOnClickListener(this);
+        mAboutLayout.setOnClickListener(this);
+        mSettingLayout.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.activity_main_user_layout:
+                Intent intent = new Intent(mContext, ProfileActivity.class);
+                intent.putExtra("from", "me");
+                startActivityForResult(intent, INFOR_REFREFLASH);
+                OverridePendingUtil.in(MainActivity.this);
+                break;
+            case R.id.activity_main_feedback_layout:
+                FeedbackAgent agent = new FeedbackAgent(MainActivity.this);
+                agent.startFeedbackActivity();
+                OverridePendingUtil.in(MainActivity.this);
+                break;
+            case R.id.activity_main_about_layout:
+                startAnimActivity(AboutActivity.class);
+                break;
+            case R.id.activity_main_setting_layout:
+                startAnimActivity(SettingActivity.class);
+                break;
+        }
     }
 
     private void setButton(View v) {
@@ -153,89 +188,25 @@ public class MainActivity extends ActivityBase implements View.OnClickListener, 
         currentButton = v;
     }
 
-    private void initMenu() {
-
-        List<ResideMenuItem> menuItems = new ArrayList<ResideMenuItem>();
-        resideMenu = new ResideMenu(this);
-        resideMenu.attachToActivity(this);
-        resideMenu.setBackground(R.drawable.menu_background);
-
-        //valid scale factor is between 0.0f and 1.0f. leftmenu'width is 150dip.
-        resideMenu.setScaleValue(0.6f);
-
-        itemFeedback = new ResideMenuItem(this, R.drawable.icon_feedback_selector, "反馈");
-        itemAbout = new ResideMenuItem(this, R.drawable.icon_home_selector, "关于");
-        itemSettings = new ResideMenuItem(this, R.drawable.icon_setting_selector, "设置");
-        itemPlanBox = new ResideMenuItem(this, ResideMenuItem.TYPE_CONTENT);
-        itemPlanBox.setTitle("计划格子");
-
-        User user = UserHelper.getCurrentUser();
-        if (user != null) {
-            itemHead = new ResideMenuItem(this, user.getAvatar(), user.getNick(), ResideMenuItem.TYPE_HEAD);
-            itemHead.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(mContext, ProfileActivity.class);
-                    intent.putExtra("from", "me");
-                    startActivityForResult(intent, INFOR_REFREFLASH);
-                    OverridePendingUtil.in(MainActivity.this);
-                }
-            });
-            menuItems.add(itemHead);
-        }
-
-
-        menuItems.add(itemFeedback);
-        menuItems.add(itemAbout);
-        menuItems.add(itemSettings);
-        resideMenu.setMenuItems(menuItems, ResideMenu.DIRECTION_LEFT);
-        resideMenu.addMenuItem(itemPlanBox, ResideMenu.DIRECTION_RIGHT);
-        itemPlanBox.setOnClickListener(this);
-        itemAbout.setOnClickListener(this);
-        itemSettings.setOnClickListener(this);
-        itemFeedback.setOnClickListener(this);
-
-
-    }
-
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        return resideMenu.dispatchTouchEvent(ev);
-    }
-
-    @Override
-    public void onClick(View view) {
-        if (view == itemAbout) {
-            startAnimActivity(AboutActivity.class);
-        } else if (view == itemSettings) {
-            startAnimActivity(SettingActivity.class);
-        } else if (view == itemFeedback) {
-            FeedbackAgent agent = new FeedbackAgent(MainActivity.this);
-            agent.startFeedbackActivity();
-            OverridePendingUtil.in(MainActivity.this);
-        } else if (view == itemPlanBox) {
-            startAnimActivity(PlanActivity.class);
-        }
-    }
-
-    private void changeFragment(Fragment targetFragment) {
-        resideMenu.clearIgnoredViewList();
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.main_fragment, targetFragment, "fragment")
-                .setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                .commit();
-    }
-
-    // What good method is to access resideMenu？
-    public ResideMenu getResideMenu() {
-        return resideMenu;
-    }
-
-
     @Override
     protected void onResume() {
         super.onResume();
+        User user = UserHelper.getCurrentUser();
+        if (user != null) {
+            ImageLoader.getInstance().displayImage(user.getAvatar(), mUserIconImg, new DisplayImageOptions.Builder()
+                    .showImageOnLoading(R.drawable.default_head_cry)
+                    .showImageForEmptyUri(R.drawable.default_head_cry)
+                    .showImageOnFail(R.drawable.default_head_cry)
+                    .resetViewBeforeLoading(true)
+                    .cacheInMemory(true)
+                    .cacheOnDisc(true)
+                    .imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
+                    .bitmapConfig(Bitmap.Config.RGB_565)
+                    .considerExifParams(true)
+                    .displayer(new RoundedBitmapDisplayer(90))
+                    .build());
+            mUserNameText.setText(user.getNick());
+        }
         //小圆点提示
         if (BmobDB.create(this).hasUnReadMsg()) {
             iv_recent_tips.setVisibility(View.VISIBLE);
@@ -269,7 +240,7 @@ public class MainActivity extends ActivityBase implements View.OnClickListener, 
         iv_recent_tips.setVisibility(View.VISIBLE);
         //保存接收到的消息-并发送已读回执给对方
         BmobChatManager.getInstance(this).saveReceiveMessage(true, message);
-        if (currentTabIndex == 0) {
+        if (currentTabIndex == 1) {
             //当前页面如果为会话页面，刷新此页面
             if (recentFragment != null) {
                 recentFragment.refresh();
@@ -294,7 +265,7 @@ public class MainActivity extends ActivityBase implements View.OnClickListener, 
             CustomApplication.getInstance().getMediaPlayer().start();
         }
         iv_contact_tips.setVisibility(View.VISIBLE);
-        if (currentTabIndex == 1) {
+        if (currentTabIndex == 2) {
             if (contactFragment != null) {
                 contactFragment.refresh();
             }
@@ -321,11 +292,12 @@ public class MainActivity extends ActivityBase implements View.OnClickListener, 
     @Override
     public void onBackPressed() {
         if (firstTime + 2000 > System.currentTimeMillis()) {
-            super.onBackPressed();
+            finish();
         } else {
-            ShowToast("再按一次退出程序");
+            Toast.makeText(MainActivity.this,"再按一次退出程序",Toast.LENGTH_SHORT).show();
         }
         firstTime = System.currentTimeMillis();
     }
+
 
 }

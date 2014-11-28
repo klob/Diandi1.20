@@ -22,7 +22,6 @@
     <uses-permission android:name="android.permission.GET_TASKS"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
@@ -92,9 +91,6 @@
             android:screenOrientation="portrait"/>
         <activity
             android:name="com.diandi.ui.activity.LocationActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name="com.diandi.ui.activity.BlackListActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name="com.diandi.ui.activity.ImageBrowserActivity"
@@ -245,16 +241,13 @@
             android:parentActivityName="com.diandi.ui.activity.ActivityBase">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.bmob.im.demo.ui.activity.ActivityBase"/>
+                android:value="com.diandi.ui.activity.ActivityBase"/>
         </activity>
         <activity
             android:name="com.diandi.ui.activity.Test"
             android:label="@string/title_activity_test">
         </activity>
-        <activity
-            android:name="com.diandi.ui.activity.TestActivity"
-            android:label="@string/title_activity_test">
-        </activity>
+
 
     </application>
 

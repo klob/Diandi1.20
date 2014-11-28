@@ -145,7 +145,6 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
                 }
             });
         }
-        mAddBlackBtn.setEnabled(false);
         mLaunchChatBtn.setEnabled(false);
         mAddBlackBtn.setEnabled(false);
         mAvatarLayout.setOnClickListener(this);
@@ -153,7 +152,6 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
             initTopBarForLeft("个人资料");
             mNickLayout.setOnClickListener(this);
             mSignatrueLayout.setOnClickListener(this);
-
             mLogOutBtn.setOnClickListener(this);
             mAddFriendBtn.setVisibility(View.GONE);
             mLaunchChatBtn.setVisibility(View.GONE);
@@ -184,7 +182,7 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
             initOtherInfo(username);
         }
 
-
+        mAddBlackBtn.setVisibility(View.GONE);
     }
 
     void initData() {
@@ -364,7 +362,6 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
             }
         }
     }
-
 
 
     public void startPhotoZoom(Uri uri) {
@@ -565,8 +562,6 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
     }
 
 
-
-
     private void updateNick(String nick) {
         User user = BmobUser.getCurrentUser(mContext, User.class);
         if (user != null) {
@@ -612,7 +607,6 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
             redictToLogin(UPDATE_NICK);
         }
     }
-
 
 
     public String saveToSdCard(Bitmap bitmap) {

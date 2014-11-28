@@ -13,7 +13,6 @@ android {
     }
     buildTypes {
         release {
-            runProguard false
             proguardFiles 'proguard-android.txt'
         }
     }
@@ -28,11 +27,9 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':diyview')
-    compile project(':flaotaction')
     compile project(':jumpingbeans')
-    compile project(':drawmenu')
+    compile project(':lib_material')
     compile files('libs/baidumapapi_v3_1_0.jar')
     compile files('libs/BmobIM_V1.1.4beta_1027.jar')
     compile files('libs/BmobSDK_V3.2.6_1103.jar')

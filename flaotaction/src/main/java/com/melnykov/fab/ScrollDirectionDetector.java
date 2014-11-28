@@ -14,16 +14,16 @@ import android.widget.AbsListView;
  * @since 2014-10-09 01:20
  */
 public abstract class ScrollDirectionDetector implements AbsListView.OnScrollListener {
+    public int mLastChangeY;
     private ScrollDirectionListener mScrollDirectionListener;
     private int mPreviousScrollY;
     private int mPreviousFirstVisibleItem;
-    public int mLastChangeY;
     private AbsListView mListView;
     private int mMinSignificantScroll;
 
     @Override
     public void onScrollStateChanged(AbsListView view, int scrollState) {
-        mMinSignificantScroll = view.getContext().getResources().getDimensionPixelOffset(R.dimen.fab_min_significant_scroll);
+        mMinSignificantScroll = view.getContext().getResources().getDimensionPixelOffset(R.dimen.min_significant_scroll);
     }
 
     @Override

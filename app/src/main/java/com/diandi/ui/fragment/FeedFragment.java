@@ -34,7 +34,7 @@ import com.diandi.util.CollectionUtils;
 import com.diandi.util.OverridePendingUtil;
 import com.diandi.view.dialog.ListDialog;
 import com.diandi.view.xlist.XListView;
-import com.melnykov.fab.FloatingActionButton;
+import com.gc.materialdesign.views.ListviewButton;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -58,6 +58,7 @@ public class FeedFragment extends BaseFragment implements XListView.IXListViewLi
     private XListView mListView;
     private TextView networkTips;
     private int mPageNum;
+    private ListviewButton mListviewButton;
 
     public void setListView(XListView listView) {
         mListView = listView;
@@ -80,42 +81,10 @@ public class FeedFragment extends BaseFragment implements XListView.IXListViewLi
     public void findView() {
         mListView = (XListView) findViewById(R.id.fragment_diandi_listview);
         networkTips = (TextView) findViewById(R.id.fragment_dianndi_networktips);
-        FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.button_floating_action);
-        floatingActionButton.attachToListView(mListView);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final ArrayList<String> list = new ArrayList<String>();
-                list.add("记下点滴");
-                list.add("打开格子");
-                list.add("新建计划");
-                //   list.add("发布匿名");
-                final ListDialog listDialog = new ListDialog(getActivity(), "操作", list);
-                listDialog.show();
-                listDialog.setOnListItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        if (i == 0) {
-                            startAnimActivity(NewDiandiActivity.class);
-                        }
-                        if (i == 1) {
-                            startAnimActivity(PlanActivity.class);
-                        }
-                        if (i == 2) {
-                            startAnimActivity(WritePlanActivity.class);
-                        }
+        mListviewButton = (ListviewButton) findViewById(R.id.buttonFloat);
+        mListviewButton.attachToListView(mListView);
+        mListviewButton.setDrawableIcon(getResources().getDrawable(R.drawable.ic_action_new));
 
-                        if (i == 3) {
-                            startAnimActivity(Test.class);
-
-                        }
-                        listDialog.dismiss();
-
-                    }
-                });
-                OverridePendingUtil.in(getActivity());
-            }
-        });
     }
 
     @Override
@@ -151,7 +120,7 @@ public class FeedFragment extends BaseFragment implements XListView.IXListViewLi
         mListView.setPullLoadEnable(false);
         mListView.setPullRefreshEnable(true);
         mListView.setXListViewListener(this);
-       // mListView.pullRefreshing();
+        // mListView.pullRefreshing();
 
         mAdapter = new FeedAdapter(getActivity(), mListItems);
         mListView.setAdapter(mAdapter);
@@ -161,6 +130,40 @@ public class FeedFragment extends BaseFragment implements XListView.IXListViewLi
     @Override
     void bindEvent() {
         mListView.setOnItemClickListener(this);
+        mListviewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final ArrayList<String> list = new ArrayList<String>();
+                list.add("记下点滴");
+                list.add("打开格子");
+                list.add("新建计划");
+                //   list.add("发布匿名");
+                final ListDialog listDialog = new ListDialog(getActivity(), "操作", list);
+                listDialog.show();
+                listDialog.setOnListItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        if (i == 0) {
+                            startAnimActivity(NewDiandiActivity.class);
+                        }
+                        if (i == 1) {
+                            startAnimActivity(PlanActivity.class);
+                        }
+                        if (i == 2) {
+                            startAnimActivity(WritePlanActivity.class);
+                        }
+
+                        if (i == 3) {
+                            startAnimActivity(Test.class);
+
+                        }
+                        listDialog.dismiss();
+
+                    }
+                });
+                OverridePendingUtil.in(getActivity());
+            }
+        });
     }
 
     @Override

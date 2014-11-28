@@ -257,7 +257,7 @@ public class CommentActivity extends ActivityBase implements View.OnClickListene
                 if (data.size() != 0 && data.get(data.size() - 1) != null) {
 
                     if (data.size() < Constant.NUMBERS_PER_PAGE) {
-                        ShowToast("已加载完所有评论~");
+                   //     ShowToast("已加载完所有评论~");
                         footer.setText("暂无更多评论~");
                     }
 
@@ -266,7 +266,7 @@ public class CommentActivity extends ActivityBase implements View.OnClickListene
                     setListViewHeightBasedOnChildren(commentList);
                     L.i(TAG, "refresh");
                 } else {
-                    ShowToast("暂无更多评论~");
+                 //   ShowToast("暂无更多评论~");
                     footer.setText("暂无更多评论~");
                     pageNum--;
                 }
@@ -283,7 +283,6 @@ public class CommentActivity extends ActivityBase implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        // TODO Auto-generated method stub
         switch (v.getId()) {
             case R.id.user_logo:
                 onClickUserLogo();
@@ -328,7 +327,6 @@ public class CommentActivity extends ActivityBase implements View.OnClickListene
     }
 
     private void onClickLoadMore() {
-        // TODO Auto-generated method stub
         fetchData();
     }
 

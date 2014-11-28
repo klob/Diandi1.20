@@ -1,0 +1,3 @@
+<resources>
+    <dimen name="min_significant_scroll">10dp</dimen>
+</resources>

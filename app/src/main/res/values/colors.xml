@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="theme_color_bg">#1f253d</color>
-    <color name="primary">#009688</color>
-    <color name="primary_pressed">#26a69a</color>
+    <color name="primary">#1E88E5</color>
+    <color name="primary_pressed">#ff0b53a6</color>
     <color name="gray_bg">#dddddd</color>
     <color name="blue">#436EEE</color>
     <color name="blue_bar">#13a2d7</color>

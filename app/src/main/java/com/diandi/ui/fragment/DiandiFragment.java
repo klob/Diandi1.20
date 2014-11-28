@@ -12,7 +12,7 @@ import android.widget.ImageView;
 
 import com.diandi.R;
 import com.diandi.sync.UserHelper;
-import com.diandi.ui.activity.TestActivity;
+import com.diandi.ui.activity.MainActivity;
 import com.diandi.util.ImageLoadOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -92,8 +92,8 @@ public class DiandiFragment extends BaseFragment {
         mUserAvatarImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (getActivity() instanceof TestActivity) {
-                    ((TestActivity) getActivity()).getDragLayout().open();
+                if (getActivity() instanceof MainActivity) {
+                    ((MainActivity) getActivity()).getDragLayout().open();
                 }
             }
         });

@@ -205,7 +205,7 @@ public class ChannelAdapter extends BaseListAdapter<OfficialDiandi> {
 
             @Override
             public void onClick(View v) {
-                ShowToast("手机不方便？把链接分享到电脑上吧！");
+                ShowToast("分享给好友看哦");
                 final TencentShare tencentShare = new TencentShare(CustomApplication.getInstance().getTopActivity(), getQQShareEntity(entity));
                 tencentShare.shareToQQ();
             }

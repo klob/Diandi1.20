@@ -1,5 +1,4 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:fab="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -33,15 +32,17 @@
         android:textSize="18sp"
         android:visibility="visible"/>
 
-    <com.melnykov.fab.FloatingActionButton
-        android:id="@+id/button_floating_action"
+
+    <com.gc.materialdesign.views.ListviewButton
+        android:id="@+id/buttonFloat"
+        xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_action_content_new"
-        fab:fab_colorNormal="@color/primary"
-        fab:fab_colorPressed="@color/primary_pressed"/>
+        android:background="#1E88E5"
+        materialdesign:animate="false"
+      />
+
 </RelativeLayout>

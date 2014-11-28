@@ -17,7 +17,7 @@ import com.diandi.bean.OfficialDiandi;
 import com.diandi.util.CollectionUtils;
 import com.diandi.view.dialog.ListDialog;
 import com.diandi.view.xlist.XListView;
-import com.melnykov.fab.FloatingActionButton;
+import com.gc.materialdesign.views.ListviewButton;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -36,7 +36,7 @@ import cn.bmob.v3.listener.FindListener;
 public class ChannelFragment extends BaseFragment implements XListView.IXListViewListener, AdapterView.OnItemClickListener {
 
     private final static String CHANNEL_LIST = "channel_list_";
-    private FloatingActionButton floatingActionButton;
+    private ListviewButton mListviewButton;
     private XListView mListView;
     private ArrayList<OfficialDiandi> mListItems;
     private ChannelAdapter mAdapter;
@@ -97,17 +97,16 @@ public class ChannelFragment extends BaseFragment implements XListView.IXListVie
     void findView() {
         mListView = (XListView) findViewById(R.id.fragment_diandi_listview);
         mNetworkTips = (TextView) findViewById(R.id.fragment_dianndi_networktips);
-        floatingActionButton = (FloatingActionButton) findViewById(R.id.button_floating_action);
-        floatingActionButton.setImageResource(R.drawable.base_action_bar_more_bg_selector);
-        floatingActionButton.attachToListView(mListView);
+        mListviewButton = (ListviewButton) findViewById(R.id.buttonFloat);
+        mListviewButton.attachToListView(mListView);
+        mListviewButton.setDrawableIcon(getResources().getDrawable(R.drawable.base_action_bar_more_bg_n));
     }
 
 
     @Override
     void bindEvent() {
         mListView.setOnItemClickListener(this);
-
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+        mListviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final ArrayList<String> list = new ArrayList<String>();

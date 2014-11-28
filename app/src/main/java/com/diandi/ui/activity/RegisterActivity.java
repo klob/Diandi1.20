@@ -118,7 +118,7 @@ public class RegisterActivity extends BaseActivity {
                 mUserManager.bindInstallationForRegister(et_username.getText().toString());
                 updateUserLocation();
                 sendBroadcast(new Intent(Constant.ACTION_REGISTER_SUCCESS_FINISH));
-                Intent intent = new Intent(RegisterActivity.this, TestActivity.class);
+                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }

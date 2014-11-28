@@ -192,7 +192,7 @@ public class PersonalActivity extends ActivityBase implements XListView.IXListVi
                         if (data.size() != 0 && data.get(data.size() - 1) != null) {
                             mDianDis.clear();
                             if (data.size() < Constant.NUMBERS_PER_PAGE) {
-                                ShowToast("已加载完所有数据~");
+                           //     ShowToast("已加载完所有数据~");
                             }
                             mDianDis.addAll(data);
                             mAdapter.notifyDataSetChanged();
