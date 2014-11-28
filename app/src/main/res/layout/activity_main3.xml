@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<view.drawmenu.DragLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                          android:orientation="vertical"
-                          android:id="@+id/main_drag"
-                          android:background="@drawable/menu_background"
+<view.drawmenu.DragLayout android:id="@+id/main_drag"
+                          xmlns:android="http://schemas.android.com/apk/res/android"
                           android:layout_width="match_parent"
-                          android:layout_height="match_parent">
+                          android:layout_height="match_parent"
+                          android:background="@drawable/menu_background"
+                          android:orientation="vertical">
 
     <RelativeLayout
-        android:layout_gravity="center"
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:paddingBottom="30dp"
-        android:paddingTop="50dp"
         android:paddingLeft="30dp"
+        android:paddingTop="50dp"
         >
 
         <LinearLayout
-            android:layout_centerInParent="true"
-            android:orientation="vertical"
-            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
 
             <LinearLayout
-                android:layout_marginTop="30dp"
                 android:id="@+id/activity_main_user_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -49,12 +49,12 @@
             </LinearLayout>
 
             <LinearLayout
-                android:visibility="gone"
-                android:layout_marginTop="30dp"
                 android:id="@+id/activity_main_feedback_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/activity_main_feedback_img"
@@ -68,17 +68,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="反馈"
                     android:layout_marginLeft="20dp"
+                    android:text="反馈"
                     android:textColor="@color/text_color_selector"
                     android:textSize="20sp"/>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="25dp"
                 android:id="@+id/activity_main_about_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -93,17 +93,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="关于"
                     android:layout_marginLeft="20dp"
+                    android:text="关于"
                     android:textColor="@color/text_color_selector"
                     android:textSize="20sp"/>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="20dp"
                 android:id="@+id/activity_main_setting_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -118,8 +118,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="设置"
                     android:layout_marginLeft="20dp"
+                    android:text="设置"
                     android:textColor="@color/text_color_selector"
                     android:textSize="20sp"/>
             </LinearLayout>
@@ -143,19 +143,27 @@
 
 
         <FrameLayout
-            android:layout_below="@id/common_actionbar"
+
+            android:id="@+id/main_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:id="@+id/main_fragment">
+            android:layout_below="@id/common_actionbar"
+            android:orientation="vertical">
         </FrameLayout>
 
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_above="@+id/main_bottom"
+            android:background="#cccccc"/>
+
         <LinearLayout
-            android:background="@drawable/under_bar"
             android:id="@+id/main_bottom"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
+            android:background="@drawable/top_bar_white"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -166,9 +174,9 @@
 
                 <Button
                     android:id="@+id/btn_diandi"
-                    android:background="@drawable/under_bar"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/top_bar_white"
                     android:drawableTop="@drawable/tab_diandi_btn"
                     android:paddingBottom="2dip"
                     android:paddingTop="7dip"
@@ -201,9 +209,9 @@
 
                 <Button
                     android:id="@+id/btn_message"
-                    android:background="@drawable/under_bar"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/top_bar_white"
                     android:drawableTop="@drawable/tab_message_btn"
                     android:paddingBottom="2dip"
                     android:paddingTop="7dip"
@@ -235,9 +243,9 @@
 
                 <Button
                     android:id="@+id/btn_contract"
-                    android:background="@drawable/under_bar"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/top_bar_white"
                     android:drawableTop="@drawable/tab_contact_btn"
                     android:paddingBottom="2dip"
                     android:paddingTop="7dip"
@@ -267,7 +275,7 @@
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/main_bottom"/>
+            android:layout_above="@id/view_line"/>
     </view.drawmenu.DragMainLayout>
 
 </view.drawmenu.DragLayout>

@@ -11,7 +11,7 @@
         android:id="@+id/fragment_diandi_actionbar"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@drawable/top_bar">
+        android:background="@drawable/top_bar_blue">
 
         <ImageView
             android:id="@+id/fragment_diandi_user_avatar_img"
@@ -40,7 +40,7 @@
                 android:background="@drawable/qq_constact_group"
                 android:text="广场"
                 android:textColor="@drawable/text_color_selector"
-                android:textSize="16sp"/>
+                android:textSize="13sp"/>
 
             <Button
                 android:id="@+id/fragment_diandi_channel_btn"
@@ -50,7 +50,7 @@
                 android:background="@drawable/qq_constact_all"
                 android:text="频道"
                 android:textColor="@drawable/text_color_selector"
-                android:textSize="16sp"/>
+                android:textSize="13sp"/>
         </LinearLayout>
 
 

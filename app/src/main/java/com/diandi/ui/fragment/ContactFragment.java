@@ -39,8 +39,8 @@ import com.diandi.util.CollectionUtils;
 import com.diandi.util.PinyinComparator;
 import com.diandi.view.ClearEditText;
 import com.diandi.view.HeaderLayout.onRightImageButtonClickListener;
-import com.diandi.view.MyLetterView;
-import com.diandi.view.MyLetterView.OnTouchingLetterChangedListener;
+import com.diandi.view.LetterView;
+import com.diandi.view.LetterView.OnTouchingLetterChangedListener;
 import com.diandi.view.dialog.DialogTips;
 
 import java.util.ArrayList;
@@ -68,7 +68,7 @@ public class ContactFragment extends BaseFragment implements OnItemClickListener
     private ClearEditText mClearEditText;
     private TextView mTextDialog;
     private ListView mFriendListView;
-    private MyLetterView mRightLetters;
+    private LetterView mRightLetters;
     private ImageView mMsgTipImg;
     private TextView mNewNameText;
     private ContactAdapter mUserAdapter;
@@ -108,7 +108,7 @@ public class ContactFragment extends BaseFragment implements OnItemClickListener
         mNewFriendLayout = (LinearLayout) headView.findViewById(R.id.layout_new);
         mNearPeopleLayout = (LinearLayout) headView.findViewById(R.id.layout_near);
         mFriendListView.addHeaderView(headView);
-        mRightLetters = (MyLetterView) findViewById(R.id.right_letter);
+        mRightLetters = (LetterView) findViewById(R.id.right_letter);
         mTextDialog = (TextView) findViewById(R.id.text_dialog);
         mRightLetters.setTextView(mTextDialog);
     }

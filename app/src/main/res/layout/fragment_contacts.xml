@@ -20,10 +20,10 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/base_action_bar_height"
             android:layout_alignParentTop="true"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
             android:background="@drawable/base_edit_input"
             android:drawableLeft="@drawable/icon_msg_search"
             android:drawablePadding="10dp"
@@ -61,7 +61,7 @@
                 android:visibility="invisible" />
         </RelativeLayout>
 
-        <com.diandi.view.MyLetterView
+        <com.diandi.view.LetterView
             android:id="@+id/right_letter"
             android:layout_width="25dip"
             android:layout_height="match_parent"

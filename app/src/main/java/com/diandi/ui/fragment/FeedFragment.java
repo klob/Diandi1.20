@@ -12,6 +12,7 @@ package com.diandi.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -150,7 +151,7 @@ public class FeedFragment extends BaseFragment implements XListView.IXListViewLi
         mListView.setPullLoadEnable(false);
         mListView.setPullRefreshEnable(true);
         mListView.setXListViewListener(this);
-        mListView.pullRefreshing();
+       // mListView.pullRefreshing();
 
         mAdapter = new FeedAdapter(getActivity(), mListItems);
         mListView.setAdapter(mAdapter);
@@ -173,7 +174,12 @@ public class FeedFragment extends BaseFragment implements XListView.IXListViewLi
     @Override
     public void onRefresh() {
         mPageNum = 0;
-        initDiandyList(true);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                initDiandyList(true);
+            }
+        }, 700);
     }
 
     @Override
@@ -215,8 +221,6 @@ public class FeedFragment extends BaseFragment implements XListView.IXListViewLi
                     }
                 }
         );
-
-
     }
 
     private void initDiandyList(final boolean isUpdate) {
@@ -262,7 +266,7 @@ public class FeedFragment extends BaseFragment implements XListView.IXListViewLi
                 refreshPull();
                 //这样能保证每次查询都是从头开始
                 mPageNum = 0;
-                ShowToast("请检查网络");
+                ShowToast(R.string.network_tips);
             }
 
         });

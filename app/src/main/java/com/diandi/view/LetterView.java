@@ -20,32 +20,32 @@ import com.diandi.util.PixelUtil;
  * @author smile
  * @date 2014-6-7 下午1:20:33
  */
-public class MyLetterView extends View {
-    // 触摸事件
-    private OnTouchingLetterChangedListener onTouchingLetterChangedListener;
+public class LetterView extends View {
     // 26个字母
     public static String[] b = { "A", "B", "C", "D", "E", "F", "G", "H", "I",
             "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V",
             "W", "X", "Y", "Z", "#" };
+    // 触摸事件
+    private OnTouchingLetterChangedListener onTouchingLetterChangedListener;
     private int choose = -1;// 选中
     private Paint paint = new Paint();
 
     private TextView mTextDialog;
 
-    public void setTextView(TextView mTextDialog) {
-        this.mTextDialog = mTextDialog;
-    }
-
-    public MyLetterView(Context context, AttributeSet attrs, int defStyle) {
+    public LetterView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    public MyLetterView(Context context, AttributeSet attrs) {
+    public LetterView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public MyLetterView(Context context) {
+    public LetterView(Context context) {
         super(context);
+    }
+
+    public void setTextView(TextView mTextDialog) {
+        this.mTextDialog = mTextDialog;
     }
 
     /**

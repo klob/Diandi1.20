@@ -187,7 +187,6 @@ public class ChannelFragment extends BaseFragment implements XListView.IXListVie
                         mListItems.clear();
                         mAdapter.setList(mListItems);
                     }
-
                     mListItems.addAll(list);
                     mAdapter.setList(mListItems);
                     if (list.size() < BRequest.QUERY_LIMIT_COUNT) {
@@ -288,7 +287,5 @@ public class ChannelFragment extends BaseFragment implements XListView.IXListVie
                 refreshLoad();
             }
         });
-
-
     }
 }

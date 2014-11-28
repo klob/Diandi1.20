@@ -5,6 +5,9 @@
     <color name="primary_pressed">#26a69a</color>
     <color name="gray_bg">#dddddd</color>
     <color name="blue">#436EEE</color>
+    <color name="blue_bar">#13a2d7</color>
+    <color name="blue_bar_normal">#3bc4f7</color>
+    <color name="blue_bar_press">#13a2d7</color>
     <color name="red">#f82c22</color>
     <color name="gray">#ff808080</color>
     <color name="black">#FF000000</color>

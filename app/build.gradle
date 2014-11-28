@@ -8,8 +8,8 @@ android {
         applicationId "com.diandi"
         minSdkVersion 14
         targetSdkVersion 20
-        versionCode 8
-        versionName "1.1.8"
+        versionCode 9
+        versionName "1.1.9"
     }
     buildTypes {
         release {
