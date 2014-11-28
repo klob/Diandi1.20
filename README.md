@@ -21,10 +21,11 @@ Diandy For Android，为你翻开新的一页。
 
 
 ### 感谢以下库作者和组织
+
 ####功能
 *	[Bmob for android](http://www.bmob.cn/) 比目云后台
-*	[Wonderful](https://github.com/bmob/Wonderful2) 猿圈媛圈开发团队的图文社区源码
 *	[Bmob IM](https://github.com/bmob/BmobIMSDK4Android) 比目的即时聊天源码
+*	[Wonderful](https://github.com/bmob/Wonderful2) 猿圈媛圈开发团队的图文社区源码
 *	[BaiduMap](http://developer.baidu.com/map/index.php?title=首页) 百度地图定位
 *	[Umeng](http://www.umeng.com/) umeng更新与反馈模块
 
@@ -32,7 +33,7 @@ Diandy For Android，为你翻开新的一页。
 *	[ormlite-android](https://github.com/j256/ormlite-android) j256/ormlite-android
 *	[Android-Universal-Image-Loader](https://github.com/nostra13/Android-Universal-Image-Loader) nostra13的Android-Universal-Image-Loader
 *	[ASimpleCache](https://github.com/yangfuhai/ASimpleCache) yangfuhai的ASimpleCache 
-*	
+
 ####控件
 *	[PullZoomView](https://github.com/Frank-Zhu/PullZoomView) Frank-Zhu的PullZoomView
 *	[PhotoView](https://github.com/chrisbanes/PhotoView) chrisbanes的PhotoView
