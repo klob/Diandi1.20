@@ -1,4 +1,4 @@
-#Diandi(点滴)
+#Diandy(点滴)
 
 ---------------------
 
@@ -6,7 +6,7 @@
 
 ---------------------
 
-Diandi For Android，为你翻开新的一页。
+Diandy For Android，为你翻开新的一页。
 
 ### 体验地址: [官网](http://diandi.bmob.cn/) [应用下载](http://diandiyun.oss-cn-beijing.aliyuncs.com/release/diandi.apk) ###
 
