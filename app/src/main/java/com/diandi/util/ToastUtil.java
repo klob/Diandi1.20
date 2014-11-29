@@ -2,11 +2,15 @@ package com.diandi.util;
 
 import android.content.Context;
 import android.widget.Toast;
-
 /**
- * 解决Toast重复出现多次，保持全局只有一个Toast实例
- *
- * @author adison
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 public class ToastUtil {
     private static Context context = null;

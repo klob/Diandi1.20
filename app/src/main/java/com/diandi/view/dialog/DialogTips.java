@@ -3,7 +3,14 @@ package com.diandi.view.dialog;
 import android.content.Context;
 
 /**
- * 提示对话框，有一个确认、一个返回按钮
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 public class DialogTips extends DialogBase {
     boolean hasNegative;
@@ -23,7 +30,6 @@ public class DialogTips extends DialogBase {
 
     /**下线通知的对话框样式
      * @param context
-     * @param title
      * @param message
      * @param buttonText
      */

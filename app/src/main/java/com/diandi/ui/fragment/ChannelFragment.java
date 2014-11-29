@@ -1,7 +1,6 @@
 package com.diandi.ui.fragment;
 
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -31,7 +30,14 @@ import cn.bmob.v3.listener.CountListener;
 import cn.bmob.v3.listener.FindListener;
 
 /**
- * A simple {@link Fragment} subclass.
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 public class ChannelFragment extends BaseFragment implements XListView.IXListViewListener, AdapterView.OnItemClickListener {
 

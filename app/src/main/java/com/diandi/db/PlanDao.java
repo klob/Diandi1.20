@@ -17,13 +17,14 @@ import java.util.List;
 
 
 /**
- * ************************************************************
- * *********    User : SuLinger(462679107@qq.com) .
- * *********    Date : 2014-09-10  .
- * *********    Time:  2014-09-10  .
- * *********    Project name :PBOX1.3 .
- * *********    Copyright @ 2014, SuLinger, All Rights Reserved
- * *************************************************************
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 
 
@@ -160,7 +161,7 @@ public class PlanDao {
             else if (m == 100) {
                 plan.setType(Plan.URGENT_FINISHED);
             } else {
-                int k=plan.getProgress();
+                int k = plan.getProgress();
                 int a = Calculator.calculate(TimeUtil.getDatetimeString(plan.getPlanDate()));
                 Log.v(TAG, plan.getTitle() + "  " + a);
                 if (k > 75)

@@ -1,10 +1,5 @@
 package com.diandi.util;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
@@ -18,6 +13,21 @@ import android.graphics.RectF;
 import android.media.ExifInterface;
 import android.media.ThumbnailUtils;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+/**
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
+ */
 public class PhotoUtil {
 
     /**
@@ -154,8 +164,8 @@ public class PhotoUtil {
     }
 
     /**
-     *
      * 读取图片属性：旋转的角度
+     *
      * @param path 图片绝对路径
      * @return degree旋转的角度
      */
@@ -185,8 +195,10 @@ public class PhotoUtil {
 
     }
 
-    /** 旋转图片一定角度
+    /**
+     * 旋转图片一定角度
      * rotaingImageView
+     *
      * @return Bitmap
      * @throws
      */
@@ -203,10 +215,8 @@ public class PhotoUtil {
     /**
      * 将图片变为圆角
      *
-     * @param bitmap
-     *            原Bitmap图片
-     * @param pixels
-     *            图片圆角的弧度(单位:像素(px))
+     * @param bitmap 原Bitmap图片
+     * @param pixels 图片圆角的弧度(单位:像素(px))
      * @return 带有圆角的图片(Bitmap 类型)
      */
     public static Bitmap toRoundCorner(Bitmap bitmap, int pixels) {
@@ -234,8 +244,8 @@ public class PhotoUtil {
     /**
      * 将图片转化为圆形头像
      *
-     * @Title: toRoundBitmap
      * @throws
+     * @Title: toRoundBitmap
      */
     public static Bitmap toRoundBitmap(Bitmap bitmap) {
         int width = bitmap.getWidth();

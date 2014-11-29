@@ -16,20 +16,29 @@ import android.widget.Scroller;
 import com.diandi.R;
 
 
-/** 单个的下拉刷新控件
- * @ClassName: XListView
- * @Description: TODO
- * @author smile
- * @date 2014-4-24 下午5:09:02
+/**
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 public class XListView extends ListView implements OnScrollListener {
+    private final static int SCROLLBACK_HEADER = 0;
+    private final static int SCROLLBACK_FOOTER = 1;
+    private final static int SCROLL_DURATION = 400; // scroll back duration
+    private final static int PULL_LOAD_MORE_DELTA = 50; // when pull up >= 50px
+    // at bottom, trigger
+    // load more.
+    private final static float OFFSET_RADIO = 1.8f; // support iOS like pull
     private float mLastY = -1; // save event y
     private Scroller mScroller; // used for scroll back
     private OnScrollListener mScrollListener; // user's scroll listener
-
     // the interface to trigger refresh and load more.
     private IXListViewListener mListViewListener;
-
     // -- header view
     private XListViewHeader mHeaderView;
     // header view content, use it to calculate the Header's height. And hide it
@@ -38,25 +47,14 @@ public class XListView extends ListView implements OnScrollListener {
     private int mHeaderViewHeight; // header view's height
     private boolean mEnablePullRefresh = true;
     private boolean mPullRefreshing = false; // is refreashing.
-
     // -- footer view
     private XListViewFooter mFooterView = null;
     private boolean mEnablePullLoad = false;
     private boolean mPullLoading = false;
-
     // total list items, used to detect is at the bottom of listview.
     private int mTotalItemCount;
-
     // for mScroller, scroll back from header or footer.
     private int mScrollBack;
-    private final static int SCROLLBACK_HEADER = 0;
-    private final static int SCROLLBACK_FOOTER = 1;
-
-    private final static int SCROLL_DURATION = 400; // scroll back duration
-    private final static int PULL_LOAD_MORE_DELTA = 50; // when pull up >= 50px
-    // at bottom, trigger
-    // load more.
-    private final static float OFFSET_RADIO = 1.8f; // support iOS like pull
     // feature.
     private Context m_context;
 

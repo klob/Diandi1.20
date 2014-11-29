@@ -53,12 +53,14 @@ import cn.bmob.im.db.BmobDB;
 import cn.bmob.v3.listener.UpdateListener;
 
 /**
- * 联系人
- *
- * @author smile
- * @ClassName: ContactFragment
- * @Description: TODO
- * @date 2014-6-7 下午1:02:05
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 @SuppressLint("DefaultLocale")
 public class ContactFragment extends BaseFragment implements OnItemClickListener, OnItemLongClickListener {

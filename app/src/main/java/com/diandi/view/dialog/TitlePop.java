@@ -19,28 +19,25 @@ import com.diandi.util.ScreenUtils;
 import java.util.ArrayList;
 
 /**
- * ************************************************************
- * *********    User : SuLinger(462679107@qq.com) .
- * *********    Date : 2014-10-05  .
- * *********    Time:  2014-10-05  .
- * *********    Project name :Diandi1.17 .
- * *********    Copyright @ 2014, SuLinger, All Rights Reserved
- * *************************************************************
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 
 
 public class TitlePop extends PopupWindow {
-    private Context mContext;
-
     //列表弹窗间隔
     private final int LIST_PADDING = 10;
-
-    //实例化一个矩形
-    private Rect mRect = new Rect();
-
     //坐标位置
     private final int[] mLocation = new int[2];
-
+    private Context mContext;
+    //实例化一个矩形
+    private Rect mRect = new Rect();
     //屏幕的宽度和高度
     private int mScreenWidth, mScreenHeight;
 

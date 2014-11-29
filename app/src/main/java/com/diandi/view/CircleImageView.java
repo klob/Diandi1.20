@@ -1,13 +1,14 @@
 package com.diandi.view;
 
 /**
- * ************************************************************
- * *********    User : SuLinger(462679107@qq.com) .
- * *********    Date : 2014-09-29  .
- * *********    Time:  2014-09-29  .
- * *********    Project name :Diandi1.17 .
- * *********    Copyright @ 2014, SuLinger, All Rights Reserved
- * *************************************************************
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 
 
@@ -38,18 +39,14 @@ public class CircleImageView extends ImageView {
     private static final int COLORDRAWABLE_DIMENSION = 1;
 
     private static final int DEFAULT_BORDER_WIDTH = 0;
+    private int mBorderWidth = DEFAULT_BORDER_WIDTH;
     private static final int DEFAULT_BORDER_COLOR = Color.BLACK;
-
+    private int mBorderColor = DEFAULT_BORDER_COLOR;
     private final RectF mDrawableRect = new RectF();
     private final RectF mBorderRect = new RectF();
-
     private final Matrix mShaderMatrix = new Matrix();
     private final Paint mBitmapPaint = new Paint();
     private final Paint mBorderPaint = new Paint();
-
-    private int mBorderColor = DEFAULT_BORDER_COLOR;
-    private int mBorderWidth = DEFAULT_BORDER_WIDTH;
-
     private Bitmap mBitmap;
     private BitmapShader mBitmapShader;
     private int mBitmapWidth;

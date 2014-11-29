@@ -1,10 +1,5 @@
 package com.diandi.util;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,9 +10,25 @@ import android.text.style.ImageSpan;
 
 import com.diandi.bean.FaceText;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+/**
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
+ */
 public class FaceTextUtils {
 
     public static List<FaceText> faceTexts = new ArrayList<FaceText>();
+
     static {
         faceTexts.add(new FaceText("\\ue056"));
         faceTexts.add(new FaceText("\\ue057"));
@@ -65,6 +76,7 @@ public class FaceTextUtils {
 
     /**
      * toSpannableString
+     *
      * @return SpannableString
      * @throws
      */

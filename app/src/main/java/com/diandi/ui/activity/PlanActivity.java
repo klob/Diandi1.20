@@ -15,6 +15,16 @@ import com.diandi.ui.fragment.PlanFragment;
 import com.diandi.view.HeaderLayout;
 import com.diandi.view.PagerSlidingTabStrip;
 
+/**
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
+ */
 public class PlanActivity extends BaseActivity {
     private PagerSlidingTabStrip mTabs;
     private ViewPager mPager;

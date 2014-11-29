@@ -10,6 +10,16 @@ import com.diandi.view.HeaderLayout;
 import com.touchmenotapps.widget.radialmenu.progress.widget.RadialProgressWidget;
 import com.touchmenotapps.widget.radialmenu.progress.widget.RadialProgressWidget.OnRadialViewValueChanged;
 
+/**
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
+ */
 public class RadialProgressActivity extends BaseActivity {
 
     private RadialProgressWidget mView;

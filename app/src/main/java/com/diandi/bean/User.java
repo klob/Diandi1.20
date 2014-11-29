@@ -7,12 +7,14 @@ import cn.bmob.v3.datatype.BmobGeoPoint;
 import cn.bmob.v3.datatype.BmobRelation;
 
 /**
- * 重载BmobChatUser对象：若还有其他需要增加的属性可在此添加
- *
- * @author smile
- * @ClassName: TextUser
- * @Description: TODO
- * @date 2014-5-29 下午6:15:45
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 public class User extends BmobChatUser {
 
@@ -54,6 +56,11 @@ public class User extends BmobChatUser {
     private String sortLetters;
     private boolean official;
     private boolean V;
+    private String background;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
     public String getBackground() {
         return background;
@@ -61,12 +68,6 @@ public class User extends BmobChatUser {
 
     public void setBackground(String background) {
         this.background = background;
-    }
-
-    private String background;
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
     }
 
     @Override

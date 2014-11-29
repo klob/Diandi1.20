@@ -24,12 +24,14 @@ import cn.bmob.im.bean.BmobRecent;
 import cn.bmob.im.db.BmobDB;
 
 /**
- * 最近会话
- *
- * @author smile
- * @ClassName: ConversationFragment
- * @Description: TODO
- * @date 2014-6-7 下午1:01:37
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 public class RecentFragment extends BaseFragment implements OnItemClickListener, OnItemLongClickListener {
 

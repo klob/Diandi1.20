@@ -25,12 +25,14 @@ import cn.bmob.v3.listener.CountListener;
 import cn.bmob.v3.listener.FindListener;
 
 /**
- * 添加好友
- *
- * @author smile
- * @ClassName: AddFriendActivity
- * @Description: TODO
- * @date 2014-6-5 下午5:26:41
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 public class AddContactActivity extends ActivityBase implements OnClickListener, IXListViewListener, AdapterView.OnItemClickListener {
 

@@ -15,15 +15,9 @@ import com.diandi.bean.DianDi;
 import com.diandi.io.ACache;
 import com.diandi.util.ActivityManagerUtils;
 import com.diandi.util.CollectionUtils;
+import com.diandi.util.ImageLoadOptions;
 import com.diandi.util.SharePreferenceUtil;
-import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
-import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
-import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.utils.StorageUtils;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,17 +29,19 @@ import cn.bmob.im.util.BmobLog;
 import cn.bmob.v3.datatype.BmobGeoPoint;
 
 /**
- * 自定义全局Applcation类
- *
- * @author smile
- * @ClassName: CustomApplcation
- * @Description: TODO
- * @date 2014-5-19 下午3:25:00
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 public class CustomApplication extends Application {
 
-    public static final String PREFERENCE_NAME = "_sharedinfo";
-    public static String TAG;
+    public final static String TAG = "CustomApplication";
+    public final static String PREFERENCE_NAME = "_sharedinfo";
     public static CustomApplication mInstance;
     public static BmobGeoPoint lastPoint = null;// 上一次定位到的经纬度
     public final String PREF_LONGTITUDE = "longtitude";// 经度
@@ -68,26 +64,9 @@ public class CustomApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        TAG = this.getClass().getSimpleName();
         BmobChat.DEBUG_MODE = true;
         mInstance = this;
         init();
-    }
-
-    /**
-     * 初始化ImageLoader
-     */
-
-    public void initImageLoader() {
-        File cacheDir = StorageUtils.getCacheDirectory(getApplicationContext());
-        //    File cacheDir= new File(getCacheDir(), "ACache");
-        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
-                .memoryCache(new LruMemoryCache(5 * 1024 * 1024))
-                .memoryCacheSize(10 * 1024 * 1024)
-                .discCache(new UnlimitedDiscCache(cacheDir))
-                .discCacheFileNameGenerator(new HashCodeFileNameGenerator())
-                .build();
-        ImageLoader.getInstance().init(config);
     }
 
     public ACache getCache() {
@@ -102,8 +81,8 @@ public class CustomApplication extends Application {
         return currentDianDi;
     }
 
-    public void setCurrentDianDi(DianDi currentQiangYu) {
-        this.currentDianDi = currentQiangYu;
+    public void setCurrentDianDi(DianDi dianDi) {
+        this.currentDianDi = dianDi;
     }
 
     public void addActivity(Activity ac) {
@@ -122,7 +101,7 @@ public class CustomApplication extends Application {
     private void init() {
         mMediaPlayer = MediaPlayer.create(this, R.raw.notify);
         mNotificationManager = (NotificationManager) getSystemService(android.content.Context.NOTIFICATION_SERVICE);
-        initImageLoader();
+        ImageLoadOptions.initImageLoader(getApplicationContext());
         // 若用户登陆过，则先从好友数据库中取出好友list存入内存中
         if (BmobUserManager.getInstance(getApplicationContext())
                 .getCurrentUser() != null) {
@@ -168,7 +147,7 @@ public class CustomApplication extends Application {
         if (mSpUtil == null) {
             String currentId = BmobUserManager.getInstance(
                     getApplicationContext()).getCurrentUserObjectId();
-            String sharedName =  PREFERENCE_NAME;
+            String sharedName = PREFERENCE_NAME;
             mSpUtil = new SharePreferenceUtil(this, sharedName);
         }
         return mSpUtil;

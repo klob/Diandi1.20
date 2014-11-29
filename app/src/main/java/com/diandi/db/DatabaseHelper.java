@@ -13,13 +13,14 @@ import com.tencent.connect.UserInfo;
 import java.io.File;
 
 /**
- * ************************************************************
- * *********    User : SuLinger(462679107@qq.com) .
- * *********    Date : 2014-09-14  .
- * *********    Time:  2014-09-14  .
- * *********    Project name :DianDi1.1.0 .
- * *********    Copyright @ 2014, SuLinger, All Rights Reserved
- * *************************************************************
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
@@ -37,10 +38,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     //数据库默认路径SDCard
     private static String DATABASE_PATH = Environment.getExternalStorageDirectory()
             + "/CHENGYIJI.db";
-
-    private Context mContext;
     private static String DATABASE_PATH_JOURN = Environment.getExternalStorageDirectory()
             + "/CHEYIJI.db-journal";
+    private Context mContext;
 
 
     public DatabaseHelper(Context context) {

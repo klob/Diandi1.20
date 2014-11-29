@@ -51,11 +51,14 @@ import cn.bmob.v3.listener.UpdateListener;
 import cn.bmob.v3.listener.UploadFileListener;
 
 /**
- * Created by sulinger  .
- * date:14-8-31 .
- * time:14:15 .
- * project:BmobChatDemo .
- * Copyright © sulinger .All Rights Reserved.
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 public class ProfileActivity extends ActivityBase implements View.OnClickListener {
     public static final int UPDATE_NICK_CONTENT = 20;

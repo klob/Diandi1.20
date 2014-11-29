@@ -14,17 +14,21 @@ import android.widget.TextView;
 import com.diandi.R;
 import com.diandi.util.PixelUtil;
 
-/** 通讯录右侧快速滚动栏
- * @ClassName: MyLetterView
- * @Description: TODO
- * @author smile
- * @date 2014-6-7 下午1:20:33
+/**
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 public class LetterView extends View {
     // 26个字母
-    public static String[] b = { "A", "B", "C", "D", "E", "F", "G", "H", "I",
+    public static String[] b = {"A", "B", "C", "D", "E", "F", "G", "H", "I",
             "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V",
-            "W", "X", "Y", "Z", "#" };
+            "W", "X", "Y", "Z", "#"};
     // 触摸事件
     private OnTouchingLetterChangedListener onTouchingLetterChangedListener;
     private int choose = -1;// 选中
@@ -132,7 +136,6 @@ public class LetterView extends View {
      * 接口
      *
      * @author coder
-     *
      */
     public interface OnTouchingLetterChangedListener {
         public void onTouchingLetterChanged(String s);

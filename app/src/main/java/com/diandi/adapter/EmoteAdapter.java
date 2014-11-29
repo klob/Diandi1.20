@@ -1,7 +1,5 @@
 package com.diandi.adapter;
 
-import java.util.List;
-
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.View;
@@ -12,6 +10,18 @@ import com.diandi.R;
 import com.diandi.adapter.base.BaseArrayListAdapter;
 import com.diandi.bean.FaceText;
 
+import java.util.List;
+
+/**
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
+ */
 public class EmoteAdapter extends BaseArrayListAdapter {
 
     public EmoteAdapter(Context context, List<FaceText> datas) {
@@ -32,7 +42,7 @@ public class EmoteAdapter extends BaseArrayListAdapter {
         }
         FaceText faceText = (FaceText) getItem(position);
         String key = faceText.text.substring(1);
-        Drawable drawable =mContext.getResources().getDrawable(mContext.getResources().getIdentifier(key, "drawable", mContext.getPackageName()));
+        Drawable drawable = mContext.getResources().getDrawable(mContext.getResources().getIdentifier(key, "drawable", mContext.getPackageName()));
         holder.mIvImage.setImageDrawable(drawable);
         return convertView;
     }

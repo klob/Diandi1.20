@@ -13,15 +13,15 @@ import com.diandi.util.OverridePendingUtil;
 import com.diandi.view.HeaderLayout;
 
 /**
- * ************************************************************
- * *********    User : SuLinger(462679107@qq.com) .
- * *********    Date : 2014-09-26  .
- * *********    Time:  2014-09-26  .
- * *********    Project name :Diandi1.17 .
- * *********    Copyright @ 2014, SuLinger, All Rights Reserved
- * *************************************************************
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
-
 
 public class NoteActivity extends ActivityBase {
 

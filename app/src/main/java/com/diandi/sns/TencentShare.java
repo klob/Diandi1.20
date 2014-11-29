@@ -36,6 +36,17 @@ import java.net.SocketTimeoutException;
  * 第二个参数若为空，刚采用第二步中填写默认参数 ts.shareToQQ();//无参数分享到QQ好友 ts.shareToQZone();//分享到QQ空间
  */
 
+/**
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
+ */
+
 public class TencentShare implements TencentShareConstants {
 
     public static final String TAG = "TencentShare";

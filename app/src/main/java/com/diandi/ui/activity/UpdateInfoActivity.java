@@ -12,6 +12,16 @@ import com.diandi.config.Constant;
 import com.diandi.util.OverridePendingUtil;
 import com.diandi.view.HeaderLayout.onRightImageButtonClickListener;
 
+/**
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
+ */
 public class UpdateInfoActivity extends ActivityBase {
     private EditText mEditText;
     private TextView mTextView;

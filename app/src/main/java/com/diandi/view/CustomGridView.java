@@ -4,11 +4,15 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.GridView;
 
-/** 自定义GridView
- * @ClassName: CustomGridView
- * @Description: TODO
- * @author smile
- * @date 2014-6-17 下午4:28:55
+/**
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 public class CustomGridView extends GridView {
 

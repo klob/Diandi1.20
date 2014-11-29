@@ -53,15 +53,15 @@ import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;
 
 /**
- * ************************************************************
- * *********    User : SuLinger(462679107@qq.com) .
- * *********    Date : 2014-08-30  .
- * *********    Time:  2014-08-30  .
- * *********    Project name :BmobChatDemo .
- * *********    Copyright @ 2014, SuLinger, All Rights Reserved
- * *************************************************************
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
-
 
 public class CommentActivity extends ActivityBase implements View.OnClickListener {
 
@@ -257,7 +257,7 @@ public class CommentActivity extends ActivityBase implements View.OnClickListene
                 if (data.size() != 0 && data.get(data.size() - 1) != null) {
 
                     if (data.size() < Constant.NUMBERS_PER_PAGE) {
-                   //     ShowToast("已加载完所有评论~");
+                        //     ShowToast("已加载完所有评论~");
                         footer.setText("暂无更多评论~");
                     }
 
@@ -266,7 +266,7 @@ public class CommentActivity extends ActivityBase implements View.OnClickListene
                     setListViewHeightBasedOnChildren(commentList);
                     L.i(TAG, "refresh");
                 } else {
-                 //   ShowToast("暂无更多评论~");
+                    //   ShowToast("暂无更多评论~");
                     footer.setText("暂无更多评论~");
                     pageNum--;
                 }

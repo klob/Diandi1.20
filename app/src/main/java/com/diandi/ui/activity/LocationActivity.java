@@ -34,12 +34,14 @@ import com.diandi.view.HeaderLayout.onRightImageButtonClickListener;
 import cn.bmob.im.util.BmobLog;
 
 /**
- * 用于发送位置的界面
- *
- * @author smile
- * @ClassName: LocationActivity
- * @Description: TODO
- * @date 2014-6-23 下午3:17:05
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 public class LocationActivity extends BaseActivity implements
         OnGetGeoCoderResultListener {

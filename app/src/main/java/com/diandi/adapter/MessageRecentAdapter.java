@@ -23,13 +23,17 @@ import cn.bmob.im.bean.BmobRecent;
 import cn.bmob.im.config.BmobConfig;
 import cn.bmob.im.db.BmobDB;
 
-/** 会话适配器
- * @ClassName: MessageRecentAdapter
- * @Description: TODO
- * @author smile
- * @date 2014-6-7 下午2:34:10
+/**
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
-public class MessageRecentAdapter extends ArrayAdapter<BmobRecent> implements Filterable{
+public class MessageRecentAdapter extends ArrayAdapter<BmobRecent> implements Filterable {
 
     private LayoutInflater inflater;
     private List<BmobRecent> mData;
@@ -57,9 +61,9 @@ public class MessageRecentAdapter extends ArrayAdapter<BmobRecent> implements Fi
 
         //填充数据
         String avatar = item.getAvatar();
-        if(avatar!=null&& !avatar.equals("")){
+        if (avatar != null && !avatar.equals("")) {
             ImageLoader.getInstance().displayImage(avatar, iv_recent_avatar, ImageLoadOptions.getOptions());
-        }else{
+        } else {
             iv_recent_avatar.setImageResource(R.drawable.default_head_cry);
         }
 
@@ -67,18 +71,18 @@ public class MessageRecentAdapter extends ArrayAdapter<BmobRecent> implements Fi
         tv_recent_time.setText(TimeUtil.getChatTime(item.getTime()));
         int num = BmobDB.create(mContext).getUnreadCount(item.getTargetid());
         //显示内容
-        if(item.getType()==BmobConfig.TYPE_TEXT){
+        if (item.getType() == BmobConfig.TYPE_TEXT) {
             SpannableString spannableString = FaceTextUtils.toSpannableString(mContext, item.getMessage());
             tv_recent_msg.setText(spannableString);
-        }else if(item.getType()==BmobConfig.TYPE_IMAGE){
+        } else if (item.getType() == BmobConfig.TYPE_IMAGE) {
             tv_recent_msg.setText("[图片]");
-        }else if(item.getType()==BmobConfig.TYPE_LOCATION){
-            String all =item.getMessage();
-            if(all!=null &&!all.equals("")){//位置类型的信息组装格式：地理位置&维度&经度
+        } else if (item.getType() == BmobConfig.TYPE_LOCATION) {
+            String all = item.getMessage();
+            if (all != null && !all.equals("")) {//位置类型的信息组装格式：地理位置&维度&经度
                 String address = all.split("&")[0];
-                tv_recent_msg.setText("[位置]"+address);
+                tv_recent_msg.setText("[位置]" + address);
             }
-        }else if(item.getType()==BmobConfig.TYPE_VOICE){
+        } else if (item.getType() == BmobConfig.TYPE_VOICE) {
             tv_recent_msg.setText("[语音]");
         }
 

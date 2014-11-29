@@ -28,7 +28,16 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.FindListener;
 
-
+/**
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
+ */
 public class PersonalActivity extends ActivityBase implements XListView.IXListViewListener, AdapterView.OnItemClickListener, View.OnClickListener {
 
 
@@ -103,7 +112,7 @@ public class PersonalActivity extends ActivityBase implements XListView.IXListVi
         } else {
             goSettings.setVisibility(View.GONE);
 
-                personalTitle.setText("ta发表过的");
+            personalTitle.setText("ta发表过的");
 
         }
     }
@@ -192,7 +201,7 @@ public class PersonalActivity extends ActivityBase implements XListView.IXListVi
                         if (data.size() != 0 && data.get(data.size() - 1) != null) {
                             mDianDis.clear();
                             if (data.size() < Constant.NUMBERS_PER_PAGE) {
-                           //     ShowToast("已加载完所有数据~");
+                                //     ShowToast("已加载完所有数据~");
                             }
                             mDianDis.addAll(data);
                             mAdapter.notifyDataSetChanged();
@@ -271,7 +280,7 @@ public class PersonalActivity extends ActivityBase implements XListView.IXListVi
 
     private void getCurrentUserInfo() {
         User user = BmobUser.getCurrentUser(PersonalActivity.this, User.class);
-        L.i(TAG, "sign:" + user.getSignature() );
+        L.i(TAG, "sign:" + user.getSignature());
         updatePersonalInfo(user);
         ShowToast("更新信息成功。");
     }

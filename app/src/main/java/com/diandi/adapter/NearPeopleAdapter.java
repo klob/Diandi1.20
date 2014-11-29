@@ -19,12 +19,14 @@ import java.util.List;
 import cn.bmob.v3.datatype.BmobGeoPoint;
 
 /**
- * 附近的人
- *
- * @author smile
- * @ClassName: BlackListAdapter
- * @Description: TODO
- * @date 2014-6-24 下午5:27:14
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 public class NearPeopleAdapter extends BaseListAdapter<User> {
 

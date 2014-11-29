@@ -1,7 +1,14 @@
 package com.diandi.util;
 
 /**
- * Created by Administrator on 2014/7/16.
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 public class FormatUtil {
     FormatUtil() {

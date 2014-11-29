@@ -1,18 +1,19 @@
 package com.diandi.bean;
 
 /**
- * ************************************************************
- * *********    User : SuLinger(462679107@qq.com) .
- * *********    Date : 2014-09-29  .
- * *********    Time:  2014-09-29  .
- * *********    Project name :Diandi1.17 .
- * *********    Copyright @ 2014, SuLinger, All Rights Reserved
- * *************************************************************
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 
 
 public class OfficialDiandi extends DianDi {
-    public final static String CHANNEL="channel";
+    public final static String CHANNEL = "channel";
     private String link;
     private String channel;
 

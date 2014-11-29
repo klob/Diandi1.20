@@ -4,13 +4,15 @@ import android.graphics.Bitmap;
 import android.support.v4.util.LruCache;
 
 /**
- * User : SuLinger(462679107@qq.com) .
- * Date : 2014-08-10 .
- * Time:  13:10 .
- * Project name : com.planboxone.
- * Copyright @ 2014, SuLinger, All Rights Reserved
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
-
 
 public class MemoryCache {
 
@@ -28,13 +30,13 @@ public class MemoryCache {
         };
     }
 
-    public  void addBitmapToMemoryCache(final int key, final Bitmap bitmap) {
+    public void addBitmapToMemoryCache(final int key, final Bitmap bitmap) {
         if (getBitmapFromMemCache(key) == null) {
             mMemoryCache.put(key, bitmap);
         }
     }
 
-    public  Bitmap getBitmapFromMemCache(final int key) {
+    public Bitmap getBitmapFromMemCache(final int key) {
         return mMemoryCache.get(key);
     }
 }

@@ -24,11 +24,14 @@ import java.util.Map;
 import cn.bmob.im.util.BmobLog;
 
 /**
- * 基础的适配器
- *
- * @ClassName: BaseListAdapter
- * @Description: TODO
- * @date 2014-6-19 上午11:04:01
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 @SuppressLint("UseSparseArrays")
 public abstract class BaseListAdapter<E> extends BaseAdapter {

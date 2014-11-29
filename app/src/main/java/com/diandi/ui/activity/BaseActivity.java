@@ -31,12 +31,14 @@ import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.UpdateListener;
 
 /**
- * 基类
- *
- * @author smile
- * @ClassName: BaseActivity
- * @Description: TODO
- * @date 2014-6-13 下午5:05:38
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 abstract class BaseActivity extends FragmentActivity {
     public final String TAG = getClass().getName();

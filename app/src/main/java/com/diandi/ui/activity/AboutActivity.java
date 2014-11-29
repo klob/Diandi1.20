@@ -9,7 +9,16 @@ import com.diandi.R;
 import com.diandi.sns.TencentShareConstants;
 import com.umeng.fb.FeedbackAgent;
 
-
+/**
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
+ */
 public class AboutActivity extends BaseActivity implements View.OnClickListener {
 
     private RelativeLayout mShareLayout, mFeedBackLayout, mLinkLayout;

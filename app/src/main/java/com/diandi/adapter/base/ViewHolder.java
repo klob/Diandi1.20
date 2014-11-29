@@ -3,11 +3,15 @@ package com.diandi.adapter.base;
 import android.util.SparseArray;
 import android.view.View;
 
-/** Viewholder的简化
- * @ClassName: ViewHolder
- * @Description: TODO
- * @author smile
- * @date 2014-5-28 上午9:56:29
+/**
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 @SuppressWarnings("unchecked")
 public class ViewHolder {

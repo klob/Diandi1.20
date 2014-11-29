@@ -7,11 +7,14 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * Created by sulinger  .
- * date:14-9-13 .
- * time:13:58 .
- * project:DianDi1.1.0 .
- * Copyright © sulinger .All Rights Reserved.
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 @SuppressWarnings("unckecked")
 public class DataSortUtil<E> {
@@ -34,7 +37,7 @@ public class DataSortUtil<E> {
             int ret = 0;
 
             try {
-                Method m1 = ((E)a).getClass().getMethod(method);
+                Method m1 = ((E) a).getClass().getMethod(method);
                 Method m2 = ((E) b).getClass().getMethod(method);
                 if (sort != null && "desc".equals(sort))//倒序
                     ret = m2.invoke(((E) b)).toString().compareTo(m1.invoke(((E) a)).toString());

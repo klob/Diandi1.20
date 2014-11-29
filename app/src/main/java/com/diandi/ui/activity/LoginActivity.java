@@ -24,10 +24,14 @@ import cn.bmob.im.util.BmobLog;
 import cn.bmob.v3.listener.SaveListener;
 
 /**
- * @author smile
- * @ClassName: LoginActivity
- * @Description: TODO
- * @date 2014-6-3 下午4:41:42
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 public class LoginActivity extends BaseActivity implements OnClickListener {
 

@@ -5,10 +5,14 @@ import android.os.Environment;
 
 
 /**
- * @author smile
- * @ClassName: BmobConstants
- * @Description: TODO
- * @date 2014-6-19 下午2:48:33
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 @SuppressLint("SdCardPath")
 public class Constant {
@@ -48,6 +52,7 @@ public class Constant {
     public static final String UPDATE_TEXT = "updateText";
     public static final String UPDATE_EDIT_HINT = "UPDATE_EDIT_HINT";
     public static final String UPDATE_EDIT_TEXT = "UPDATE_EDIT_TEXT";
+    public final static int LEAST_NUM = 6;
     /**
      * 存放发送图片的目录
      */
@@ -59,6 +64,4 @@ public class Constant {
     public static String FALSE = "false";
     public static String TRUE = "true";
     public static String OFFICIAL_WEBSITE = "http://diandi.bmob.cn/";
-
-    public final static int LEAST_NUM=6;
 }

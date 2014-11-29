@@ -15,12 +15,15 @@ import android.widget.EditText;
 
 import com.diandi.R;
 
-
-/** 带清除功能的文本输入框
- * @ClassName: ClearEditText
- * @Description: TODO
- * @author smile
- * @date 2014-5-4 下午4:18:45
+/**
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 public class ClearEditText extends EditText implements
         OnFocusChangeListener, TextWatcher {
@@ -43,6 +46,18 @@ public class ClearEditText extends EditText implements
         init();
     }
 
+    /**
+     * 晃动动画
+     *
+     * @param counts 1秒钟晃动多少下
+     * @return
+     */
+    public static Animation shakeAnimation(int counts) {
+        Animation translateAnimation = new TranslateAnimation(0, 10, 0, 0);
+        translateAnimation.setInterpolator(new CycleInterpolator(counts));
+        translateAnimation.setDuration(1000);
+        return translateAnimation;
+    }
 
     private void init() {
         //获取EditText的DrawableRight,假如没有设置我们就使用默认的图片
@@ -55,7 +70,6 @@ public class ClearEditText extends EditText implements
         setOnFocusChangeListener(this);
         addTextChangedListener(this);
     }
-
 
     /**
      * 因为我们不能直接给EditText设置点击事件，所以我们用记住我们按下的位置来模拟点击事件
@@ -90,9 +104,9 @@ public class ClearEditText extends EditText implements
         }
     }
 
-
     /**
      * 设置清除图标的显示与隐藏，调用setCompoundDrawables为EditText绘制上去
+     *
      * @param visible
      */
     protected void setClearIconVisible(boolean visible) {
@@ -100,7 +114,6 @@ public class ClearEditText extends EditText implements
         setCompoundDrawables(getCompoundDrawables()[0],
                 getCompoundDrawables()[1], right, getCompoundDrawables()[3]);
     }
-
 
     /**
      * 当输入框里面内容发生变化的时候回调的方法
@@ -122,24 +135,10 @@ public class ClearEditText extends EditText implements
 
     }
 
-
     /**
      * 设置晃动动画
      */
-    public void setShakeAnimation(){
+    public void setShakeAnimation() {
         this.setAnimation(shakeAnimation(5));
-    }
-
-
-    /**
-     * 晃动动画
-     * @param counts 1秒钟晃动多少下
-     * @return
-     */
-    public static Animation shakeAnimation(int counts){
-        Animation translateAnimation = new TranslateAnimation(0, 10, 0, 0);
-        translateAnimation.setInterpolator(new CycleInterpolator(counts));
-        translateAnimation.setDuration(1000);
-        return translateAnimation;
     }
 }

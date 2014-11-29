@@ -10,12 +10,14 @@ import com.umeng.update.UpdateResponse;
 import com.umeng.update.UpdateStatus;
 
 /**
- * 首选项管理
- *
- * @author smile
- * @ClassName: SharePreferenceUtil
- * @Description: TODO
- * @date 2014-6-10 下午4:20:14
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 @SuppressLint("CommitPrefEdits")
 public class SharePreferenceUtil {

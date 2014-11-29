@@ -4,9 +4,21 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
+/**
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
+ */
 public class CommonUtils {
 
-    /** 检查是否有网络 */
+    /**
+     * 检查是否有网络
+     */
     public static boolean isNetworkAvailable(Context context) {
         NetworkInfo info = getNetworkInfo(context);
         if (info != null) {
@@ -15,7 +27,9 @@ public class CommonUtils {
         return false;
     }
 
-    /** 检查是否是WIFI */
+    /**
+     * 检查是否是WIFI
+     */
     public static boolean isWifi(Context context) {
         NetworkInfo info = getNetworkInfo(context);
         if (info != null) {
@@ -25,7 +39,9 @@ public class CommonUtils {
         return false;
     }
 
-    /** 检查是否是移动网络 */
+    /**
+     * 检查是否是移动网络
+     */
     public static boolean isMobile(Context context) {
         NetworkInfo info = getNetworkInfo(context);
         if (info != null) {
@@ -42,7 +58,9 @@ public class CommonUtils {
         return cm.getActiveNetworkInfo();
     }
 
-    /** 检查SD卡是否存在 */
+    /**
+     * 检查SD卡是否存在
+     */
     public static boolean checkSdCard() {
         if (android.os.Environment.getExternalStorageState().equals(
                 android.os.Environment.MEDIA_MOUNTED))

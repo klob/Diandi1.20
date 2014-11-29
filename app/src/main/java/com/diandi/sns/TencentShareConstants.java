@@ -1,8 +1,14 @@
 package com.diandi.sns;
 
 /**
- * @author kingofglory email: kingofglory@yeah.net blog: http:www.google.com
- * @date 2014-3-3 TODO
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 
 public interface TencentShareConstants {

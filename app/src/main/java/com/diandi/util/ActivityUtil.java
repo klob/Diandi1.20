@@ -45,9 +45,15 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-
 /**
- * @author adison Activity帮助器类
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 public final class ActivityUtil {
 
@@ -450,7 +456,7 @@ public final class ActivityUtil {
      */
     public static String getImei(Context context) {
         TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-        L.i("IMEI"+tm.getDeviceId());
+        L.i("IMEI" + tm.getDeviceId());
         return tm.getDeviceId();
     }
 

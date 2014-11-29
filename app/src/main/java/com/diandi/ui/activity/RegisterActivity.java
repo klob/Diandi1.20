@@ -17,6 +17,16 @@ import com.diandi.util.CommonUtils;
 import cn.bmob.v3.BmobInstallation;
 import cn.bmob.v3.listener.SaveListener;
 
+/**
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
+ */
 public class RegisterActivity extends BaseActivity {
 
     TextView btn_register;

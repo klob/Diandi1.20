@@ -44,13 +44,15 @@ import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.UpdateListener;
 
 /**
- * @author kingofglory
- *         email: kingofglory@yeah.net
- *         blog:  http:www.google.com
- * @date 2014-2-24
- * TODO
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
-
 public class FeedAdapter extends BaseListAdapter<DianDi> {
 
     public static final String TAG = "AIContentAdapter";

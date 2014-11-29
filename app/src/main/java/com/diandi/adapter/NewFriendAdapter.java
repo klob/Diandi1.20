@@ -27,12 +27,14 @@ import cn.bmob.im.util.BmobLog;
 import cn.bmob.v3.listener.UpdateListener;
 
 /**
- * 新的好友请求
- *
- * @author smile
- * @ClassName: NewFriendAdapter
- * @Description: TODO
- * @date 2014-6-9 下午1:26:12
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 public class NewFriendAdapter extends BaseListAdapter<BmobInvitation> {
 

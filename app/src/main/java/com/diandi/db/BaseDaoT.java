@@ -17,15 +17,15 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * ************************************************************
- * *********    User : SuLinger(462679107@qq.com) .
- * *********    Date : 2014-09-14  .
- * *********    Time:  2014-09-14  .
- * *********    Project name :DianDi1.1.0 .
- * *********    Copyright @ 2014, SuLinger, All Rights Reserved
- * *************************************************************
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
-
 
 public abstract class BaseDaoT<T> {
     private final static String TAG = "BaseDao";

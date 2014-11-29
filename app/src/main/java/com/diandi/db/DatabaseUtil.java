@@ -13,7 +13,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-
+/**
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
+ */
 public class DatabaseUtil {
     private static final String TAG="DatabaseUtil";
 
@@ -133,7 +142,6 @@ public class DatabaseUtil {
 
     /**
      * 设置内容的收藏状态
-     * @param context
      * @param lists
      */
     public List<DianDi> setFav(List<DianDi> lists) {
@@ -169,7 +177,6 @@ public class DatabaseUtil {
 
     /**
      * 设置内容的收藏状态
-     * @param context
      * @param lists
      */
     public List<DianDi> setFavInFav(List<DianDi> lists) {

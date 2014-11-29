@@ -1,9 +1,5 @@
 package com.diandi.util;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -11,11 +7,19 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.preference.PreferenceManager;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 /**
- * 首选项工具类
- * 
- * @author adison
- * 
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 public class Sputil {
 	private Context context;
@@ -54,11 +58,23 @@ public class Sputil {
 		edit = sp.edit();
 	}
 
-	public SharedPreferences getInstance() {
-		return sp;
-	}
+    /**
+     * 记录日期，决定是否数据是否需要改动
+     *
+     * @return
+     */
+    public static String getDateByNumber() {
+        SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd",
+                new Locale("zh"));
+        String cur = s.format(new Date());
+        return cur;
+    }
 
-	// Set
+    // Set
+
+    public SharedPreferences getInstance() {
+        return sp;
+    }
 
 	// Boolean
 	public void setValue(String key, boolean value) {
@@ -106,11 +122,11 @@ public class Sputil {
 		edit.commit();
 	}
 
+	// Get
+
 	public void setValue(int resKey, String value) {
 		setValue(this.context.getString(resKey), value);
 	}
-
-	// Get
 
 	// Boolean
 	public boolean getValue(String key, boolean defaultValue) {
@@ -169,8 +185,8 @@ public class Sputil {
 	}
 
 	/**
-	 * 是否第一次启动应用
-	 * 
+     * 是否第一次启动应用
+     *
 	 * @param context
 	 * @return
 	 */
@@ -196,8 +212,8 @@ public class Sputil {
 	}
 
 	/**
-	 * 是否第一次安装应用
-	 * 
+     * 是否第一次安装应用
+     *
 	 * @param context
 	 * @return
 	 */
@@ -210,8 +226,8 @@ public class Sputil {
 	}
 
 	/**
-	 * 应用已启动
-	 * 
+     * 应用已启动
+     *
 	 * @param context
 	 */
 	public void setStarted(Context context) {
@@ -227,25 +243,23 @@ public class Sputil {
 	}
 
 	/**
-	 * 应用已安装并启动
-	 * 
+     * 应用已安装并启动
+     *
 	 * @param context
 	 */
 	public void setInstalled(Context context) {
 		sp.edit().putInt("first_install", 1).commit();
 	}
 
-	
-
 	/**
-	 * 是否需要改变数据
-	 * 
+     * 是否需要改变数据
+     *
 	 * @param context
-	 * @param typeID
-	 * @return
+     * @param openID
+     * @return
 	 */
 	public  boolean needChangeIndexContent(Context context, String openID) {
-		
+
 		String save = sp.getString(openID, "");
 		String cur = getDateByNumber();
 		if (save.equals(cur)) {
@@ -255,27 +269,15 @@ public class Sputil {
 		return true;
 	}
 
-	/**
-	 * 保存更新日期
-	 * 
+    /**
+     * 保存更新日期
+     *
 	 * @param context
-	 * @param typeID
-	 */
+     * @param openID
+     */
 	public void saveChangeIndexContent(Context context, String openID) {
-		
+
 		String cur = getDateByNumber();
 		sp.edit().putString(openID, cur).commit();
-	}
-	
-	/**
-	 * 记录日期，决定是否数据是否需要改动
-	 * 
-	 * @return
-	 */
-	public static String getDateByNumber() {
-		SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd",
-				new Locale("zh"));
-		String cur = s.format(new Date());
-		return cur;
 	}
 }

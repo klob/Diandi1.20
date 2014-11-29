@@ -10,8 +10,8 @@ import cn.bmob.v3.BmobUser;
 /**
  * *******************************************************************************
  * *********    Author : klob(kloblic@gmail.com) .
- * *********    Date : 2014-11-19  .
- * *********    Time : 00:05 .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
  * *********    Project name : Diandi1.18 .
  * *********    Version : 1.0
  * *********    Copyright @ 2014, klob, All Rights Reserved

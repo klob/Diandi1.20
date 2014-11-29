@@ -23,12 +23,14 @@ import cn.bmob.im.inteface.MsgTag;
 import cn.bmob.v3.listener.PushListener;
 
 /**
- * 查找好友
- *
- * @author smile
- * @ClassName: AddFriendAdapter
- * @Description: TODO
- * @date 2014-6-25 上午10:56:33
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 public class AddFriendAdapter extends BaseListAdapter<BmobChatUser> {
 
@@ -65,6 +67,7 @@ public class AddFriendAdapter extends BaseListAdapter<BmobChatUser> {
                         progress.dismiss();
                         ShowToast("发送请求成功，等待对方验证!");
                     }
+
                     @Override
                     public void onFailure(int arg0, final String arg1) {
                         progress.dismiss();

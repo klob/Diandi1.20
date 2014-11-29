@@ -15,24 +15,30 @@ import android.widget.TextView;
 
 import com.diandi.R;
 
-
-public class XListViewHeader extends LinearLayout{
+/**
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
+ */
+public class XListViewHeader extends LinearLayout {
+    public final static int STATE_NORMAL = 0;
+    private int mState = STATE_NORMAL;
+    public final static int STATE_READY = 1;
+    public final static int STATE_REFRESHING = 2;
+    private final int ROTATE_ANIM_DURATION = 180;
     private LinearLayout mContainer;
     private ImageView mArrowImageView;
     private ProgressBar mProgressBar;
     private TextView mHintTextView;
     private TextView mHeaderTimeView;
     private TextView mHeaderTimeLabel;
-    private int mState = STATE_NORMAL;
-
     private Animation mRotateUpAnim;
     private Animation mRotateDownAnim;
-
-    private final int ROTATE_ANIM_DURATION = 180;
-
-    public final static int STATE_NORMAL = 0;
-    public final static int STATE_READY = 1;
-    public final static int STATE_REFRESHING = 2;
 
     public XListViewHeader(Context context) {
         super(context);
@@ -57,11 +63,11 @@ public class XListViewHeader extends LinearLayout{
         addView(mContainer, lp);
         setGravity(Gravity.BOTTOM);
 
-        mArrowImageView = (ImageView)findViewById(R.id.xlistview_header_arrow);
-        mHintTextView = (TextView)findViewById(R.id.xlistview_header_hint_textview);
-        mProgressBar = (ProgressBar)findViewById(R.id.xlistview_header_progressbar);
-        mHeaderTimeView = (TextView)findViewById(R.id.xlistview_header_time);
-        mHeaderTimeLabel = (TextView)findViewById(R.id.xlistview_header_time_label);
+        mArrowImageView = (ImageView) findViewById(R.id.xlistview_header_arrow);
+        mHintTextView = (TextView) findViewById(R.id.xlistview_header_hint_textview);
+        mProgressBar = (ProgressBar) findViewById(R.id.xlistview_header_progressbar);
+        mHeaderTimeView = (TextView) findViewById(R.id.xlistview_header_time);
+        mHeaderTimeLabel = (TextView) findViewById(R.id.xlistview_header_time_label);
 
         mRotateUpAnim = new RotateAnimation(0.0f, -180.0f,
                 Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
@@ -76,18 +82,18 @@ public class XListViewHeader extends LinearLayout{
     }
 
     public void setState(int state) {
-        if (state == mState) return ;
+        if (state == mState) return;
 
-        if (state == STATE_REFRESHING) {	// 显示进度
+        if (state == STATE_REFRESHING) {    // 显示进度
             mArrowImageView.clearAnimation();
             mArrowImageView.setVisibility(View.INVISIBLE);
             mProgressBar.setVisibility(View.VISIBLE);
-        } else {	// 显示箭头图片
+        } else {    // 显示箭头图片
             mArrowImageView.setVisibility(View.VISIBLE);
             mProgressBar.setVisibility(View.INVISIBLE);
         }
 
-        switch(state){
+        switch (state) {
             case STATE_NORMAL:
                 if (mState == STATE_READY) {
                     mArrowImageView.startAnimation(mRotateDownAnim);
@@ -116,6 +122,10 @@ public class XListViewHeader extends LinearLayout{
         mState = state;
     }
 
+    public int getVisiableHeight() {
+        return mContainer.getHeight();
+    }
+
     public void setVisiableHeight(int height) {
         if (height < 0)
             height = 0;
@@ -123,10 +133,6 @@ public class XListViewHeader extends LinearLayout{
                 .getLayoutParams();
         lp.height = height;
         mContainer.setLayoutParams(lp);
-    }
-
-    public int getVisiableHeight() {
-        return mContainer.getHeight();
     }
 
     public void setRefreshTime(String time) {

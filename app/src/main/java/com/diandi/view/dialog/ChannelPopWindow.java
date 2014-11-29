@@ -14,23 +14,17 @@ import com.diandi.R;
 
 
 /**
- * 自定义popupWindow
- *
- * @author wwj
- *
- *
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 public class ChannelPopWindow extends PopupWindow {
     private View conentView;
-
-    public LinearLayout getHustLayout() {
-        return mHustLayout;
-    }
-
-    public void setHustLayout(LinearLayout hustLayout) {
-        mHustLayout = hustLayout;
-    }
-
     private LinearLayout mHustLayout;
 
     public ChannelPopWindow(final Activity context) {
@@ -69,6 +63,14 @@ public class ChannelPopWindow extends PopupWindow {
         });
 
 
+    }
+
+    public LinearLayout getHustLayout() {
+        return mHustLayout;
+    }
+
+    public void setHustLayout(LinearLayout hustLayout) {
+        mHustLayout = hustLayout;
     }
 
     /**

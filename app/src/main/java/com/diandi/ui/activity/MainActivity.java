@@ -36,6 +36,16 @@ import cn.bmob.im.bean.BmobMsg;
 import cn.bmob.im.db.BmobDB;
 import cn.bmob.im.inteface.EventListener;
 
+/**
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
+ */
 public class MainActivity extends ActivityBase implements EventListener, View.OnClickListener {
     public final static int INFOR_REFREFLASH = 100;
     private static DragLayout mDragLayout;
@@ -294,7 +304,7 @@ public class MainActivity extends ActivityBase implements EventListener, View.On
         if (firstTime + 2000 > System.currentTimeMillis()) {
             finish();
         } else {
-            Toast.makeText(MainActivity.this,"再按一次退出程序",Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
         }
         firstTime = System.currentTimeMillis();
     }

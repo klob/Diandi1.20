@@ -17,11 +17,15 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
 
-/** 好友列表
- * @ClassName: UserFriendAdapter
- * @Description: TODO
- * @author smile
- * @date 2014-6-12 下午3:03:40
+/**
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 @SuppressLint("DefaultLocale")
 public class ContactAdapter extends BaseAdapter implements SectionIndexer {
@@ -33,19 +37,21 @@ public class ContactAdapter extends BaseAdapter implements SectionIndexer {
         this.data = datas;
     }
 
-    /** 当ListView数据发生变化时,调用此方法来更新ListView
-     * @Title: updateListView
-     * @Description: TODO
+    /**
+     * 当ListView数据发生变化时,调用此方法来更新ListView
+     *
      * @param @param list
      * @return void
      * @throws
+     * @Title: updateListView
+     * @Description: TODO
      */
     public void updateListView(List<User> list) {
         this.data = list;
         notifyDataSetChanged();
     }
 
-    public void remove(User user){
+    public void remove(User user) {
         this.data.remove(user);
         notifyDataSetChanged();
     }
@@ -84,9 +90,8 @@ public class ContactAdapter extends BaseAdapter implements SectionIndexer {
 
         User friend = data.get(position);
         final String name = friend.getNick();
-        String avatarUrl=null;
-        if (friend.getAvatar() != null)
-        {
+        String avatarUrl = null;
+        if (friend.getAvatar() != null) {
             avatarUrl = friend.getAvatar();
         }
         ImageLoader.getInstance().displayImage(avatarUrl, viewHolder.avatar,

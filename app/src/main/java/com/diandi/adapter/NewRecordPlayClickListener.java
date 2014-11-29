@@ -1,9 +1,5 @@
 package com.diandi.adapter;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.AudioManager;
@@ -14,6 +10,10 @@ import android.widget.ImageView;
 
 import com.diandi.R;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 import cn.bmob.im.BmobUserManager;
 import cn.bmob.im.bean.BmobMsg;
 import cn.bmob.im.config.BmobConfig;
@@ -22,26 +22,27 @@ import cn.bmob.im.util.BmobUtils;
 
 
 /**
- * 播放录音文件
- *
- * @ClassName: NewRecordPlayClickListener
- * @Description: TODO
- * @author smile
- * @date 2014-7-3 上午11:05:06
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 public class NewRecordPlayClickListener implements View.OnClickListener {
 
-    BmobMsg message;
-    ImageView iv_voice;
-    private AnimationDrawable anim = null;
-    Context context;
-    String currentObjectId = "";
-    MediaPlayer mediaPlayer = null;
     public static boolean isPlaying = false;
     public static NewRecordPlayClickListener currentPlayListener = null;
     static BmobMsg currentMsg = null;// 用于区分两个不同语音的播放
-
+    BmobMsg message;
+    ImageView iv_voice;
+    Context context;
+    String currentObjectId = "";
+    MediaPlayer mediaPlayer = null;
     BmobUserManager userManager;
+    private AnimationDrawable anim = null;
 
     public NewRecordPlayClickListener(Context context, BmobMsg msg,
                                       ImageView voice) {

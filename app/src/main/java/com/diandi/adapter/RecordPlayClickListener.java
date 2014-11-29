@@ -15,25 +15,26 @@ import cn.bmob.im.util.BmobLog;
 
 
 /**
- * 播放录音文件--弃用，会出现播放错位，暂时还未解决.
- * @ClassName: RecordPlayClickListener
- * @Description: TODO
- * @author smile
- * @date 2014-7-2 下午4:19:35
+ * *******************************************************************************
+ * *********    Author : klob(kloblic@gmail.com) .
+ * *********    Date : 2014-11-29  .
+ * *********    Time : 11:46 .
+ * *********    Project name : Diandi1.18 .
+ * *********    Version : 1.0
+ * *********    Copyright @ 2014, klob, All Rights Reserved
+ * *******************************************************************************
  */
 public class RecordPlayClickListener implements View.OnClickListener {
 
+    public static RecordPlayClickListener currentPlayListener = null;
+    static BmobMsg currentMsg = null;// 用于区分两个不同语音的播放
     BmobMsg message;
     ImageView iv_voice;
-    private AnimationDrawable anim = null;
-    public static RecordPlayClickListener currentPlayListener = null;
-
     BmobPlayManager playMananger;
     Context context;
 
     String currentObjectId = "";
-
-    static BmobMsg currentMsg = null;// 用于区分两个不同语音的播放
+    private AnimationDrawable anim = null;
 
     public RecordPlayClickListener(Context context, BmobMsg msg, ImageView voice) {
         this.iv_voice = voice;
