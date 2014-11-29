@@ -41,7 +41,6 @@ public class NewFriendAdapter extends BaseListAdapter<BmobInvitation> {
     public NewFriendAdapter(Context context, List<BmobInvitation> list) {
         super(context, list);
     }
-
     @Override
     public View bindView(int arg0, View convertView, ViewGroup arg2) {
         if (convertView == null) {
@@ -54,7 +53,6 @@ public class NewFriendAdapter extends BaseListAdapter<BmobInvitation> {
         final Button addBtn = ViewHolder.get(convertView, R.id.item_add_friend_add_btn);
 
         String avatar = msg.getAvatar();
-
         if (avatar != null && !avatar.equals("")) {
             ImageLoader.getInstance().displayImage(avatar, avatarImg, ImageLoadOptions.getOptions());
         } else {
@@ -62,12 +60,11 @@ public class NewFriendAdapter extends BaseListAdapter<BmobInvitation> {
         }
 
         int status = msg.getStatus();
-        if (status == BmobConfig.INVITE_ADD_NO_VALIDATION) {
+        if (status == BmobConfig.INVITE_ADD_NO_VALIDATION || status == BmobConfig.INVITE_ADD_NO_VALI_RECEIVED) {
 //			btn_add.setText("同意");
 //			btn_add.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.btn_login_selector));
 //			btn_add.setTextColor(mContext.getResources().getColor(R.color.base_color_text_white));
             addBtn.setOnClickListener(new OnClickListener() {
-
                 @Override
                 public void onClick(View arg0) {
                     BmobLog.i("点击同意按钮:" + msg.getFromid());
@@ -81,10 +78,8 @@ public class NewFriendAdapter extends BaseListAdapter<BmobInvitation> {
             addBtn.setEnabled(false);
         }
         nameText.setText(msg.getFromname());
-
         return convertView;
     }
-
 
     /**
      * 添加好友
@@ -105,7 +100,6 @@ public class NewFriendAdapter extends BaseListAdapter<BmobInvitation> {
         try {
             //同意添加好友
             BmobUserManager.getInstance(mContext).agreeAddContact(msg, new UpdateListener() {
-
                 @Override
                 public void onSuccess() {
                     progress.dismiss();

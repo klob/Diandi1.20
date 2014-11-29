@@ -42,7 +42,6 @@ public class NewFriendActivity extends ActivityBase implements OnItemLongClickLi
         initTopBarForBoth("新朋友", R.drawable.icon_clear_selector, new HeaderLayout.onRightImageButtonClickListener() {
             @Override
             public void onClick() {
-
                 DialogTips dialog = new DialogTips(NewFriendActivity.this, "提示", "删除所有好友请求", "确定", true, true);
                 // 设置成功事件
                 dialog.SetOnSuccessListener(new DialogInterface.OnClickListener() {

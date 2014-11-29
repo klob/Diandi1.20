@@ -160,8 +160,6 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
             mLaunchChatBtn.setVisibility(View.GONE);
             mAddBlackBtn.setVisibility(View.GONE);
             mLogOutBtn.setVisibility(View.VISIBLE);
-
-
         } else {
             initTopBarForLeft("详细资料");
             if (from.equals("add")) {// 从附近的人列表添加好友--因为获取附近的人的方法里面有是否显示好友的情况，因此在这里需要判断下这个用户是否是自己的好友
@@ -171,7 +169,7 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
                     mLaunchChatBtn.setOnClickListener(this);
                     mAddBlackBtn.setOnClickListener(this);
                 } else {
-                    mLaunchChatBtn.setVisibility(View.GONE);
+                    //    mLaunchChatBtn.setVisibility(View.GONE);
                     mAddBlackBtn.setVisibility(View.GONE);
                     mAddFriendBtn.setVisibility(View.VISIBLE);
                     mAddFriendBtn.setOnClickListener(this);
