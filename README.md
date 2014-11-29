@@ -59,14 +59,14 @@ use android studio to checkout from github
 在这里，也想找几个小伙伴，一起把它做下去，有设计师最好了。
 
 
-如果出现错误或者有任何问题，请放轻松联系我[kloblic@gmail.com](mailto:kloblic@gmail.com)，或者前往我的博客提问
+如果出现错误或者有任何问题，请放轻松联系我[kloblic@gmail.com](mailto:kloblic@gmail.com)，或者前往我的博客[csdn](http://blog.csdn.net/qq4626791047/article/details/41594821)提问
 
 ###关于我：
 我是个华科在读的一个穷学生，痴迷开发，擅长Android，如果您手头有适合我的实习或者工作机会，欢迎邮件联系我[kloblic@gmail.com](mailto:kloblic@gmail.com)。
 
 
 *	我的邮箱：kloblic@gmail.com
-*	我的博客：[csdn](http://blog.csdn.net/qq4626791047?viewmode=contents)
+*	我的博客：[csdn](http://blog.csdn.net/qq4626791047/article/details/41594821)
 
 欢迎Follow，欢迎合作
 
