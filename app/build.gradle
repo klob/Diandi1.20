@@ -11,11 +11,21 @@ android {
         versionCode 9
         versionName "1.1.9"
     }
-    buildTypes {
+    signingConfigs {
         release {
-            proguardFiles 'proguard-android.txt'
+            storeFile file("../app/diandy__keystore.jks")
+            storePassword "liuping"
+            keyAlias "liuping"
+            keyPassword "liuping"
         }
     }
+    buildTypes {
+        release {
+            minifyEnabled = false
+            signingConfig signingConfigs.release
+        }
+    }
+
     android.applicationVariants.all { variant ->
         def file = variant.outputFile
         variant.outputFile = new File(file.parent, file.name.replace("app-debug.apk", "diandi" + ".apk"))
