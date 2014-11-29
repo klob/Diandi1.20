@@ -66,7 +66,7 @@ use android studio to checkout from github
 
 
 *	我的邮箱：kloblic@gmail.com
-*	我的博客：[csdn](http://blog.csdn.net/qq4626791047/article/details/41594821)
+*	我的博客：[csdn](http://blog.csdn.net/qq4626791047?viewmode=contents)
 
 欢迎Follow，欢迎合作
 
