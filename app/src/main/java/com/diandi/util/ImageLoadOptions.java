@@ -1,16 +1,42 @@
 package com.diandi.util;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 
 import com.diandi.R;
+import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
+import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
+import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+import com.nostra13.universalimageloader.utils.StorageUtils;
+
+import java.io.File;
 
 public class ImageLoadOptions {
 
-    /** 新闻列表中用到的图片加载配置 */
+    /**
+     * 初始化ImageLoader
+     */
+    public static void initImageLoader(Context context) {
+        File cacheDir = StorageUtils.getCacheDirectory(context);
+        //    File cacheDir= new File(getCacheDir(), "ACache");
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context)
+                .memoryCache(new LruMemoryCache(5 * 1024 * 1024))
+                .memoryCacheSize(10 * 1024 * 1024)
+                .discCache(new UnlimitedDiscCache(cacheDir))
+                .discCacheFileNameGenerator(new HashCodeFileNameGenerator())
+                .build();
+        ImageLoader.getInstance().init(config);
+    }
+
+    /**
+     * 新闻列表中用到的图片加载配置
+     */
     public static DisplayImageOptions getOption() {
         DisplayImageOptions options = new DisplayImageOptions.Builder()
                 // // 设置图片在下载期间显示的图片
@@ -41,6 +67,7 @@ public class ImageLoadOptions {
 
         return options;
     }
+
     public static DisplayImageOptions getOptions(int drawableId) {
         return new DisplayImageOptions.Builder()
                 .showImageOnLoading(drawableId)
