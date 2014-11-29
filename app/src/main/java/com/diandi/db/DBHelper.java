@@ -17,30 +17,30 @@ import android.database.sqlite.SQLiteOpenHelper;
  * *********    Copyright @ 2014, klob, All Rights Reserved
  * *******************************************************************************
  */
-public class DBHelper extends SQLiteOpenHelper{
-	
-	public static final String DATA_BASE_NAME = "qingqiang_db";
-	public static final int DATA_BASE_VERSION = 1;
-	public static final String TABLE_NAME = "fav";
+public class DBHelper extends SQLiteOpenHelper {
 
-	private SQLiteDatabase mDb;
-	
-	public DBHelper(Context context) {
-		super(context, DATA_BASE_NAME, null, DATA_BASE_VERSION);
-		// TODO Auto-generated constructor stub
-	}
+    public static final String DATA_BASE_NAME = "qingqiang_db";
+    public static final int DATA_BASE_VERSION = 1;
+    public static final String TABLE_NAME = "fav";
 
-	@Override
-	public void onCreate(SQLiteDatabase db) {
-		// TODO Auto-generated method stub
-		onCreateFavTable(db);
-	}
+    private SQLiteDatabase mDb;
 
-	@Override
-	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		// TODO Auto-generated method stub
-		
-	}
+    public DBHelper(Context context) {
+        super(context, DATA_BASE_NAME, null, DATA_BASE_VERSION);
+        // TODO Auto-generated constructor stub
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        // TODO Auto-generated method stub
+        onCreateFavTable(db);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // TODO Auto-generated method stub
+
+    }
 
     private void onCreateFavTable(SQLiteDatabase db) {
         StringBuilder favStr = new StringBuilder();
@@ -114,14 +114,6 @@ public class DBHelper extends SQLiteOpenHelper{
                         String orderBy) {
         getDatabase(false);
         return mDb.query(table, columns, selection, selectionArgs, groupBy, having, orderBy);
-    }
-
-    interface FavTable {
-        String _ID = "_id";
-        String USER_ID = "userid";
-        String OBJECT_ID = "objectid";
-        String IS_LOVE = "islove";
-        String IS_FAV = "isfav";
     }
 
     interface FavTable {
