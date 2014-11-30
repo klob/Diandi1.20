@@ -169,7 +169,7 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
                     mLaunchChatBtn.setOnClickListener(this);
                     mAddBlackBtn.setOnClickListener(this);
                 } else {
-                    //    mLaunchChatBtn.setVisibility(View.GONE);
+                    mLaunchChatBtn.setVisibility(View.GONE);
                     mAddBlackBtn.setVisibility(View.GONE);
                     mAddFriendBtn.setVisibility(View.VISIBLE);
                     mAddFriendBtn.setOnClickListener(this);

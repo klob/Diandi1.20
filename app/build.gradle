@@ -29,6 +29,7 @@ android {
     android.applicationVariants.all { variant ->
         def file = variant.outputFile
         variant.outputFile = new File(file.parent, file.name.replace("app-debug.apk", "diandi" + ".apk"))
+        variant.outputFile = new File(file.parent, file.name.replace("app-release.apk", "diandi" + ".apk"))
     }
     lintOptions {
         checkReleaseBuilds false
