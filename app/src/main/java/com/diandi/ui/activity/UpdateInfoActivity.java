@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.diandi.R;
 import com.diandi.config.Constant;
 import com.diandi.util.OverridePendingUtil;
-import com.diandi.view.HeaderLayout.onRightImageButtonClickListener;
+import com.diandi.widget.HeaderLayout.onRightImageButtonClickListener;
 
 /**
  * *******************************************************************************

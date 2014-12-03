@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.view.WindowManager;
 
 import com.diandi.R;
-import com.diandi.bean.Plan;
-import com.diandi.db.PlanDao;
-import com.diandi.view.HeaderLayout;
+import com.diandi.bussiness.db.PlanDao;
+import com.diandi.model.Plan;
+import com.diandi.widget.HeaderLayout;
 import com.touchmenotapps.widget.radialmenu.progress.widget.RadialProgressWidget;
 import com.touchmenotapps.widget.radialmenu.progress.widget.RadialProgressWidget.OnRadialViewValueChanged;
 

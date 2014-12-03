@@ -12,8 +12,8 @@ import android.widget.TextView;
 import com.diandi.R;
 import com.diandi.adapter.base.BaseListAdapter;
 import com.diandi.adapter.base.ViewHolder;
-import com.diandi.bean.Plan;
 import com.diandi.io.MemoryCache;
+import com.diandi.model.Plan;
 import com.diandi.util.Calculator;
 import com.diandi.util.TimeUtil;
 

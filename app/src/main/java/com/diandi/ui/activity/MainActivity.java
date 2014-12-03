@@ -14,8 +14,8 @@ import android.widget.Toast;
 
 import com.diandi.CustomApplication;
 import com.diandi.R;
-import com.diandi.bean.User;
-import com.diandi.receiver.MyMessageReceiver;
+import com.diandi.components.receiver.MyMessageReceiver;
+import com.diandi.model.User;
 import com.diandi.sync.UserHelper;
 import com.diandi.ui.fragment.ContactFragment;
 import com.diandi.ui.fragment.DiandiFragment;

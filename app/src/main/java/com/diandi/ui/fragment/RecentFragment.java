@@ -16,8 +16,8 @@ import android.widget.ListView;
 import com.diandi.R;
 import com.diandi.adapter.MessageRecentAdapter;
 import com.diandi.ui.activity.ChatActivity;
-import com.diandi.view.ClearEditText;
-import com.diandi.view.dialog.DialogTips;
+import com.diandi.widget.ClearEditText;
+import com.diandi.widget.dialog.DialogTips;
 
 import cn.bmob.im.bean.BmobChatUser;
 import cn.bmob.im.bean.BmobRecent;

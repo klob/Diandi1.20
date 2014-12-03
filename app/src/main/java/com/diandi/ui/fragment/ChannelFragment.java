@@ -12,10 +12,10 @@ import android.widget.TextView;
 import com.diandi.CustomApplication;
 import com.diandi.R;
 import com.diandi.adapter.ChannelAdapter;
-import com.diandi.bean.OfficialDiandi;
+import com.diandi.model.diandi.OfficialDiandi;
 import com.diandi.util.CollectionUtils;
-import com.diandi.view.dialog.ListDialog;
-import com.diandi.view.xlist.XListView;
+import com.diandi.widget.dialog.ListDialog;
+import com.diandi.widget.xlist.XListView;
 import com.gc.materialdesign.views.ListviewButton;
 
 import java.util.ArrayList;

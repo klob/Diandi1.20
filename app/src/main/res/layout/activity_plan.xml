@@ -6,7 +6,7 @@
         android:id="@+id/common_actionbar"
         layout="@layout/include_action_bar"/>
 
-    <com.diandi.view.PagerSlidingTabStrip
+    <com.diandi.widget.PagerSlidingTabStrip
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="40dp"

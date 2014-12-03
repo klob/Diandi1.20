@@ -29,7 +29,7 @@ import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeOption;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
 import com.diandi.R;
-import com.diandi.view.HeaderLayout.onRightImageButtonClickListener;
+import com.diandi.widget.HeaderLayout.onRightImageButtonClickListener;
 
 import cn.bmob.im.util.BmobLog;
 

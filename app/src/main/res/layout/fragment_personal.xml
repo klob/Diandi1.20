@@ -8,10 +8,10 @@
         layout="@layout/include_action_bar"/>
 
     <RelativeLayout
-        android:layout_below="@id/common_actionbar"
         android:id="@+id/personal_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/common_actionbar"
         android:background="#abc214"
         android:padding="16dp">
 
@@ -19,28 +19,28 @@
             android:id="@+id/personal_icon"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:scaleType="centerInside"
-            android:layout_marginRight="4dp"/>
+            android:layout_marginRight="4dp"
+            android:scaleType="centerInside"/>
 
         <TextView
             android:id="@+id/personl_name"
+            style="@android:style/TextAppearance.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/personal_icon"
             android:layout_alignTop="@id/personal_icon"
             android:layout_margin="4dip"
-            style="@android:style/TextAppearance.Medium"
+            android:layout_toRightOf="@id/personal_icon"
             android:text="清风拭泪"
             android:textColor="#FFFFFF"/>
 
         <TextView
             android:id="@+id/personl_signature"
+            style="@android:style/TextAppearance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/personal_icon"
             android:layout_below="@id/personl_name"
             android:layout_margin="4dip"
-            style="@android:style/TextAppearance"
+            android:layout_toRightOf="@id/personal_icon"
             android:text="面朝大海，春暖花开"
             android:textColor="#FFFFFF"/>
 
@@ -56,19 +56,21 @@
 
     <TextView
         android:id="@+id/personl_title"
+        style="@style/TextTheme.tipstheme_second"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/personal_info"
+        android:gravity="center"
         android:padding="8dip"
-        style="@style/TextTheme.tipstheme_second"
-        android:text="发表过的"
-        android:gravity="center"/>
+        android:text="发表过的"/>
 
-    <com.diandi.view.xlist.XListView
+    <com.diandi.widget.xlist.XListView
         android:id="@+id/pull_refresh_list_personal"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_below="@id/personl_title"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:cacheColorHint="#00000000"
         android:divider="#19000000"
         android:dividerHeight="4dp"
@@ -76,7 +78,5 @@
         android:fastScrollEnabled="false"
         android:footerDividersEnabled="false"
         android:headerDividersEnabled="false"
-        android:smoothScrollbar="true"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"/>
+        android:smoothScrollbar="true"/>
 </RelativeLayout>

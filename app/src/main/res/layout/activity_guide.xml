@@ -5,9 +5,9 @@
     android:layout_height="fill_parent"
     android:background="#000000">
 
-    <com.diandi.view.ScrollLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <com.diandi.widget.ScrollLayout
         android:id="@+id/activity_guide_scroll_layout"
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:visibility="visible">
@@ -36,18 +36,18 @@
             <!-- 点击该按钮后就进入OtherActivit了 -->
             <Button
                 android:id="@+id/activity_guide_start_btn"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="8dp"
                 android:layout_width="260dp"
                 android:layout_height="80dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
                 android:layout_marginBottom="110dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:background="@null"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"/>
         </RelativeLayout>
-    </com.diandi.view.ScrollLayout>
+    </com.diandi.widget.ScrollLayout>
 
     <!-- 这个布局是下面显示的小圆点的布局，其中ImageView的数量要与上面RelativeLayout的数量对应 -->
     <LinearLayout

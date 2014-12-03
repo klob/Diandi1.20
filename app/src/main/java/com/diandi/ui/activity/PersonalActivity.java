@@ -12,12 +12,12 @@ import android.widget.TextView;
 import com.diandi.CustomApplication;
 import com.diandi.R;
 import com.diandi.adapter.FeedAdapter;
-import com.diandi.bean.DianDi;
-import com.diandi.bean.User;
 import com.diandi.config.Constant;
+import com.diandi.model.User;
+import com.diandi.model.diandi.DianDi;
 import com.diandi.util.ImageLoadOptions;
 import com.diandi.util.L;
-import com.diandi.view.xlist.XListView;
+import com.diandi.widget.xlist.XListView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 

@@ -4,17 +4,19 @@
                 android:layout_height="match_parent"
                 android:baselineAligned="false"
                 android:focusable="true">
-    <com.diandi.view.xlist.XListView
+
+    <com.diandi.widget.xlist.XListView
         android:id="@+id/fragment_diandi_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:cacheColorHint="#00000000"
         android:divider="#00000000"
         android:fastScrollEnabled="false"
-        android:headerDividersEnabled="false"
         android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
         android:smoothScrollbar="true">
-    </com.diandi.view.xlist.XListView>
+    </com.diandi.widget.xlist.XListView>
+
     <TextView
         android:id="@+id/fragment_diandi_networktips"
         android:layout_width="wrap_content"

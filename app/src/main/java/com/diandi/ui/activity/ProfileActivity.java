@@ -21,15 +21,15 @@ import android.widget.TextView;
 
 import com.diandi.CustomApplication;
 import com.diandi.R;
-import com.diandi.bean.User;
 import com.diandi.config.Constant;
+import com.diandi.model.User;
 import com.diandi.util.CacheUtils;
 import com.diandi.util.CollectionUtils;
 import com.diandi.util.ImageLoadOptions;
 import com.diandi.util.L;
 import com.diandi.util.OverridePendingUtil;
 import com.diandi.util.Sputil;
-import com.diandi.view.dialog.DialogTips;
+import com.diandi.widget.dialog.DialogTips;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.io.File;

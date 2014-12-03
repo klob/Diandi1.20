@@ -9,7 +9,7 @@
         android:id="@+id/common_actionbar"
         layout="@layout/include_action_bar"/>
 
-    <com.diandi.view.ClearEditText
+    <com.diandi.widget.ClearEditText
         android:id="@+id/fragment_recent_edit"
         android:layout_width="fill_parent"
         android:layout_height="@dimen/base_action_bar_height"

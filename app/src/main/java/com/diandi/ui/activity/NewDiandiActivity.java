@@ -22,12 +22,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.diandi.R;
-import com.diandi.bean.DianDi;
-import com.diandi.bean.User;
+import com.diandi.model.User;
+import com.diandi.model.diandi.DianDi;
 import com.diandi.util.CacheUtils;
 import com.diandi.util.L;
 import com.diandi.util.OverridePendingUtil;
-import com.diandi.view.HeaderLayout;
+import com.diandi.widget.HeaderLayout;
 
 import java.io.File;
 import java.io.FileNotFoundException;

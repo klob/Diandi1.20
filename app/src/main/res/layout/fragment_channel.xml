@@ -5,7 +5,7 @@
                 android:background="@color/theme_color_bg"
                 tools:context="com.diandi.ui.fragment.ChannelFragment">
 
-    <com.diandi.view.xlist.XListView
+    <com.diandi.widget.xlist.XListView
         android:id="@+id/fragment_diandi_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,7 +19,7 @@
         android:scrollbars="none"
         android:smoothScrollbar="false"
         >
-    </com.diandi.view.xlist.XListView>
+    </com.diandi.widget.xlist.XListView>
     <!--      -->
     <TextView
 
@@ -43,6 +43,6 @@
         android:layout_margin="16dp"
         android:background="#1E88E5"
         materialdesign:animate="false"
-      />
+        />
 
 </RelativeLayout>

@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import com.diandi.bean.FaceText;
+import com.diandi.model.diandi.FaceText;
 
 import java.util.ArrayList;
 import java.util.Arrays;

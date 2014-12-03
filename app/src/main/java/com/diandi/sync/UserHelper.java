@@ -3,7 +3,7 @@ package com.diandi.sync;
 import android.content.Context;
 
 import com.diandi.CustomApplication;
-import com.diandi.bean.User;
+import com.diandi.model.User;
 
 import cn.bmob.v3.BmobUser;
 

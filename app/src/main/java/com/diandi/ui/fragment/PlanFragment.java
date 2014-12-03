@@ -12,14 +12,14 @@ import android.widget.ListView;
 
 import com.diandi.R;
 import com.diandi.adapter.PlanAdapter;
-import com.diandi.bean.Plan;
-import com.diandi.db.PlanDao;
+import com.diandi.bussiness.db.PlanDao;
+import com.diandi.model.Plan;
 import com.diandi.ui.activity.NoteActivity;
 import com.diandi.ui.activity.RadialProgressActivity;
 import com.diandi.ui.activity.WritePlanActivity;
 import com.diandi.util.L;
-import com.diandi.view.dialog.DialogTips;
-import com.diandi.view.dialog.ListDialog;
+import com.diandi.widget.dialog.DialogTips;
+import com.diandi.widget.dialog.ListDialog;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

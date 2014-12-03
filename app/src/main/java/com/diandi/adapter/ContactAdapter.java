@@ -11,7 +11,7 @@ import android.widget.SectionIndexer;
 import android.widget.TextView;
 
 import com.diandi.R;
-import com.diandi.bean.User;
+import com.diandi.model.User;
 import com.diandi.util.ImageLoadOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 

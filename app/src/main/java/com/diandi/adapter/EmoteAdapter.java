@@ -8,7 +8,7 @@ import android.widget.ImageView;
 
 import com.diandi.R;
 import com.diandi.adapter.base.BaseArrayListAdapter;
-import com.diandi.bean.FaceText;
+import com.diandi.model.diandi.FaceText;
 
 import java.util.List;
 

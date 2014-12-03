@@ -9,10 +9,10 @@ import android.widget.AdapterView.OnItemClickListener;
 
 import com.diandi.R;
 import com.diandi.adapter.NearPeopleAdapter;
-import com.diandi.bean.User;
+import com.diandi.model.User;
 import com.diandi.util.CollectionUtils;
-import com.diandi.view.xlist.XListView;
-import com.diandi.view.xlist.XListView.IXListViewListener;
+import com.diandi.widget.xlist.XListView;
+import com.diandi.widget.xlist.XListView.IXListViewListener;
 
 import java.util.ArrayList;
 import java.util.List;

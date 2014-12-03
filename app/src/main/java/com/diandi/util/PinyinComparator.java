@@ -1,6 +1,6 @@
 package com.diandi.util;
 
-import com.diandi.bean.User;
+import com.diandi.model.User;
 
 import java.util.Comparator;
 

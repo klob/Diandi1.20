@@ -9,8 +9,8 @@ import android.widget.ListView;
 
 import com.diandi.R;
 import com.diandi.adapter.NewFriendAdapter;
-import com.diandi.view.HeaderLayout;
-import com.diandi.view.dialog.DialogTips;
+import com.diandi.widget.HeaderLayout;
+import com.diandi.widget.dialog.DialogTips;
 
 import cn.bmob.im.bean.BmobInvitation;
 import cn.bmob.im.db.BmobDB;

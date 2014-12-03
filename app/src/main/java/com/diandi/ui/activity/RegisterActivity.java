@@ -10,8 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.diandi.R;
-import com.diandi.bean.User;
 import com.diandi.config.Constant;
+import com.diandi.model.User;
 import com.diandi.util.CommonUtils;
 
 import cn.bmob.v3.BmobInstallation;

@@ -10,10 +10,10 @@ import android.util.DisplayMetrics;
 import android.util.TypedValue;
 
 import com.diandi.R;
-import com.diandi.bean.Plan;
+import com.diandi.model.Plan;
 import com.diandi.ui.fragment.PlanFragment;
-import com.diandi.view.HeaderLayout;
-import com.diandi.view.PagerSlidingTabStrip;
+import com.diandi.widget.HeaderLayout;
+import com.diandi.widget.PagerSlidingTabStrip;
 
 /**
  * *******************************************************************************

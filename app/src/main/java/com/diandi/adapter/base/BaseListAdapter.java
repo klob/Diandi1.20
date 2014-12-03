@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Toast;
 
-import com.diandi.bean.User;
+import com.diandi.model.User;
 import com.diandi.sync.UserHelper;
 import com.diandi.util.L;
 import com.diandi.util.OverridePendingUtil;

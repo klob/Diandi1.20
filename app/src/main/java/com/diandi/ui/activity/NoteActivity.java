@@ -7,10 +7,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.diandi.R;
-import com.diandi.bean.Plan;
-import com.diandi.db.PlanDao;
+import com.diandi.bussiness.db.PlanDao;
+import com.diandi.model.Plan;
 import com.diandi.util.OverridePendingUtil;
-import com.diandi.view.HeaderLayout;
+import com.diandi.widget.HeaderLayout;
 
 /**
  * *******************************************************************************

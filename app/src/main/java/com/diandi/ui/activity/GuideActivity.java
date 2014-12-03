@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 
 import com.diandi.CustomApplication;
 import com.diandi.R;
-import com.diandi.view.ScrollLayout;
+import com.diandi.widget.ScrollLayout;
 
 /**
  * *******************************************************************************

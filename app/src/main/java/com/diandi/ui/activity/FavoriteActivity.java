@@ -12,13 +12,13 @@ import com.diandi.CustomApplication;
 import com.diandi.R;
 import com.diandi.adapter.FeedAdapter;
 import com.diandi.adapter.base.BaseListAdapter;
-import com.diandi.bean.DianDi;
-import com.diandi.bean.User;
+import com.diandi.bussiness.db.DatabaseUtil;
 import com.diandi.config.Constant;
-import com.diandi.db.DatabaseUtil;
+import com.diandi.model.User;
+import com.diandi.model.diandi.DianDi;
 import com.diandi.sync.UserHelper;
 import com.diandi.util.L;
-import com.diandi.view.xlist.XListView;
+import com.diandi.widget.xlist.XListView;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

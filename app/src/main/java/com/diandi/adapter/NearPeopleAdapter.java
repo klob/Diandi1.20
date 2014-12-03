@@ -10,7 +10,7 @@ import com.diandi.CustomApplication;
 import com.diandi.R;
 import com.diandi.adapter.base.BaseListAdapter;
 import com.diandi.adapter.base.ViewHolder;
-import com.diandi.bean.User;
+import com.diandi.model.User;
 import com.diandi.util.ImageLoadOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 

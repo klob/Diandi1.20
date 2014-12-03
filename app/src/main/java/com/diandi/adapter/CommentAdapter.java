@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.diandi.R;
 import com.diandi.adapter.base.BaseListAdapter;
-import com.diandi.bean.Comment;
+import com.diandi.model.diandi.Comment;
 import com.diandi.util.L;
 
 import java.util.List;

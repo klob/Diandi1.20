@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
     <include
         android:id="@+id/common_actionbar"
-        layout="@layout/include_action_bar" />
+        layout="@layout/include_action_bar"/>
 
     <RelativeLayout
         android:id="@+id/layout_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/base_bg"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
-        <com.diandi.view.ClearEditText
+        <com.diandi.widget.ClearEditText
             android:id="@+id/et_msg_search"
             android:layout_width="match_parent"
             android:layout_height="@dimen/base_action_bar_height"
@@ -30,7 +30,7 @@
             android:hint="@string/message_search_hint"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:singleLine="true" />
+            android:singleLine="true"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -38,14 +38,14 @@
             android:layout_below="@id/et_msg_search"
             android:layout_gravity="top"
             android:background="@drawable/user_add_top_bg"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <ListView
                 android:id="@+id/list_friends"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:cacheColorHint="#00000000"
-                android:scrollbars="none" />
+                android:scrollbars="none"/>
 
             <TextView
                 android:id="@+id/text_dialog"
@@ -58,15 +58,15 @@
                 android:padding="5dip"
                 android:textColor="@color/base_actionbar_bg"
                 android:textSize="35.0dip"
-                android:visibility="invisible" />
+                android:visibility="invisible"/>
         </RelativeLayout>
 
-        <com.diandi.view.LetterView
+        <com.diandi.widget.LetterView
             android:id="@+id/right_letter"
             android:layout_width="25dip"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
-            android:background="@color/transparent" />
+            android:background="@color/transparent"/>
     </RelativeLayout>
 
 </LinearLayout>

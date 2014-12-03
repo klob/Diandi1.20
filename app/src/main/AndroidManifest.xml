@@ -229,7 +229,7 @@
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
             </intent-filter>
         </receiver>
-        <receiver android:name=".receiver.MyMessageReceiver">
+        <receiver android:name=".components.receiver.MyMessageReceiver">
             <intent-filter android:priority="1147483640">
                 <action android:name="cn.bmob.push.action.MESSAGE"/>
             </intent-filter>

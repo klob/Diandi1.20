@@ -14,7 +14,7 @@ import android.widget.ProgressBar;
 
 import com.diandi.R;
 import com.diandi.util.ImageLoadOptions;
-import com.diandi.view.CustomViewPager;
+import com.diandi.widget.CustomViewPager;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;

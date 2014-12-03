@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
     android:id="@+id/day_picker_selected_date_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/date_picker_component_width"
     android:layout_height="0dip"
     android:layout_weight="1"
     android:background="@color/white"
     android:gravity="center"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
-    <com.diandi.view.googledatetimepicker.tool.AccessibleLinearLayout
+    <com.diandi.widget.googledatetimepicker.tool.AccessibleLinearLayout
         android:id="@+id/date_picker_month_and_day"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:clickable="true"
         android:orientation="vertical"
-        android:textColor="@color/date_picker_selector" >
+        android:textColor="@color/date_picker_selector">
 
         <TextView
             android:id="@+id/date_picker_month"
@@ -27,7 +28,7 @@
             android:gravity="center_horizontal|bottom"
             android:includeFontPadding="false"
             android:textColor="@color/date_picker_selector"
-            android:textSize="@dimen/selected_date_month_size" />
+            android:textSize="@dimen/selected_date_month_size"/>
 
         <TextView
             android:id="@+id/date_picker_day"
@@ -40,10 +41,10 @@
             android:gravity="center"
             android:includeFontPadding="false"
             android:textColor="@color/date_picker_selector"
-            android:textSize="@dimen/selected_date_day_size" />
-    </com.diandi.view.googledatetimepicker.tool.AccessibleLinearLayout>
+            android:textSize="@dimen/selected_date_day_size"/>
+    </com.diandi.widget.googledatetimepicker.tool.AccessibleLinearLayout>
 
-    <com.diandi.view.googledatetimepicker.tool.AccessibleTextView
+    <com.diandi.widget.googledatetimepicker.tool.AccessibleTextView
         android:id="@+id/date_picker_year"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,6 +52,6 @@
         android:gravity="center_horizontal|top"
         android:includeFontPadding="false"
         android:textColor="@color/date_picker_selector"
-        android:textSize="@dimen/selected_date_year_size" />
+        android:textSize="@dimen/selected_date_year_size"/>
 
 </LinearLayout>

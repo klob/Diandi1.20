@@ -5,10 +5,10 @@ import android.text.TextUtils;
 import android.widget.EditText;
 
 import com.diandi.R;
-import com.diandi.bean.OfficialDiandi;
-import com.diandi.bean.User;
+import com.diandi.model.User;
+import com.diandi.model.diandi.OfficialDiandi;
 import com.diandi.util.OverridePendingUtil;
-import com.diandi.view.HeaderLayout;
+import com.diandi.widget.HeaderLayout;
 
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.datatype.BmobFile;

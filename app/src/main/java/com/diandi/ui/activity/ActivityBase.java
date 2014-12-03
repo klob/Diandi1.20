@@ -10,7 +10,7 @@ import android.view.inputmethod.InputMethodManager;
 
 import com.diandi.CustomApplication;
 import com.diandi.sync.UserHelper;
-import com.diandi.view.dialog.DialogTips;
+import com.diandi.widget.dialog.DialogTips;
 
 /**
  * *******************************************************************************

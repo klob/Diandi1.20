@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.diandi.R;
-import com.diandi.sns.TencentShareConstants;
+import com.diandi.sync.sns.TencentShareConstants;
 import com.umeng.fb.FeedbackAgent;
 
 /**

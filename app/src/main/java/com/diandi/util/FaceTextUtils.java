@@ -8,7 +8,7 @@ import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
 
-import com.diandi.bean.FaceText;
+import com.diandi.model.diandi.FaceText;
 
 import java.util.ArrayList;
 import java.util.List;

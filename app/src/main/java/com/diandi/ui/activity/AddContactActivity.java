@@ -12,8 +12,8 @@ import android.widget.EditText;
 import com.diandi.R;
 import com.diandi.adapter.AddFriendAdapter;
 import com.diandi.util.CollectionUtils;
-import com.diandi.view.xlist.XListView;
-import com.diandi.view.xlist.XListView.IXListViewListener;
+import com.diandi.widget.xlist.XListView;
+import com.diandi.widget.xlist.XListView.IXListViewListener;
 
 import java.util.ArrayList;
 import java.util.List;

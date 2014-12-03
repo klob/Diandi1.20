@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/base_bg"
-    android:orientation="vertical" >
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/base_bg"
+              android:orientation="vertical">
 
     <include
         android:id="@+id/common_actionbar"
-        layout="@layout/include_action_bar" />
+        layout="@layout/include_action_bar"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/activity_add_contact_search_name_edit"
@@ -25,7 +25,7 @@
             android:paddingLeft="5dp"
             android:singleLine="true"
             android:textColorHint="#b3b3b3"
-            android:textSize="18sp" />
+            android:textSize="18sp"/>
 
         <Button
             android:id="@+id/activity_add_contact_search_btn"
@@ -36,10 +36,10 @@
             android:layout_marginRight="11dp"
             android:background="@drawable/btn_login_selector"
             android:text="@string/search"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
     </LinearLayout>
 
-    <com.diandi.view.xlist.XListView
+    <com.diandi.widget.xlist.XListView
         android:id="@+id/activity_add_contact_search_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
