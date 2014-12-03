@@ -56,7 +56,7 @@ use android studio to checkout from github
 
 ###说明：
 整个项目只有我一个人在做，没有设计师，界面很丑，请大家原谅了。
-在这里，也想找几个小伙伴，一起把它做下去，有设计师最好了。
+在这里，也希望找几个小伙伴，一起把它做下去，有设计师最好了。
 
 
 如果出现错误或者有任何问题，请放轻松联系我[kloblic@gmail.com](mailto:kloblic@gmail.com)，或者前往我的博客[csdn](http://blog.csdn.net/qq4626791047/article/details/41594821)提问
