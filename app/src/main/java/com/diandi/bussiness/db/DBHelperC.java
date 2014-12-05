@@ -17,15 +17,15 @@ import android.database.sqlite.SQLiteOpenHelper;
  * *********    Copyright @ 2014, klob, All Rights Reserved
  * *******************************************************************************
  */
-public class DBHelper extends SQLiteOpenHelper {
+public class DBHelperC extends SQLiteOpenHelper {
 
-    public static final String DATA_BASE_NAME = "qingqiang_db";
+    public static final String DATA_BASE_NAME = "diandi_db";
     public static final int DATA_BASE_VERSION = 1;
     public static final String TABLE_NAME = "fav";
 
     private SQLiteDatabase mDb;
 
-    public DBHelper(Context context) {
+    public DBHelperC(Context context) {
         super(context, DATA_BASE_NAME, null, DATA_BASE_VERSION);
         // TODO Auto-generated constructor stub
     }
@@ -45,7 +45,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private void onCreateFavTable(SQLiteDatabase db) {
         StringBuilder favStr = new StringBuilder();
         favStr.append("CREATE TABLE IF NOT EXISTS ")
-                .append(DBHelper.TABLE_NAME)
+                .append(DBHelperC.TABLE_NAME)
                 .append(" ( ").append(FavTable._ID).append(" INTEGER PRIMARY KEY AUTOINCREMENT,")
                 .append(FavTable.USER_ID).append(" varchar(100),")
                 .append(FavTable.OBJECT_ID).append(" varchar(20),")

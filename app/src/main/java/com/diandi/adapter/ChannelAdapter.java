@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.diandi.CustomApplication;
 import com.diandi.R;
 import com.diandi.adapter.base.BaseListAdapter;
-import com.diandi.bussiness.db.DatabaseUtil;
+import com.diandi.bussiness.db.DatabaseUtilC;
 import com.diandi.model.User;
 import com.diandi.model.diandi.DianDi;
 import com.diandi.model.diandi.OfficialDiandi;
@@ -290,7 +290,7 @@ public class ChannelAdapter extends BaseListAdapter<OfficialDiandi> {
                 user.update(mContext, new UpdateListener() {
                     @Override
                     public void onSuccess() {
-                        DatabaseUtil.getInstance(mContext).insertFav(DianDi);
+                        DatabaseUtilC.getInstance(mContext).insertFav(DianDi);
                         L.i(TAG, "收藏成功。");
                     }
 
@@ -310,7 +310,7 @@ public class ChannelAdapter extends BaseListAdapter<OfficialDiandi> {
 
                     @Override
                     public void onSuccess() {
-                        DatabaseUtil.getInstance(mContext).deleteFav(DianDi);
+                        DatabaseUtilC.getInstance(mContext).deleteFav(DianDi);
                         L.i(TAG, "取消收藏。");
                         //try get fav to see if fav success
 //						getMyFavourite();

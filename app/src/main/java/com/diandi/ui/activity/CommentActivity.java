@@ -22,7 +22,7 @@ import android.widget.TextView;
 import com.diandi.CustomApplication;
 import com.diandi.R;
 import com.diandi.adapter.CommentAdapter;
-import com.diandi.bussiness.db.DatabaseUtil;
+import com.diandi.bussiness.db.DatabaseUtilC;
 import com.diandi.config.Constant;
 import com.diandi.model.User;
 import com.diandi.model.diandi.Comment;
@@ -508,7 +508,7 @@ public class CommentActivity extends ActivityBase implements View.OnClickListene
                 // TODO Auto-generated method stub
                 mDianDi.setMyLove(true);
                 mDianDi.setMyFav(isFav);
-                DatabaseUtil.getInstance(CommentActivity.this).insertFav(mDianDi);
+                DatabaseUtilC.getInstance(CommentActivity.this).insertFav(mDianDi);
 
                 ShowToast("点赞成功~");
             }

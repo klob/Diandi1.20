@@ -114,12 +114,6 @@ public class CustomApplication extends Application {
 
     /**
      * 初始化百度相关sdk initBaidumap
-     *
-     * @param
-     * @return void
-     * @throws
-     * @Title: initBaidumap
-     * @Description: TODO
      */
     private void initBaidu() {
         // 初始化地图Sdk
@@ -130,12 +124,6 @@ public class CustomApplication extends Application {
 
     /**
      * 初始化百度定位sdk
-     *
-     * @param
-     * @return void
-     * @throws
-     * @Title: initBaiduLocClient
-     * @Description: TODO
      */
     private void initBaiduLocClient() {
         mLocationClient = new LocationClient(this.getApplicationContext());

@@ -23,11 +23,11 @@ import java.io.File;
  * *******************************************************************************
  */
 
-public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
+public class DatabaseHelperT extends OrmLiteSqliteOpenHelper {
 
     // name of the database file for your application -- change to something
     // appropriate for your app
-    private static final String DATABASE_NAME = "CHENGYIJI.db";
+    private static final String DATABASE_NAME = "diandis.db";
 
     // any time you make changes to your database objects, you may have to
     // increase the database version
@@ -43,7 +43,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private Context mContext;
 
 
-    public DatabaseHelper(Context context) {
+    public DatabaseHelperT(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         mContext = context;
         initDtaBasePath();
@@ -81,11 +81,11 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
      */
     @Override
     public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
-        Log.i(DatabaseHelper.class.getName(), "onCreate");
+        Log.i(DatabaseHelperT.class.getName(), "onCreate");
         try {
             TableUtils.createTable(connectionSource, UserInfo.class);
         } catch (java.sql.SQLException e) {
-            Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
+            Log.e(DatabaseHelperT.class.getName(), "Can't create database", e);
             throw new RuntimeException(e);
         }
 
@@ -99,12 +99,12 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource, int oldVersion,
                           int newVersion) {
-        Log.i(DatabaseHelper.class.getName(), "onUpgrade");
+        Log.i(DatabaseHelperT.class.getName(), "onUpgrade");
         try {
             TableUtils.dropTable(connectionSource, UserInfo.class, true);
             onCreate(db, connectionSource);
         } catch (java.sql.SQLException e) {
-            Log.e(DatabaseHelper.class.getName(), "Can't drop databases", e);
+            Log.e(DatabaseHelperT.class.getName(), "Can't drop databases", e);
             throw new RuntimeException(e);
         }
     }

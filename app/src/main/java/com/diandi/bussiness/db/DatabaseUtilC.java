@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
-import com.diandi.bussiness.db.DBHelper.FavTable;
+import com.diandi.bussiness.db.DBHelperC.FavTable;
 import com.diandi.model.diandi.DianDi;
 import com.diandi.sync.UserHelper;
 import com.diandi.util.L;
@@ -23,28 +23,28 @@ import java.util.List;
  * *********    Copyright @ 2014, klob, All Rights Reserved
  * *******************************************************************************
  */
-public class DatabaseUtil {
+public class DatabaseUtilC {
     private static final String TAG = "DatabaseUtil";
 
-    private static DatabaseUtil instance;
+    private static DatabaseUtilC instance;
 
     /**
      * 数据库帮助类 *
      */
-    private DBHelper dbHelper;
+    private DBHelperC mDbHelperC;
 
     /**
      * 初始化
      *
      * @param context
      */
-    private DatabaseUtil(Context context) {
-        dbHelper = new DBHelper(context);
+    private DatabaseUtilC(Context context) {
+        mDbHelperC = new DBHelperC(context);
     }
 
-    public synchronized static DatabaseUtil getInstance(Context context) {
+    public synchronized static DatabaseUtilC getInstance(Context context) {
         if (instance == null) {
-            instance = new DatabaseUtil(context);
+            instance = new DatabaseUtilC(context);
         }
         return instance;
     }
@@ -63,9 +63,9 @@ public class DatabaseUtil {
      */
     public void onDestory() {
         instance = null;
-        if (dbHelper != null) {
-            dbHelper.close();
-            dbHelper = null;
+        if (mDbHelperC != null) {
+            mDbHelperC.close();
+            mDbHelperC = null;
         }
     }
 
@@ -74,21 +74,21 @@ public class DatabaseUtil {
         Cursor cursor = null;
         String where = FavTable.USER_ID + " = '" + UserHelper.getUserId()
                 + "' AND " + FavTable.OBJECT_ID + " = '" + qy.getObjectId() + "'";
-        cursor = dbHelper.query(DBHelper.TABLE_NAME, null, where, null, null, null, null);
+        cursor = mDbHelperC.query(DBHelperC.TABLE_NAME, null, where, null, null, null, null);
         if (cursor != null && cursor.getCount() > 0) {
             cursor.moveToFirst();
             int isLove = cursor.getInt(cursor.getColumnIndex(FavTable.IS_LOVE));
             if (isLove == 0) {
-                dbHelper.delete(DBHelper.TABLE_NAME, where, null);
+                mDbHelperC.delete(DBHelperC.TABLE_NAME, where, null);
             } else {
                 ContentValues cv = new ContentValues();
                 cv.put(FavTable.IS_FAV, 0);
-                dbHelper.update(DBHelper.TABLE_NAME, cv, where, null);
+                mDbHelperC.update(DBHelperC.TABLE_NAME, cv, where, null);
             }
         }
         if (cursor != null) {
             cursor.close();
-            dbHelper.close();
+            mDbHelperC.close();
         }
     }
 
@@ -97,7 +97,7 @@ public class DatabaseUtil {
         Cursor cursor = null;
         String where = FavTable.USER_ID + " = '" + UserHelper.getUserId()
                 + "' AND " + FavTable.OBJECT_ID + " = '" + qy.getObjectId() + "'";
-        cursor = dbHelper.query(DBHelper.TABLE_NAME, null, where, null, null, null, null);
+        cursor = mDbHelperC.query(DBHelperC.TABLE_NAME, null, where, null, null, null, null);
         if (cursor != null && cursor.getCount() > 0) {
             cursor.moveToFirst();
             if (cursor.getInt(cursor.getColumnIndex(FavTable.IS_LOVE)) == 1) {
@@ -112,24 +112,24 @@ public class DatabaseUtil {
         Cursor cursor = null;
         String where = FavTable.USER_ID + " = '" + UserHelper.getUserId()
                 + "' AND " + FavTable.OBJECT_ID + " = '" + qy.getObjectId() + "'";
-        cursor = dbHelper.query(DBHelper.TABLE_NAME, null, where, null, null, null, null);
+        cursor = mDbHelperC.query(DBHelperC.TABLE_NAME, null, where, null, null, null, null);
         if (cursor != null && cursor.getCount() > 0) {
             cursor.moveToFirst();
             ContentValues conv = new ContentValues();
             conv.put(FavTable.IS_FAV, 1);
             conv.put(FavTable.IS_LOVE, 1);
-            dbHelper.update(DBHelper.TABLE_NAME, conv, where, null);
+            mDbHelperC.update(DBHelperC.TABLE_NAME, conv, where, null);
         } else {
             ContentValues cv = new ContentValues();
             cv.put(FavTable.USER_ID, UserHelper.getUserId());
             cv.put(FavTable.OBJECT_ID, qy.getObjectId());
             cv.put(FavTable.IS_LOVE, qy.getMyLove() == true ? 1 : 0);
             cv.put(FavTable.IS_FAV, qy.getMyFav() == true ? 1 : 0);
-            uri = dbHelper.insert(DBHelper.TABLE_NAME, null, cv);
+            uri = mDbHelperC.insert(DBHelperC.TABLE_NAME, null, cv);
         }
         if (cursor != null) {
             cursor.close();
-            dbHelper.close();
+            mDbHelperC.close();
         }
         return uri;
     }
@@ -155,7 +155,7 @@ public class DatabaseUtil {
                 DianDi content = (DianDi) iterator.next();
                 String where = FavTable.USER_ID + " = '" + UserHelper.getUserId()//content.getAuthor().getObjectId()
                         + "' AND " + FavTable.OBJECT_ID + " = '" + content.getObjectId() + "'";
-                cursor = dbHelper.query(DBHelper.TABLE_NAME, null, where, null, null, null, null);
+                cursor = mDbHelperC.query(DBHelperC.TABLE_NAME, null, where, null, null, null, null);
                 if (cursor != null && cursor.getCount() > 0) {
                     cursor.moveToFirst();
                     if (cursor.getInt(cursor.getColumnIndex(FavTable.IS_FAV)) == 1) {
@@ -174,7 +174,7 @@ public class DatabaseUtil {
         }
         if (cursor != null) {
             cursor.close();
-            dbHelper.close();
+            mDbHelperC.close();
         }
         return lists;
     }
@@ -192,7 +192,7 @@ public class DatabaseUtil {
                 content.setMyFav(true);
                 String where = FavTable.USER_ID + " = '" + UserHelper.getUserId()
                         + "' AND " + FavTable.OBJECT_ID + " = '" + content.getObjectId() + "'";
-                cursor = dbHelper.query(DBHelper.TABLE_NAME, null, where, null, null, null, null);
+                cursor = mDbHelperC.query(DBHelperC.TABLE_NAME, null, where, null, null, null, null);
                 if (cursor != null && cursor.getCount() > 0) {
                     cursor.moveToFirst();
                     if (cursor.getInt(cursor.getColumnIndex(FavTable.IS_LOVE)) == 1) {
@@ -206,7 +206,7 @@ public class DatabaseUtil {
         }
         if (cursor != null) {
             cursor.close();
-            dbHelper.close();
+            mDbHelperC.close();
         }
         return lists;
     }
@@ -215,7 +215,7 @@ public class DatabaseUtil {
     public ArrayList<DianDi> queryFav() {
         ArrayList<DianDi> contents = null;
         // ContentResolver resolver = context.getContentResolver();
-        Cursor cursor = dbHelper.query(DBHelper.TABLE_NAME, null, null, null, null, null, null);
+        Cursor cursor = mDbHelperC.query(DBHelperC.TABLE_NAME, null, null, null, null, null, null);
         L.i(TAG, cursor.getCount() + "");
         if (cursor == null) {
             return null;

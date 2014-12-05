@@ -29,7 +29,7 @@ import java.util.Set;
 
 public abstract class BaseDaoT<T> {
     private final static String TAG = "BaseDao";
-    protected DatabaseHelper mDatabaseHelper;
+    protected DatabaseHelperT mDatabaseHelperT;
     protected Context mContext;
 
     public BaseDaoT(Context context) {
@@ -37,11 +37,11 @@ public abstract class BaseDaoT<T> {
         getHelper();
     }
 
-    public DatabaseHelper getHelper() {
-        if (mDatabaseHelper == null) {
-            mDatabaseHelper = OpenHelperManager.getHelper(mContext, DatabaseHelper.class);
+    public DatabaseHelperT getHelper() {
+        if (mDatabaseHelperT == null) {
+            mDatabaseHelperT = OpenHelperManager.getHelper(mContext, DatabaseHelperT.class);
         }
-        return mDatabaseHelper;
+        return mDatabaseHelperT;
     }
 
     public abstract Dao<T, Integer> getDao() throws SQLException;

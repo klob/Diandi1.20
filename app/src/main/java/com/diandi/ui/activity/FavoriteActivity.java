@@ -12,7 +12,7 @@ import com.diandi.CustomApplication;
 import com.diandi.R;
 import com.diandi.adapter.FeedAdapter;
 import com.diandi.adapter.base.BaseListAdapter;
-import com.diandi.bussiness.db.DatabaseUtil;
+import com.diandi.bussiness.db.DatabaseUtilC;
 import com.diandi.config.Constant;
 import com.diandi.model.User;
 import com.diandi.model.diandi.DianDi;
@@ -140,7 +140,7 @@ public class FavoriteActivity extends BaseActivity implements XListView.IXListVi
                         ShowToast("已加载完所有数据~");
                     }
                     if (UserHelper.getCurrentUser() != null) {
-                        list = DatabaseUtil.getInstance(mContext).setFav(list);
+                        list = DatabaseUtilC.getInstance(mContext).setFav(list);
                     }
                     mListItems.addAll(list);
                     mAdapter.notifyDataSetChanged();

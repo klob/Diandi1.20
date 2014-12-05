@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.diandi.CustomApplication;
 import com.diandi.R;
 import com.diandi.adapter.base.BaseListAdapter;
-import com.diandi.bussiness.db.DatabaseUtil;
+import com.diandi.bussiness.db.DatabaseUtilC;
 import com.diandi.config.Constant;
 import com.diandi.model.User;
 import com.diandi.model.diandi.DianDi;
@@ -189,7 +189,7 @@ public class FeedAdapter extends BaseListAdapter<DianDi> {
         } else {
             viewHolder.love.setTextColor(Color.parseColor("#888888"));
         }
-        if (DatabaseUtil.getInstance(mContext).isLoved(entity)) {
+        if (DatabaseUtilC.getInstance(mContext).isLoved(entity)) {
             entity.setMyLove(true);
             entity.setLove(entity.getLove());
             viewHolder.love.setTextColor(Color.parseColor("#D95555"));
@@ -224,7 +224,7 @@ public class FeedAdapter extends BaseListAdapter<DianDi> {
                     public void onSuccess() {
                         entity.setMyLove(true);
                         entity.setMyFav(oldFav);
-                        DatabaseUtil.getInstance(mContext).insertFav(entity);
+                        DatabaseUtilC.getInstance(mContext).insertFav(entity);
                         L.i(TAG, "点赞成功~");
                     }
 
@@ -307,7 +307,7 @@ public class FeedAdapter extends BaseListAdapter<DianDi> {
                 user.update(mContext, new UpdateListener() {
                     @Override
                     public void onSuccess() {
-                        DatabaseUtil.getInstance(mContext).insertFav(DianDi);
+                        DatabaseUtilC.getInstance(mContext).insertFav(DianDi);
                         L.i(TAG, "收藏成功。");
                     }
 
@@ -327,7 +327,7 @@ public class FeedAdapter extends BaseListAdapter<DianDi> {
 
                     @Override
                     public void onSuccess() {
-                        DatabaseUtil.getInstance(mContext).deleteFav(DianDi);
+                        DatabaseUtilC.getInstance(mContext).deleteFav(DianDi);
                         L.i(TAG, "取消收藏。");
                         //try get fav to see if fav success
 //						getMyFavourite();

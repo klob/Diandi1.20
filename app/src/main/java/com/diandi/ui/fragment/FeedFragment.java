@@ -22,7 +22,7 @@ import android.widget.TextView;
 import com.diandi.CustomApplication;
 import com.diandi.R;
 import com.diandi.adapter.FeedAdapter;
-import com.diandi.bussiness.db.DatabaseUtil;
+import com.diandi.bussiness.db.DatabaseUtilC;
 import com.diandi.model.diandi.DianDi;
 import com.diandi.sync.UserHelper;
 import com.diandi.ui.activity.CommentActivity;
@@ -197,7 +197,7 @@ public class FeedFragment extends BaseFragment implements XListView.IXListViewLi
                                 @Override
                                 public void onSuccess(List<DianDi> list) {
                                     if (UserHelper.getCurrentUser() != null) {
-                                        list = DatabaseUtil.getInstance(getActivity()).setFav(list);
+                                        list = DatabaseUtilC.getInstance(getActivity()).setFav(list);
                                     }
                                     mListItems.addAll(list);
                                     mAdapter.setList(mListItems);
@@ -239,7 +239,7 @@ public class FeedFragment extends BaseFragment implements XListView.IXListViewLi
                         mAdapter.setList(mListItems);
                     }
                     if (UserHelper.getCurrentUser() != null) {
-                        list = DatabaseUtil.getInstance(getActivity()).setFav(list);
+                        list = DatabaseUtilC.getInstance(getActivity()).setFav(list);
                     }
                     mListItems.addAll(list);
                     mAdapter.setList(mListItems);
