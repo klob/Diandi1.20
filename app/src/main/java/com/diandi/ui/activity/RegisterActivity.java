@@ -117,7 +117,7 @@ public class RegisterActivity extends BaseActivity {
         user.setPassword(password);
         user.setSignature("这个家伙很懒，什么也不说。。。");
         user.setDeviceType("android");
-        user.setNick("无名氏");
+        user.setNick(userName);
         user.setOfficial(false);
         user.setInstallId(BmobInstallation.getInstallationId(mContext));
         user.signUp(mContext, new SaveListener() {
@@ -135,7 +135,7 @@ public class RegisterActivity extends BaseActivity {
 
             @Override
             public void onFailure(int arg0, String msg) {
-                ShowToast("用户已存在或网络不佳");
+                ShowToast(R.string.network_tips);
                 progress.dismiss();
             }
         });

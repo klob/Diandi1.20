@@ -229,7 +229,7 @@ public class ContactFragment extends BaseFragment implements OnItemClickListener
             String username = sortModel.getUsername();
             // 若没有username
             if (username != null) {
-                String pinyin = mCharacterParser.getSelling(sortModel.getUsername());
+                String pinyin = mCharacterParser.getSelling(sortModel.getNick());
                 String sortString = pinyin.substring(0, 1).toUpperCase();
                 // 正则表达式，判断首字母是否是英文字母
                 if (sortString.matches("[A-Z]")) {
@@ -304,7 +304,6 @@ public class ContactFragment extends BaseFragment implements OnItemClickListener
 
     @Override
     public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-        // TODO Auto-generated method stub
         User user = (User) mUserAdapter.getItem(position - 1);
         //先进入好友的详细资料页面
         Intent intent = new Intent(getActivity(), ProfileActivity.class);
@@ -317,7 +316,6 @@ public class ContactFragment extends BaseFragment implements OnItemClickListener
     @Override
     public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int position,
                                    long arg3) {
-        // TODO Auto-generated method stub
         User user = (User) mUserAdapter.getItem(position - 1);
         showDeleteDialog(user);
         return true;
@@ -339,9 +337,6 @@ public class ContactFragment extends BaseFragment implements OnItemClickListener
     /**
      * 删除联系人
      * deleteContact
-     *
-     * @return void
-     * @throws
      */
     private void deleteContact(final User user) {
         final ProgressDialog progress = new ProgressDialog(getActivity());

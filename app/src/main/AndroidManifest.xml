@@ -37,10 +37,6 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     -->
 
-    <permission
-        android:name="cn.bmob.permission.push"
-        android:protectionLevel="normal"/>
-
     <uses-permission android:name="cn.bmob.permission.push"/>
 
     <supports-screens
@@ -125,14 +121,12 @@
             android:screenOrientation="portrait"/>
         <activity
             android:name="com.diandi.ui.activity.PlanActivity"
-            android:label="@string/title_activity_plan"
             android:screenOrientation="portrait"/>
         <activity
             android:name="com.diandi.ui.activity.WritePlanActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name="com.diandi.ui.activity.RadialProgressActivity"
-            android:label="@string/title_activity_radial_progress"
             android:screenOrientation="portrait"/>
         <activity
             android:name="com.diandi.ui.activity.FavoriteActivity"
@@ -238,7 +232,7 @@
 
         <activity
             android:name="com.diandi.ui.activity.NewOfficalDiandiActivity"
-            android:parentActivityName="com.diandi.ui.activity.ActivityBase">
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.diandi.ui.activity.ActivityBase"/>
@@ -247,8 +241,6 @@
             android:name="com.diandi.ui.activity.Test"
             android:label="@string/title_activity_test">
         </activity>
-
-
     </application>
 
 </manifest>

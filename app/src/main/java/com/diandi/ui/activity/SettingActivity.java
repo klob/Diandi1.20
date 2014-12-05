@@ -74,7 +74,6 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         mVersionText.setText("v" + BuildConfig.VERSION_NAME);
         initData();
         bindEvent();
-
     }
 
     void initData() {

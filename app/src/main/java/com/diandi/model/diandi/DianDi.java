@@ -20,13 +20,7 @@ import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.datatype.BmobRelation;
 
 public class DianDi extends BmobObject implements Serializable {
-
-    /**
-     * qiang yu entity,每个列表item内容
-     * 2014/4/27
-     */
     private static final long serialVersionUID = -6280656428527540320L;
-
     protected User author;
     private BmobFile Contentfigureurl;
     private BmobRelation relation;
