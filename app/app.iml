@@ -98,9 +98,7 @@
     <orderEntry type="library" exported="" name="locSDK_4.2" level="project" />
     <orderEntry type="library" exported="" name="ormlite-core-4.48" level="project" />
     <orderEntry type="library" exported="" name="photoview-library-1.2.2" level="project" />
-    <orderEntry type="module" module-name="jumpingbeans" exported="" />
     <orderEntry type="module" module-name="diyview" exported="" />
-    <orderEntry type="module" module-name="lib_material" exported="" />
   </component>
 </module>
 

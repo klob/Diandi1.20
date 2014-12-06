@@ -38,9 +38,7 @@ android {
 }
 
 dependencies {
-    compile project(':diyview')
-    compile project(':jumpingbeans')
-    compile project(':lib_material')
+
     compile files('libs/baidumapapi_v3_1_0.jar')
     compile files('libs/BmobIM_V1.1.4beta_1027.jar')
     compile files('libs/BmobSDK_V3.2.6_1103.jar')
@@ -55,4 +53,5 @@ dependencies {
     compile files('libs/umeng-update-v2.4.2.jar')
     compile files('libs/universal-image-loader-1.9.2_sources.jar')
     compile files('libs/weibosdkcore.jar')
+    compile project(':diyview')
 }

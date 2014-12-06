@@ -6,7 +6,6 @@
       <module fileurl="file://$PROJECT_DIR$/Diandi1.20.iml" filepath="$PROJECT_DIR$/Diandi1.20.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/diyview/diyview.iml" filepath="$PROJECT_DIR$/diyview/diyview.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jumpingbeans/jumpingbeans.iml" filepath="$PROJECT_DIR$/jumpingbeans/jumpingbeans.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_material/lib_material.iml" filepath="$PROJECT_DIR$/lib_material/lib_material.iml" />
     </modules>
   </component>

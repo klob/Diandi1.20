@@ -1,1 +1,1 @@
-include  ':jumpingbeans',':lib_material', ':app',':diyview'
+include ':lib_material', ':diyview', ':app'

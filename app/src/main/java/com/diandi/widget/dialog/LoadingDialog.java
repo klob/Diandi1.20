@@ -6,8 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.diandi.R;
-
-import net.frakbot.jumpingbeans.JumpingBeans;
+import com.frakbot.jumpingbeans.JumpingBeans;
 
 /**
  * *******************************************************************************

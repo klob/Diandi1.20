@@ -16,6 +16,9 @@ import android.widget.AbsListView;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 
+import com.diandi.view.R;
+
+
 /**
  * Author:    ZhuWenWu
  * Version    V1.0
@@ -116,14 +119,6 @@ public class PullToZoomListView extends ListView implements AbsListView.OnScroll
         this.isEnableZoom = isEnableZoom;
     }
 
-    public void setHeaderView(View headerView) {
-        if (mHeaderView != null) {
-            removeHeaderView(mHeaderContainer);
-        }
-        this.mHeaderView = headerView;
-        updateHeaderView(headerView);
-    }
-
     private void updateHeaderView(View headerView) {
         if (headerView != null) {
             mHeaderContainer.removeAllViews();
@@ -136,6 +131,14 @@ public class PullToZoomListView extends ListView implements AbsListView.OnScroll
 
     public View getHeaderView() {
         return mHeaderView;
+    }
+
+    public void setHeaderView(View headerView) {
+        if (mHeaderView != null) {
+            removeHeaderView(mHeaderContainer);
+        }
+        this.mHeaderView = headerView;
+        updateHeaderView(headerView);
     }
 
     public boolean isHideHeader() {

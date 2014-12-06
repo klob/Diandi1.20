@@ -17,6 +17,9 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
+import com.diandi.view.R;
+
+
 /**
  * Author:    ZhuWenWu
  * Version    V1.0
@@ -154,34 +157,6 @@ public class PullToZoomScrollView extends ScrollView {
         }
     }
 
-    public void setHeaderContainer(View view) {
-        if (mHeaderContainer != null && view != null) {
-            mHeaderContainer.removeAllViews();
-            mHeadView = view;
-            if (mZoomView != null && mZoomContainer != null) {
-                mZoomContainer.removeAllViews();
-                mZoomContainer.addView(mZoomView);
-                mHeaderContainer.addView(mZoomContainer);
-            }
-            mHeaderContainer.addView(mHeadView);
-        }
-    }
-
-    public void setZoomView(View view) {
-        if (mZoomContainer != null && view != null) {
-            this.mZoomView = view;
-            mZoomContainer.removeAllViews();
-            mZoomContainer.addView(mZoomView);
-            if (mHeaderContainer != null) {
-                mHeaderContainer.removeAllViews();
-                mHeaderContainer.addView(mZoomContainer);
-                if (mHeadView != null) {
-                    mHeaderContainer.addView(mHeadView);
-                }
-            }
-        }
-    }
-
     public void showHeaderView() {
         if (mZoomView != null || mHeadView != null) {
             mHeaderContainer.setVisibility(VISIBLE);
@@ -202,8 +177,36 @@ public class PullToZoomScrollView extends ScrollView {
         return mHeaderContainer;
     }
 
+    public void setHeaderContainer(View view) {
+        if (mHeaderContainer != null && view != null) {
+            mHeaderContainer.removeAllViews();
+            mHeadView = view;
+            if (mZoomView != null && mZoomContainer != null) {
+                mZoomContainer.removeAllViews();
+                mZoomContainer.addView(mZoomView);
+                mHeaderContainer.addView(mZoomContainer);
+            }
+            mHeaderContainer.addView(mHeadView);
+        }
+    }
+
     public View getZoomView() {
         return mZoomView;
+    }
+
+    public void setZoomView(View view) {
+        if (mZoomContainer != null && view != null) {
+            this.mZoomView = view;
+            mZoomContainer.removeAllViews();
+            mZoomContainer.addView(mZoomView);
+            if (mHeaderContainer != null) {
+                mHeaderContainer.removeAllViews();
+                mHeaderContainer.addView(mZoomContainer);
+                if (mHeadView != null) {
+                    mHeaderContainer.addView(mHeadView);
+                }
+            }
+        }
     }
 
     public View getContentView() {
@@ -360,6 +363,16 @@ public class PullToZoomScrollView extends ScrollView {
     }
 
 
+    public interface OnScrollViewChangedListener {
+        public void onScrollChanged(int left, int top, int oldLeft, int oldTop);
+    }
+
+    public interface OnScrollViewZoomListener {
+        public void onStart();
+
+        public void onFinish();
+    }
+
     class ScalingRunnable implements Runnable {
         long mDuration;
         boolean mIsFinished = true;
@@ -408,15 +421,5 @@ public class PullToZoomScrollView extends ScrollView {
             mIsFinished = false;
             post(this);
         }
-    }
-
-    public interface OnScrollViewChangedListener {
-        public void onScrollChanged(int left, int top, int oldLeft, int oldTop);
-    }
-
-    public interface OnScrollViewZoomListener {
-        public void onStart();
-
-        public void onFinish();
     }
 }
