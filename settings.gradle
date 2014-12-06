@@ -1,1 +1,1 @@
-include ':diyview', ':flaotaction', ':jumpingbeans', ':drawmenu', ':lib_material', ':app'
+include  ':jumpingbeans',':lib_material', ':app',':diyview'
