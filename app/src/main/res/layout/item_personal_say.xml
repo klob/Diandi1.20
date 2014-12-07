@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_global_card_style"
+    android:padding="2dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/user_logo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="centerInside"
+            android:contentDescription="@string/action_settings" />
+
+        <TextView
+            android:id="@+id/user_name"
+            style="@style/TextTheme"
+            android:layout_marginLeft="8dip"
+            android:layout_marginTop="8dp"
+            android:layout_alignBaseline="@id/user_logo"
+            android:layout_toRightOf="@id/user_logo"
+            android:gravity="center"
+            android:text="岁月抚伤"
+            android:textColor="#314c82" />
+
+        <TextView
+            android:layout_alignBaseline="@id/user_logo"
+            android:id="@+id/content_date"
+            style="@style/TextTheme"
+            android:layout_marginRight="15dip"
+            android:layout_marginTop="8dp"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:text="11-12"
+            android:textColor="@color/gray" />
+
+        <TextView
+            android:id="@+id/content_text"
+            style="@style/TextTheme"
+            android:layout_below="@id/user_logo"
+            android:layout_margin="4dp"
+            android:text="十年之前，我不认识你 你不属于我，我 你不属于我， 你不属于我， 你不属于我， 你不属于我， 你不属于我，们还是一样，陪在一个陌生人左右，走过渐渐熟悉的街头;十年之后，我们是朋友， 还可以问候，只是那种温柔，再也找不到拥抱的理由，情人最后难免沦为朋友。" />
+
+
+        <ImageView
+            android:id="@+id/content_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/content_text"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="4dip"
+            android:layout_marginRight="4dip"
+            android:maxHeight="200dp"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/bg_pic_loading"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/content_link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/content_image"
+            android:maxLines="100"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="http://pan.baidu.com/s/1ntuTrVr"
+            android:textColor="@color/blue"
+            android:visibility="gone" />
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="32dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_action_comment"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_action_comment" />
+
+            <TextView
+                android:id="@+id/item_action_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"
+                android:text="评论" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_gravity="center_vertical"
+            android:layout_width="0.5dp"
+            android:layout_height="18dp"
+            android:background="@drawable/base_vertical_line" />
+
+        <LinearLayout
+            android:id="@+id/ll_action_love"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_action_love" />
+
+            <TextView
+                android:id="@+id/item_action_love"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"
+                android:text="赞" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="18dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/base_vertical_line" />
+
+        <LinearLayout
+            android:id="@+id/ll_action_share"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_action_share" />
+
+            <TextView
+                android:id="@+id/item_action_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"
+                android:text="分享" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+

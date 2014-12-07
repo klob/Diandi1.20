@@ -83,21 +83,21 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 20 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="ormlite-android-4.48" level="project" />
-    <orderEntry type="library" exported="" name="baidumapapi_v3_1_0" level="project" />
-    <orderEntry type="library" exported="" name="umeng-feedback-v4.3" level="project" />
-    <orderEntry type="library" exported="" name="umeng-update-v2.4.2" level="project" />
-    <orderEntry type="library" exported="" name="weibosdkcore" level="project" />
-    <orderEntry type="library" exported="" name="support-v4-19.0.1" level="project" />
-    <orderEntry type="library" exported="" name="radial-menu-v4" level="project" />
-    <orderEntry type="library" exported="" name="mta-sdk-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="universal-image-loader-1.9.2_sources" level="project" />
     <orderEntry type="library" exported="" name="BmobSDK_V3.2.6_1103" level="project" />
-    <orderEntry type="library" exported="" name="open_sdk" level="project" />
-    <orderEntry type="library" exported="" name="BmobIM_V1.1.4beta_1027" level="project" />
     <orderEntry type="library" exported="" name="locSDK_4.2" level="project" />
-    <orderEntry type="library" exported="" name="ormlite-core-4.48" level="project" />
+    <orderEntry type="library" exported="" name="baidumapapi_v3_1_0" level="project" />
+    <orderEntry type="library" exported="" name="BmobIM_V1.1.4beta_1027" level="project" />
     <orderEntry type="library" exported="" name="photoview-library-1.2.2" level="project" />
+    <orderEntry type="library" exported="" name="ormlite-android-4.48" level="project" />
+    <orderEntry type="library" exported="" name="support-v4-19.0.1" level="project" />
+    <orderEntry type="library" exported="" name="ormlite-core-4.48" level="project" />
+    <orderEntry type="library" exported="" name="open_sdk" level="project" />
+    <orderEntry type="library" exported="" name="mta-sdk-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="weibosdkcore" level="project" />
+    <orderEntry type="library" exported="" name="umeng-feedback-v4.3" level="project" />
+    <orderEntry type="library" exported="" name="universal-image-loader-1.9.2_sources" level="project" />
+    <orderEntry type="library" exported="" name="radial-menu-v4" level="project" />
+    <orderEntry type="library" exported="" name="umeng-update-v2.4.2" level="project" />
     <orderEntry type="module" module-name="jumpingbeans" exported="" />
     <orderEntry type="module" module-name="diyview" exported="" />
     <orderEntry type="module" module-name="lib_material" exported="" />
