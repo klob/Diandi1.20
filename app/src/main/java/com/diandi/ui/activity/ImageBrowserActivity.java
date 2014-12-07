@@ -1,19 +1,22 @@
 package com.diandi.ui.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.diandi.R;
 import com.diandi.util.ImageLoadOptions;
+import com.diandi.view.ActionSheet;
 import com.diandi.widget.CustomViewPager;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
@@ -33,11 +36,12 @@ import uk.co.senab.photoview.PhotoView;
  * *********    Copyright @ 2014, klob, All Rights Reserved
  * *******************************************************************************
  */
-public class ImageBrowserActivity extends Activity implements OnPageChangeListener {
+public class ImageBrowserActivity extends FragmentActivity implements OnPageChangeListener, ActionSheet.ActionSheetListener {
 
-    LinearLayout layout_image;
+    private LinearLayout layout_image;
     private CustomViewPager mSvpPager;
     private ImageBrowserAdapter mAdapter;
+    private Button mSaveBtn;
     private int mPosition;
 
     private ArrayList<String> mPhotos;
@@ -52,6 +56,7 @@ public class ImageBrowserActivity extends Activity implements OnPageChangeListen
 
     void findView() {
         mSvpPager = (CustomViewPager) findViewById(R.id.pagerview);
+        mSaveBtn = (Button) findViewById(R.id.activity_imagebrower_more);
     }
 
     void initView() {
@@ -65,7 +70,38 @@ public class ImageBrowserActivity extends Activity implements OnPageChangeListen
     }
 
     void bindEvent() {
+        mSaveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showActionSheet();
+            }
+        });
 
+    }
+
+    public void showActionSheet() {
+        setTheme(R.style.ActionSheetStyleIOS7);
+        ActionSheet.createBuilder(this, getSupportFragmentManager())
+                .setCancelButtonTitle("取消")
+                .setOtherButtonTitles("保存")
+                .setCancelableOnTouchOutside(true)
+                .setListener(this).show();
+    }
+
+    @Override
+    public void onOtherButtonClick(ActionSheet actionSheet, int index) {
+        switch (index) {
+            case 0:
+                Toast.makeText(getApplicationContext(), "click item index = " + index, Toast.LENGTH_SHORT).show();
+                break;
+        }
+
+    }
+
+
+    @Override
+    public void onDismiss(ActionSheet actionSheet, boolean isCancle) {
+        Toast.makeText(getApplicationContext(), "dismissed isCancle = " + isCancle, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -93,13 +129,11 @@ public class ImageBrowserActivity extends Activity implements OnPageChangeListen
 
         @Override
         public int getCount() {
-            // TODO Auto-generated method stub
             return mPhotos.size();
         }
 
         @Override
         public boolean isViewFromObject(View view, Object object) {
-            // TODO Auto-generated method stub
             return view == object;
         }
 
@@ -117,27 +151,23 @@ public class ImageBrowserActivity extends Activity implements OnPageChangeListen
 
                 @Override
                 public void onLoadingStarted(String imageUri, View view) {
-                    // TODO Auto-generated method stub
                     progress.setVisibility(View.VISIBLE);
                 }
 
                 @Override
                 public void onLoadingFailed(String imageUri, View view,
                                             FailReason failReason) {
-                    // TODO Auto-generated method stub
                     progress.setVisibility(View.GONE);
 
                 }
 
                 @Override
                 public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-                    // TODO Auto-generated method stub
                     progress.setVisibility(View.GONE);
                 }
 
                 @Override
                 public void onLoadingCancelled(String imageUri, View view) {
-                    // TODO Auto-generated method stub
                     progress.setVisibility(View.GONE);
 
                 }

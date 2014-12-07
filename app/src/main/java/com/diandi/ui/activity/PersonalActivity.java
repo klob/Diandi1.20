@@ -17,6 +17,7 @@ import com.diandi.model.User;
 import com.diandi.model.diandi.DianDi;
 import com.diandi.util.ImageLoadOptions;
 import com.diandi.util.L;
+import com.diandi.util.OverridePendingUtil;
 import com.diandi.widget.xlist.XListView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
@@ -283,6 +284,13 @@ public class PersonalActivity extends ActivityBase implements XListView.IXListVi
         L.i(TAG, "sign:" + user.getSignature());
         updatePersonalInfo(user);
         ShowToast("更新信息成功。");
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        OverridePendingUtil.out(this);
     }
 
 

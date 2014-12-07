@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-              android:background="#ff171b19"
-              android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#ff171b19"
+                android:orientation="vertical">
 
     <com.diandi.widget.CustomViewPager
         android:id="@+id/pagerview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"/>
 
-</LinearLayout>
+    <Button
+        android:id="@+id/activity_imagebrower_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/image_more"/>
+
+</RelativeLayout>
