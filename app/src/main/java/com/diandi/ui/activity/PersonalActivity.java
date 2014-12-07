@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -80,6 +81,9 @@ public class PersonalActivity extends ActivityBase implements XListView.IXListVi
         if (CustomApplication.getInstance().getCache().getAsObject(PERSON_LIST + mUser.getObjectId()) != null) {
             mDianDis = (ArrayList<DianDi>) CustomApplication.getInstance().getCache().getAsObject(PERSON_LIST + mUser.getObjectId());
         }
+        Log.e("mDianDis", mDianDis.toString());
+        Log.e("size", mDianDis.size()+"");
+
         initTopBarForLeft("个人中心");
         initMyPublish();
         initXListView();

@@ -315,7 +315,8 @@ public class CommentActivity extends ActivityBase implements View.OnClickListene
         User currentUser = BmobUser.getCurrentUser(this, User.class);
         if (currentUser != null) {//已登录
             Intent intent = new Intent();
-            intent.setClass(CustomApplication.getInstance().getTopActivity(), PersonalActivity.class);
+//            intent.setClass(CustomApplication.getInstance().getTopActivity(), PersonalActivity.class);
+            intent.setClass(CustomApplication.getInstance().getTopActivity(), Test.class);
             CommentActivity.this.startAnimActivity(intent);
         } else {
             ShowToast("请先登录。");
