@@ -94,7 +94,6 @@ public class PlanFragment extends BaseFragment implements AdapterView.OnItemClic
     void initView() {
         mPlanDao = new PlanDao(getActivity());
         loadData();
-        L.e(mPlans.toString());
         mPlanAdapter = new PlanAdapter(getActivity(), mPlans);
         mPlanListView.setAdapter(mPlanAdapter);
         bindEvent();

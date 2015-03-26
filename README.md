@@ -1,3 +1,17 @@
+-------------------
+**一** .how to run it
+
+Method 1
+step  1
+![splash](images/step1.png)　
+step  2
+![splash](images/step2.png)　
+
+Method 2
+
+download the zip and import it by android studio
+注：仅可用android studio 运行
+-------------------
 
 
 #Diandy(点滴)
@@ -45,15 +59,6 @@ Diandy For Android，为你翻开新的一页。
 *	[datetimepicker](https://github.com/flavienlaurent/datetimepicker)  flavienlaurent的datetimepicker 
 *	[PagerSlidingTabStrip ](https://github.com/yangfuhai/ASimpleCache) astuetz的PagerSlidingTabStrip 
 
-
--------------------
-
-### 如何编译 ###
-
-
-use android studio to checkout from github
-
--------
 
 
 ###说明：
