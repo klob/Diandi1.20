@@ -2,9 +2,11 @@
 **一** .how to run it
 
 Method 1
+
 step  1
 ![splash](images/step1.png)　
 step  2
+
 ![splash](images/step2.png)　
 
 Method 2
