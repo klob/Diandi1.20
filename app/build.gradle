@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "20.0.0"
+    buildToolsVersion "21.1.1"
 
     defaultConfig {
         applicationId "com.diandi"
@@ -27,9 +27,11 @@ android {
     }
 
     android.applicationVariants.all { variant ->
-        def file = variant.outputFile
-        variant.outputFile = new File(file.parent, file.name.replace("app-debug.apk", "diandi" + ".apk"))
-        variant.outputFile = new File(file.parent, file.name.replace("app-release.apk", "diandi" + ".apk"))
+        variant.outputs.each { output ->
+            output.outputFile = new File(output.outputFile.parent, "diandi.apk");
+
+        }
+
     }
     lintOptions {
         checkReleaseBuilds false

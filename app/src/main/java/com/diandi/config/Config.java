@@ -11,6 +11,6 @@ package com.diandi.config;
  * *******************************************************************************
  */
 public class Config {
-    public static String applicationId = "9d0d9069701ccab2477451fca428d019";
+    public static String applicationId = "35d12ca750a679863a3aaf2d1b4dcd8d";
     public static String appId = "1102333196";
 }

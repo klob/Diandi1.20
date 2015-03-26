@@ -1,5 +1,3 @@
-#此项目已经停止维护，内容仅供参考
- 有兴趣加入 可发送Email致[kloblic@gmail.com](mailto:kloblic@gmail.com)
 
 
 #Diandy(点滴)
