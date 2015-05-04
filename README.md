@@ -13,6 +13,8 @@ Method 2
 
 download the zip and import it by android studio
 注：仅可用android studio 运行
+
+然后前往http://bmob.cn  申请appkey
 -------------------
 
 
