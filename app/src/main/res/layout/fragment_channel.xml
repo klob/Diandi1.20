@@ -3,9 +3,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/theme_color_bg"
-                tools:context="com.diandi.ui.fragment.ChannelFragment">
+                tools:context="com.diandi.demo.ui.fragment.ChannelFragment">
 
-    <com.diandi.widget.xlist.XListView
+    <com.diandi.demo.widget.xlist.XListView
         android:id="@+id/fragment_diandi_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,7 +19,7 @@
         android:scrollbars="none"
         android:smoothScrollbar="false"
         >
-    </com.diandi.widget.xlist.XListView>
+    </com.diandi.demo.widget.xlist.XListView>
     <!--      -->
     <TextView
 

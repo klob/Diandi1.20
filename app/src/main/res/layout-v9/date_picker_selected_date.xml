@@ -11,7 +11,7 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.diandi.widget.googledatetimepicker.tool.AccessibleLinearLayout
+    <com.diandi.demo.widget.googledatetimepicker.tool.AccessibleLinearLayout
         android:id="@+id/date_picker_month_and_day"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,9 +42,9 @@
             android:includeFontPadding="false"
             android:textColor="@color/date_picker_selector"
             android:textSize="@dimen/selected_date_day_size"/>
-    </com.diandi.widget.googledatetimepicker.tool.AccessibleLinearLayout>
+    </com.diandi.demo.widget.googledatetimepicker.tool.AccessibleLinearLayout>
 
-    <com.diandi.widget.googledatetimepicker.tool.AccessibleTextView
+    <com.diandi.demo.widget.googledatetimepicker.tool.AccessibleTextView
         android:id="@+id/date_picker_year"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

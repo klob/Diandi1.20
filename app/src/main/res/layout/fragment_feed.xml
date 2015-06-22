@@ -5,7 +5,7 @@
                 android:baselineAligned="false"
                 android:focusable="true">
 
-    <com.diandi.widget.xlist.XListView
+    <com.diandi.demo.widget.xlist.XListView
         android:id="@+id/fragment_diandi_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,7 +15,7 @@
         android:footerDividersEnabled="false"
         android:headerDividersEnabled="false"
         android:smoothScrollbar="true">
-    </com.diandi.widget.xlist.XListView>
+    </com.diandi.demo.widget.xlist.XListView>
 
     <TextView
         android:id="@+id/fragment_diandi_networktips"

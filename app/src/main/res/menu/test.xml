@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.diandi.ui.activity.MainActivity" >
+    tools:context="com.diandi.demo.ui.activity.MainActivity" >
     <item android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:showAsAction="never"

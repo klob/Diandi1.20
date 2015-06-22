@@ -25,7 +25,7 @@
         android:text="岁月抚伤"
         android:textColor="#314c82"/>
 
-    <com.diandi.widget.drop.WaterDrop
+    <com.diandi.demo.widget.drop.WaterDrop
         android:id="@+id/item_drop"
         android:layout_width="30dp"
         android:layout_height="30dp"

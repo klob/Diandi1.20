@@ -5,7 +5,7 @@
     android:layout_height="fill_parent"
     android:background="#000000">
 
-    <com.diandi.widget.ScrollLayout
+    <com.diandi.demo.widget.ScrollLayout
         android:id="@+id/activity_guide_scroll_layout"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
@@ -47,7 +47,7 @@
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"/>
         </RelativeLayout>
-    </com.diandi.widget.ScrollLayout>
+    </com.diandi.demo.widget.ScrollLayout>
 
     <!-- 这个布局是下面显示的小圆点的布局，其中ImageView的数量要与上面RelativeLayout的数量对应 -->
     <LinearLayout

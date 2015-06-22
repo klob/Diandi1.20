@@ -13,7 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<com.diandi.widget.googledatetimepicker.date.AccessibleDateAnimator
+<com.diandi.demo.widget.googledatetimepicker.date.AccessibleDateAnimator
     android:id="@+id/animator"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/date_picker_component_width"

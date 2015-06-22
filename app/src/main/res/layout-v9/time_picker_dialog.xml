@@ -35,7 +35,7 @@
             android:layout_gravity="center"/>
     </FrameLayout>
 
-    <com.diandi.widget.googledatetimepicker.time.RadialPickerLayout
+    <com.diandi.demo.widget.googledatetimepicker.time.RadialPickerLayout
         android:id="@+id/time_picker"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/picker_dimen"

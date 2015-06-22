@@ -13,7 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<com.diandi.widget.googledatetimepicker.date.TextViewWithCircularIndicator
+<com.diandi.demo.widget.googledatetimepicker.date.TextViewWithCircularIndicator
     android:id="@+id/month_text_view"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"

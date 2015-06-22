@@ -64,7 +64,7 @@
         android:padding="8dip"
         android:text="发表过的"/>
 
-    <com.diandi.widget.xlist.XListView
+    <com.diandi.demo.widget.xlist.XListView
         android:id="@+id/pull_refresh_list_personal"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

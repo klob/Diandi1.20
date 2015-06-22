@@ -7,7 +7,7 @@
         android:id="@+id/common_actionbar"
         layout="@layout/include_action_bar"/>
 
-    <com.diandi.widget.xlist.XListView
+    <com.diandi.demo.widget.xlist.XListView
         android:id="@+id/fragment_diandi_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

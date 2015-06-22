@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
-    package="com.diandi"
+    package="com.diandi.demo"
     xmlns:android="http://schemas.android.com/apk/res/android">
     >
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -47,13 +47,13 @@
         android:smallScreens="true"/>
 
     <application
-        android:name="com.diandi.CustomApplication"
+        android:name=".CustomApplication"
         android:allowBackup="true"
         android:icon="@drawable/logo1"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.diandi.ui.activity.MainActivity"
+            android:name=".ui.activity.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
@@ -61,7 +61,7 @@
 
         <!-- android:theme="@android:style/Theme.NoTitleBar.Fullscreen"-->
         <activity
-            android:name="com.diandi.ui.activity.SplashActivity"
+            android:name=".ui.activity.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -70,78 +70,78 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.diandi.ui.activity.AddContactActivity"
+            android:name=".ui.activity.AddContactActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.diandi.ui.activity.ChatActivity"
+            android:name=".ui.activity.ChatActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.diandi.ui.activity.RegisterActivity"
+            android:name=".ui.activity.RegisterActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name="cn.bmob.v3.update.UpdateDialogActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <activity
-            android:name="com.diandi.ui.activity.LoginActivity"
+            android:name=".ui.activity.LoginActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.diandi.ui.activity.LocationActivity"
+            android:name=".ui.activity.LocationActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.diandi.ui.activity.ImageBrowserActivity"
+            android:name=".ui.activity.ImageBrowserActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.diandi.ui.activity.NewFriendActivity"
+            android:name=".ui.activity.NewFriendActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.diandi.ui.activity.NearPeopleActivity"
+            android:name=".ui.activity.NearPeopleActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.diandi.ui.activity.UpdateInfoActivity"
+            android:name=".ui.activity.UpdateInfoActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.diandi.ui.activity.NewDiandiActivity"
+            android:name=".ui.activity.NewDiandiActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.diandi.ui.activity.PersonalActivity"
+            android:name=".ui.activity.PersonalActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.diandi.ui.activity.CommentActivity"
+            android:name=".ui.activity.CommentActivity"
             android:hardwareAccelerated="false"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.diandi.ui.activity.ProfileActivity"
+            android:name=".ui.activity.ProfileActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.diandi.ui.activity.SettingActivity"
+            android:name=".ui.activity.SettingActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.diandi.ui.activity.AboutActivity"
+            android:name=".ui.activity.AboutActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.diandi.ui.activity.PlanActivity"
+            android:name=".ui.activity.PlanActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.diandi.ui.activity.WritePlanActivity"
+            android:name=".ui.activity.WritePlanActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.diandi.ui.activity.RadialProgressActivity"
+            android:name=".ui.activity.RadialProgressActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.diandi.ui.activity.FavoriteActivity"
+            android:name=".ui.activity.FavoriteActivity"
             android:hardwareAccelerated="false"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.diandi.ui.activity.LinkAcitivity"
+            android:name=".ui.activity.LinkAcitivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name="com.diandi.ui.activity.GuideActivity"
+            android:name=".ui.activity.GuideActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name="com.diandi.ui.activity.NoteActivity"
+            android:name=".ui.activity.NoteActivity"
             android:screenOrientation="portrait">
         </activity>
 
@@ -223,7 +223,7 @@
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
             </intent-filter>
         </receiver>
-        <receiver android:name=".components.receiver.MyMessageReceiver">
+        <receiver android:name=".receiver.MyMessageReceiver">
             <intent-filter android:priority="1147483640">
                 <action android:name="cn.bmob.push.action.MESSAGE"/>
             </intent-filter>
@@ -231,14 +231,14 @@
         <!-- IM聊天所需的Push end -->
 
         <activity
-            android:name="com.diandi.ui.activity.NewOfficalDiandiActivity"
+            android:name=".ui.activity.NewOfficalDiandiActivity"
             >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.diandi.ui.activity.ActivityBase"/>
+                android:value=".ui.activity.ActivityBase"/>
         </activity>
         <activity
-            android:name="com.diandi.ui.activity.Test"
+            android:name=".ui.activity.Test"
             android:label="@string/title_activity_test">
         </activity>
     </application>
