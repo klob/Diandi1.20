@@ -4,6 +4,7 @@
 Method 1
 
 step  1
+配置好git
 ![splash](images/step1.png)　
 step  2
 
@@ -17,7 +18,7 @@ download the zip and import it by android studio
 然后前往http://bmob.cn  申请appkey
 -------------------
 
-###2015-7-3更新到最新版bmobsdk
+###2015-7-3更新到最新版bmobsd到
 
 #Diandy(点滴)
 
@@ -29,7 +30,7 @@ download the zip and import it by android studio
 
 Diandy For Android，为你翻开新的一页。
 
-### 体验地址: [官网](http://diandi.bmob.cn/) [应用下载](http://diandiyun.oss-cn-beijing.aliyuncs.com/release/diandi.apk) ###
+### 体验地址:  [应用下载](apk/diandi-demo.apk) ###
 
 ### 预览
 
@@ -70,8 +71,6 @@ Diandy For Android，为你翻开新的一页。
 整个项目只有我一个人在做，没有设计师，界面很丑，请大家原谅了。
 在这里，也希望找几个小伙伴，一起把它做下去，有设计师最好了。
 
-
-如果出现错误或者有任何问题，请放轻松联系我[kloblic@gmail.com](mailto:kloblic@gmail.com)
 
 ###关于我：
 我是个华科在读的一个穷学生，痴迷开发，擅长Android，如果您手头有适合我的实习或者工作机会，欢迎邮件联系我[kloblic@gmail.com](mailto:kloblic@gmail.com)。
