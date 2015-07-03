@@ -39,10 +39,7 @@ android {
 }
 
 dependencies {
-
     compile files('libs/baidumapapi_v3_1_0.jar')
-    compile files('libs/BmobIM_V1.1.4beta_1027.jar')
-    compile files('libs/BmobSDK_V3.2.6_1103.jar')
     compile files('libs/locSDK_4.2.jar')
     compile files('libs/mta-sdk-1.0.0.jar')
     compile files('libs/open_sdk.jar')
@@ -55,4 +52,6 @@ dependencies {
     compile files('libs/universal-image-loader-1.9.2_sources.jar')
     compile files('libs/weibosdkcore.jar')
     compile project(':diyview')
+    compile files('libs/BmobIM_V1.1.8beta_20150408.jar')
+    compile files('libs/BmobSDK_V3.4.0_0616.jar')
 }

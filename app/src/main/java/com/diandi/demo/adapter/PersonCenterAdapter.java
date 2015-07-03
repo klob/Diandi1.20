@@ -126,7 +126,7 @@ public class PersonCenterAdapter extends BaseListAdapter<DianDi> {
         } else {
             viewHolder.contentImage.setVisibility(View.VISIBLE);
             ImageLoader.getInstance()
-                    .displayImage(entity.getContentfigureurl().getFileUrl() == null ? "" : entity.getContentfigureurl().getFileUrl(), viewHolder.contentImage,
+                    .displayImage(entity.getContentfigureurl().getFileUrl(mContext) == null ? "" : entity.getContentfigureurl().getFileUrl(mContext), viewHolder.contentImage,
                             ImageLoadOptions.getOptions(R.drawable.bg_pic_loading),
                             new SimpleImageLoadingListener() {
 
@@ -250,7 +250,7 @@ public class PersonCenterAdapter extends BaseListAdapter<DianDi> {
         String comment = "来领略最美的风景吧";
         String img = null;
         if (qy.getContentfigureurl() != null) {
-            img = qy.getContentfigureurl().getFileUrl();
+            img = qy.getContentfigureurl().getFileUrl(mContext);
         } else {
             img = TencentShareConstants.DEFAULT_IMG_URL;
         }

@@ -527,8 +527,8 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
                 public void onSuccess() {
                     User currentUser = BmobUser.getCurrentUser(mContext, User.class);
                     currentUser.setAvatarImg(file);
-                    currentUser.setAvatar(file.getFileUrl());
-                    refreshAvatar(file.getFileUrl());
+                    currentUser.setAvatar(file.getFileUrl(mContext));
+                    refreshAvatar(file.getFileUrl(mContext));
                     currentUser.update(mContext, new UpdateListener() {
                         @Override
                         public void onSuccess() {

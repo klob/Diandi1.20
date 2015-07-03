@@ -161,7 +161,7 @@ public class NewDiandiActivity extends ActivityBase implements OnClickListener {
 
             @Override
             public void onSuccess() {
-                L.i(TAG, "上传文件成功。" + figureFile.getFileUrl());
+                L.i(TAG, "上传文件成功。" + figureFile.getFileUrl(mContext));
                 publish(commitContent, figureFile, false);
             }
 

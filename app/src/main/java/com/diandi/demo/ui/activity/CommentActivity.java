@@ -188,7 +188,7 @@ public class CommentActivity extends ActivityBase implements View.OnClickListene
         } else {
             commentItemImage.setVisibility(View.VISIBLE);
             ImageLoader.getInstance()
-                    .displayImage(mDianDi.getContentfigureurl().getFileUrl() == null ? "" : mDianDi.getContentfigureurl().getFileUrl(), commentItemImage,
+                    .displayImage(mDianDi.getContentfigureurl().getFileUrl(mContext) == null ? "" : mDianDi.getContentfigureurl().getFileUrl(mContext), commentItemImage,
                             ImageLoadOptions.getOptions(R.drawable.bg_pic_loading),
                             new SimpleImageLoadingListener() {
                                 @Override
@@ -208,7 +208,7 @@ public class CommentActivity extends ActivityBase implements View.OnClickListene
                 public void onClick(View view) {
                     Intent intent = new Intent(mContext, ImageBrowserActivity.class);
                     ArrayList<String> photos = new ArrayList<String>();
-                    photos.add(mDianDi.getContentfigureurl().getFileUrl());
+                    photos.add(mDianDi.getContentfigureurl().getFileUrl(mContext));
                     intent.putStringArrayListExtra("photos", photos);
                     intent.putExtra("position", 0);
                     startActivity(intent);
@@ -600,7 +600,7 @@ public class CommentActivity extends ActivityBase implements View.OnClickListene
         String comment = "来领略最美的风景吧";
         String img = null;
         if (qy.getContentfigureurl() != null) {
-            img = qy.getContentfigureurl().getFileUrl();
+            img = qy.getContentfigureurl().getFileUrl(mContext);
         } else {
             img = TencentShareConstants.DEFAULT_IMG_URL;
         }

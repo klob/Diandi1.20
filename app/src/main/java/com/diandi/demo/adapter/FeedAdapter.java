@@ -155,7 +155,7 @@ public class FeedAdapter extends BaseListAdapter<DianDi> {
         } else {
             viewHolder.contentImage.setVisibility(View.VISIBLE);
             ImageLoader.getInstance()
-                    .displayImage(entity.getContentfigureurl().getFileUrl() == null ? "" : entity.getContentfigureurl().getFileUrl(), viewHolder.contentImage,
+                    .displayImage(entity.getContentfigureurl().getFileUrl(mContext) == null ? "" : entity.getContentfigureurl().getFileUrl(mContext), viewHolder.contentImage,
                             ImageLoadOptions.getOptions(R.drawable.bg_pic_loading),
                             new SimpleImageLoadingListener() {
                                 @Override
@@ -175,7 +175,7 @@ public class FeedAdapter extends BaseListAdapter<DianDi> {
                 public void onClick(View view) {
                     Intent intent = new Intent(mContext, ImageBrowserActivity.class);
                     ArrayList<String> photos = new ArrayList<String>();
-                    photos.add(entity.getContentfigureurl().getFileUrl());
+                    photos.add(entity.getContentfigureurl().getFileUrl(mContext));
                     intent.putStringArrayListExtra("photos", photos);
                     intent.putExtra("position", 0);
                     mContext.startActivity(intent);
@@ -285,7 +285,7 @@ public class FeedAdapter extends BaseListAdapter<DianDi> {
         String comment = "来领略最美的风景吧";
         String img = null;
         if (qy.getContentfigureurl() != null) {
-            img = qy.getContentfigureurl().getFileUrl();
+            img = qy.getContentfigureurl().getFileUrl(mContext);
         } else {
             img = TencentShareConstants.DEFAULT_IMG_URL;
         }
