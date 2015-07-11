@@ -18,7 +18,7 @@ download the zip and import it by android studio
 然后前往http://bmob.cn  申请appkey
 -------------------
 
-###2015-7-3更新到最新版bmobsd到
+###2015-7-3更新到最新版bmobsdk到
 
 #Diandy(点滴)
 
@@ -67,9 +67,7 @@ Diandy For Android，为你翻开新的一页。
 
 
 
-###说明：
-整个项目只有我一个人在做，没有设计师，界面很丑，请大家原谅了。
-在这里，也希望找几个小伙伴，一起把它做下去，有设计师最好了。
+
 
 
 ###关于我：
