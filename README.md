@@ -18,7 +18,11 @@ download the zip and import it by android studio
 然后前往http://bmob.cn  申请appkey
 -------------------
 
-###2015-7-3更新到最新版bmobsdk到
+#### 更新日志
+
+##2015-7-3更新到最新版bmobsdk到最新版
+
+##2015-7-19修复图片上传失败的bug
 
 #Diandy(点滴)
 
