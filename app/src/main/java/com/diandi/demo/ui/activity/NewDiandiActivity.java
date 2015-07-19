@@ -284,7 +284,7 @@ public class NewDiandiActivity extends ActivityBase implements OnClickListener {
     }
 
     public String saveToSdCard(Bitmap bitmap) {
-        String files = CacheUtils.getCacheDirectory(this, true, "pic") + dateTime + "_11";
+        String files = CacheUtils.getCacheDirectory(this, true, "pic") + dateTime + "_11.png";
         File file = new File(files);
         try {
             FileOutputStream out = new FileOutputStream(file);

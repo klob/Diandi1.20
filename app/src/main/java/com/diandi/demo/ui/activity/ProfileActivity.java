@@ -611,7 +611,7 @@ public class ProfileActivity extends ActivityBase implements View.OnClickListene
 
 
     public String saveToSdCard(Bitmap bitmap) {
-        String files = CacheUtils.getCacheDirectory(mContext, true, "icon") + dateTime + "_12";
+        String files = CacheUtils.getCacheDirectory(mContext, true, "icon") + dateTime + "_12.png";
         File file = new File(files);
         try {
             FileOutputStream out = new FileOutputStream(file);

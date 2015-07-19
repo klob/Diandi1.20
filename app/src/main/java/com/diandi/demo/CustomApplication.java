@@ -17,6 +17,7 @@ import com.diandi.demo.model.diandi.DianDi;
 import com.diandi.demo.util.ActivityManagerUtils;
 import com.diandi.demo.util.CollectionUtils;
 import com.diandi.demo.util.ImageLoadOptions;
+import com.diandi.demo.util.L;
 import com.diandi.demo.util.SharePreferenceUtil;
 
 import java.util.HashMap;
@@ -130,6 +131,7 @@ public class CustomApplication extends Application {
         mLocationClient = new LocationClient(this.getApplicationContext());
         mMyLocationListener = new MyLocationListener();
         mLocationClient.registerLocationListener(mMyLocationListener);
+        mLocationClient.start();
     }
 
     public synchronized SharePreferenceUtil getSpUtil() {
@@ -236,6 +238,7 @@ public class CustomApplication extends Application {
         @Override
         public void onReceiveLocation(BDLocation location) {
             // Receive Location
+            L.e(TAG,"getProvince   " + location.getProvince()+"    getCity     " +location.getCity());
             double latitude = location.getLatitude();
             double longtitude = location.getLongitude();
             if (lastPoint != null) {
