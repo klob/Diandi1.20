@@ -154,8 +154,21 @@ public class FeedAdapter extends BaseListAdapter<DianDi> {
             viewHolder.contentImage.setVisibility(View.GONE);
         } else {
             viewHolder.contentImage.setVisibility(View.VISIBLE);
-            ImageLoader.getInstance().displayImage(entity.getContentfigureurl().getFileUrl(mContext), viewHolder.contentImage, ImageLoadOptions.getOptions(R.drawable.bg_pic_loading)
-            );
+            ImageLoader.getInstance().displayImage(entity.getContentfigureurl().getFileUrl(mContext) , viewHolder.contentImage,
+                            ImageLoadOptions.getOptions(R.drawable.bg_pic_loading),
+                            new SimpleImageLoadingListener() {
+                                @Override
+                                public void onLoadingComplete(String imageUri, View view,
+                                                              Bitmap loadedImage) {
+                                    super.onLoadingComplete(imageUri, view, loadedImage);
+                                    float[] cons = ActivityUtil.getBitmapConfiguration(loadedImage, viewHolder.contentImage, 1.0f);
+                                    RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) cons[0], (int) cons[1]);
+                                    layoutParams.addRule(RelativeLayout.BELOW, R.id.content_text);
+                                    viewHolder.contentImage.setLayoutParams(layoutParams);
+                                }
+
+                            }
+                    );
             viewHolder.contentImage.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
