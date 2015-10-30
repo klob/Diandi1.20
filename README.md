@@ -80,7 +80,11 @@ Diandy For Android，为你翻开新的一页。
 
 *	我的邮箱：kloblic@gmail.com
 *	我的博客：[klob](http://klob.diandi.life)
+*	
+该版本是开源版，还有
+商业版：[功能及界面预览](http://community.bmob.cn/forum.php?mod=viewthread&tid=321&extra=page%3D1)
 
+欢迎Follow，欢迎合作
 欢迎Follow，欢迎合作
 
 
