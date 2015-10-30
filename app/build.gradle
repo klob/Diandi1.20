@@ -44,4 +44,7 @@ dependencies {
     compile project(':diyview')
     compile files('libs/BmobIM_V1.1.8beta_20150408.jar')
     compile files('libs/BmobSDK_V3.4.0_0616.jar')
+    compile files('libs/Bmob_Push_V0.6beta_20150408.jar')
+    compile files('libs/im.jar')
+    compile files('libs/bmob-sdk-3.4.2.jar')
 }

@@ -12,6 +12,7 @@ import com.diandi.demo.ui.activity.MainActivity;
 import com.diandi.demo.ui.activity.NewFriendActivity;
 import com.diandi.demo.util.CollectionUtils;
 import com.diandi.demo.util.CommonUtils;
+import com.diandi.demo.util.L;
 
 import org.json.JSONObject;
 
@@ -86,6 +87,7 @@ public class MyMessageReceiver extends BroadcastReceiver {
             jo = new JSONObject(json);
             String tag = BmobJsonUtil.getString(jo, BmobConstant.PUSH_KEY_TAG);
             if (tag.equals(BmobConfig.TAG_OFFLINE)) {//下线通知
+                L.e("offline   ", json);
                 if (currentUser != null) {
                     if (ehList.size() > 0) {// 有监听的时候，传递下去
                         for (EventListener handler : ehList)

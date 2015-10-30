@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.diandi.demo.model.User;
 import com.diandi.demo.sync.UserHelper;
 import com.diandi.demo.util.L;
+import com.diandi.demo.util.ListViewTool;
 import com.diandi.demo.util.OverridePendingUtil;
 
 import java.util.HashMap;
@@ -103,12 +104,15 @@ public abstract class BaseListAdapter<E> extends BaseAdapter {
     public long getItemId(int position) {
         return position;
     }
+    ListViewTool mListViewTool=new ListViewTool(true);
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        mListViewTool.start();
         convertView = bindView(position, convertView, parent);
         // 绑定内部点击监听
         addInternalClickListener(convertView, position, mDataList.get(position));
+        mListViewTool.getAva(position);
         return convertView;
     }
 

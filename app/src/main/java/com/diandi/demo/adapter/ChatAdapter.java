@@ -91,6 +91,14 @@ public class ChatAdapter extends BaseListAdapter<BmobMsg> {
     }
 
     @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        convertView = bindView(position, convertView, parent);
+        // 绑定内部点击监听
+        //addInternalClickListener(convertView, position, mDataList.get(position));
+        return convertView;
+    }
+
+    @Override
     public int getViewTypeCount() {
         return 8;
     }
