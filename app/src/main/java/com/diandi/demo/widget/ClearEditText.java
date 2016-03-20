@@ -78,14 +78,12 @@ public class ClearEditText extends EditText implements
      */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (getCompoundDrawables()[2] != null) {
-            if (event.getAction() == MotionEvent.ACTION_UP) {
-                boolean touchable = event.getX() > (getWidth()
-                        - getPaddingRight() - mClearDrawable.getIntrinsicWidth())
-                        && (event.getX() < ((getWidth() - getPaddingRight())));
-                if (touchable) {
-                    this.setText("");
-                }
+        if (getCompoundDrawables()[2] != null && event.getAction() == MotionEvent.ACTION_UP) {
+            boolean touchable = event.getX() > (getWidth()
+                    - getPaddingRight() - mClearDrawable.getIntrinsicWidth())
+                    && (event.getX() < ((getWidth() - getPaddingRight())));
+            if (touchable) {
+                this.setText("");
             }
         }
 

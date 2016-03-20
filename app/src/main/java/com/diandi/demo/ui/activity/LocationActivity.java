@@ -232,14 +232,12 @@ public class LocationActivity extends BaseActivity implements
             if (location == null || mMapView == null)
                 return;
 
-            if (lastLocation != null) {
-                if (lastLocation.getLatitude() == location.getLatitude()
-                        && lastLocation.getLongitude() == location
-                        .getLongitude()) {
-                    BmobLog.i("获取坐标相同");// 若两次请求获取到的地理位置坐标是相同的，则不再定位
-                    mLocClient.stop();
-                    return;
-                }
+            if (lastLocation != null && lastLocation.getLatitude() == location.getLatitude()
+                    && lastLocation.getLongitude() == location
+                    .getLongitude()) {
+                BmobLog.i("获取坐标相同");// 若两次请求获取到的地理位置坐标是相同的，则不再定位
+                mLocClient.stop();
+                return;
             }
             lastLocation = location;
 

@@ -172,12 +172,11 @@ public class ContactFragment extends BaseFragment implements OnItemClickListener
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 // 隐藏软键盘
-                if (getActivity().getWindow().getAttributes().softInputMode != WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN) {
-                    if (getActivity().getCurrentFocus() != null) {
-                        InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                        inputMethodManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),
-                                InputMethodManager.HIDE_NOT_ALWAYS);
-                    }
+                if (getActivity().getWindow().getAttributes().softInputMode != WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN
+                        && getActivity().getCurrentFocus() != null) {
+                    InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    inputMethodManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),
+                            InputMethodManager.HIDE_NOT_ALWAYS);
                 }
                 return false;
             }
@@ -200,12 +199,10 @@ public class ContactFragment extends BaseFragment implements OnItemClickListener
             filterDateList.clear();
             for (User sortModel : mFriends) {
                 String name = sortModel.getUsername();
-                if (name != null) {
-                    if (name.indexOf(filterStr.toString()) != -1
-                            || mCharacterParser.getSelling(name).startsWith(
-                            filterStr.toString())) {
-                        filterDateList.add(sortModel);
-                    }
+                if (name != null && (name.indexOf(filterStr) != -1
+                        || mCharacterParser.getSelling(name).startsWith(
+                        filterStr)) ) {
+                    filterDateList.add(sortModel);
                 }
             }
         }

@@ -419,21 +419,19 @@ public class TimePickerDialog extends DialogFragment implements OnValueSelectedL
             dismiss();
             return true;
         } else if (keyCode == KeyEvent.KEYCODE_DEL) {
-            if (mInKbMode) {
-                if (!mTypedTimes.isEmpty()) {
-                    int deleted = deleteLastTypedKey();
-                    String deletedKeyStr;
-                    if (deleted == getAmOrPmKeyCode(AM)) {
-                        deletedKeyStr = mAmText;
-                    } else if (deleted == getAmOrPmKeyCode(PM)) {
-                        deletedKeyStr = mPmText;
-                    } else {
-                        deletedKeyStr = String.format("%d", getValFromKeyCode(deleted));
-                    }
-                    Utils.tryAccessibilityAnnounce(mTimePicker,
-                            String.format(mDeletedKeyFormat, deletedKeyStr));
-                    updateDisplay(true);
+            if (mInKbMode && !mTypedTimes.isEmpty()) {
+                int deleted = deleteLastTypedKey();
+                String deletedKeyStr;
+                if (deleted == getAmOrPmKeyCode(AM)) {
+                    deletedKeyStr = mAmText;
+                } else if (deleted == getAmOrPmKeyCode(PM)) {
+                    deletedKeyStr = mPmText;
+                } else {
+                    deletedKeyStr = String.format("%d", getValFromKeyCode(deleted));
                 }
+                Utils.tryAccessibilityAnnounce(mTimePicker,
+                        String.format(mDeletedKeyFormat, deletedKeyStr));
+                updateDisplay(true);
             }
         } else if (keyCode == KeyEvent.KEYCODE_0 || keyCode == KeyEvent.KEYCODE_1
                 || keyCode == KeyEvent.KEYCODE_2 || keyCode == KeyEvent.KEYCODE_3

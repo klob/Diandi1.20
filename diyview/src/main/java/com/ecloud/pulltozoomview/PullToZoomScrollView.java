@@ -239,11 +239,9 @@ public class PullToZoomScrollView extends ScrollView {
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-        if (mZoomHeight == 0) {
-            if (mZoomContainer != null) {
-                mZoomHeight = mZoomContainer.getHeight();
-                mZoomWidth = mZoomContainer.getWidth();
-            }
+        if (mZoomHeight == 0 && mZoomContainer != null) {
+            mZoomHeight = mZoomContainer.getHeight();
+            mZoomWidth = mZoomContainer.getWidth();
         }
     }
 
@@ -348,11 +346,10 @@ public class PullToZoomScrollView extends ScrollView {
 
     private void onSecondaryPointerUp(MotionEvent paramMotionEvent) {
         int i = (paramMotionEvent.getAction()) >> 8;
-        if (paramMotionEvent.getPointerId(i) == mActivePointerId)
-            if (i != 0) {
-                mLastMotionY = paramMotionEvent.getY(0);
-                mActivePointerId = paramMotionEvent.getPointerId(0);
-            }
+        if (paramMotionEvent.getPointerId(i) == mActivePointerId && i != 0) {
+            mLastMotionY = paramMotionEvent.getY(0);
+            mActivePointerId = paramMotionEvent.getPointerId(0);
+        }
     }
 
     private void reset() {

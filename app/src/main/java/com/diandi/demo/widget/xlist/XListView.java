@@ -301,10 +301,8 @@ public class XListView extends ListView implements OnScrollListener {
                     resetHeaderHeight();
                 } else if (getLastVisiblePosition() == mTotalItemCount - 1) {
                     // invoke load more.
-                    if (mEnablePullLoad) {
-                        if (mFooterView.getBottomMargin() > PULL_LOAD_MORE_DELTA) {
-                            startLoadMore();
-                        }
+                    if (mEnablePullLoad && mFooterView.getBottomMargin() > PULL_LOAD_MORE_DELTA) {
+                        startLoadMore();
                         resetFooterHeight();
                     }
                 }
