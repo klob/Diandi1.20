@@ -32,9 +32,8 @@ public class CommonUtils {
      */
     public static boolean isWifi(Context context) {
         NetworkInfo info = getNetworkInfo(context);
-        if (info != null) {
-            if (info.getType() == ConnectivityManager.TYPE_WIFI)
-                return true;
+        if (info != null && info.getType() == ConnectivityManager.TYPE_WIFI) {
+            return true;
         }
         return false;
     }
@@ -44,9 +43,8 @@ public class CommonUtils {
      */
     public static boolean isMobile(Context context) {
         NetworkInfo info = getNetworkInfo(context);
-        if (info != null) {
-            if (info.getType() == ConnectivityManager.TYPE_MOBILE)
-                return true;
+        if (info != null && info.getType() == ConnectivityManager.TYPE_MOBILE) {
+            return true;
         }
         return false;
     }

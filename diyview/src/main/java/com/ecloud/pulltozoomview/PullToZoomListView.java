@@ -161,11 +161,10 @@ public class PullToZoomListView extends ListView implements AbsListView.OnScroll
 
     private void onSecondaryPointerUp(MotionEvent paramMotionEvent) {
         int i = (paramMotionEvent.getAction()) >> 8;
-        if (paramMotionEvent.getPointerId(i) == mActivePointerId)
-            if (i != 0) {
-                mLastMotionY = paramMotionEvent.getY(0);
-                mActivePointerId = paramMotionEvent.getPointerId(0);
-            }
+        if (paramMotionEvent.getPointerId(i) == mActivePointerId && i != 0) {
+            mLastMotionY = paramMotionEvent.getY(0);
+            mActivePointerId = paramMotionEvent.getPointerId(0);
+        }
     }
 
     private void reset() {

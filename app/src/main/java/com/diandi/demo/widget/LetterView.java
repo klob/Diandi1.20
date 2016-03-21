@@ -102,19 +102,17 @@ public class LetterView extends View {
             default:
                 //设置右侧字母列表[A,B,C,D,E....]的背景颜色
                 setBackgroundResource(R.drawable.v2_sortlistview_sidebar_background);
-                if (oldChoose != c) {
-                    if (c >= 0 && c < b.length) {
-                        if (listener != null) {
-                            listener.onTouchingLetterChanged(b[c]);
-                        }
-                        if (mTextDialog != null) {
-                            mTextDialog.setText(b[c]);
-                            mTextDialog.setVisibility(View.VISIBLE);
-                        }
-
-                        choose = c;
-                        invalidate();
+                if (oldChoose != c && c >= 0 && c < b.length) {
+                    if (listener != null) {
+                        listener.onTouchingLetterChanged(b[c]);
                     }
+                    if (mTextDialog != null) {
+                        mTextDialog.setText(b[c]);
+                        mTextDialog.setVisibility(View.VISIBLE);
+                    }
+
+                    choose = c;
+                    invalidate();
                 }
 
                 break;

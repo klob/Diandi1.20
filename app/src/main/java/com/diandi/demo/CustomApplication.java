@@ -241,13 +241,11 @@ public class CustomApplication extends Application {
             L.e(TAG,"getProvince   " + location.getProvince()+"    getCity     " +location.getCity());
             double latitude = location.getLatitude();
             double longtitude = location.getLongitude();
-            if (lastPoint != null) {
-                if (lastPoint.getLatitude() == location.getLatitude()
-                        && lastPoint.getLongitude() == location.getLongitude()) {
-                    BmobLog.i("两次获取坐标相同");// 若两次请求获取到的地理位置坐标是相同的，则不再定位
-                    mLocationClient.stop();
-                    return;
-                }
+            if (lastPoint != null && lastPoint.getLatitude() == location.getLatitude()
+                    && lastPoint.getLongitude() == location.getLongitude()) {
+                BmobLog.i("两次获取坐标相同");// 若两次请求获取到的地理位置坐标是相同的，则不再定位
+                mLocationClient.stop();
+                return;
             }
             lastPoint = new BmobGeoPoint(longtitude, latitude);
         }

@@ -250,11 +250,8 @@ public class MainActivity extends ActivityBase implements EventListener, View.On
         iv_recent_tips.setVisibility(View.VISIBLE);
         //保存接收到的消息-并发送已读回执给对方
         BmobChatManager.getInstance(this).saveReceiveMessage(true, message);
-        if (currentTabIndex == 1) {
-            //当前页面如果为会话页面，刷新此页面
-            if (recentFragment != null) {
-                recentFragment.refresh();
-            }
+        if (currentTabIndex == 1 && recentFragment != null) { //当前页面如果为会话页面，刷新此页面
+            recentFragment.refresh();
         }
 
     }

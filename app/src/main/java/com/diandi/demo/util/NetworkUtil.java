@@ -52,16 +52,13 @@ public class NetworkUtil {
             if (connectivity != null) {
 
                 NetworkInfo info = connectivity.getActiveNetworkInfo();
-                if (info != null && info.isConnected()) {
-
-                    if (info.getState() == NetworkInfo.State.CONNECTED) {
-                        if (info.getType() == ConnectivityManager.TYPE_WIFI) {
-                            // wifi
-                            return Constant.NETWORK_TYPE_WIFI;
-                        } else {
-                            // 手机网络
-                            return Constant.NETWORK_TYPE_MOBILE;
-                        }
+                if (info != null && info.isConnected() && info.getState() == NetworkInfo.State.CONNECTED) {
+                    if (info.getType() == ConnectivityManager.TYPE_WIFI) {
+                        // wifi
+                        return Constant.NETWORK_TYPE_WIFI;
+                    } else {
+                        // 手机网络
+                        return Constant.NETWORK_TYPE_MOBILE;
                     }
                 }
             }

@@ -912,10 +912,9 @@ public class ChatActivity extends ActivityBase implements OnClickListener,
 
     // 显示软键盘
     public void showSoftInputView() {
-        if (getWindow().getAttributes().softInputMode == WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN) {
-            if (getCurrentFocus() != null)
-                ((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE))
-                        .showSoftInput(edit_user_comment, 0);
+        if (getWindow().getAttributes().softInputMode == WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN && getCurrentFocus() != null) {
+            ((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE))
+                    .showSoftInput(edit_user_comment, 0);
         }
     }
 

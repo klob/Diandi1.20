@@ -133,14 +133,12 @@ public class MyMessageReceiver extends BroadcastReceiver {
                         if (tag.equals(BmobConfig.TAG_ADD_CONTACT)) {
                             //保存好友请求道本地，并更新后台的未读字段
                             BmobInvitation message = BmobChatManager.getInstance(context).saveReceiveInvite(json, toId);
-                            if (currentUser != null) {//有登陆用户
-                                if (toId.equals(currentUser.getObjectId())) {
-                                    if (ehList.size() > 0) {// 有监听的时候，传递下去
-                                        for (EventListener handler : ehList)
-                                            handler.onAddUser(message);
-                                    } else {
-                                        showOtherNotify(context, message.getFromname(), toId, message.getFromname() + "请求添加好友", NewFriendActivity.class);
-                                    }
+                            if (currentUser != null && toId.equals(currentUser.getObjectId())) {//有登陆用户
+                                if (ehList.size() > 0) {// 有监听的时候，传递下去
+                                    for (EventListener handler : ehList)
+                                        handler.onAddUser(message);
+                                } else {
+                                    showOtherNotify(context, message.getFromname(), toId, message.getFromname() + "请求添加好友", NewFriendActivity.class);
                                 }
                             }
                         } else if (tag.equals(BmobConfig.TAG_ADD_AGREE)) {
@@ -171,11 +169,9 @@ public class MyMessageReceiver extends BroadcastReceiver {
                             if (currentUser != null) {
                                 //更改某条消息的状态
                                 BmobChatManager.getInstance(context).updateMsgStatus(conversionId, msgTime);
-                                if (toId.equals(currentUser.getObjectId())) {
-                                    if (ehList.size() > 0) {// 有监听的时候，传递下去--便于修改界面
-                                        for (EventListener handler : ehList)
-                                            handler.onReaded(conversionId, msgTime);
-                                    }
+                                if (toId.equals(currentUser.getObjectId()) && ehList.size() > 0) { // 有监听的时候，传递下去--便于修改界面
+                                    for (EventListener handler : ehList)
+                                        handler.onReaded(conversionId, msgTime);
                                 }
                             }
                         }
@@ -238,7 +234,7 @@ public class MyMessageReceiver extends BroadcastReceiver {
         boolean isAllowVibrate = CustomApplication.getInstance().getSpUtil().isAllowVibrate();
         if (isAllow && currentUser != null && currentUser.getObjectId().equals(toId)) {
             //同时提醒通知
-            BmobNotifyManager.getInstance(context).showNotify(isAllowVoice, isAllowVibrate, R.drawable.icc_launcher, ticker, username, ticker.toString(), NewFriendActivity.class);
+            BmobNotifyManager.getInstance(context).showNotify(isAllowVoice, isAllowVibrate, R.drawable.icc_launcher, ticker, username, ticker, NewFriendActivity.class);
         }
     }
 

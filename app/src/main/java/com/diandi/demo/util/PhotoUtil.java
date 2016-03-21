@@ -100,10 +100,8 @@ public class PhotoUtil {
 
         File file = new File(dirpath, filename);
         // 若存在即删除-默认只保留一张
-        if (isDelete) {
-            if (file.exists()) {
-                file.delete();
-            }
+        if (isDelete && file.exists()) {
+            file.delete();
         }
 
         if (!file.exists()) {
